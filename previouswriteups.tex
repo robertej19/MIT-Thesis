@@ -1,0 +1,398 @@
+\section{CLAS12 Data for Analysis}
+\begin{lstlisting}
+inbending: /cache/clas12/rg-a/production/recon/fall2018/torus-1/pass1/v0/dst/train/skim8/
+
+outbending: /volatile/clas12/rg-a/production/recon/fall2018/torus+1/pass1/v0/dst/train/skim4/
+
+FX has eppi0 train data, which can significantly reduce code run time at /work/clas12/fxgirod/eppi0/
+
+\end{lstlisting}
+
+Outbending cooking is ongoing, so there aren’t many files yet.
+
+
+\href{https://clasweb.jlab.org/wiki/index.php/CLAS12_DSTs}{Bank details}
+
+
+\section{Luminosity}
+
+The strategy to calculate the luminosity is as follows:\\
+
+ - For each run, retrieve a measure of how much beam passed through the target, I believe in the case of CLAS12 using the Faraday cup to measure beam charge
+    - sum the beam charge over all runs being considered and include any relevant corrections factors
+    - multiply this by target length, density, etc. to get the integrated luminosity
+    - use this value to calculate cross sections.
+
+
+Implementation:
+
+The bank REC::Event has an ?object? beamCharge, in nanoColumbs, which is described in the \DST as "beam charge integrated from the beginning of the run to the most recent reading of the gated Faraday Cup scaler in RAW::scaler, with slope/offset conversion to charge from CCDB. Note, this value will be zero in each file until the first scaler reading in that file.". This is the (un?)gated beam charge. 
+
+
+This can be accessed via:
+
+\begin{lstlisting}
+	def banknames = ['REC::Event','REC::Particle','REC::Cherenkov','REC::Calorimeter','REC::Traj','REC::Track','REC::Scintillator']
+
+	if(banknames.every{event.hasBank(it)}) {
+		def (evb,partb,cc,ec,traj,trck,scib) = banknames.collect{event.getBank(it)}
+def fcupBeamCharge = evb.getFloat('beamCharge',0)
+\end{lstlisting}
+
+    According to \href{https://clas12.discourse.group/t/accessing-beam-charge-information/239}{this} we might need to use tag=1 RAW::scaler::fcupgated instead of REC::Event::beamCharge
+    
+
+The beam charge needs to be converted to integrated luminosity, which can be done as follows:
+
+Luminosity: Events are not necessarily time ordered, need to take largest value minus smallest value  
+
+
+
+\section{Current Exclusivity Cuts}
+
+\section{Optimizing Exclusivity Cuts}
+    For the moment I would suggest we start with just a set of rectangular cuts. We can plot one of these exclusivity variables with cuts only on the other variables, hopefully they are independent enough. Then you can see the exclusive peak in this variable and decide heuristically where to place the cut. Later, if we know what the exclusive peak distribution looks like, we can be more quantitative, say for instance we keep 95\% of the events or 2 sigma in the case of a gaussian.
+    
+    Ultimately we can think of doing even better things, say feed these sets of exclusive variables into a multivariate analysis, and get a likelihood that the event is exclusive, with a ROC curve etc. But first we should have some understanding of the simple rectangular cuts
+    
+
+
+
+
+\section{Cuts}
+
+To arrive at a DVEP candidate event, we do the following
+
+
+Code flow:
+
+Consider a directory with n hipo files. For each hipo file, do the following.
+
+Read each file event by event, and do the following
+
+Check that the event has the proper databanks, and if not, go to teh next event.
+
+Get a list of all the electrons*, protons*, and photons* in the event
+
+*= links to most up to date PID methods
+
+for every electron in the event (always only one, at least in the skims, but not held to be one) do the following
+For every proton in the event, do the following
+
+Calculate some basic quantities and fill histograms
+
+for every permutation of pairs of photons in the event, do the following
+
+calculate various kinematic quantities, and pass to see if creates a viable pion* and a viable DVEP event*
+
+if so, fill relevant histograms and count as a DVEP event, otherwise skip to next event
+
+viable pion: 
+pion mass betwen 100 and 180 MeV
+pion momentum greater than 1.5 GeV
+angle (theta) between each photon and the electron to be greater than 8 degrees
+
+viable DVEP event:
+Q2 greater than 1
+W greater than 2
+difference between theta of missing 4-momentum and reconstructed pion less than 2 degrees
+difference between missing X px and py 300 MeV each or less
+Difference in missing mass squared between pion and X less than 1 GeV ** make sure this is right
+difference in missing energy and X less than 1 GeV **make sure this is right
+
+**photon cuts:
+pid 22, status > 2000 (in FD or CD, not ftagger)
+momentum greater than 400 MeV each
+
+**proton cuts: pid 2212
+
+**electron cuts: pid==1 and status < 0(negative particle
+
+
+
+
+
+
+For each kinematic bin the differential cross section can be written as:
+
+\begin{equation}
+    \sigma = \frac{N_{meas}}{L \epsilon}\frac{1}{\delta}
+\end{equation}
+
+Where $\frac{N_{meas}}{L}$ is the number of events from experiment normalized by the integrated luminosity before acceptance and radiatvie corrections. $\epsilon$ = $\frac{N^{RAD}_{rec}}{{N^{RAD}_{gen}}}$ is the acceptance correction and $\delta$ is the radiative correction.
+
+
+
+$\delta$ can be obtained by using the following:
+
+\begin{equation}
+    \delta = \frac{N^{RAD}_{gen}}{N^{NORAD}_{gen}}
+\end{equation}
+
+$\delta$ and $\epsilon$ need to be properly calculated, but for a first pass we will ignore them so we have just
+
+
+\begin{equation}
+    \sigma = \frac{N_{meas}}{L}
+\end{equation}
+
+We can calculate the luminosity L through the following equation
+
+\begin{equation}
+    L = \frac{N_A l \rho Q_{FCUP}}{e}
+\end{equation}
+
+Where $N_A$ is Avogadro's constant, l is the length of the target,  $\rho$ is the density of the target (liquid hydrogen), $Q_{FCUP}$ is the charge collected on the Faraday cup, and e is the charge of the electron. The values of these quantities are (ignoring uncertainties on experimental quantities for the time being):\\
+
+$N_A$ = 6.02214 x $10^{23}$\\
+l = 5 cm\\
+$\rho$ = 0.07 $g/cm^3$\\
+e = 1.602 x $10^-19$ Coulombs\\
+$Q_{FCUP}$ - this must be measured and obtained from analysis. Typical runs at CLAS12 have an accumulated beam charge of tens to hundreds of thousands of nanoCoulumbs. 
+
+
+
+
+
+\section{Path to Cross Section}
+*******
+Path to XSection Personal:
+
+To go from raw yields in a particular 4 dimensional bin, to an appropriate cross section value with corrections implemented:
+
+
+acceptance correction - geometrical
+    fidcuacial cuts (charged and neutral)
+
+
+radiative corrections
+bin size corrections
+bin migration corrections
+
+physics background
+
+luminosity determination -
+
+detector efficency - different catagory entirely
+tracking efficency 
+PID (in central and forward)
+
+measure volume of mulitdim bin with geo acceptance
+when part is in detector, prob of actual hit
+
+
+kinematic corrections - don't put empasis on this, actually keep this out of presentations because it implies that CLAS12 is not reconstructing things well, which it should be
+
+branching ratio (for pi0, small factor)
+
+
+
+
+
+\section{Getting Started}
+    Dear Andrey,
+    
+    Could you send us a link to the github for aao\_rad and aao\_norad with some instructions so that Bobby can follow up for his pi0 analysis?  
+    
+    Dear Bobby,
+    
+    aao\_rad and aao\_norad are event generators for exclusive pi0 and pi+ channels with/without radiative effects.  They are written in Fortran.  The program was initially developed by Volker Burkert long time ago for the resonance region, then has been evolved for many years and recently extended to DIS region even though lots of things need to be done.  Try this to see whether it works.  
+    
+    Thanks.
+    
+    Best regards, Kyungseon
+    
+    
+    Dear Stefan,
+    
+    Could you upload the program (C++ version, perhaps in Githup with some instructions) that Kemal Tezgin recently wrote in order to calculate the pi0/pi+ channel observables based on the most recent GK model calculations?  Thanks.
+    
+    Best regards, Kyungseon
+    
+    
+    Dear Kyungseon,
+    
+    I have attached the program to calculate the single terms of the pi0 
+    cross-section based on the GK model.
+    Its only one file and relatively easy to use. The instructions are in 
+    the first few rows of the file.
+    The output can be modified in the main routine at the end of the file.
+    
+    Best regards,
+    Stefan --- this file is name Pi\_GK\_Vegas.cpp
+    
+    
+    Hi Bobby,
+    Please take a look at README:
+    \href{https://github.com/drewkenjo/aao\_norad}{norad}
+    It has instructions how to compile, run and configure the program.
+    Please don't hesitate to ask questions!
+    Best,
+    Andrey.
+    need make an initial cut on photon energies
+use aao\_rad or no\_rad etc. to define what energy is needed for photon energy cut
+
+\section{More notes}
+    
+
+    For event generator we have aao\_rad can generate radiatied pi0 events in resoncane region use 2007 model
+    Put parameterization from valerly’s paper, can cover up to whatever Q2 range covered in the paper, beyond that we put some general Q2 behaviour
+    For Exclurad we have similar model, in end may have to iterate a few times to improve the model
+    Exlclurad specifically for resonance region, theoretically should be correct, input probably needs to be updated, can put Valery’s new parameterization to cover higher range. Should not be a real issue to implement it because same thing was done for AAORad. High q2 cannot be covered because parameterization only goes to CLAS6 range
+    FX: the cruicail thing is to fold in the radiative corrections with acceptance and efficiens. Best mothod is to use fast monte carlo
+
+
+
+
+\section{Generator}
+Generator Notes:
+You don't need much details about generator, it is based on GK model with Valery's fit to CLAS6 data.
+
+NON RADIATED, INBENDING
+// Pi0 leptoproduction in Goloskokov-Kroll (GK) model. The code is currently being tested and implemented in PARTONS framework with additional features. If you plan to use this work in a publication, please use and reference the most recent version of PARTONS in http://partons.cea.fr 
+
+the gk model is fit from clas6 data?
+
+I have a couple questions:
+
+Andrey Kim and Nick Markov have the pi0 generator. It has my parametrization for W>2 GeV and MAID for W<1.7 GeV.
+
+My model will for sure work for 12 GeV. It actually very close even for the COMPASS pi0 data (180 GeV muon beam).
+
+There is reasonable coincidence between my model and MAID in the point W=1.7 GeV, not ideal but good enough for the MC.
+
+I think actually that my parametrization has to work in the region W<2 GeV but I am not sure that MAID is doing good job due to the absence the experimental data at W~1.7 GeV. 
+
+
+\section{How to Upload DVEP Meeting Slides}
+    I assembled a wikipage to document the minutes of our first and future meetings, this can be found under the "Minutes" tab. Additional tabs are designed to document each member's respective work under the category their work falls under. If I missed a member or if you did not submit your presentation please email me.
+    
+    \href{https://clasweb.jlab.org/wiki/index.php/DVCS/DVMP_Joint_Analysis_Group#tab=Overview}{DVEP Joint Ana Meetings}
+    
+    
+    Here's the link to docdb. Upload the slides there by clicking on New at the top.
+    \href{https://clas12-docdb.jlab.org/cgi-bin/DocDB/private/DocumentDatabase}{DocDB}
+    
+    Then go to the wikipage, click edit when you are on the minutes page for May 5th(?)
+    \href{https://clasweb.jlab.org/wiki/index.php/DVCS/DVMP_Joint_Analysis_Group#tab=Minutes}{Meeting Minutes}
+    
+    Edit the wikipage by adding
+    [ link to the doc db slides ]
+    where it is appropriate.
+    
+\section{Online Help Forums and Meeting Minutes}
+    \href{https://clas12.discourse.group/latest}{CLAS12 Discourse}\\
+    \href{https://clas12-docdb.jlab.org/cgi-bin/DocDB/private/DisplayMeeting?conferenceid=9}{RGA THursday Analysis Meetings}
+    
+    
+    
+\section{Misc. Resources}
+
+    \href{https://github.com/robertej19/analysis_code/projects/1}{analysis code to-do}
+    \href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{RGA Ana Note}\\
+    \href{https://www.overleaf.com/project/5f8a6c3689df1e0001ce708c}{Sangbaek Ana Note}\\
+    \href{https://github.com/drewkenjo/analysis_code/blob/master/pid/electron/Electron.groovy}{PID Github}
+ 
+ 
+ \section{Coding notes}
+\href{https://github.com/drewkenjo/dst_monitoring/wiki/Syntactic-sugar}{Syntatic Sugar}
+
+
+\section{How to Enable Multi-Threading}
+
+    \subsection{1}
+        At ifarm, check if you have ~/.groovy  directory
+        Otherwise create one.
+
+    \subsection{2}
+        Download Andrey’s sugar.
+        
+        \begin{lstlisting}
+            cd ~/.groovy
+            wget https://github.com/drewkenjo/dst_monitoring/releases/download/v0/sugar.jar
+        \end{lstlisting}
+
+
+    \subsection{3}
+        The standard way to access coatjava at ifarm is adding following commands at \comtilde/.cshrc or \comtilde/.bashrc depending on which shell you use.
+        
+        \begin{lstlisting}
+        source /group/clas12/packages/setup.csh
+        module load clas12/pro
+        \end{lstlisting}
+        
+        However, this doesn’t allow you to edit bin files.
+        Simply copy run-groovy at any directory with your permission, say \comtilde/.groovy, i.e.
+        
+        \begin{lstlisting}
+        cp $COATJAVA/bin/run-groovy ~/.groovy/
+        \end{lstlisting}
+        
+        edit \comtilde/.groovy/run-groovy ’s line 59 from -Xmx2048m to -Xmx4096m. This will increase memory that can be used in your ifarm.
+        
+    \subsection{4}
+        I guess you have your own standalone analysis script that runs as a main file.
+        The idea is to convert this as a class, and call from other main file.
+        This is not necessary for parallel computing, but this helps to run multiple analysis at one time and to maintain scripts tidy.
+        
+        Actually, groovy supports usage of both class and main likewise python’s ‘ if \_\_name\_\_ == “main” '.
+        You can put a closure with the same name of the class. See \href{https://stackoverflow.com/questions/52543035/check-if-groovy-script-is-being-executed-directly}{here}
+        
+    \subsection{5}
+        I have standalone analysis script epg.groovy (, which is main itself), \href{https://github.com/Sangbaek/analysis_code/blob/analysis/sangbaek/epg.groovy}{here}
+        The code’s structure is like this:\\
+        line 1–17: import libraries\\
+        line 18–127: defining histograms\\
+        line 128–319: main loop to read files (ignore line 131–154 because nowadays Nick is placing inbending and outbending in separate directories)
+        line 320–384: saving histograms\\
+        
+        I converted that to a class file dvcs.groovy, \href{https://github.com/Sangbaek/analysis_code/blob/analysis/sangbaek/dvcs.groovy}{here}
+        Here’re how-to’s.\\
+        1) Add package name at line 1\\
+        2) Add  import java.util.concurrent.ConcurrentHashMap at line 19\\
+        3) class name at line 22. class dvcs\{ for this case\\
+        4) Change histograms to be used for ConcurrentHashMap. Please compare line 24–60 of dvcs.groovy to 18–127 of epg.groovy.\\
+        5) add def processEvent(event)\{ before the loop starts (line 80). The loop contents don’t have to differ from your previous main file.
+        6) Remove all histogram saving steps (e.g. line 320-384 of my epg.groovy)\\
+        7) Instead, you can set up your histogram's name and directory directly when you fill the histogram,
+        e.g.) hists.computeIfAbsent("/epg/elec\_polar\_sec"+ele\_sec, h\_polar\_rate).fill(Math.toDegrees(ele.theta()))
+        This will save histograms at /epg/elec\_polar\_sec1–/epg/elec\_polar\_sec6
+        Andrey’s sugar will deal with directory structures so that you don’t have to "out.mkdir(dir); out.cd(dir); out.addDataSet(hist)” manually.
+        
+        By the way, with Andrey’s sugar, you can now add or subtract LorentzVector like def VmissG = beam + target - ele - pro at line 109.\\
+        
+    \subsection{6}
+        Now download \href{https://github.com/Sangbaek/analysis_code/blob/analysis/sangbaek/run.groovy}{this}\\
+        Change line 22 of run.groovy to your own class name.\\
+        To run this,\\
+        
+        run-groovy sangbaek/run.groovy `find /cache/clas12/rg-a/production/recon/fall2018/torus-1/pass1/v0/dst/train/skim8/ -name "*.hipo”`
+        
+    \subsection{7}
+        
+        
+        
+        As for 3, I forgot to tell you that line 5–7 needs to be changed as
+        
+        \begin{lstlisting}
+        CLARA_HOME=$COATJAVA/bin/..
+        CLAS12DIR=$COATJAVA/bin/..
+        CLAS12DIR=$COATJAVA/bin/.. ; export CLAS12DIR
+        .
+        
+        \end{lstlisting}
+        
+        
+        
+        To use your edited run-groovy, there are two ways that I know of.\\
+        
+        First way is to include following line at \comtilde/.cshrc.\\
+        alias run-groovy /home/sangbaek/.groovy/run-groovy\\
+        
+        Second one is to include following shebang line at your groovy scripts like below.\\
+   
+        \begin{lstlisting}     
+        #!/home/sangbaek/.groovy/run-groovy\\
+        \end{lstlisting}       
+        
+        I find the first one easier.
