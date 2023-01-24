@@ -15,3 +15,7 @@ jobs:
         with:
           name: PDF
           path: main.pdf
+      - name: Publish PDF to repo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Changed files
