@@ -1,0 +1,34 @@
+
+For this analysis all final state particles should be detected.
+After $\pi^0$ decay we are going to have 4 particles: electron, proton and two photons.
+The particle identification methods are applied to select the exclusive event with at least one electron, proton and two photons. 
+
+
+\section{Electron, Proton, and Photon}
+Basic event builder cuts are utilized, then additional cuts are made that are common with the RGA Analysis note (\href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{overleaf link} and developed by Sangbaek Lee (sangbaek@mit.edu - \href{https://github.com/Sangbaek/analysis_code/tree/analysis/pid}{github code here}. For this analysis, both the central detector and forward detector are utilized for proton tracking. The forward tagger is also utilized for photon identification. 
+
+
+
+\section{Neutral pion}
+In addition to individual particle PID procedures the cut on the mass of two photons is applied:
+\begin{itemize}
+	\item $0.07<M_{\gamma\gamma}<0.2$ GeV
+\end{itemize}
+The pion is more thoroughly constrained by the exclusivity cuts, described in the next section.
+
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[page=6,width=0.6\linewidth]{figures/eppi0.exclusive.pdf}
+	
+	\caption{The distribution for mass of two photons $M_{\gamma\gamma}$}.
+	\label{fig:ggmass}
+	
+	\centering
+	\includegraphics[page=6,width=0.6\linewidth]{pid_figs/Mpi0.png}
+	
+	\caption{The distribution for mass of two photons after exclusivity cuts}.
+	\label{fig:ggmass_after}
+	
+\end{figure}
+

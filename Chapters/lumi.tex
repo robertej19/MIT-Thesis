@@ -1,0 +1,31 @@
+\section{Luminosity}
+
+The strategy to calculate the luminosity is as follows:\\
+
+ - For each run, retrieve a measure of how much beam passed through the target, I believe in the case of CLAS12 using the Faraday cup to measure beam charge
+    - sum the beam charge over all runs being considered and include any relevant corrections factors
+    - multiply this by target length, density, etc. to get the integrated luminosity
+    - use this value to calculate cross sections.
+
+
+Implementation:
+
+The bank REC::Event has an ?object? beamCharge, in nanoColumbs, which is described in the \DST as "beam charge integrated from the beginning of the run to the most recent reading of the gated Faraday Cup scaler in RAW::scaler, with slope/offset conversion to charge from CCDB. Note, this value will be zero in each file until the first scaler reading in that file.". This is the (un?)gated beam charge. 
+
+
+This can be accessed via:
+
+\begin{lstlisting}
+	def banknames = ['REC::Event','REC::Particle','REC::Cherenkov','REC::Calorimeter','REC::Traj','REC::Track','REC::Scintillator']
+
+	if(banknames.every{event.hasBank(it)}) {
+		def (evb,partb,cc,ec,traj,trck,scib) = banknames.collect{event.getBank(it)}
+def fcupBeamCharge = evb.getFloat('beamCharge',0)
+\end{lstlisting}
+
+    According to \href{https://clas12.discourse.group/t/accessing-beam-charge-information/239}{this} we might need to use tag=1 RAW::scaler::fcupgated instead of REC::Event::beamCharge
+    
+
+The beam charge needs to be converted to integrated luminosity, which can be done as follows:
+
+Luminosity: Events are not necessarily time ordered, need to take largest value minus smallest value  

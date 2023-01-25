@@ -1,0 +1,78 @@
+
+
+For each kinematic bin the differential cross section can be written as:
+
+\begin{equation}
+    \sigma = \frac{N_{meas}}{L \epsilon}\frac{1}{\delta}
+\end{equation}
+
+Where $\frac{N_{meas}}{L}$ is the number of events from experiment normalized by the integrated luminosity before acceptance and radiatvie corrections. $\epsilon$ = $\frac{N^{RAD}_{rec}}{{N^{RAD}_{gen}}}$ is the acceptance correction and $\delta$ is the radiative correction.
+
+
+
+$\delta$ can be obtained by using the following:
+
+\begin{equation}
+    \delta = \frac{N^{RAD}_{gen}}{N^{NORAD}_{gen}}
+\end{equation}
+
+$\delta$ and $\epsilon$ need to be properly calculated, but for a first pass we will ignore them so we have just
+
+
+\begin{equation}
+    \sigma = \frac{N_{meas}}{L}
+\end{equation}
+
+We can calculate the luminosity L through the following equation
+
+\begin{equation}
+    L = \frac{N_A l \rho Q_{FCUP}}{e}
+\end{equation}
+
+Where $N_A$ is Avogadro's constant, l is the length of the target,  $\rho$ is the density of the target (liquid hydrogen), $Q_{FCUP}$ is the charge collected on the Faraday cup, and e is the charge of the electron. The values of these quantities are (ignoring uncertainties on experimental quantities for the time being):\\
+
+$N_A$ = 6.02214 x $10^{23}$\\
+l = 5 cm\\
+$\rho$ = 0.07 $g/cm^3$\\
+e = 1.602 x $10^-19$ Coulombs\\
+$Q_{FCUP}$ - this must be measured and obtained from analysis. Typical runs at CLAS12 have an accumulated beam charge of tens to hundreds of thousands of nanoCoulumbs. 
+
+
+
+
+
+\section{Path to Cross Section}
+*******
+Path to XSection Personal:
+
+To go from raw yields in a particular 4 dimensional bin, to an appropriate cross section value with corrections implemented:
+
+
+acceptance correction - geometrical
+    fidcuacial cuts (charged and neutral)
+
+
+radiative corrections
+bin size corrections
+bin migration corrections
+
+physics background
+
+luminosity determination -
+
+detector efficency - different catagory entirely
+tracking efficency 
+PID (in central and forward)
+
+measure volume of mulitdim bin with geo acceptance
+when part is in detector, prob of actual hit
+
+
+kinematic corrections - don't put empasis on this, actually keep this out of presentations because it implies that CLAS12 is not reconstructing things well, which it should be
+
+branching ratio (for pi0, small factor)
+
+
+
+
+

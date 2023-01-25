@@ -1,0 +1,243 @@
+
+
+From paper on understanding pi+ production, we have:
+
+ \begin{equation}\label{xsec}
+     \frac{d^4\sigma_{\gamma^*p \rightarrow p'\pi^0}}{dQ^2W^2dtd\phi_{\pi}} =
+     \frac{\alpha (W^2-m^2)}{16\pi^2 E^2_L m^2 Q^2 (1-\epsilon)}
+     ((\frac{d\sigma_T}{dt}+\epsilon\frac{d\sigma_L}{dt})+
+     \epsilon cos(2\phi) \frac{d\sigma_{TT}}{dt} + \sqrt{2\epsilon(1+\epsilon)}cos(\phi)\frac{d\sigma_{LT}}{dt})
+\end{equation}
+
+Comparing the two, we have a difference in the prefactor of:
+
+
+
+0.3894 * 1E6 * $\frac{1}{16\pi(W^2-m_p^2)\sqrt{W^4 + (Q^2)^2+m_p^4+2W^2Q^2-2W^2m_p^2+2Q^2m_p^2}}$
+
+
+
+
+From Kemal thesis intro:
+
+Even though it is accounted for, you should have an answer to the question "How many times does the process end up with only 1 photon found" since you are comparing it to DVCS several times
+
+Fix CLAS12 slide to show better how particles are found like how Sangbaek did it and include specs (e.g. resolution of 3.3 sigma up to 5 GeV from NIMA paper)
+
+Why do the scrtucture combine in the way they do with the coefficents of cos phi terms and epsilons? Should I include the LT' sin phi term? What about the beam pols from andrey kim thesis?
+
+Where to find clas12 data:
+Run Group A - HallBWiki (jlab.org)
+https://clasweb.jlab.org/wiki/index.php/Run_Group_A#tab=Trains
+
+dpwg meeting page: https://clas12-docdb.jlab.org/cgi-bin/DocDB/private/DisplayMeeting?conferenceid=9
+
+
+
+To Do for Thesis Talk:
+Make plots of binning over kinematics eh not sure necessary if feels like now\\
+Change refrences to include author names - eh probably not\\
+
+ DVMP is sensitive to chiral odd GPDs, distinguishing it from DVCS as a GDP probe because why? Because something involving photon helicity and pion helicity, I forget exactly though
+ 
+ - IF TIME: On Exclusivity cuts, show better and lable in terms of before and after cuts\\
+- IF TIME: Possibly include radiative corrections\\
+- IF TIME: 
+- If TIME: Should include geometrical definition of phi - e.g. ppxppidiv something\\
+
+What is Handbag approach / mechanism? When is it applicable?\\
+t' stands for.. t - $t_0$ where $t_0 = \frac{-4m^2\xi^2}{1-\xi^2}$
+
+
+In addition to collinear momentum distribution of partons inside the
+nucleon, GPDs also encode the distribution of partons in the plane transverse to
+the nucleons momentum in the infinite momentum frame [58]. Moreover, their
+relation to energy-momentum tensor (EMT) form factors allow us to access the
+EMT densities, the distribution of energy, angular momentum, pressure, and shear
+forces inside the nucleon [15].
+
+    Only valence quarks contribute electroproduction
+of uncharged pions.
+
+  The bracket $\langle \tilde{F} \rangle$ is the convolution of a GPD and an appropriate subprocess amplitude:
+    $\langle \tilde{F} \rangle = \Sigma_{\lamda} \int_{-1}^{1} d\bar{x}H_{0\lambda,0\lambda}\left( \bar{x}, \xi, Q^2, t=0  \right)\tilde{F}\left( \bar{x}, \xi, Q^2, t  \right)\
+    $ 
+    
+    Where $\lambda$ is the unobserved helicites of the partons participaing in the subprocess
+    
+ and epsilon is... 
+    
+    
+    and t' stands for.. t - $t_0$ where $t_0 = \frac{-4m^2\xi^2}{1-\xi^2}$
+    
+    
+    Where the skewness parameter is $\xi = \frac{x_B}{2-x_B}$ or whatever
+       
+    And k is the phase space factor given as 
+     \scalebox{0.7}{%
+     $           k = 16\pi \left( W^2 -m^2)\sqrt{\Lambda(W^2,-Q^2,m^2)} \right)$ 
+    }
+    
+        Where $\Lambda(W^2,-Q^2,m^2)$ is the Källén function and $\mu_{pi}$ is the reduced pion mass given as 
+       \scalebox{0.7}{%
+      $         \mu_{\pi^0} = \frac{m^2_{\pi^0}}{m_u+m_d}$ 
+    }
+    $m_u$ and $m_d$ are respective masses of up and down quarks.
+    
+     Where $\Gamma (Q^2, x_B, E)$ is the virtual photon flux, is 
+     \scalebox{0.7}{%
+        $         \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B^3}\frac{1}{1-\epsilon}$ 
+    }
+
+\definecolor{mygreen}{RGB}{14, 176, 9}
+\definecolor{myyellow}{RGB}{204, 204, 10}
+\definecolor{mypink}{RGB}{255, 51, 255}
+\definecolor{mypurp}{RGB}{153, 21, 255}
+
+
+\definecolor{lightred}{RGB}{255, 132, 145}
+\definecolor{darkred}{RGB}{225, 0, 0}
+\definecolor{lightorange}{RGB}{255, 200, 84}
+\definecolor{darkorange}{RGB}{225, 150, 0}
+
+\definecolor{lightgreen}{RGB}{85, 255, 91}
+\definecolor{darkgreen}{RGB}{0, 170, 6}
+\definecolor{lightblue}{RGB}{88, 200, 255}
+\definecolor{darkblue}{RGB}{0, 81, 203}
+
+% Chiral Even GPDs
+\newcommand{\GPDH}{\textcolor{lightred}{${H}$}}
+\newcommand{\GPDHEQ}{\textcolor{lightred}{{H}}}
+
+\newcommand{\GPDE}{\textcolor{lightgreen}{${E}$}}
+\newcommand{\GPDEEQ}{\textcolor{lightgreen}{{E}}}
+
+\newcommand{\GPDHtilde}{\textcolor{lightorange}{$\tilde{H}$}}
+\newcommand{\GPDHtildeEQ}{\textcolor{lightorange}{\tilde{H}}}
+
+\newcommand{\GPDEtilde}{\textcolor{lightblue}{$\tilde{E}$}}
+\newcommand{\GPDEtildeEQ}{\textcolor{lightblue}{\tilde{E}}}
+
+
+
+%Chiral Odd GPDs
+
+\newcommand{\GPDHT}{\textcolor{darkred}{$H_T$}}
+\newcommand{\GPDHTEQ}{\textcolor{darkred}{H_T}}
+
+\newcommand{\GPDET}{\textcolor{darkgreen}{$E_T$}}
+\newcommand{\GPDETEQ}{\textcolor{darkgreen}{E_T}}
+
+\newcommand{\GPDHTtilde}{\textcolor{darkorange}{$\tilde{H}_T$}}
+\newcommand{\GPDHTtildeEQ}{\textcolor{darkorange}{\tilde{H}_T}}
+
+
+\newcommand{\GPDETtilde}{\textcolor{darkblue}{$\tilde{E}_T$}}
+\newcommand{\GPDETtildeEQ}{\textcolor{darkblue}{\tilde{E}_T}}
+
+
+\newcommand{\GPDETbar}{\textcolor{mypurp}{$\bar{E}_T$}}
+\newcommand{\GPDETbarEQ}{\textcolor{mypurp}{\bar{E}_T}}
+
+
+There are 8 GPDs, 4 correspond to helicity conserving (chiral even) processes and 4 correspond to are helicity flipping (chiral odd) processes: \GPDH,  \GPDE,  \GPDHtilde,  and \GPDEtilde for chiral even, and \GPDHT,  \GPDET,  \GPDHTtilde, and \GPDETtilde \\
+\GPDETbar = 2*\GPDHTtilde+\GPDET is commonly used
+
+    \begin{tabular}{@{} *{4}{c} @{}}
+    \headercell{Nucleon \\ Polarization} & \multicolumn{3}{c@{}}{Quark Polarization}\\
+    \cmidrule(l){2-4}
+    & U &  L & T    \\ 
+    \midrule
+      U  & \GPDH &                                   &  \GPDETbar \\
+      L  &                    &  \GPDHtilde &                                   \\
+      T  & \GPDE &                                   &  \GPDHT,\GPDHTtilde \\
+    \end{tabular}
+
+    %\vspace{-0.5cm}
+    The cross section for DV$\pi^0$P has been theoretically linked to GPDs, which describe the 3D structure of the nucleon.
+
+
+     \scalebox{0.7}{%
+    $
+         \frac{d^4\sigma_{\gamma^*p \rightarrow p'\pi^0}}{dQ^2dx_Bdtd\phi_{\pi}} =
+         \Gamma (Q^2, x_B, E)
+         \frac{1}{2\pi}
+         \left\{ \left( \frac{d\sigma_T}{dt}+\epsilon\frac{d\sigma_L}{dt} \right)+ \epsilon cos(2\phi) \frac{d\sigma_{TT}}{dt} + \sqrt{2\epsilon(1+\epsilon)} cos(\phi) \frac{d\sigma_{LT}}{dt} \right\}
+    $
+    }
+    
+    Why do the scrtucture combine in the way they do with the coefficents of cos phi terms and epsilons?
+    
+    And the structure functions can be written as:
+
+    \scalebox{0.7}{%   
+    $      \frac{d\sigma_{L}}{dt} = 
+    \frac{4\pi\alpha}{kQ^2}\left\{ \left( 1 - \xi^2 \right) 
+    \lvert \langle \GPDHtildeEQ \rangle \rvert ^2 
+    -2\xi^2 \Re \left[  \langle \GPDHtildeEQ \rangle ^* \langle \GPDEtildeEQ \rangle    \right] - \frac{t'}{4m^2}\xi^2
+    \lvert \langle \GPDEtildeEQ \rangle \rvert ^2  \right\}$
+    }\\
+    
+    \scalebox{0.7}{%   
+    $      \frac{d\sigma_{T}}{dt} = 
+    \frac{2\pi\alpha \mu_{\pi}^2}{kQ^4}
+    \left\{ \left( 1 - \xi^2 \right) 
+    \lvert \langle \GPDHTEQ \rangle \rvert ^2
+    - \frac{t'}{8m^2}
+    \lvert \langle \GPDETbarEQ \rangle \rvert ^2  \right\}$
+    }\\
+    
+    \scalebox{0.7}{%   
+    $      \frac{d\sigma_{LT}}{dt} = 
+    \frac{4\pi\alpha \mu_{\pi}}{\sqrt{2}kQ^3}
+    \xi\sqrt{1-\xi^2}
+    \frac{\sqrt{-t'}}{2m}
+    \Re \left\{ 
+     \langle \GPDHTEQ \rangle ^*
+    \langle \GPDEtildeEQ \rangle   
+    \right\}$
+    }\\
+    
+    \scalebox{0.7}{%   
+    $      \frac{d\sigma_{TT}}{dt} = 
+    \frac{4\pi\alpha \mu_{\pi}^2}{kQ^4}
+    \frac{-t'}{16m^2}
+    \langle \GPDETbarEQ \rangle^2   
+    $
+    }\\
+    
+    Only valence quarks contribute electroproduction
+of uncharged pions.
+
+    and epsilon is... 
+    
+    
+    and t' stands for.. t - $t_0$ where $t_0 = \frac{-4m^2\xi^2}{1-\xi^2}$
+    
+    
+    Where the skewness parameter is $\xi = \frac{x_B}{2-x_B}$ or whatever
+    
+    The bracket $\langle \tilde{F} \rangle$ is the convolution of a GPD and an appropriate subprocess amplitude:
+    $\langle \tilde{F} \rangle = \Sigma_{\lamda} \int_{-1}^{1} d\bar{x}H_{0\lambda,0\lambda}\left( \bar{x}, \xi, Q^2, t=0  \right)\tilde{F}\left( \bar{x}, \xi, Q^2, t  \right)\
+    $ 
+    
+    Where $\lambda$ is the unobserved helicites of the partons participaing in the subprocess
+    
+    
+    
+    Where $\Gamma (Q^2, x_B, E)$ is the virtual photon flux, is 
+     \scalebox{0.7}{%
+        $         \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B^3}\frac{1}{1-\epsilon}$ 
+    }
+    
+    And k is the phase space factor given as 
+     \scalebox{0.7}{%
+     $           k = 16\pi \left( W^2 -m^2)\sqrt{\Lambda(W^2,-Q^2,m^2)} \right)$ 
+    }
+    
+        Where $\Lambda(W^2,-Q^2,m^2)$ is the Källén function and $\mu_{pi}$ is the reduced pion mass given as 
+       \scalebox{0.7}{%
+      $         \mu_{\pi^0} = \frac{m^2_{\pi^0}}{m_u+m_d}$ 
+    }
+    $m_u$ and $m_d$ are respective masses of up and down quarks.
+    

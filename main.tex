@@ -47,19 +47,36 @@
 
 \begin{document}
 
-\include{cover}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Preamble/cover.tex}
 % Some departments (e.g. 5) require an additional signature page.  See
 % signature.tex for more information and uncomment the following line if
 % applicable.
 % \include{signature}
 \pagestyle{plain}
-\include{contents}
-\include{basics/basics}
+\tableofcontents
+\addcontentsline{toc}{chapter}{\listfigurename}
+%\newpage
+%\listoffigures
+%\newpage
+%\listoftables
 \include{chap1}
 \include{chap2}
-\appendix
-\include{appa}
-\include{appb}
-\include{biblio}
-\end{document}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+\label{chap:acc}
+\input{Chapters/chap1.tex}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\include{Postamble/appendices.tex}
+\include{Postamble/bib/biblio.tex}
+\end{document}

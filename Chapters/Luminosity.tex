@@ -1,0 +1,41 @@
+\section{Luminosity}
+
+Luminosity is calculated according to equation \ref{lumieq}
+ \begin{equation}\label{lumieq}
+            \Lumi = \frac{N_A l \rho Q_{FCUP}}{e}
+\end{equation}
+
+The terms in equation \ref{lumieq} are as tabulated in table \ref{lumitable}. The accumulated charge on the Faraday cup is calculated by taking difference between the maximum and minimum values of beamQ for each run, and then summing these values. The luminosity determined for the fall 2018 inbending run was 5.5E+40 cm$^{-2}$ and the fall 2018 outbending run was 4.65E+40 cm$^{-2}$
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{rcc}
+         %& Heading 1 & Heading 2 \\\hline
+        Quantity &  & CLAS12 Value \\\hline
+       Avogadro's Number &  N$_A$  & $6x10^{23}$ \\
+        Electron Charge &e  &  $1.6x10^{-19}$ \\
+        Target Length &l &  5 cm \\
+        Target Density &$\rho$  &  0.07 $g/cm^3$ (LH2) \\
+        Charge on Faraday Cup & $Q_{FCUP}$ &  In data\\
+    \end{tabular}
+\caption{Terms of Luminosity Equation}
+\end{table}\label{lumitable}
+
+\section{Virtual Photon Flux Factor}
+To calculate the reduced cross sections, it is necessary to calculate the virtual photon flux factor, $\Gamma (Q^2, x_B, E)$, which was calculated for each bin using equation \ref{gamma1}:
+
+ \begin{equation}\label{gamma1}
+            \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B}\frac{1}{1-\epsilon}
+\end{equation}
+
+$\alpha$ is the fine structure constant, E is the beam energy, and $\epsilon$ is calculated using equation \ref{gamma2}
+
+ \begin{equation}\label{gamma2}
+            \epsilon = \frac{1-y-\frac{Q^2}{4E^2}}{1-y+\frac{y^2}{2}+\frac{Q^2}{4E^2}}
+\end{equation}
+
+For each bin, y is calculated using equation \ref{gamma3}, using the average value of $Q^2$ and $x_B$ in each bin.
+
+ \begin{equation}\label{gamma3}
+           y = \frac{\omega}{E} = \frac{Q^2}{2x_Bm_pE}
+\end{equation}
