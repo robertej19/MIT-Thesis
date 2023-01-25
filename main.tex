@@ -33,7 +33,8 @@
 \usepackage{graphicx}
 \usepackage{braket}
 \usepackage{lmodern}
-
+\usepackage{apacite}
+\bibliographystyle{apacite}
 \usepackage[T1]{fontenc}
 \pagestyle{plain}
 
@@ -72,11 +73,9 @@
 \input{Chapters/chap1.tex}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
+\bibliography{Postamble/bib/biblio}
 \include{Postamble/appendices.tex}
-\include{Postamble/bib/biblio.tex}
 \end{document}
