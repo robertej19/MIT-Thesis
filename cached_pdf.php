@@ -1,6 +1,6 @@
 <?php
 
-$pdf_url = "https://github.com/robertej19/MIT-Thesis/raw/main/main.pdf";
+$pdf_url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 $cache_file = "example.pdf";
 
 // Check if the PDF is already cached
