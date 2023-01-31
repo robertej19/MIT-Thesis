@@ -5,6 +5,27 @@
   </head>
   <body>
     
+    <?php
+
+$pdf_url = "https://github.com/robertej19/MIT-Thesis/raw/main/main.pdf";
+$cache_file = "example.pdf";
+
+// Check if the PDF is already cached
+if (!file_exists($cache_file)) {
+    // Request the PDF
+    $pdf_content = file_get_contents($pdf_url);
+
+    // Store the PDF in cache
+    file_put_contents($cache_file, $pdf_content);
+}
+
+// Serve the cached PDF
+header('Content-Type: application/pdf');
+readfile($cache_file);
+
+?>
+    
+    <!-- This is a comment and will not be displayed in the browser 
     <iframe id="github-iframe" src=""></iframe>
       <script>
           fetch('https://api.github.com/repos/ileathan/hubot-mubot/contents/src/mubot.coffee')
@@ -19,5 +40,7 @@
     <h1>PDF Example with iframe</h1>
     <iframe src="https://github.com/robertej19/MIT-Thesis/raw/main/main.pdf" width="100%" height="500px">
     </iframe>
+
+-->
   </body>
 </html>
