@@ -31,8 +31,14 @@
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
 \usepackage{cmap}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{braket}
 \usepackage{lmodern}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
 \usepackage{apacite}
 \bibliographystyle{apacite}
 \usepackage[T1]{fontenc}
@@ -70,6 +76,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction} \label{Chapter:Intro}
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
+\input{NuclearPhysics/modules/lepton-scattering/lepton-scattering.tex}
+\input{CLAS-12/clas12.tex}
 
 \chapter{Experimental Setup} \label{Chapter:Experiment}
 \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
@@ -77,59 +85,11 @@
 \chapter{Simulations} \label{Chapter:Simulations}
 \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
 
-\chapter{Analysis} \label{Chapter:Analysis}
-\input{Chapters/Ch4-Analysis/Ch4-Analysis.tex}
+\chapter{Cross Section Measurement} \label{Chapter:BaseAnalysis}
+\input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
 
-\chapter{Results} \label{Chapter:Results}
-\input{Chapters/Ch4-Analysis/Ch4-Analysis.tex}
-
-
-
-Experiment
-clas 12 DVMP experiment
-Accelerators
-Detectors and Recon principles
-PID
-E ID
-Proton ID
-Photon Identification
-Data processing 
-
-Methods
-General analysis technique
-event selection
-Configuration and kinematics region
-Cross section extraction
-Simulation pipeline
-acceptance correction
-Radiative corrections
-Monte carlo estimators
-
-Data post processing
-energy loss correction for charged particles
-electron energy loss
-detector regions for proton energy loss correction
-details of the two band issue 
-proton energy loss correction
-biases for higher momentum protons
-benehmarks for corrections
-Resolution matching 
-kinematics correction of experimental data
-smearing the simulation data
-
-Results
-CLAS12 qality assurance
-Event selection revisted
-multidimentsional binning
-signal yields and acceptance corrections
-radiative corrections
-normalizatinon and the modified cross section
-error analysys
-unpolarized corss sections
-plarized cross sections
-conclusions
-
-
+\chapter{Further Analysis} \label{Chapter:Further Analysis}
+\input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
 
 
 
