@@ -41,7 +41,7 @@
                 \begin{equation}
                     \frac{d\sigma}{d\Omega} = \frac{\alpha^2}{16E^2_K\sin^4{(\theta/2)}}
                 \end{equation}
-                \myequations{Rutherford Scattering}
+                %\myequations{Rutherford Scattering}
             
             In this non-relativistic limit, only the interaction between the electric charges of the electron and proton contribute; there is no magnetic (spin-spin) interaction. The angular dependence originates only from the 1/$q^2$ propagator term.
             
@@ -51,7 +51,7 @@
                 \begin{equation}
                     \frac{d\sigma}{d\Omega} = \frac{\alpha^2}{4E^2\sin^4{(\theta/2)}}\cos^2{\frac{\theta}{2}} = \left( \frac{\alpha}{2E\sin^2{(\theta/2)}}\cos{\frac{\theta}{2}} \right)^2
                 \end{equation}
-                \myequations{Mott Scattering}
+                %\myequations{Mott Scattering}
             
             Again, purely magnetic spin-spin interactions are negligible here. 
             
@@ -78,7 +78,7 @@
             \caption{Charge Distribution Fourier Transforms}
         \end{figure}
         
-        In general, a \myquantities{a spin S particle will have 2S + 1 form factors}. For example, a proton is spin 1/2, and has 2 form factors. A spin 3/2 particle will have 4 form factor (e.g. Li7) 
+        In general, a spin S particle will have 2S + 1 form factors. For example, a proton is spin 1/2, and has 2 form factors. A spin 3/2 particle will have 4 form factor (e.g. Li7) 
         
     \section{Relativistic Electron Proton Elastic Scattering}
         \indent Explicit math is worked out in Thomson 7.4 and is straightforward, but important relations are:
@@ -112,14 +112,14 @@
         \begin{equation}
             Q^2 = \frac{2m_pE_1^2(1-\cos\theta}{m_p+E_1(1-\cos\theta)}\label{eq:2}
         \end{equation}
-        \myequations{$Q^2$ - Incident Electron Energy Relation, Elastic Scattering}
+        %\myequations{$Q^2$ - Incident Electron Energy Relation, Elastic Scattering}
         
         Which gives us the differential cross section for the scattering of relativistic electrons from a pointlike proton as: 
         
         \begin{equation}
             \frac{d\sigma}{d\Omega} = \frac{\alpha^2}{4E_1^2\sin^4{(\theta/2)}}\frac{E_3}{E_1}(\cos^2{\frac{\theta}{2}}+\frac{Q^2}{2m_p^2}\sin^2(\frac{\theta}{2}))
         \end{equation}
-        \myequations{Elastic Scattering Cross Section - pointlike proton}
+       % \myequations{Elastic Scattering Cross Section - pointlike proton}
         
         \subsection{Important Notes}
             \indent Elastic ep scattering has only 1 independent variable, so measuring the scattering angle determines all of the kinematics. In practice, by measuring the energy and angle of scattered electrons, the system can be over constrained to ensure that the scattering was in fact elastic. \\
@@ -139,7 +139,7 @@
         \begin{equation}
             \frac{d\sigma}{d\Omega} = \frac{\alpha^2}{4E_1^2\sin^4{(\theta/2)}}\frac{E_3}{E_1}\left( \frac{G_E^2+\tau G_M^2}{1+\tau} \cos^2{\frac{\theta}{2}}+2\tau G_M^2\frac{Q^2}{2m_p^2}\sin^2(\frac{\theta}{2})\right)
         \end{equation}
-        \myequations{Full Elastic Scattering Cross Section}
+       % \myequations{Full Elastic Scattering Cross Section}
         
         Here $\tau$ is:
                 
@@ -154,7 +154,7 @@
             \begin{equation}
                 \frac{d\sigma}{d\Omega} = \left( \frac{G_E^2+\tau G_M^2}{1+\tau} +2\tau G_M^2\tan^2(\frac{\theta}{2})\right) \left( \frac{d\sigma}{d\Omega}_0\right)
             \end{equation}
-        \myequations{Full Elastic Scattering Cross Section}
+      %  \myequations{Full Elastic Scattering Cross Section}
         
         
         Where $\frac{d\sigma}{d\Omega}_0$ is the Mott Scattering cross section, with the factor of $\frac{E_3}{E_1}$ included to account for proton recoil. We can then extract $G_E$ and $G_M$ in the following way (\textbf{"Rosenbluth Separation"}):\\
@@ -164,7 +164,7 @@
                 
                 2.) Put spectrometer at 135 degrees in theta from the beam axis. Take data at 10 different beam energies. You know know the cross section at that angle at that energy. Now move the spectrometer to 120 degrees. Repeat energy scan. Repeat this process for several other beam angles. You are done taking data.
             \subsubsection{Analyze data}
-                1.) Go into your data. Using the relation between $Q^2$, $\theta$, and $E_1$ \eqref{eq:1}, pick a value of $Q^2$ (e.g. 0.292 GeV$^2$, invert to find the beam energy at the appropriate $\theta$, and note the cross section at that point. What you just did is find the cross-section value at that angle, corresponding to a specific $Q^2$ value. Repeat for all the angles you had your spectrometer at. You now have a plot of cross section vs. angle ($\tan(\theta/2)$ so that it is a line), at a specific $Q^2$ value. \\
+                1.) Go into your data. Using the relation between $Q^2$, $\theta$, and $E_1$, pick a value of $Q^2$ (e.g. 0.292 GeV$^2$, invert to find the beam energy at the appropriate $\theta$, and note the cross section at that point. What you just did is find the cross-section value at that angle, corresponding to a specific $Q^2$ value. Repeat for all the angles you had your spectrometer at. You now have a plot of cross section vs. angle ($\tan(\theta^2)$ so that it is a line), at a specific $Q^2$ value. \\
                 2.) Now fit a line to the data. The slope gives you $G_M$ at that $Q^2$, and the y-intercept gives you $G_E$ at that $Q^2$ (see \label{eq:1})\\
                 3.) Repeat steps 1 and 2 for as big of a $Q^2$ range that you can. \\
                 \newline
@@ -181,7 +181,7 @@
                 This relates to a proton charge distribution as exponentially falling off, i.e.\\
                 $\rho(r) \sim \rho_0 e^{-r/a}$\\
                 Here a = 0.24 fm, which corresponds to a proton RMS charge radius of 0.8 fm. \\
-                Finally, at high $Q^2$, $G_M \propto Q^{-4}$, which means that the \myquantities{elastic scattering cross section falls as $1/Q^6$}
+                Finally, at high $Q^2$, $G_M \propto Q^{-4}$, which means that the elastic scattering cross section falls as $1/Q^6$
                 Also, we can calculate the RMS charge radius of the proton as:
                 
              
@@ -234,7 +234,7 @@
         \begin{equation}
             x = \frac{Q^2}{2p_2\cdot q} = \frac{Q^2}{Q^2+W^2-m_p^2}
         \end{equation}
-        \myequations{Bjorken X}
+        %\myequations{Bjorken X}
     
             Derivation of infinite momentum frame Bjorken x. Take quark to have momentum fraction $\xi$ of proton's total momentum,i.e. $p_q = \xi p_2$:\\
             \indent Inf. Mom. frame - neglect proton mass so $p_2$ = $E_2$, neglect all transverse momenta:\\
