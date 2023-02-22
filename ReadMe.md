@@ -1,4 +1,7 @@
 Thesis. Will add more information later (hopefully?)
 
+PDF at:
+https://robertej19.github.io/MIT-Thesis/main.pdf
+
 Presentation at:
-https://github.com/robertej19/Thesis-Offense/blob/main/presentation.pdf
+https://robertej19.github.io/Thesis-Offense/presentation.pdf
