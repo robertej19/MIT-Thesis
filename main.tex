@@ -32,8 +32,12 @@
 \usepackage{cmap}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{amsmath} % for \boxed and \smash[b] macros
+\usepackage{booktabs}% for \midrule and \cmidrule macro
 \usepackage{braket}
 \usepackage{lmodern}
+\newcommand\headercell[1]{%
+   \smash[b]{\begin{tabular}[t]{@{}c@{}} #1 \end{tabular}}}
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
@@ -55,6 +59,44 @@
 \begin{document}
 
 
+\definecolor{mygreen}{RGB}{14, 176, 9}
+\definecolor{myyellow}{RGB}{204, 204, 10}
+\definecolor{mypink}{RGB}{255, 51, 255}
+\definecolor{mypurp}{RGB}{153, 21, 255}
+\definecolor{lightred}{RGB}{255, 132, 145}
+\definecolor{darkred}{RGB}{225, 0, 0}
+\definecolor{lightorange}{RGB}{255, 200, 84}
+\definecolor{darkorange}{RGB}{225, 150, 0}
+\definecolor{lightgreen}{RGB}{85, 255, 91}
+\definecolor{darkgreen}{RGB}{0, 170, 6}
+\definecolor{lightblue}{RGB}{88, 200, 255}
+\definecolor{darkblue}{RGB}{0, 81, 203}
+\definecolor{sigmaT}{RGB}{0, 0, 0}
+\definecolor{sigmaL}{RGB}{0, 0, 0}
+\definecolor{sigmaLT}{RGB}{252, 3, 3}
+\definecolor{sigmaTT}{RGB}{3, 32, 252}
+
+% Chiral Even GPDs
+\newcommand{\GPDH}{\textcolor{lightred}{${H}$}}
+\newcommand{\GPDHEQ}{\textcolor{lightred}{{H}}}
+\newcommand{\GPDE}{\textcolor{lightgreen}{${E}$}}
+\newcommand{\GPDEEQ}{\textcolor{lightgreen}{{E}}}
+\newcommand{\GPDHtilde}{\textcolor{lightorange}{$\tilde{H}$}}
+\newcommand{\GPDHtildeEQ}{\textcolor{lightorange}{\tilde{H}}}
+\newcommand{\GPDEtilde}{\textcolor{lightblue}{$\tilde{E}$}}
+\newcommand{\GPDEtildeEQ}{\textcolor{lightblue}{\tilde{E}}}
+
+%Chiral Odd GPDs
+\newcommand{\GPDHT}{\textcolor{darkred}{$H_T$}}
+\newcommand{\GPDHTEQ}{\textcolor{darkred}{H_T}}
+\newcommand{\GPDET}{\textcolor{darkgreen}{$E_T$}}
+\newcommand{\GPDETEQ}{\textcolor{darkgreen}{E_T}}
+\newcommand{\GPDHTtilde}{\textcolor{darkorange}{$\tilde{H}_T$}}
+\newcommand{\GPDHTtildeEQ}{\textcolor{darkorange}{\tilde{H}_T}}
+\newcommand{\GPDETtilde}{\textcolor{darkblue}{$\tilde{E}_T$}}
+\newcommand{\GPDETtildeEQ}{\textcolor{darkblue}{\tilde{E}_T}}
+\newcommand{\GPDETbar}{\textcolor{mypurp}{$\bar{E}_T$}}
+\newcommand{\GPDETbarEQ}{\textcolor{mypurp}{\bar{E}_T}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{Preamble/cover.tex}
@@ -73,8 +115,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction} \label{Chapter:Intro}
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
-\iffalse
 
+\iffalse
 \input{NuclearPhysics/modules/lepton-scattering/lepton-scattering.tex}
 \input{CLAS-12/clas12.tex}
 
