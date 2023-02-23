@@ -30,12 +30,30 @@
 %% These have been added at the request of the MIT Libraries, because
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
 \usepackage{cmap}
-\usepackage{graphicx}
 \usepackage{float}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tocloft}
 \usepackage{amsmath} % for \boxed and \smash[b] macros
 \usepackage{booktabs}% for \midrule and \cmidrule macro
 \usepackage{braket}
 \usepackage{lmodern}
+\usepackage{xpatch}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tocbibind}
+\usepackage{xpatch}
+\usepackage{slashed}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{textcomp}
+%\usepackage{gensymb} %causes issues with degree command
+\usepackage{tocloft}
+\usepackage{float}
+\usepackage{notoccite}
+
 \newcommand\headercell[1]{%
    \smash[b]{\begin{tabular}[t]{@{}c@{}} #1 \end{tabular}}}
 \usepackage[colorlinks = true,
@@ -43,10 +61,47 @@
             urlcolor  = blue,
             citecolor = blue,
             anchorcolor = blue]{hyperref}
-\usepackage{apacite}
-\bibliographystyle{apacite}
+            
+
+\usepackage[square,numbers,sort&compress]{natbib}
+
+\bibliographystyle{apsrev}
+%\usepackage{natbib}
+%\setcitestyle{numbers}
+%\usepackage{apacite}
+%\bibliographystyle{apacite}
+
 \usepackage[T1]{fontenc}
 \pagestyle{plain}
+
+
+
+% Chiral Even GPDs
+\newcommand{\GPDH}{\textcolor{lightred}{${H}$}}
+\newcommand{\GPDHEQ}{\textcolor{lightred}{{H}}}
+\newcommand{\GPDE}{\textcolor{lightgreen}{${E}$}}
+\newcommand{\GPDEEQ}{\textcolor{lightgreen}{{E}}}
+\newcommand{\GPDHtilde}{\textcolor{lightorange}{$\tilde{H}$}}
+\newcommand{\GPDHtildeEQ}{\textcolor{lightorange}{\tilde{H}}}
+\newcommand{\GPDEtilde}{\textcolor{lightblue}{$\tilde{E}$}}
+\newcommand{\GPDEtildeEQ}{\textcolor{lightblue}{\tilde{E}}}
+
+%Chiral Odd GPDs
+\newcommand{\GPDHT}{\textcolor{darkred}{$H_T$}}
+\newcommand{\GPDHTEQ}{\textcolor{darkred}{H_T}}
+\newcommand{\GPDET}{\textcolor{darkgreen}{$E_T$}}
+\newcommand{\GPDETEQ}{\textcolor{darkgreen}{E_T}}
+\newcommand{\GPDHTtilde}{\textcolor{darkorange}{$\tilde{H}_T$}}
+\newcommand{\GPDHTtildeEQ}{\textcolor{darkorange}{\tilde{H}_T}}
+\newcommand{\GPDETtilde}{\textcolor{darkblue}{$\tilde{E}_T$}}
+\newcommand{\GPDETtildeEQ}{\textcolor{darkblue}{\tilde{E}_T}}
+\newcommand{\GPDETbar}{\textcolor{mypurp}{$\bar{E}_T$}}
+\newcommand{\GPDETbarEQ}{\textcolor{mypurp}{\bar{E}_T}}
+
+
+\newcommand{\listequationsname}{List of Equations}
+\newcommand{\myequations}[1]{\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+\xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
 
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
@@ -76,27 +131,8 @@
 \definecolor{sigmaLT}{RGB}{252, 3, 3}
 \definecolor{sigmaTT}{RGB}{3, 32, 252}
 
-% Chiral Even GPDs
-\newcommand{\GPDH}{\textcolor{lightred}{${H}$}}
-\newcommand{\GPDHEQ}{\textcolor{lightred}{{H}}}
-\newcommand{\GPDE}{\textcolor{lightgreen}{${E}$}}
-\newcommand{\GPDEEQ}{\textcolor{lightgreen}{{E}}}
-\newcommand{\GPDHtilde}{\textcolor{lightorange}{$\tilde{H}$}}
-\newcommand{\GPDHtildeEQ}{\textcolor{lightorange}{\tilde{H}}}
-\newcommand{\GPDEtilde}{\textcolor{lightblue}{$\tilde{E}$}}
-\newcommand{\GPDEtildeEQ}{\textcolor{lightblue}{\tilde{E}}}
 
-%Chiral Odd GPDs
-\newcommand{\GPDHT}{\textcolor{darkred}{$H_T$}}
-\newcommand{\GPDHTEQ}{\textcolor{darkred}{H_T}}
-\newcommand{\GPDET}{\textcolor{darkgreen}{$E_T$}}
-\newcommand{\GPDETEQ}{\textcolor{darkgreen}{E_T}}
-\newcommand{\GPDHTtilde}{\textcolor{darkorange}{$\tilde{H}_T$}}
-\newcommand{\GPDHTtildeEQ}{\textcolor{darkorange}{\tilde{H}_T}}
-\newcommand{\GPDETtilde}{\textcolor{darkblue}{$\tilde{E}_T$}}
-\newcommand{\GPDETtildeEQ}{\textcolor{darkblue}{\tilde{E}_T}}
-\newcommand{\GPDETbar}{\textcolor{mypurp}{$\bar{E}_T$}}
-\newcommand{\GPDETbarEQ}{\textcolor{mypurp}{\bar{E}_T}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{Preamble/cover.tex}
@@ -106,11 +142,19 @@
 % \include{signature}
 \pagestyle{plain}
 \tableofcontents
-\addcontentsline{toc}{chapter}{\listfigurename}
-%\newpage
-%\listoffigures
-%\newpage
-%\listoftables
+%\addcontentsline{toc}{chapter}{\listfigurename}
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\newlistof{myequations}{equ}{\listequationsname}
+\listofmyequations
+\addcontentsline{toc}{chapter}{\listequationsname}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction} \label{Chapter:Intro}
@@ -139,6 +183,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
-\bibliography{Postamble/bib/manrefs}
+%\bibliography{Postamble/bib/manrefs}
+\bibliography{Postamble/bib/references}
+
 \include{Postamble/appendices.tex}
 \end{document}
