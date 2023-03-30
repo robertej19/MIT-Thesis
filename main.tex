@@ -65,6 +65,9 @@
 
 \usepackage[square,numbers,sort&compress]{natbib}
 
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{5}
+
 \bibliographystyle{apsrev}
 %\usepackage{natbib}
 %\setcitestyle{numbers}
@@ -97,6 +100,17 @@
 \newcommand{\GPDETtildeEQ}{\textcolor{darkblue}{\tilde{E}_T}}
 \newcommand{\GPDETbar}{\textcolor{mypurp}{$\bar{E}_T$}}
 \newcommand{\GPDETbarEQ}{\textcolor{mypurp}{\bar{E}_T}}
+\usepackage{fancyhdr}
+
+
+%%%%%% COMMENT THIS SECTION OUT IF YOU DON'T WANT TOC LINK IN EACH PAGE
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+%\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC}}
+%\fancyhf{}
+%\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
 
 \newcommand{\listequationsname}{List of Equations}
@@ -135,12 +149,20 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{Preamble/cover.tex}
+\include{Chapters/Preamble/cover.tex}
 % Some departments (e.g. 5) require an additional signature page.  See
 % signature.tex for more information and uncomment the following line if
 % applicable.
 % \include{signature}
-\pagestyle{plain}
+
+
+%%%%% CHANGE THIS TO MESS WITH HEADER / FOOTER STUFF
+%\pagestyle{plain}
+\pagestyle{fancy}
+
+
+
+
 \tableofcontents
 %\addcontentsline{toc}{chapter}{\listfigurename}
 \newpage
@@ -160,13 +182,8 @@
 \chapter{Introduction} \label{Chapter:Intro}
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
 
-
 \iffalse
-
-\input{NuclearPhysics/modules/lepton-scattering/lepton-scattering.tex}
-\input{CLAS-12/clas12.tex}
-
-
+    
 \chapter{Experimental Setup} \label{Chapter:Experiment}
 \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
 
@@ -178,14 +195,12 @@
 
 \chapter{Further Analysis} \label{Chapter:Further Analysis}
 \input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
-
 \fi
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 %\bibliography{Postamble/bib/manrefs}
-\bibliography{Postamble/bib/references}
+\bibliography{Chapters/Postamble/bib/references}
 
-\include{Postamble/appendices.tex}
+\include{Chapters/Postamble/appendices.tex}
 \end{document}

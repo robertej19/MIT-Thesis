@@ -1,10 +1,12 @@
 \section{GK Model}
 
-We compare the preliminary cross section to the model developed by S.V. Goloskokov and P. Kroll \cite{Goloskokov2010}. This model uses the handbag model to produce theoretical curves for specified sets of kinematic points. This model was implemented in the PARTONS framework \cite{Berthou2018} and was also used in the published CLAS6 result to compare with their experimental cross section, reproduced below in figure \ref{fig:oldres} \cite{Bedlinskiy2014}.
+We compare the preliminary cross section to the model developed by S.V. Goloskokov and P. Kroll \cite{Goloskokov2010AnElectroproduction}. This model uses the handbag model to produce theoretical curves for specified sets of kinematic points. This model was implemented in the PARTONS framework \cite{Berthou2018PARTONS:Software} and was also used in the published CLAS6 result to compare with their experimental cross section, reproduced below in figure \ref{fig:oldres} \cite{Bedlinskiy2014ExclusiveAl.}.
+
+
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[page=6,width=0.6\linewidth]{clas6comp.jpg}
+	\includegraphics[page=6,width=0.6\linewidth]{Chapters/Ch5-FurtherAnalysis/pics/clas6comp.jpg}
 \end{figure}\label{fig:oldres}
 
 To validate the model, we ran the implementation to generate curves and compared to the published CLAS6 result. We observed that the sigma T and sigma L terms were comparable, but not exactly the same, as the 2014 published results, while the sigma TT term was significantly different. It is believed that these differences are due to improvements in the model made in the past 8 years. Figure \ref{fig:oldres2} shows one example bin of this comparison, where the color of the curves is matched to the corresponding color of the structure functions.
@@ -12,11 +14,12 @@ To validate the model, we ran the implementation to generate curves and compared
 
 The parameters for the GK model were taken from 
 
-Their formulation is quite similar albeit with important differences. First of all, the pi^0 production does not include the so-called pion-pole contribution (see Eq. 4.39 - 4.42 in my thesis). Moreover, their handbag contributions are slightly different. Their differences at the handbag level are discussed in Eq. 4.37 and 4.38 in my thesis. 
+$
+Their formulation is quite similar albeit with important differences. First of all, the pi0 production does not include the so-called pion-pole contribution (see Eq. 4.39 - 4.42 in my thesis). Moreover, their handbag contributions are slightly different. Their differences at the handbag level are discussed in Eq. 4.37 and 4.38 in my thesis. $
 
-The parameters of GPDs and their t-slope are not completely the same. At the time I wrote the code, I took the most updated parameters from P. Kroll (or parameters that he thought would best describe the JLab kinematics in Fig. 3 of arxiv.org/pdf/2007.15677.pdf). So, I would not expect the same curves just because the GPDs in those works have different parameters. 
+The parameters of GPDs and their t-slope are not completely the same. At the time I wrote the code, I took the most updated parameters from P. Kroll (or parameters that he thought would best describe the JLab kinematics in Fig. 3 of \cite{Diehl2020ExtractionKinematics} ). So, I would not expect the same curves just because the GPDs in those works have different parameters. 
 
-Lambda is defined as: https://en.wikipedia.org/wiki/Källén_function
+Lambda is defined as: %$https://en.wikipedia.org/wiki/Källén_function$
 
 Description of GK by Kemal Thesis:
 
@@ -31,25 +34,21 @@ From Easy as Pi:
 Among the many important consequences is the fact that differently from both inclusive and semi-inclusive processes, GPDs can in principle provide essential information
 for determining the missing component to the nucleon longitudinal spin sum rule, which
 is identified with orbital angular momentum. A complete description of nucleon structure
-requires, however, also the transversity (chiral odd/quark helicity-flip) GPDs, HT (x, ξ, t),
-ET (x, ξ, t), HeT (x, ξ, t), and EeT (x, ξ, t) [1]. J
+%requires, however, also the transversity (chiral odd/quark helicity-flip) GPDs, HT (x, ξ, t),
+%ET (x, ξ, t), HeT (x, ξ, t), and EeT (x, ξ, t) [1]. J
 
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[page=6,width=0.6\linewidth]{2022_vs_2014_GK_model.jpg}
+	\includegraphics[page=6,width=0.6\linewidth]{Chapters/Ch5-FurtherAnalysis/pics/2022_vs_2014_GK_model.jpg}
 \end{figure}\label{fig:oldres2}
 
 Finally, we compare the preliminary CLAS12 reduced cross section to the predictions from the GK model. Sample plots are shown below. Agreement is close but not exact. The functional form is as expected. It is unclear if the offset between the CLAS12 fit and the GK model is due to a model discrepancy, or an absolute normalization uncertainty in the CLAS12 calculation. More quantitative statments will be made when uncertainties and correction factors in the CLAS12 work are better understood.
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[page=6,width=0.45\linewidth]{reduced_xsec_1.5_2_0.2_0.25_0.2_0.3.png}
-	\includegraphics[page=6,width=0.45\linewidth]{reduced_xsec_1.5_2_0.25_0.3_0.2_0.3.png}
-\end{figure}\label{fig:oldres}
+	\includegraphics[page=6,width=0.45\linewidth]{Chapters/Ch5-FurtherAnalysis/pics/reduced_xsec_1.5_2_0.2_0.25_0.2_0.3.png}
+	\includegraphics[page=6,width=0.45\linewidth]{Chapters/Ch5-FurtherAnalysis/pics/reduced_xsec_1.5_2_0.25_0.3_0.2_0.3.png}
+\end{figure}\label{fig:oldres4}
 
 
-\begin{figure}[hbt]
-	\centering
-	
-\end{figure}\label{fig:oldres}
 
