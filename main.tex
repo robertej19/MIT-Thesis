@@ -43,6 +43,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{geometry}
+\usepackage{listings}
 \usepackage{tocbibind}
 \usepackage{xpatch}
 \usepackage{slashed}
@@ -54,6 +55,17 @@
 \usepackage{float}
 \usepackage{notoccite}
 
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes.geometric,positioning,fit,backgrounds,calc, arrows.meta,chains,shapes.arrows}
+
+\makeatletter
+\tikzset{west above/.code=\tikz@lib@place@handle@{#1}{south west}{0}{1}{north west}{1}}
+\tikzset{west below/.code=\tikz@lib@place@handle@{#1}{north west}{0}{-1}{south west}{1}}
+\tikzset{east above/.code=\tikz@lib@place@handle@{#1}{south east}{0}{1}{north east}{1}}
+\tikzset{east below/.code=\tikz@lib@place@handle@{#1}{north east}{0}{-1}{south east}{1}}
+\makeatother
+
 \newcommand\headercell[1]{%
    \smash[b]{\begin{tabular}[t]{@{}c@{}} #1 \end{tabular}}}
 \usepackage[colorlinks = true,
@@ -61,7 +73,30 @@
             urlcolor  = blue,
             citecolor = blue,
             anchorcolor = blue]{hyperref}
-            
+
+\newcommand{\Lumi}{\ensuremath{\textcolor{blue}{ \mathcal{L}}}}
+\newcommand{\Lumiint}{\ensuremath{\textcolor{blue}{ \mathcal{L}_{int}}} }
+
+\newcommand{\counts}{\ensuremath{\textcolor{red}{N_{exp}}}}
+
+
+
+
+\newcommand{\xsec}{cross-section }
+\newcommand{\xsecs}{cross-sections }
+\newcommand{\Xsec}{Cross-section }
+\newcommand{\Xsecs}{Cross-sections }
+
+%labelandremeber from https://tex.stackexchange.com/questions/459508/how-can-i-repeat-a-formula-without-copying-it
+\newcommand\labelAndRemember[2]
+  {\expandafter\gdef\csname labeled:#1\endcsname{#2}%
+   \label{#1}#2}
+\newcommand\recallLabel[1]
+   {\csname labeled:#1\endcsname\tag{\ref{#1}}}
+
+
+
+
 
 \usepackage[square,numbers,sort&compress]{natbib}
 
@@ -117,6 +152,9 @@
 \newcommand{\myequations}[1]{\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
 \xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
 
+
+
+
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
 %% Krishna Sethuraman (1990).
@@ -129,6 +167,8 @@
 
 
 \definecolor{mygreen}{RGB}{14, 176, 9}
+\definecolor{correctionfactors}{RGB}{11, 122, 25}
+
 \definecolor{myyellow}{RGB}{204, 204, 10}
 \definecolor{mypink}{RGB}{255, 51, 255}
 \definecolor{mypurp}{RGB}{153, 21, 255}
@@ -149,11 +189,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{Chapters/Preamble/cover.tex}
+\input{Chapters/Preamble/cover.tex}
 % Some departments (e.g. 5) require an additional signature page.  See
 % signature.tex for more information and uncomment the following line if
 % applicable.
-% \include{signature}
+% \input{signature}
 
 
 %%%%% CHANGE THIS TO MESS WITH HEADER / FOOTER STUFF
@@ -170,37 +210,44 @@
 \newpage
 \listoftables
 \newpage
-\newlistof{myequations}{equ}{\listequationsname}
+\newlistof{myequations}{equ}{\quad \listequationsname}
 \listofmyequations
-\addcontentsline{toc}{chapter}{\listequationsname}
+\addcontentsline{toc}{chapter}{\quad   \listequationsname}
 
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iffalse
 \chapter{Introduction} \label{Chapter:Intro}
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
 
-\iffalse
-    
+TO do:
+Include description of equations in paper not just the numbers
+
+
+
 \chapter{Experimental Setup} \label{Chapter:Experiment}
 \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
 
 \chapter{Simulations} \label{Chapter:Simulations}
 \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
+\fi
 
 \chapter{Cross Section Measurement} \label{Chapter:BaseAnalysis}
 \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
 
-\chapter{Further Analysis} \label{Chapter:Further Analysis}
-\input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
-\fi
+
+%\chapter{Further Analysis} \label{Chapter:Further Analysis}
+%\input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 %\bibliography{Postamble/bib/manrefs}
 \bibliography{Chapters/Postamble/bib/references}
 
-\include{Chapters/Postamble/appendices.tex}
+\input{Chapters/Postamble/appendices.tex}
 \end{document}

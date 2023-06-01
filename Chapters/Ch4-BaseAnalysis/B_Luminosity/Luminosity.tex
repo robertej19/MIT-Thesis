@@ -1,0 +1,73 @@
+\section{Luminosity} \label{sec:luminosity}
+
+The strategy to calculate the luminosity is as follows:\\
+
+ - For each run, retrieve a measure of how much beam passed through the target, I believe in the case of CLAS12 using the Faraday cup to measure beam charge
+    - sum the beam charge over all runs being considered and include any relevant corrections factors
+    - multiply this by target length, density, etc. to get the integrated luminosity
+    - use this value to calculate cross sections.
+
+
+
+Implementation:
+The bank \texttt{REC::Event} has an object \texttt{beamCharge}, in nanoCoulombs, which is described in the \texttt{DST} as ``beam charge integrated from the beginning of the run to the most recent reading of the gated Faraday Cup scaler in \texttt{RAW::scaler}, with slope/offset conversion to charge from CCDB. Note, this value will be zero in each file until the first scaler reading in that file.''. This is the (un?)gated beam charge. 
+
+
+
+This can be accessed via:
+
+\begin{lstlisting}
+	def banknames = ['REC::Event','REC::Particle','REC::Cherenkov','REC::Calorimeter','REC::Traj','REC::Track','REC::Scintillator']
+
+	if(banknames.every{event.hasBank(it)}) {
+		def (evb,partb,cc,ec,traj,trck,scib) = banknames.collect{event.getBank(it)}
+def fcupBeamCharge = evb.getFloat('beamCharge',0)
+\end{lstlisting}
+
+    According to \href{https://clas12.discourse.group/t/accessing-beam-charge-information/239}{this} we might need to use tag=1 RAW::scaler::fcupgated instead of REC::Event::beamCharge
+    
+
+The beam charge needs to be converted to integrated luminosity, which can be done as follows:
+
+Luminosity: Events are not necessarily time ordered, need to take largest value minus smallest value  
+
+
+Luminosity is calculated according to equation \ref{lumieq}
+ \begin{equation}\label{lumieq}
+            \Lumi = \frac{N_A l \rho Q_{FCUP}}{e}
+\end{equation}
+
+The terms in equation \ref{lumieq} are as tabulated in table \ref{lumitable}. The accumulated charge on the Faraday cup is calculated by taking difference between the maximum and minimum values of beamQ for each run, and then summing these values. The luminosity determined for the fall 2018 inbending run was 5.5E+40 cm$^{-2}$ and the fall 2018 outbending run was 4.65E+40 cm$^{-2}$
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{rcc}
+         %& Heading 1 & Heading 2 \\\hline
+        Quantity &  & CLAS12 Value \\\hline
+       Avogadro's Number &  N$_A$  & $6x10^{23}$ \\
+        Electron Charge &e  &  $1.6x10^{-19}$ \\
+        Target Length &l &  5 cm \\
+        Target Density &$\rho$  &  0.07 $g/cm^3$ (LH2) \\
+        Charge on Faraday Cup & $Q_{FCUP}$ &  In data\\
+    \end{tabular}
+\caption{Terms of Luminosity Equation}
+\end{table}\label{lumitable}
+
+\section{Virtual Photon Flux Factor}
+To calculate the reduced cross sections, it is necessary to calculate the virtual photon flux factor, $\Gamma (Q^2, x_B, E)$, which was calculated for each bin using equation \ref{gamma1}:
+
+ \begin{equation}\label{gamma1}
+            \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B}\frac{1}{1-\epsilon}
+\end{equation}
+
+$\alpha$ is the fine structure constant, E is the beam energy, and $\epsilon$ is calculated using equation \ref{gamma2}
+
+ \begin{equation}\label{gamma2}
+            \epsilon = \frac{1-y-\frac{Q^2}{4E^2}}{1-y+\frac{y^2}{2}+\frac{Q^2}{4E^2}}
+\end{equation}
+
+For each bin, y is calculated using equation \ref{gamma3}, using the average value of $Q^2$ and $x_B$ in each bin.
+
+ \begin{equation}\label{gamma3}
+           y = \frac{\omega}{E} = \frac{Q^2}{2x_Bm_pE}
+\end{equation}g

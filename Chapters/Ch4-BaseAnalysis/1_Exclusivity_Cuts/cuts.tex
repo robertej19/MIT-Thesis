@@ -1,0 +1,48 @@
+\section{Cuts}
+
+To arrive at a DVEP candidate event, we do the following
+
+
+Code flow:
+
+Consider a directory with n hipo files. For each hipo file, do the following.
+
+Read each file event by event, and do the following
+
+Check that the event has the proper databanks, and if not, go to teh next event.
+
+Get a list of all the electrons*, protons*, and photons* in the event
+
+*= links to most up to date PID methods
+
+for every electron in the event (always only one, at least in the skims, but not held to be one) do the following
+For every proton in the event, do the following
+
+Calculate some basic quantities and fill histograms
+
+for every permutation of pairs of photons in the event, do the following
+
+calculate various kinematic quantities, and pass to see if creates a viable pion* and a viable DVEP event*
+
+if so, fill relevant histograms and count as a DVEP event, otherwise skip to next event
+
+viable pion: 
+pion mass betwen 100 and 180 MeV
+pion momentum greater than 1.5 GeV
+angle (theta) between each photon and the electron to be greater than 8 degrees
+
+viable DVEP event:
+Q2 greater than 1
+W greater than 2
+difference between theta of missing 4-momentum and reconstructed pion less than 2 degrees
+difference between missing X px and py 300 MeV each or less
+Difference in missing mass squared between pion and X less than 1 GeV ** make sure this is right
+difference in missing energy and X less than 1 GeV **make sure this is right
+
+**photon cuts:
+pid 22, status > 2000 (in FD or CD, not ftagger)
+momentum greater than 400 MeV each
+
+**proton cuts: pid 2212
+
+**electron cuts: pid==1 and status < 0(negative particle
