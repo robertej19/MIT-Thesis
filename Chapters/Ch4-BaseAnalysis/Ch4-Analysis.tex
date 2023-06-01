@@ -1,5 +1,275 @@
 \section{General Analysis Overview}
 
+\Xsecs are theoretically interpreted as  the probability for a specific interaction to occur. They can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured events of interest $N_{meas}$ divided by the number of total interaction opportunities \Lumi. \Lumi is known as luminosity and is a product of only experimental parameters, such as the number of particles present and the experiment duration. 
+
+\begin{equation} \label{eq:basic_xsec}
+    \sigma = \frac{\counts}{\Lumi}
+\end{equation}
+
+Measuring the complete \xsec at once is not feasible, so instead estimates are made of the differential \xsec \eqref{eq:basic_diff_xsec}, which instead evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. 
+
+\begin{equation} \label{eq:basic_diff_xsec}
+    \frac{d\sigma}{d\Omega} = \frac{ \counts} {\Lumi \textcolor{purple}{\Delta \Omega}}
+\end{equation}
+
+In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis, yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
+
+     \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_exp}
+           { \frac{    d^4\sigma_{  ep \rightarrow ep'\pi^0}   } {dQ^2dx_Bdtd\phi_{\pi}} 
+                =   \frac{ \textcolor{red}{ N(Q^2,x_B,t,\phi_{\pi})}} {\Lumiint \textcolor{purple}{ \Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}}} 
+                \frac{1}{\textcolor{correctionfactors}{\epsilon_{acc} \delta_{RC} \delta_{Norm} Br(\pi^0\rightarrow\gamma\gamma)}}}
+     \end{equation}      \myequations{  \quad  DV$\pi$P Experimental Cross Section}
+
+The terms on the right-hand side of this equation are: 
+\begin{itemize}
+\item \textcolor{red}{$N(Q^2,x_B,t,\phi_{\pi})$} - Number of events recorded in a given $Q^2$, $x_B$, $t$, $\phi_{\pi}$ bin.
+
+\item \Lumiint - Integrated luminosity
+
+\item \textcolor{purple}{$\Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}$} - These are the bin sizes or intervals for the variables $Q^2$, $x_B$, $t$, and $\phi_{\pi}$.
+
+\item \textcolor{correctionfactors}{$\epsilon_{acc}$} - Acceptance correction, which is a combination of detector efficiency and geometrical acceptance, determined through simulations. 
+
+\item \textcolor{correctionfactors}{$\delta_{RC}$} - Radiative correction factor
+
+\item \textcolor{correctionfactors}{$\delta_{Norm}$} - Overall normalization factor
+
+\item \textcolor{correctionfactors}{$Br(\pi^0\rightarrow\gamma\gamma)$} - Branching ratio of the decay of a neutral pion ($\pi^0$) into two photons ($\gamma\gamma$), which is most recently measured at 98.8131\%  \cite{Husek2019PreciseDecay}
+\end{itemize}
+
+
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}[
+      node distance=2cm,
+      startstop/.style={rectangle, rounded corners, minimum width=11cm, minimum height=1cm,text centered, draw=black, fill=red!30},
+      io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=11cm, minimum height=1cm, text centered, draw=black, fill=blue!30},
+      process/.style={rectangle, minimum width=11cm, minimum height=1cm, text centered, draw=black, fill=orange!30},
+      arrow/.style={white,ultra thick,->,>=stealth},
+      ]
+    
+      \node (start) [startstop] {Real or Simulated Detector Hits};
+      \node (process1) [process, below of=start] {Reconstruction into Particle Tracks};
+      \node (io1) [io, below of=process1] {Conversion to .HIPO format};
+      \node (process2) [process, below of=io1] {Preliminary Fiducial Filtering};
+      \node (io2) [io, below of=process2] {Conversion to .ROOT format};
+      \node (process3) [process, below of=io2] {Preprocessing: Momentum Corrections and Smearing};
+      \node (io3) [io, below of=process3] {Conversion to DataFrame Objects};
+      \node (process4) [process, below of=io3] {\Xsec Calculation};
+       
+      \draw [arrow] (start) -- (process1);
+      \draw [arrow] (process1) -- (io1);
+      \draw [arrow] (io1) -- (process2);
+      \draw [arrow] (process2) -- (io2);
+      \draw [arrow] (io2) -- (process3);
+      \draw [arrow] (process3) -- (io3);
+      \draw [arrow] (io3) -- (process4);
+
+    
+      \begin{scope}[on background layer]
+        \node[fit=(start)(process1)(io1), fill=mypurp, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 0: Track Reconstruction} }] {};
+
+
+        \node[fit=(process2)(io2), fill=darkblue, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 1: Data Batching} }] {};
+
+
+        \node[fit=(process3)(io3), fill=darkgreen, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 2: Data Preparation} }] {};
+
+        \node[fit=(process4), fill=darkred, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 4: Analysis } }] {};
+
+      \end{scope}
+      
+    \end{tikzpicture}
+    \caption{High-level data processing flow}
+    \label{fig:High-level data processing flow}
+\end{figure}
+
+
+
+%from: https://tex.stackexchange.com/questions/142018/creating-a-punktchain-or-flow-diagram-in-tikz-pgf-latex-that-is-two-column-then
+\begin{figure}
+    \centering
+ \begin{tikzpicture}[
+  every node/.style={
+    rectangle,
+    rounded corners,
+    % fill=black!10,
+    draw=black, very thick,
+    minimum height=2em,
+    inner sep=2pt,
+    text centered,
+    align=center
+  },
+  big node/.style={text width=8cm},
+  small node/.style={text width=3.5cm},
+  >=latex, %Make the arrow tips latex
+  myline/.style={draw, very thick,black, node distance=1.1cm},
+  mylinedot/.style={draw, very thick, blue!100!black!70, densely dotted,  node distance=1cm},
+  shorter/.style={shorten <=1mm,shorten >=0.5mm},
+  node distance=0.75cm,
+  |*/.style={to path=(\tikztostart.south) -- (\tikztostart.south|-\tikztotarget.north)},
+  *|/.style={to path=(\tikztostart.south-|\tikztotarget.north) -- (\tikztotarget.north)}
+  ]
+\begin{scope}[every node/.append style={big node}]
+  \node (B) {\textbf{Filter process 1}};
+  \node[below=of B] (C) {\textbf{Filter process 2}};
+  \node[below=of C] (D) {\textbf{Filter process 3}};
+\end{scope}
+\begin{scope}[every node/.append style={small node}]
+  \node[west above=of B] (A1) {\textsc{Training Waveform}};
+  \node[east above=of B] (A2) {\textsc{Testing Waveform}};
+
+  \node[west below=of D] (E1) {\textbf{Reduced Model}};
+  \node[east below=of D] (E2) {\textbf{Full Model}};
+
+\end{scope}
+\path[myline,,shorter]  {[|*] (A1) edge[->] (B)}
+                              ([shift={(-2.25cm,0)}]B.south)  edge[->] ([shift={(-2.25cm,0)}]C.north)
+                              ([shift={(-2.25cm,0)}]C.south)  edge[->] ([shift={(-2.25cm,0)}]D.north)
+                          {[*|] (D)  edge[->] (E1)}
+                         ;
+\path[mylinedot,shorter]  {[|*] (A2) edge[->] (B) }
+                             ([shift={(2.25cm,0)}]B.south)  edge[->] ([shift={(2.25cm,0)}]C.north)
+                              ([shift={(2.25cm,0)}]C.south)  edge[->] ([shift={(2.25cm,0)}]D.north)
+                          {[*|] (D) edge[->] (E2)}
+                          (E1) edge[->] (E2)
+                         ;
+\end{tikzpicture}
+
+
+    
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+\begin{figure}
+
+\begin{tikzpicture}[
+  every node/.style={
+    rectangle,
+    rounded corners,
+    draw=black, very thick,
+    minimum height=2em,
+    inner sep=2pt,
+    text centered,
+    align=center
+  },
+  big node/.style={text width=cm},
+  small node/.style={text width=3.5cm},
+  >=latex, %Make the arrow tips latex
+  myline/.style={draw, very thick,black, node distance=1.1cm},
+  mylinedot/.style={draw, very thick, blue!100!black!70, densely dotted,  node distance=1cm},
+  mylinered/.style={draw, very thick, red!100!black!70, densely dashed,  node distance=1cm},
+  shorter/.style={shorten <=1mm,shorten >=0.5mm},
+  node distance=0.75cm,
+  |*/.style={to path=(\tikztostart.south) -- (\tikztostart.south|-\tikztotarget.north)},
+  *|/.style={to path=(\tikztostart.south-|\tikztotarget.north) -- (\tikztotarget.north)}
+  ]
+\begin{scope}[every node/.append style={big node}]
+  \node (B) {\textbf{Filter process 1}};
+  \node[right=of B] (B') {};
+  \node[below=of B] (C) {\textbf{Filter process 2}};
+  \node[below=of C] (D) {\textbf{Filter process 3}};
+\end{scope}
+\begin{scope}[every node/.append style={small node}]
+  \node[west above=of B] (A1) {\textsc{Training Waveform}};
+  \node[above=of B] (A2) {\textsc{Testing Waveform}};
+  \node[east above=of B] (A3) {\textsc{Validating Waveform}};
+
+  \node[west below=of D] (E1) {\textbf{Reduced Model}};
+  \node[below=of D] (E2) {\textbf{Full Model}};
+  \node[east below=of D] (E3) {\textbf{Validation Results}};
+\end{scope}
+\path[myline,,shorter]  {[|*] (A1) edge[->] (B)}
+                              ([shift={(-2.25cm,0)}]B.south)  edge[->] ([shift={(-2.25cm,0)}]C.north)
+                              ([shift={(-2.25cm,0)}]C.south)  edge[->] ([shift={(-2.25cm,0)}]D.north)
+                          {[*|] (D)  edge[->] (E1)}
+                         ;
+\path[mylinedot,shorter]  {[|*] (A2) edge[->] (B) }
+                             ([shift={(0cm,0)}]B.south)  edge[->] ([shift={(0cm,0)}]C.north)
+                              ([shift={(0cm,0)}]C.south)  edge[->] ([shift={(0cm,0)}]D.north)
+                          {[*|] (D) edge[->] (E2)}
+                          (E1) edge[->] (E2)
+                         ;
+\path[mylinered,shorter]  {[|*] (A3) edge[->] (B') }
+                          {[*|] (D) edge[->] (E3)}
+                          (E2) edge[->] (E3)
+                         ;
+\end{tikzpicture}
+
+
+    
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+
+
+
+\clearpage
+nothing
+\clearpage
+
+
+
+
+
+\begin{figure}
+    \centering
+\begin{tikzpicture}[
+    node distance=1cm,
+    box/.style={rectangle, rounded corners, draw=black, thick, minimum width=5cm, minimum height=1cm, align=center}
+]
+
+% First column
+\node[box, fill=red!30] (c1b1) {Underlying Physics};
+\node[box, fill=blue!30, below=of c1b1] (c1b2)  {CLAS12 Experiment };
+\node[box, fill=green!30, below=of c1b2] (c1b3)  {\footnotesize Experimental Detector Signals};
+\node[box, fill=orange!30, below=of c1b3] (c1b4) {Decoding and Recon};
+\node[box, fill=orange!30, below=of c1b4] (c1b5) {Fiducial Filtering};
+\node[box, fill=orange!30, below=of c1b5] (c1b6) {Momentum Corrections};
+\node[box, fill=orange!30, below=of c1b6] (c1b7) {Event Selection};
+\node[box, fill=orange!30, below=of c1b7] (c1b8) {Experimental Events};
+
+
+
+% Second column
+
+\node[box, fill=yellow!30, right=.5cm of c1b2] (c2b2) {GEANT4 Simulation};
+\node[box, fill=purple!30, below=of c2b2] (c2b3) {\footnotesize Simulated Detector Signals};
+\node[box, fill=brown!30, below=of c2b3] (c2b4) {center Box 4};
+\node[box, fill=orange!30, below=of c2b4] (c2b5) {Fiducial Filtering};
+\node[box, fill=orange!30, below=of c2b5] (c2b6) {Momentum Corrections};
+\node[box, fill=orange!30, below=of c2b6] (c2b7) {Event Selection};
+\node[box, fill=orange!30, below=of c2b7] (c2b8) {Simulated Events}
+% Third column
+
+\node[box, fill=pink!30, right=5cm of c1b1] (c3b1) {Generated Physics Events};
+\node[box, fill=teal!30, right=5cm of c1b8] (c3b4) {Generated Events};
+
+% Arrows for first column
+\draw[->] (c1b1) -- (c1b2);
+\draw[->] (c1b2) -- (c1b3);
+\draw[->] (c1b3) -- (c1b4);
+
+% Arrows for second column
+\draw[->] (c2b2) -- (c2b3);
+\draw[->] (c2b3) -- (c2b4);
+
+% Arrows for third column
+\draw[->] (c3b1) -- (c3b4);
+\draw[->] (c3b1) -- (c2b2);
+\end{tikzpicture}
+
+
+\clearpage
+    
+\end{figure}
 
 
 For each kinematic bin the differential cross section can be written as:
@@ -21,9 +291,6 @@ $\delta$ can be obtained by using the following:
 $\delta$ and $\epsilon$ need to be properly calculated, but for a first pass we will ignore them so we have just
 
 
-\begin{equation}
-    \sigma = \frac{N_{meas}}{L}
-\end{equation}
 
 We can calculate the luminosity L through the following equation
 
@@ -53,7 +320,8 @@ $Q_{FCUP}$ - this must be measured and obtained from analysis. Typical runs at C
     \subsection{Classifier Based Event Selection}
 
 \section{Luminosity}
-
+    \input{Chapters/Ch4-BaseAnalysis/B_Luminosity/Luminosity}
+    
 \section{Configuration and Kinematics}
 
 \section{Binning}

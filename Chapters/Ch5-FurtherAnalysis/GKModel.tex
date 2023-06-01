@@ -2,6 +2,43 @@
 
 We compare the preliminary cross section to the model developed by S.V. Goloskokov and P. Kroll \cite{Goloskokov2010AnElectroproduction}. This model uses the handbag model to produce theoretical curves for specified sets of kinematic points. This model was implemented in the PARTONS framework \cite{Berthou2018PARTONS:Software} and was also used in the published CLAS6 result to compare with their experimental cross section, reproduced below in figure \ref{fig:oldres} \cite{Bedlinskiy2014ExclusiveAl.}.
 
+As discussed, the \xsec for this process can be expressed in terms of structure functions as 
+    \begin{equation*}
+         \recallLabel{eq:DVPiPCrossSection_theory}
+    \end{equation*}
+
+\section*{Notes on GK model from Kemal:}
+
+Thank you very much for your response. I include two short responses, below, as well as a third response/question that I hope you can read and respond to: 
+
+\begin{itemize}
+    \item Thank you for the reference about the Mandelstam function. I was afterwards able to also find reference to it here, where it was named Kallen Function. I haven't heard of either names before. Thanks! \href{https://en.wikipedia.org/wiki/K%C3%A4ll%C3%A9n_function}{Källén Function on Wikipedia}
+
+    \item Yes, I am using the code for $\pi^0$, so I do not believe any changes need to be made. I am just working from the single C++ file, since it is easier than getting set up with a full partons framework which looked like it had some overhead to setup and install.
+\end{itemize}
+
+\textbf{Important question:} I now understand that you took the most updated parameters from P Kroll that would best describe the JLab kinematics from the 2020 paper, and that these are different from the parameters available in 2013. My question to you is - are the parameters that are currently implemented in the GK model the best parameters for me to use (for calculating $\pi^0$ cross section at JLab CLAS12 10.6 GeV experiment)? Do you take into account any other experiments (such as work in hall A or C) for finding the parameters? To say it differently, how are optimal parameters chosen for this model?
+
+I would refrain myself speaking on behalf of the authors on that question. They might give you better insights into their model. But I can tell you my viewpoint. I think the GPDs should not be optimized for your data. What I mean is the following: since GPDs are universal functions, ideally there should not be multiple parameters for different experiments (so that we have the flexibility to choose among different parameter sets). Rather, the more data we get, the better parameters need to be determined and those parameters need to be unique for all experiments. In this regard, I would just use the latest parameters that the authors offer (assuming that they did a global analysis to tune those parameters). You could alternatively try to change the parameters to fit them to your data and suggest how your data will impact the extraction of the parameters.
+
+I hope it makes sense, otherwise, we could discuss it further.
+
+Sorry for the late reply. During the last few weeks, I had some other tasks to complete. I'll be happy to share my thoughts with you.
+
+\begin{enumerate}
+    \item I think the difference is just the different parameters used in separate works. The parameters of GPDs and their t-slope are not completely the same. At the time I wrote the code, I took the most updated parameters from P. Kroll (or parameters that he thought would best describe the JLab kinematics in Fig. 3 of \href{https://arxiv.org/pdf/2007.15677.pdf}{this paper}). So, I would not expect the same curves just because the GPDs in those works have different parameters.
+
+    \item The function $\Lambda$ is called the Mandelstam variable and somehow I could not find the generic expression online. But, I expressed the definition in my thesis (see Eq. 4.50 on page 129); \href{https://www.osti.gov/biblio/1881460}{this link} therein (Chapter 4) you can also see a more detailed implementation of the model. The value of 0.3894 comes from the conversion from $\text{GeV}^{-2}$ to mb.
+
+    \item Yes, the final code works for both $\pi^+$ and $\pi^0$ (I am not sure which one you use; if you use the one that you shared above, then it would work only for $\pi^0$. $\pi^+$ implementation can be found in the PARTONS v3. or I have the code for $\pi^+$ similar to the $\pi^0$ that you shared above). Their formulation is quite similar albeit with important differences. First of all, the $\pi^0$ production does not include the so-called pion-pole contribution (see Eq. 4.39 - 4.42 in my thesis). Moreover, their handbag contributions are slightly different. Their differences at the handbag level are discussed in Eq. 4.37 and 4.38 in my thesis.
+\end{enumerate}
+
+Just let me know if you need any further clarification; I'll be happy to address it.
+
+
+
+
+
 
 
 \begin{figure}[hbt]
