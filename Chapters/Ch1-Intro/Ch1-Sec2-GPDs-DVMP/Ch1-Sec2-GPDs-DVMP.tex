@@ -1,10 +1,99 @@
-
 \section{Process Background}
+
+    \begin{itemize}
+        \item tomography - 3d
+        \item wigner functions Wigner quasiprobability distribution aka Wigner function - violates Kolmogorov axioms as they have regions of negative probability density
+        \item gpd relation
+        \item dvpi relation
+        \item other measurements
+        \item Overview of this measurement
+    \end{itemize}
+    
+    'Tomography' comes from the Greek 'Tomos', meaning to section or slice
+
+
+    The term 'tomography' is derived from the Greek word 'tomos,' which translates to 'slice' or 'section.' It is a concept extensively applied in the realm of modern medical imaging. For instance, computed tomography (CT), a term many people are familiar with, involves the use of a set of X-rays to generate a three-dimensional reconstruction of bodily organs. This ability to visualize an object's internal structure without disruption opens up a plethora of applications in various fields, from medicine to material science. Building on this concept, 'proton tomography' represents a leap forward into the subatomic scale, harnessing nuclear reactions to reconstruct 3D parton distributions within a nucleon, the core building block of the atomic nucleus. This innovative technology serves as a bridge between the macroscopic world familiar to most, exemplified by CT scans, and the microscopic world of particle physics, providing unprecedented insights into the structure and properties of matter at its most fundamental level.
+
+
+    
     Discussion of Form Factors and genralized proton structure, Wigner Functions
 
-PAGE 245 OF FNPP FOR GDP STUFF
-        FNPP GPD discussion on page 232
-        
+
+volker proton pressure \cite{Burkert2018TheProton}
+
+will detmold phialia proton pressure theory \cite{Shanahan2019PressureProton}
+
+
+From FNPP: 
+In understanding the microscopic nature of matter, we rely on two main approaches. One can probe the spatial distribution of matter (charge or current) in a system through elastic scattering of electrons, photons, neutrons, etc. One measures the elastic form factors, which depend on the momentum transfer to the system, and then the Fourier transform of these form factors can provide information on the spatial distribution. Examples are the charge distribution in an atom and the atomic structure of a crystal. An alternative approach is to consider the distribution of constituents in momentum space by measuring deep-inelastic knockout. Examples of this approach include the proton distribution in nuclei measured via quasielastic electron scattering (see Chapter 16) and the distribution of atoms in a quantum liquid studied using neutron scattering. With some modifications to accommodate the relativistic nature of the system, both experimental approaches have been used to explore the interior of the nucleon. The elastic nucleon form factors have been measured with ever-increasing precision since the 1950s and at low momentum transfer (<< nucleon mass) where the nucleon recoil effect is small, the three-dimensional Fourier transform of the form factors is interpretable as the spatial charge and current distributions of quarks. On the other hand, the parton distributions measured in DIS are the longitudinal momentum distributions of the quarks and the gluons in the infinite momentum frame. Both observables have provided great insight into the structure of the nucleon, but both have deficiencies. The form factors contain no dynamical information on the constituents, such as their velocity and angular momentum. The momentum distributions provide no information on the spatial structure. More complete information about the microscopic structure lies in the correlation between momentum and spatial coordinates, i.e., simultaneous knowledge of a constituent's location and velocity. This knowledge is attainable for a classical system, for which one can define and study the phase-space distribution. For a quantum mechanical system, however, the notion of a phase-space distribution seems less useful because of the Heisenberg uncertainty principle: one cannot determine the position and conjugate momentum of a particle simultaneously with arbitrary precision. Nevertheless, the first quantum mechanical phase-space distribution was introduced by Wigner in 1932 and these distributions have been used in a number of areas, e.g., heavy-ion collisions, quantum molecular dynamics, signal analysis, etc.
+
+The notion of a correlated parton position-and-momentum distribution had not been systematically explored in QCD until a few years ago. The generalized parton distribution (GPD) is a one-body matrix element that combines the kinematics of both elastic form factors and parton distributions, and is measurable in hard exclusive processes. GPDs were introduced as objects with interesting perturbative QCD evolution, but were largely ignored because of unclear physical significance. They were rediscovered in the study of quark orbital motion and the spin structure of the nucleon in which the physics potential of the distributions began to surface.
+
+The quest to experimentally determine the GPDs has focused on deep-inelastic exclusive production of photons, mesons and lepton pairs. We consider briefly two experiments that have been extensively studied: deeply virtual Compton scattering (DVCS), in which a real photon is produced, and diffractive meson production. DVCS is cleaner, but the cross section is reduced by a factor of $1/\alpha$; meson production is easier to detect, but it is suppressed by factors of $1/Q^2$.
+
+As nucleon matrix elements, GPDs must be calculable in the fundamental theory. At present, our only way to compute, rather than model, QCD dynamics is lattice field theory. The physical significance of GPDs was first revealed in studying the spin structure of the nucleon. One can decompose the nucleon's spin as:
+
+
+
+\begin{equation}
+\frac{1}{2} = J_q(\mu) + J_g(\mu)
+\end{equation}
+
+where the $J_{q,g}$ are the contributions from the quarks and gluons, respectively. Both contributions are gauge-invariant but renormalization scale-dependent. The $J_{q,g}$ can be expressed as matrix elements of the QCD energy-momentum tensor $T_{\mu \nu}^{q,g}$.
+
+\begin{equation}
+J_{q,g}(\mu) = \langle P1/2 \left| \int dx(x \times T_{q,g})_z \right| P1/2 \rangle
+\end{equation}
+
+
+
+which can be extracted from the form factors of the quark and gluon parts of the $T_{\mu \nu}^{q,g}$. Taking the forward limit of the $\xi = 0$ component and integrating over $x$, one finds that the $A_{q,g}(0)$ give the momentum fraction of the nucleon carried by the quarks and gluons, respectively, i.e., [$A_q(0) + A_g(0) = 1$]. On the other hand, one finds that [Ji97]
+
+
+
+\begin{equation}
+J_{q,g}(\mu) = \frac{1}{2}[A_{q,g}(0) + B_{q,g}(0)]
+\end{equation}
+
+
+The matrix elements of the energy-momentum tensor provide the fractions of the nucleon spin carried by the quarks and gluons. Because the quark and gluon energy-momentum tensors are examples of twist-two, spin-two, helicity-independent operators, we immediately have the following sum rule for the GPDs
+
+\begin{equation}
+    \int \frac{d}{dx}[H_{q}(x, \tau, t) + E_{q}(x, \tau, t)] = A_{q}(t) + B_{q}(t)
+\end{equation}
+
+where the $\delta$ dependence is eliminated. If we extrapolate the sum rule to $t = 0$, the total quark contribution to the nucleon spin is obtained. The total quark contribution $J_q$ can be decomposed gauge invariantly into the quark spin $1/2\Delta\Sigma$ and the orbital contribution $L_q$. Extracting $J_q$ from knowledge of the GPDs and $\Delta\Sigma$, the quark orbital angular momentum can be determined. In this way, GPDs offer the potential to provide new insight into the spin structure of the nucleon.
+
+In conclusion, it is important to place the discussion here in the context of a broader theoretical framework. Partons inside the proton can be described by Wigner distributions in six-dimensions (three position and three momentum coordinates). Wigner distributions are the quantum-mechanical constructions that are closest to a classical probability density in phase-space. However, they are not positive definite and are termed quasi-probability distributions. They can be used to compute the expectation value of physical observables. Thus, they represent the maximal knowledge of the partonic structure. They are equivalent to knowing the complete wavefunction of partons inside the nucleon. The distribution $W(x, b_T, k_T)$ is the master Wigner distribution. Here, $b_T$ is the transverse position inside the nucleon and $k_T$ is the transverse momentum of the partons inside the nucleon. By integrating over the transverse position, one is left with transverse momentum distributions (TMDs), while by integrating over transverse momentum, one obtains impact parameter distributions, whose Fourier transform yields the GPDs. The regular parton densities discussed above as well as form factors are derived by subsequent integration.
+
+This modern, theoretical perspective has motivated an experimental program to image the three-dimensional structure of the proton using TMDs, GPDs, PDFs and form factors. Tomography of the nucleon is a major research thrust at the upgraded Jefferson Laboratory as well as a strong motivator for a future electron-ion collider.
+
+
+
+Transversity GPDs = helicity flip = chiral odd
+helicity conserving = chiral even GPDs, no T subscript. 
+
+From \cite{Amaldi1979Pion-electroproduction}, Gaama is of electromagnetic origin and contains the effect of the electron-photon vertex and the photon propagator. It can be interpreted as the number of virtual photons per scattered electron 
+
+Epsilon can be interpreted as the ratio of transverse to longitudinally polarized photons
+
+
+Twist-2 and twist operaator expansion
+
+
+attempt to understand pion production \cite{Goloskokov2010AnElectroproduction}
+Burkardt's 2007 work investigates Generalized Parton Distributions (GPDs) \cite{Burkardt2007GPDs0}.
+Jaffe deep physics \cite{Jaffe2022DeepPhysics} 
+Lee's design of beams is discussed in detail \cite{Lee2019DesignBeam}.
+Goloskokov's 2011 work delves into transversity of mesons \cite{Goloskokov2011TransversityMesons}.
+Ji discusses gauge-invariant spin in his 1997 study \cite{Ji1997Gauge-InvariantSpin}.
+Epstein's 2020 work delves into measurements at the MeV scale \cite{Epstein2020MeasurementMeV}.
+
+
+Short explanation regarding the connection between “t” dependence and impact parameter.
+section 2.3.2 (page 19).
+
+
     Now discussion of DVEP:
 GPDs, Wigner functions
 relationships all the way around
@@ -113,55 +202,103 @@ cross-sections? We need numbers to make the case to cook the RGK data
 Well over an order of magnitude more statistics at CLAS12 compared to CLAS6
 
 
-invariant mass is W 
-
-GPDs combine the kinematics of both elastic form factors and parton distributions. Andrey references 5, 6, and 7
-
-
-\subsection{Generalized Parton Distributions}
-
-          The cross-section for DV$\pi^0$P \eqref{DVPiPCrossSection_theory} can be theoretically linked in terms of structure functions to GPDs, which describe the 3D structure of the nucleon.
+There are 4 *twist-2* quark GPDs for heliicty conserving processes, and 4 for helicity flipping processes. Some questions:
+The 8 GPDs are divided into: 4 with subscript T and 4 without. This notation is mostly clear, as T stands for transversity and refers to helicitiy flipping.  4 called "H" and 4 called "E".  4 with a "~" and 4 without. 
 
 
-          
+
+
+
+
+
+
+THE GPDs H and E are independent of quark helicity and are therefore called unpolarized GPDs whereas Htilde and Etilde are dependent of the quark helicity and are called polarized GPDs
+
+H and Htilde conserve proton spin, while E and Etilde flip the proton spin (overall helicity is not conserved - the proton changes helicity but the quarks do not) 
+
+Modified from DVCS Guegan Thesis
+
+
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex (i1) {$e^{-}$};
+        \vertex[right=1cm of i1] (v1);
+        \vertex[below=2cm of i1] (i2) {$p$};
+        \vertex[right=1cm of i2] (v2);
+        \vertex[right=2cm of v1] (o1) {$e^{-}$};
+        \vertex[right=2cm of v2] (o2) {$p$};
+        \vertex[above right=1cm and 1cm of v2] (v3);
+        \vertex[right=1cm of v3] (o3) {$\bar{q}$};
+        \vertex[below right=1cm and 1cm of v3] (o4) {$q$};
+
+        \diagram* {
+            (i1) -- [fermion] (v1) -- [fermion] (o1),
+            (i2) -- [fermion] (v2) -- [fermion] (o2),
+            (v1) -- [photon, edge label=$\gamma^{*}$] (v2),
+            (v2) -- [fermion] (v3),
+            (v3) -- [fermion] (o3),
+            (v3) -- [anti fermion] (o4),
+        };
+    \end{feynman}
+\end{tikzpicture}
+
+%Deeply (Q2 >> M^2) Inelastic (W2 >>M2) Scattering
+
+
+
+\subsection{Generalized Parton Distributions}\label{sec:ch1sec2GPDs}
+
+H = quark polarization same as nucleon
+E = quark polarization different than nucleon
+
+
+    There are 8 GPDs, 4 correspond to helicity conserving (chiral even) processes and 4 correspond to helicity flipping (chiral odd) processes: \GPDH,  \GPDE,  \GPDHtilde,  and \GPDEtilde  \quad for chiral even, and \GPDHT,  \GPDET,  \GPDHTtilde, and \GPDETtilde \quad (\GPDETbar = 2*\GPDHTtilde+\GPDET is commonly used)
+    
+        %\textcolor{red}{    Why do the scrtucture combine in the way they do with the coefficents of cos phi terms and epsilons? - insert old links from papers from 1980s}
+        
+        \begin{table}[H]
+            
+            \centering
+            \begin{tabular}{@{} *{4}{c} @{}}
+                    \headercell{Nucleon \\ Polarization} & \multicolumn{3}{c@{}}{Quark Polarization}\\
+                    \cmidrule(l){2-4}
+                    & U & \textcolor{white}{lllll}L & T    \\ 
+                    \midrule
+                      U  & \GPDH &               *                    &  \GPDETbar = 2*\GPDHTtilde+\GPDET  \\
+                      L  &    *                &  \textcolor{white}{llll}\GPDHtilde &     \GPDETtilde?                              \\
+                      T  & \GPDE &               \GPDEtilde ?                    &  \GPDHT,\GPDHTtilde \\
+                \end{tabular}\\
+    
+                \label{GPDsPolarization}
+                \caption[GPDs Across Nucleon and Quark Polarizations.]{GPDs Across Nucleon and Quark Polarizations.  * forbidden by parity.}
+        \end{table}
+
+          The cross-section for DV$\pi^0$P \eqref{eq:DVPiPCrossSection_theory} can be theoretically linked in terms of structure functions to GPDs, which describe the 3D structure of the nucleon.
+
     
      \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
-           {\frac{d^4\sigma_{\gamma^*p \rightarrow p'\pi^0}}{dQ^2dx_Bdtd\phi_{\pi}} =
+           {\frac{d^4\sigma_{ep \rightarrow ep'\pi^0}}{dQ^2dx_Bdtd\phi_{\pi}} =
          \Gamma (Q^2, x_B, E)
          \frac{1}{2\pi}
          \left\{ \left(  \textcolor{sigmaT}{\frac{d\sigma_T}{dt}}+\epsilon  \textcolor{sigmaL}{\frac{d\sigma_L}{dt}} \right)+
          \epsilon cos(2\phi)  \textcolor{sigmaTT}{\frac{d\sigma_{TT}}{dt}} + 
          \sqrt{2\epsilon(1+\epsilon)} cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}}
      \end{equation}      \myequations{  \quad  DV$\pi$P Cross Section Decomposition}
-    
 
 
+     Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux}, $\epsilon$ is the virtual photon polarization \eqref{eq:virtualphotonpolarization}, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT}
 
-    There are 8 GPDs, 4 correspond to helicity conserving (chiral even) processes and 4 correspond to helicity flipping (chiral odd) processes: \GPDH,  \GPDE,  \GPDHtilde,  and \GPDEtilde  \quad for chiral even, and \GPDHT,  \GPDET,  \GPDHTtilde, and \GPDETtilde (\GPDETbar = 2*\GPDHTtilde+\GPDET is commonly used)
+In the end, H and E encloses the d.o.f in Matrix Elements like as Pauli and Dirac FF do. The tilde ones are about axial OPE, which is not trivial at the tree-level EM elastic interaction. 
 
-    \textcolor{red}{    Why do the scrtucture combine in the way they do with the coefficents of cos phi terms and epsilons? - insert old links from papers from 1980s}
-    
-    \begin{table}[H]
-        
-        \centering
-        \begin{tabular}{@{} *{4}{c} @{}}
-                \headercell{Nucleon \\ Polarization} & \multicolumn{3}{c@{}}{Quark Polarization}\\
-                \cmidrule(l){2-4}
-                & U & \textcolor{white}{lllll}L & T    \\ 
-                \midrule
-                  U  & \GPDH &                                   &  \GPDETbar \\
-                  L  &                    &  \textcolor{white}{llll}\GPDHtilde &                                   \\
-                  T  & \GPDE &                                   &  \GPDHT,\GPDHTtilde \\
-            \end{tabular}\\
+    \begin{equation}\label{eq:virtualphotonflux}
+                 \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B^3}\frac{1}{1-\epsilon}
+    \end{equation}\myequations{Virtual Photon Flux}
 
-            \label{GPDsPolarization}
-            \caption{GPDs Across Nucleon and Quark Polarizations}
-    \end{table}
-    
-   
-    And the structure functions can be written as:
+    \begin{equation}\label{eq:virtualphotonpolarization}
+        \epsilon = \frac{1 - y - \frac{Q^2}{4E^2}}{1 - y + \frac{y^2}{2} + \frac{Q^2}{4E^2}}
+    \end{equation}\label{Virtual Photon Polarization}
 
-    \begin{equation}
+ \begin{equation}\label{eq:sigmaL}
          \textcolor{sigmaL}{\frac{d\sigma_{L}}{dt}} = 
         \frac{4\pi\alpha}{kQ^2}\left\{ \left( 1 - \xi^2 \right) 
         \lvert \langle \GPDHtildeEQ \rangle \rvert ^2 
@@ -169,7 +306,7 @@ GPDs combine the kinematics of both elastic form factors and parton distribution
         \lvert \langle \GPDEtildeEQ \rangle \rvert ^2  \right\}
     \end{equation} 
 
-    \begin{equation}
+    \begin{equation}\label{eq:sigmaT}
         \textcolor{sigmaT}{\frac{d\sigma_{T}}{dt}} = 
         \frac{2\pi\alpha \mu_{\pi}^2}{kQ^4}
         \left\{ \left( 1 - \xi^2 \right) 
@@ -178,7 +315,7 @@ GPDs combine the kinematics of both elastic form factors and parton distribution
         \lvert \langle \GPDETbarEQ \rangle \rvert ^2  \right\}    
     \end{equation} 
     
-    \begin{equation}
+    \begin{equation}\label{eq:sigmaLT}
         \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} = 
         \frac{4\pi\alpha \mu_{\pi}}{\sqrt{2}kQ^3}
         \xi\sqrt{1-\xi^2}
@@ -190,53 +327,65 @@ GPDs combine the kinematics of both elastic form factors and parton distribution
      \end{equation} 
     
     
-    \begin{equation}
+    \begin{equation}\label{eq:sigmaTT}
         \textcolor{sigmaTT}{\frac{d\sigma_{TT}}{dt}} = 
         \frac{4\pi\alpha \mu_{\pi}^2}{kQ^4}
         \frac{-t'}{16m^2}
         \langle \GPDETbarEQ \rangle^2   
     \end{equation} 
-        
-    
 
-    and epsilon is... 
-    
-    and t' stands for.. t - $t_0$ where $t_0 = \frac{-4m^2\xi^2}{1-\xi^2}$
-    
-    
-    Where the skewness parameter is $\xi = \frac{x_B}{2-x_B}$ or whatever
-    
 
-    The bracket $\langle \tilde{F} \rangle$ is the convolution of a GPD and an appropriate subprocess amplitude:
+
+    
+    The terms involved in these expressions are:
+   
+    \begin{itemize}
+    \item t' = t - $t_0$ where $t_0 = \frac{-4m^2\xi^2}{1-\xi^2}$
+    \item Skewness $\xi = \frac{x_B}{2-x_B}$
+    \item   The bracket $\langle \tilde{F} \rangle$ is the convolution of a GPD and an appropriate subprocess amplitude:
     $
-    \langle \tilde{F} \rangle =  \Sigma_{\lambda} \int_{-1}^{1} d\bar{x}H_{0\lambda,0\lambda}\left( \bar{x}, \xi, Q^2, t=0  \right)\tilde{F}\left( \bar{x}, \xi, Q^2, t  \right)\   
-    $ 
-
-
-    Where $\lambda$ is the unobserved helicites of the partons participaing in the subprocess
-    
-    
-    
-    
-    And k is the phase space factor given as 
-     \scalebox{0.7}{%
+    \langle \tilde{F} \rangle =  \Sigma_{\lambda} \int_{-1}^{1} d\bar{x}H_{0\lambda,0\lambda}\left( \bar{x}, \xi, Q^2, t=0  \right)\tilde{F}\left( \bar{x}, \xi, Q^2, t  \right)\  
+    $
+    \begin{itemize}
+        \item $\lambda$ is the unobserved helicites of the partons participating in the subprocess 
+    \end{itemize}
+    \item Phase space factor \scalebox{1}{%
      $           k = 16\pi \left( W^2 -m^2)\sqrt{\Lambda(W^2,-Q^2,m^2)} \right)$ 
     }
+    \begin{itemize}
+    \item $\Lambda(W^2,-Q^2,m^2)$ is the Källén function: $W^4 + Q^4 + m^4 + 2W^2Q^2 + 2Q^2m^2 - 2W^2m^2$
+    \end{itemize}
     
-        Where $\Lambda(W^2,-Q^2,m^2)$ is the Källén function and $\mu_{pi}$ is the reduced pion mass given as 
-       \scalebox{0.7}{%
+    \item Reduced pion mass     \scalebox{1}{%
       $         \mu_{\pi^0} = \frac{m^2_{\pi^0}}{m_u+m_d}$ 
     }
-    $m_u$ and $m_d$ are respective masses of up and down quarks.
+    \begin{itemize}
+        \item   $m_u$ and $m_d$ are respective masses of up and down quarks
+    \end{itemize}
+    \end{itemize}
 
+K\"{a}ll\'{e}n function,
+    
+    
+    
+    
+
+  
+
+
+    
+    
+    
+    
+
+
+    
 
         Include proton pressure distribution plot
 
       
 
-    \begin{equation}
-                 \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B^3}\frac{1}{1-\epsilon}
-    \end{equation}
+
 In addition to collinear momentum distribution of partons inside the
 nucleon, GPDs also encode the distribution of partons in the plane transverse to
 the nucleons momentum in the infinite momentum frame [58]. Moreover, their
@@ -249,7 +398,7 @@ Only valence quarks contribute electroproduction of uncharged pions.
 
     \subsection{Deeply Virtual Exclusive Processes}
 
-    \subsection{Deeply Virtual Neutral Pion Production}
+\subsection{Deeply Virtual Neutral Pion Production}
 
 
  DVMP is sensitive to chiral odd GPDs, distinguishing it from DVCS as a GDP probe because why? Because something involving photon helicity and pion helicity, I forget exactly though
@@ -321,7 +470,7 @@ Only valence quarks contribute electroproduction of uncharged pions.
 
 
 Several weeks ago I remarked in our meeting that I was having difficulty finding an explanation for the specific form of the DVMP cross section written in terms of structure functions (example below). Papers normally state that the relation holds without justification. I tried to follow the papertrail for the origin but so far have not ultimately been successful. Igor has kindly found a paper from 1992 (Dreschsel and Tiator pdf (iop.org) which makes reference (page 460, eq 18 - 19) \cite{Dreschsel1992ThresholdNucleons}
-\cite{Bedlinskiy2014ExclusiveAl.}
+\cite{Bedlinskiy2014ExclusiveCLAS}
 
 
 to Donnachie and Shaw (Generalized Vector Dominance 1978) \cite{Donnachie1978GeneralizedDominance}
@@ -449,8 +598,7 @@ By inspecting table below, we can see what this really amounts to, is the trento
 Official Repo: https://github.com/robertej19/clas12DVPiP
 GK model link: 
 
-\includegraphics[width=0.9\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/phi_math_1.jpg}       
-            
+         
 
 
 Low t-data are very important for the meson exclusive physics. The GPD interpretation works only in the region -t/Q2<1. From this point of view the central detector will not only  increase the total statistics by a factor more than 2 but will add the valuable data with low t.
@@ -478,5 +626,79 @@ Well over an order of magnitude more statistics at CLAS12 compared to CLAS6
     Puzzle Origin: How is quark contribution to proton spin measured?
         Do DIS with a polarized lepton on a polarized proton. The trick is to polarize the proton target in both directions, i.e. run the experiment with the target spin up and again with target spin down. Then measure the asymmetry of the scattered leptons. The EMC collaboration did this with a polarized muon simultaneously on two separate targets with opposite-sign spin. Paper is \href{https://www-sciencedirect-com.libproxy.mit.edu/science/article/pii/0550321389900898?via\%3Dihub}{Here}. To measure the spin contribution of the gluons, you collide two proton beams, first with the spins aligned and then anti-aligned. This was done at RHIC a few years back (relative to 2020). 
 
+\section{Overview of Measurement and Analysis}\label{sec:anaflow}
 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/scaling.png}
+    \caption{Inclusive cross section exhibits so far no extra form factor - this provides limits on SUSY, extra dimensions, quark radius, leptoquarks, etc. HERA showed quarks are pointlike down to proton radius / 100. Modified from \cite{Klein2005ResolvingHERA}}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[
+        node distance=1cm,
+        box/.style={rectangle, rounded corners, draw=black, thick, minimum width=5cm, minimum height=1cm, align=center},
+        bigbox/.style={rectangle, rounded corners, draw=black, thick, minimum width=10.5cm, minimum height=1cm, align=center},
+        biggestbox/.style={rectangle, rounded corners, draw=black, thick, minimum width=16cm, minimum height=1cm, align=center}
+    ]
+
+
+    % First column
+    \node[box, fill=blue!30] (c1b1) {\hyperref[sec:ch1sec2GPDs]{Underlying Physics}};
+    \node[box, fill=blue!30, below=of c1b1] (c1b2)  {\hyperref[sec:clas12exp]{CLAS12 Experiment}};
+    \node[box, fill=blue!30, below=of c1b2] (c1b3)  {\footnotesize Experimental Detector Signals};
+    \node[bigbox, fill=orange!30, below=of c1b3, xshift=2.75cm] (c1b4)  {\hyperref[sec:decrec]{Decoding and Reconstruction}};
+    \node[bigbox, fill=orange!30, below=of c1b4] (c1b5)  {\hyperref[sec:filtering]{Fiducial Filtering and File Conversion}};
+    \node[box, fill=orange!30, below=of c1b5,  xshift=-2.75cm] (c1b6) {\hyperref[sec:momcorr]{Momentum Corrections}};
+    \node[bigbox, fill=orange!30, below=of c1b6, xshift=2.75cm] (c1b7)  {\hyperref[sec:eventselection]{Event Selection}};
+    \node[box, fill=blue!30, below=of c1b7,  xshift=-2.75cm] (c1b8) {Experimental Events};
+    
+    % Second column
+    
+    \node[box, fill=red!30, right=.5cm of c1b2] (c2b2) {\hyperref[sec:ch3gemc] {\footnotesize GEANT4 Simulation}};
+    \node[box, fill=red!30, below=of c2b2] (c2b3) {\footnotesize Simulated Detector Signals};
+    \node[box, fill=orange!30, right=0.5cm of c1b6] (c2b6) {\hyperref[sec:momsmear]{Momentum Smearing}};
+    \node[box, fill=red!30,  right=0.5cm of c1b8] (c2b8) {Simulated Events};
+
+    % Third column
+    \node[box, fill=green!30, right=6cm of c1b1] (c3b1) {\hyperref[sec:ch3generator] {\footnotesize Computational Event Generator}};
+    \node[box, fill=green!30, right=6cm of c1b8] (c3b4) {Generated Events};
+
+    % Combined final column
+    \node[biggestbox, fill=blue!30, below=of c2b8] (ccb9) {\Xsec measurement and further analysis};
+    
+    
+    % Arrows for first column
+    \draw[->] (c1b1) -- (c1b2);
+    \draw[->] (c1b2) -- (c1b3);
+    \draw[->] ([xshift=0cm]c1b3.south) -- ([xshift=0cm]c1b3.south |- c1b4.north);
+     
+    \draw[->] (c1b4) -- (c1b5);
+    \draw[->] ([xshift=0cm]c1b6.north |- c1b5.south) -- ([xshift=0cm]c1b6.north);
+    \draw[->] ([xshift=0cm]c1b6.south) -- ([xshift=0cm]c1b6.south |- c1b7.north);
+    \draw[->] ([xshift=0cm]c1b8.north |- c1b7.south) -- ([xshift=0cm]c1b8.north);
+    
+    % Arrows for second column
+    \draw[->] (c2b2) -- (c2b3);
+    \draw[->] ([xshift=0cm]c2b3.south) -- ([xshift=0cm]c2b3.south |- c1b4.north);
+    \draw[->] ([xshift=0cm]c2b6.north |- c1b5.south) -- ([xshift=0cm]c2b6.north);
+    \draw[->] ([xshift=0cm]c2b6.south) -- ([xshift=0cm]c2b6.south |- c1b7.north);
+    \draw[->] ([xshift=0cm]c2b8.north |- c1b7.south) -- ([xshift=0cm]c2b8.north);
+    
+    
+    % Arrows for third column
+    \draw[->] (c3b1) -- (c3b4);
+    \draw[->] (c3b1) -- (c2b2);
+
+    \draw[->] (c3b4) -- (ccb9);
+    \draw[->] (c1b8) -- (ccb9);
+    \draw[->] (c2b8) -- (ccb9);    
+    \end{tikzpicture}
+    \label{fig:ProcessFlowchart}
+    \caption[Analysis Flowchart]{Analysis Processing Steps. Details on each section are hyperlinked in each box.}
+\end{figure}

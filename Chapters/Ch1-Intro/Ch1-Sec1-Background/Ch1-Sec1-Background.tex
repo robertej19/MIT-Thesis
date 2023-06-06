@@ -13,7 +13,7 @@
             d = \frac{\lambda}{2n\sin{\theta}}
         \end{equation}\myequations{\quad Diffraction Limit}
         
-        For visible light microscope systems, $\lambda$ $\sim$ 500 nm, and so the minimum resolvable feature size is approximately \textit{d} $\sim$ 250 nm. Techniques exist to extend the resolution size by approximately an order of magnitude, e.g. expansion microscopy \cite{Chen2015ExpansionMicroscopy} or Near-Field Scanning Optical Microscopy \cite{Ma20216nmSource}, but non-visible-light probes are needed for scales below $\sim$ 10 nm. 
+        For visible light microscope systems, $\lambda$ $\sim$ 500 nm, and so the minimum resolvable feature size is approximately \textit{d} $\sim$ 250 nm. Techniques exist to extend the resolution size by approximately an order of magnitude, e.g. expansion microscopy \cite{Chen2015ExpansionMicroscopy} or Near-Field Scanning Optical Microscopy \cite{Ma20216Source}, but non-visible-light probes are needed for scales below $\sim$ 10 nm. 
 
         
         %good guide: https://www.thermofisher.com/us/en/home/global/forms/industrial/backscattered-electrons-sem.html
@@ -21,7 +21,7 @@
         % Comprehensive book on electron microscopes: https://link.springer.com/book/10.1007/978-0-387-76501-3
         % Details on how to get beyond the diffraction limit with special tricks https://advanced-microscopy.utah.edu/education/super-res/
 
-        In particular, the de Broglie relationship \ref{eq:deBroglie} \cite{Broglie1924XXXV.Quanta/i} states that the wavelength $\lambda$ of a particle is inversely proportional to its momentum \textit{p}, with \textit{h} being Planck's constant. 
+        In particular, the de Broglie relationship \ref{eq:deBroglie} \cite{Broglie1924AQuanta} states that the wavelength $\lambda$ of a particle is inversely proportional to its momentum \textit{p}, with \textit{h} being Planck's constant. 
         
             \begin{equation}\label{eq:deBroglie}
                \lambda = \frac{h}{p}
@@ -97,7 +97,7 @@
             Compared with Mott Scattering, there are two differences in this formula: The $\frac{E_{e'}}{E_{beam}}$ term in the scattering cross section comes from the electron losing energy to the proton's final state kinetic energy (no longer fixed), and the term proportional to $\sin^2(\theta/2)$ is due to a purely magnetic spin-spin interaction. 
 
 
-            \indent If the proton were a point, then Eq. \ref{eq:FullElastic} would agree with experiment for all electron scattering energies. Instead, deviations are observed as we increase the beam energy. To account for this structure, we need to include two form factors, $G_E(Q^2)$ - related to the distribution of charge, and $G_M(Q^2)$, related to the distribution of the magnetic moment inside the proton. In the low-$Q^2$ limit, these form factors are the Fourier transforms of the charge an magnetic moment distributions as in Eq. \ref{eq:GE} and \ref{eq:GM}, reducing to the charge and the magnetic moment of the proton in the $Q^2$ = 0 limit. %but the carryover is not exact in general due to being functions of the 4-momenta, instead of 3 momenta. E.g.:
+            \indent If the proton were a point, then Eq. \ref{eq:FullElastic} would agree with experiment for all electron scattering energies. Instead, deviations are observed as we increase the beam energy. To account for this structure, we need to include two form factors, $G_E(Q^2)$ - related to the distribution of charge, and $G_M(Q^2)$, related to the distribution of magnetism inside the proton. In the low-$Q^2$ limit, these form factors are the Fourier transforms of the charge an magnetic moment distributions as in Eq. \ref{eq:GE} and \ref{eq:GM}, reducing to the charge and the magnetic moment of the proton in the $Q^2$ = 0 limit. %but the carryover is not exact in general due to being functions of the 4-momenta, instead of 3 momenta. E.g.:
 
         \begin{equation}\label{eq:GE}
              G_E(Q^2) \approx G_E(q^2) = \int e^{iq\cdot r} \rho (r) d^3r  \quad \quad    G_E(0) = \int  \rho (r) d^3r = 1
@@ -130,11 +130,18 @@
             %Also something about this is only valid due to angular momentum preservation for 1 photon exchange. 
 
 
+
+
+
+
     \subsection{Inelastic Scattering and Parton Distribution Functions}
 
-        Elastic scattering can be defined as interactions where the target stays intact; specifically, the variable $W=p_p+q$ is the four-momentum of the outgoing struck target, where elastic scattering satisfies the condition $W^2 =m_p^2$. If $W^2 > m_p^2$, we instead have inelastic scattering, written as ep$\rightarrow$e'X, where X stands for some outgoing hadronic system, as shown in the Feynman diagram in Fig. \ref{fig:FeynmanInelastic}.    
+        Elastic scattering can be defined as interactions where the target stays intact; specifically, the variable W is the invariant mass of the outgoing struck target \eqref{eq:W}, where elastic scattering satisfies the condition $W^2 =m_p^2$. If $W^2 > m_p^2$, we instead have inelastic scattering, written as ep$\rightarrow$e'X, where X stands for some outgoing hadronic system, as shown in the Feynman diagram in Fig. \ref{fig:FeynmanInelastic}.    
 
-
+        \begin{equation}\label{eq:W}
+            W^2 \equiv (p_p + q)^2 = (p_p + (p_e-p_{e'}))^2
+        \end{equation}\myequations{\quad Outgoing Hadronic System Invariant Mass W}
+          
 
     
         \begin{figure}[ht]
@@ -144,7 +151,7 @@
             \label{fig:FeynmanInelastic}
         \end{figure}
 
-        The cross section for inelastic scattering has several peaks at various proton resonances, as indicated in the top sketch of Fig. \ref{fig:ScatteringvsW}. Continuing to higher energy transfers we reach the `Deep Inelastic Scattering` regime, defined by kinematics as $Q^2$ $>$ 1 GeV$^2$ and W$^2$ $>$4 GeV$^2$.
+        The cross section for inelastic scattering has several peaks at various proton resonances, as indicated in the top sketch of Fig. \ref{fig:ScatteringvsW}. Continuing to higher energy transfers we reach the `Deep Inelastic Scattering` (DIS) regime, defined by kinematics as $Q^2$ $>$ 1 GeV$^2$ and W$^2$ $>$4 GeV$^2$. Note that in the DIS process, the proton is smashed apart, yielding many subparticles. Other high-energy inelastic processes where the proton is left intact will be discussed in section \ref{sec:ch1sec2GPDs}. 
 
         \begin{figure}[ht]
             \centering
@@ -157,15 +164,21 @@
         Since we remove the constraint that the mass of the final state is the proton mass, we now have one extra degree of freedom, i.e., we need at least 2 variables to describe scattering here. Convenient choices and the squared four-momentum transfer of the virtual photon $Q^2$ and Bjorken X $x_B$, defined in Eq. \ref{eq:xB}. $x_B$ is a measure of elasticity: $x_B$= 1 for elastic scattering. It is useful in that it can also be interpreted as the fraction of proton momentum carried by the struck quark in the infinite momentum frame.       %Think of Xb as the ratio of momentum transfer to energy transfer. 
 
         \begin{equation}\label{eq:xB}
-            x = \frac{Q^2}{2p_p\cdot q} = \frac{Q^2}{Q^2+W^2-m_p^2}
+            x_B \equiv \frac{Q^2}{2p_p\cdot q} = \frac{Q^2}{Q^2+W^2-m_p^2}
         \end{equation}\myequations{\quad Bjorken X}
-          
+
+
         Another useful quantity is \textit{y}, which is a measure of the inelasticity of the scattering. It is the fractional energy lost by the electron in the scattering process, where y=0 is for perfectly elastic collisions, and is given by Eq. \ref{eq:y}
         
         \begin{equation}\label{eq:y}
-            y = \frac{p_p \cdot q}{p_p \cdot p_e} = \frac{\nu}{E_{beam}} =  1 - \frac{E_{e'}}{E_{beam}}
+            y \equiv \frac{p_p \cdot q}{p_p \cdot p_e} = \frac{\nu}{E_{beam}} =  1 - \frac{E_{e'}}{E_{beam}} 
         \end{equation}\myequations{\quad Inelasticity y}
 
+        Where $\nu$ is the energy transferred in the collision \eqref{eq:nu}. 
+        \begin{equation}\label{eq:nu}
+            \nu = \frac{Q^2}{2*x_B*m_p}
+        \end{equation}\myequations{\quad Energy Transfer $\nu$}
+        
 
         With these definitions, we can write the differential cross section for inelastic scattering. Note that the general formula for the differential cross section for elastic scattering, Eq. \ref{eq:rosenbluth} can be re-written in explicitly Lorentz-invariant form as in Eq. \ref{eq:rosen-lorentz}.
         %as shown in Eq. \ref{eq:InelasticDiffCross}
@@ -183,7 +196,8 @@
        \myequations{\quad   Lorentz-invariant Rosenbluth Scattering Cross Section}
 
 
-        Experiments in the 1960s on deep inelastic scattering (DIS) indicated that the structure functions $F_1(x_B,Q^2)$ and $F_2(x_B,Q^2)$ were nearly independent of $Q^2$, a feature known as Bjorken scaling \cite{Bjorken1969InelasticNucleon}. This indicated scattering was occurring off of point-like constituents - current experiment results provide a constraint on the maximum radius of these constituent to be at most $10{-18}$ m \cite{Thomson2013ModernPhysics}. 
+        Experiments in the 1960s on DIS indicated that the structure functions $F_1(x_B,Q^2)$ and $F_2(x_B,Q^2)$ were nearly independent of $Q^2$, a feature known as Bjorken scaling \cite{Bjorken1969InelasticNucleon}. This indicated scattering was occurring off of point-like constituents - current experiment results provide a constraint on the maximum radius of these constituent to be at most $10{-18}$ m \cite{Thomson2013ModernPhysics}. 
+
 
         Secondly, DIS results indicated the two structure functions could be expressed as $F_2(x_B) = 2*x_B*F_1(x_B)$, named the Callan-Gross relation. This relationship can be explained if the electron is scattering off of spin-half point-like particles inside the proton, which combined with Bjorken scaling to given strong evidence for the existence of quarks inside the proton, and gave motivation for the development of the parton model \cite{Feynman1969VeryHadrons}.
         The parton model connects the experimentally measurable structure functions to Parton Distribution functions which describe the distribution of proton longitudinal momentum amongst its constituents. Specifically, a PDF $q_i(x_B)$ describes the probability density of finding a parton carrying a longitudinal momentum fraction in the interval ($x_B$, $x_B + dx_B$). The relationship between PDFs and structure functions is given by Eq. \ref{eq:PDFs}, where $Q_i$ is the charge of each quark.
@@ -199,7 +213,7 @@
         
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.7\textwidth]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/inelastic-ep/protF2.png}
+            \includegraphics[width=0.5\textwidth]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/inelastic-ep/protF2.png}
             \caption[Proton Structure Function $F^p_2$]{The proton structure function $F^p_2$, measured at various experiments as listed, all with $W^2>3.5 GeV^2$. $F^p_2$ values have been multiplied by 2$^{ix}$ for visual purposes. From \cite{Zyla2020ReviewPhysics}}
             \label{fig:HERA}
         \end{figure}

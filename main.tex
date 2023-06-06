@@ -25,6 +25,7 @@
 %% Page Intentionally Left Blank'', use the ``leftblank'' option, as
 %% above. 
 
+%aps,prd,longbibliography]%{revtex4-1}
 \documentclass[12pt,twoside]{mitthesis}
 \usepackage{lgrind}
 %% These have been added at the request of the MIT Libraries, because
@@ -38,13 +39,15 @@
 \usepackage{amsmath} % for \boxed and \smash[b] macros
 \usepackage{booktabs}% for \midrule and \cmidrule macro
 \usepackage{braket}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
 \usepackage{lmodern}
 \usepackage{xpatch}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{listings}
-\usepackage{tocbibind}
+%\usepackage{tocbibind}
 \usepackage{xpatch}
 \usepackage{slashed}
 \usepackage{adjustbox}
@@ -53,7 +56,14 @@
 %\usepackage{gensymb} %causes issues with degree command
 \usepackage{tocloft}
 \usepackage{float}
-\usepackage{notoccite}
+%\usepackage{notoccite}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{Chapters/Postamble/bib/references.bib}
+
+%\usepackage[style=authoryear]{biblatex}
+
+%include if want to check unused referneces and uncomment nocite{*}
+%\usepackage{refcheck}
 
 
 \usepackage{tikz}
@@ -98,12 +108,13 @@
 
 
 
-\usepackage[square,numbers,sort&compress]{natbib}
+%\usepackage[square,numbers,sort&compress]{natbib}
 
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{5}
 
-\bibliographystyle{apsrev}
+%\bibliographystyle{ieeetr}
+%\bibliographystyle{apsrev}
 %\usepackage{natbib}
 %\setcitestyle{numbers}
 %\usepackage{apacite}
@@ -138,12 +149,14 @@
 \usepackage{fancyhdr}
 
 
+
 %%%%%% COMMENT THIS SECTION OUT IF YOU DON'T WANT TOC LINK IN EACH PAGE
 \fancyhead{} % clear all header fields
 \renewcommand{\headrulewidth}{0pt} % no line in header area
 \fancyfoot{} % clear all footer fields
 %\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
-\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC}}
+%\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC}}
+\fancyfoot[C]{\thepage \quad \quad \hyperref[sec:anaflow]{TOC}}
 %\fancyhf{}
 %\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
@@ -160,8 +173,8 @@
 %% Krishna Sethuraman (1990).
 
 %\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
-\def\all{all}
-\ifx\files\all \typeout{Including all files.} \else %\typeout{Including only \files.} \includeonly{\files} \fi
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else %\typeout{Including only \files.} \includeonly{\files} \fi
 
 \begin{document}
 
@@ -212,7 +225,7 @@
 \newpage
 \newlistof{myequations}{equ}{\quad \listequationsname}
 \listofmyequations
-\addcontentsline{toc}{chapter}{\quad   \listequationsname}
+\addcontentsline{toc}{chapter}{   \listequationsname}
 
 
 
@@ -220,34 +233,34 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\iffalse
+
 \chapter{Introduction} \label{Chapter:Intro}
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
-
-TO do:
-Include description of equations in paper not just the numbers
-
-
 
 \chapter{Experimental Setup} \label{Chapter:Experiment}
 \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
 
 \chapter{Simulations} \label{Chapter:Simulations}
 \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
-\fi
+
 
 \chapter{Cross Section Measurement} \label{Chapter:BaseAnalysis}
 \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
 
 
-%\chapter{Further Analysis} \label{Chapter:Further Analysis}
-%\input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
+\chapter{Further Analysis} \label{Chapter:Further Analysis}
+\input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
 
+\input{outstanding_refs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\printbibliography
+
 \appendix
+%include if want to check unused referneces and uncomment refcheck
+%\nocite{*}
 %\bibliography{Postamble/bib/manrefs}
-\bibliography{Chapters/Postamble/bib/references}
+%\bibliography{Chapters/Postamble/bib/references}
 
 \input{Chapters/Postamble/appendices.tex}
 \end{document}
