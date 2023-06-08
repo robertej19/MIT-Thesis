@@ -8,6 +8,8 @@ The strategy to calculate the luminosity is as follows:\\
     - use this value to calculate cross sections.
 
 
+Compare integrated luminosity of CLAS6 to CLAS12 (in 2011 analysis note)
+
 
 Implementation:
 The bank \texttt{REC::Event} has an object \texttt{beamCharge}, in nanoCoulombs, which is described in the \texttt{DST} as ``beam charge integrated from the beginning of the run to the most recent reading of the gated Faraday Cup scaler in \texttt{RAW::scaler}, with slope/offset conversion to charge from CCDB. Note, this value will be zero in each file until the first scaler reading in that file.''. This is the (un?)gated beam charge. 

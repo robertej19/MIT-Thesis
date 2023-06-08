@@ -57,10 +57,100 @@
 \usepackage{tocloft}
 \usepackage{float}
 %\usepackage{notoccite}
-\usepackage[style=authoryear]{biblatex}
+%\usepackage[style=authoryear]{biblatex}
+\usepackage[backend=biber, citestyle=authoryear, bibstyle=numeric, sortcites, sorting=nty, backref, natbib, hyperref]{biblatex}
+%\usepackage[style=phys]{biblatex}
+%use below if not biblatex
+%\bibliographystyle{apsrev}
+%\bibliographystyle{unsrtnat}
+%\usepackage[square,numbers]{natbib}
 \addbibresource{Chapters/Postamble/bib/references.bib}
 
-%\usepackage[style=authoryear]{biblatex}
+
+
+
+
+
+
+
+
+
+
+
+
+\DeclareCiteCommand{\cite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{\usebibmacro{cite}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand*{\cite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{\usebibmacro{citeyear}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\parencite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+    \printtext[bibhyperref]{\usebibmacro{cite}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand*{\parencite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+    \printtext[bibhyperref]{\usebibmacro{citeyear}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+  \printtext[bibhyperref]{ \usebibmacro{cite}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\footcitetext}[\mkbibfootnotetext]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{\usebibmacro{cite}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\textcite}
+  {\boolfalse{cbx:parens}}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{\usebibmacro{textcite}}}
+  {\ifbool{cbx:parens}
+     {\bibcloseparen\global\boolfalse{cbx:parens}}
+     {}%
+   \multicitedelim}
+  {\usebibmacro{textcite:postnote}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %include if want to check unused referneces and uncomment nocite{*}
 %\usepackage{refcheck}
@@ -96,6 +186,10 @@
 \newcommand{\xsecs}{cross-sections }
 \newcommand{\Xsec}{Cross-section }
 \newcommand{\Xsecs}{Cross-sections }
+\newcommand{\dvpip}{DV$\pi^0$P }
+
+
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
 
 %labelandremeber from https://tex.stackexchange.com/questions/459508/how-can-i-repeat-a-formula-without-copying-it
 \newcommand\labelAndRemember[2]
@@ -114,7 +208,6 @@
 \setcounter{secnumdepth}{5}
 
 %\bibliographystyle{ieeetr}
-%\bibliographystyle{apsrev}
 %\usepackage{natbib}
 %\setcitestyle{numbers}
 %\usepackage{apacite}
@@ -155,8 +248,8 @@
 \renewcommand{\headrulewidth}{0pt} % no line in header area
 \fancyfoot{} % clear all footer fields
 %\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
-%\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC}}
-\fancyfoot[C]{\thepage \quad \quad \hyperref[sec:anaflow]{TOC}}
+\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.7}{TOC}}
+%\fancyfoot[C]{\thepage \quad \quad \hyperref[sec:anaflow]{TOC}}
 %\fancyhf{}
 %\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
@@ -237,8 +330,11 @@
 \chapter{Introduction} \label{Chapter:Intro}
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
 
+
+\iffalse
 \chapter{Experimental Setup} \label{Chapter:Experiment}
 \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
+
 
 \chapter{Simulations} \label{Chapter:Simulations}
 \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
@@ -252,14 +348,15 @@
 \input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
 
 \input{outstanding_refs}
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \printbibliography
 
 \appendix
 %include if want to check unused referneces and uncomment refcheck
 %\nocite{*}
-%\bibliography{Postamble/bib/manrefs}
 %\bibliography{Chapters/Postamble/bib/references}
 
 \input{Chapters/Postamble/appendices.tex}
