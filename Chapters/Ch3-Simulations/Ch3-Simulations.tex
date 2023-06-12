@@ -154,9 +154,9 @@ To improve the matching between simulation and experiment, gaussian smearing fac
 	\label{fig:good}
 \end{figure}
 
+To cancel all jobs:
+scancel -u robertej
 
-\section{Acceptance Correction}
+To view all jobs:
+squeue -u robertej
 
-The acceptance correction, in each kinematic bin, was simply calculated as $\frac{N_{rec}}{N_{gen}}$, where $N_{gen}$ is the number of events produced by the generator in a specific bin, and $N_{rec}$ is the number of events in that bin that were reconstructed and identified as a $DV\pi^0P$ event by exclusivity cuts. 
-
-Low acceptance bins (less than 5\%) were excluded from further study, following from the CLAS6 analysis procedure. 

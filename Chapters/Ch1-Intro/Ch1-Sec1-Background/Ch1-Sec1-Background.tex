@@ -11,7 +11,7 @@
     
         \begin{equation}\label{eq:diffraction}
             d = \frac{\lambda}{2n\sin{\theta}}
-        \end{equation}\myequations{\quad Diffraction Limit}
+        \end{equation}\myequations{ Diffraction Limit}
         
         For visible light microscope systems, $\lambda$ $\sim$ 500 nm, and so the minimum resolvable feature size is approximately \textit{d} $\sim$ 250 nm. Techniques exist to extend the resolution size by approximately an order of magnitude, e.g. expansion microscopy \parencite{Chen2015ExpansionMicroscopy} or Near-Field Scanning Optical Microscopy \parencite{Ma20216Source}, but non-visible-light probes are needed for scales below $\sim$ 10 nm. 
 
@@ -25,7 +25,7 @@
         
             \begin{equation}\label{eq:deBroglie}
                \lambda = \frac{h}{p}
-            \end{equation}\myequations{\quad de Broglie Relationship}
+            \end{equation}\myequations{ de Broglie Relationship}
 
         With this relationship, we can see that by increasing a particle's momentum, its effective wavelength is reduced. This is the fundamental principle which allows electron microscopes to image matter at a resolution of $\sim$ 10-0.1 nm \parencite{Franken2020ADevelopments}, corresponding to electron momentums of $\sim$ 1-100 keV. At this scale, viruses, cells, molecular structures, and even atoms can be imaged \parencite{Williams2009TransmissionMicroscopy}, with striking results commonly published online. Other probes could be used circumvent the diffraction limit, such as high energy (low-wavelength) photons or high momentum (low de Broglie wavelength) protons or neutrons, but electrons are an ideal candidate in this regime as they are easy to produce, steer, interact with, and detect. 
 
@@ -59,7 +59,7 @@
         
         %\begin{equation}\label{eq:GeneralDifferentialCrossSection}
         %%   \frac{d\sigma}{d\Omega} = \frac{d\sigma}{d\Omega}\frac{d\Omega}{d\theta} = \frac{1}{2\pi \sin{\theta}}\frac{d\sigma}{d\theta}
-        %\end{equation}\myequations{\quad General Differential Cross Section}
+        %\end{equation}\myequations{ General Differential Cross Section}
 
 
         The scattering cross section for a probe (such as an electron) incident on a target, can be calculated at lowest order by considering a fixed (no recoil), point-like (no structure),  radially symmetric Coulomb potential (e.g., a proton) with a non-relativistic incident charged particle. The resulting equation was used by Rutherford's group in the discovery of the nucleus, and for an electron beam of energy  $E_{beam}$ is given by \eqref{eq:RutherfordDiffX}, where $\alpha$ is the fine structure constant.
@@ -67,23 +67,24 @@
             \begin{equation}\label{eq:RutherfordDiffX}
                 {\frac{\theta}{2}}(\frac{d\sigma}{d\Omega})_{Ruth} = \frac{\alpha^2}{16E^2_{beam}\sin^4{(\theta/2)}}
             \end{equation}
-                \myequations{\quad Rutherford Scattering Differential Cross Section}
+                \myequations{ Rutherford Scattering Differential Cross Section}
 
         To probe smaller resolution scales, it is necessary to increase the energy of the beam, and eventually the probe must be treated relativistically. This correction term is provided by the Mott scattering cross section, given by \eqref{eq:MottDiffX}, which still assumes a fixed, point-like target, with only Coulomb interactions.
             
                 \begin{equation}\label{eq:MottDiffX}
                      (\frac{d\sigma}{d\Omega})_{Mott} = \frac{\alpha^2}{4E^2\sin^4{(\theta/2)}}\cos^2{\frac{\theta}{2}} = \left( \frac{\alpha}{2E\sin^2{(\theta/2)}}\cos{\frac{\theta}{2}} \right)^2 = 4\cos^2{\frac{\theta}{2}}(\frac{d\sigma}{d\Omega})_{Ruth}
                 \end{equation}
-                \myequations{\quad Mott Scattering Differential Cross Section}
+                \myequations{ Mott Scattering Differential Cross Section}
         
     
  
          At higher incident electron energies (and thus finer spatial resolutions), the proton's finite size must be accounted for, as well as the momentum transferred to it. The tree-level Feynman diagram for elastic electron-proton scattering is show in in Fig. \ref{fig:feynmanElastic}. The incoming electron \textit{e} exchanges a virtual photon with the proton \textit{p}, resulting in a momentum transfer of $q = p_{e'} - p_{e}$. 
          
-        \begin{figure}[H]\label{fig:feynmanElastic}
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.5\textwidth]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/elastic_feynamn.png}
             \caption{Tree-level elastic scattering Feynman diagram}
+            \label{fig:feynmanElastic}
         \end{figure}
 
         The momentum transfer \textit{q} sets the resolution scale for these processes, but it is convenient to work with the negative square of this value, defined as $Q^2 = -q^2$. With this term, we can express the relativistic differential cross section for the scattering of electrons off a resting, point-like proton as in \eqref{eq:FullElastic}, where $m_p$ is the mass of the proton. 
@@ -91,7 +92,7 @@
             \begin{equation}\label{eq:FullElastic}
                     \frac{d\sigma}{d\Omega} = \frac{\alpha^2}{4E_{beam}^2\sin^4{(\theta/2)}} \frac{E_{e'}}{E_{beam}} ( \cos^2{\frac{\theta}{2}} + \frac{Q^2}{2m_p^2}\sin{\frac{\theta}{2}}^2 )
             \end{equation}
-            \myequations{\quad Elastic Scattering Differential Cross Section}
+            \myequations{ Elastic Scattering Differential Cross Section}
 
 
             Compared with Mott Scattering, there are two differences in this formula: The $\frac{E_{e'}}{E_{beam}}$ term in the scattering cross section comes from the electron losing energy to the proton's final state kinetic energy (no longer fixed), and the term proportional to $\sin^2(\theta/2)$ is due to a purely magnetic spin-spin interaction. 
@@ -113,15 +114,16 @@
         \begin{equation}\label{eq:rosenbluth}
             \frac{d\sigma}{d\Omega} = \frac{\alpha^2}{4E_1^2\sin^4{(\theta/2)}}\frac{E_3}{E_1}\left( \frac{G_E^2+\tau G_M^2}{1+\tau} \cos^2{\frac{\theta}{2}}+2\tau G_M^2\frac{Q^2}{2m_p^2}\sin^2(\frac{\theta}{2})\right)
         \end{equation}
-       \myequations{\quad Rosenbluth Scattering Cross Section}
+       \myequations{ Rosenbluth Scattering Cross Section}
        
         Where $\tau = \frac{Q^2}{4m_p^2}$.
         
 
-        \begin{figure}[H]\label{fig:formfactors}
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/intro/possibleformfactors.png}
             \caption[Fourier Transforms of Charge Distributions]{Samples of charge distributions and their corresponding form factors $F(\textbf{q}^2)$, from \parencite{Thomson2013ModernPhysics} }
+            \label{fig:formfactors}
         \end{figure}
         
 
@@ -140,7 +142,7 @@
 
         \begin{equation}\label{eq:W}
             W^2 \equiv (p_p + q)^2 = (p_p + (p_e-p_{e'}))^2
-        \end{equation}\myequations{\quad Outgoing Hadronic System Invariant Mass W}
+        \end{equation}\myequations{ Outgoing Hadronic System Invariant Mass W}
           
 
     
@@ -165,19 +167,19 @@
 
         \begin{equation}\label{eq:xB}
             x_B \equiv \frac{Q^2}{2p_p\cdot q} = \frac{Q^2}{Q^2+W^2-m_p^2}
-        \end{equation}\myequations{\quad Bjorken X}
+        \end{equation}\myequations{ Bjorken X}
 
 
         Another useful quantity is \textit{y}, which is a measure of the inelasticity of the scattering. It is the fractional energy lost by the electron in the scattering process, where y=0 is for perfectly elastic collisions, and is given by \eqref{eq:y}
         
         \begin{equation}\label{eq:y}
             y \equiv \frac{p_p \cdot q}{p_p \cdot p_e} = \frac{\nu}{E_{beam}} =  1 - \frac{E_{e'}}{E_{beam}} 
-        \end{equation}\myequations{\quad Inelasticity y}
+        \end{equation}\myequations{ Inelasticity y}
 
         Where $\nu$ is the energy transferred in the collision \eqref{eq:nu}. 
         \begin{equation}\label{eq:nu}
             \nu = \frac{Q^2}{2*x_B*m_p}
-        \end{equation}\myequations{\quad Energy Transfer $\nu$}
+        \end{equation}\myequations{ Energy Transfer $\nu$}
         
 
         With these definitions, we can write the differential cross section for inelastic scattering. Note that the general formula for the differential cross section for elastic scattering, \eqref{eq:rosenbluth} can be re-written in explicitly Lorentz-invariant form as in \eqref{eq:rosen-lorentz}.
@@ -186,26 +188,31 @@
         \begin{equation}\label{eq:rosen-lorentz}
             \frac{d\sigma}{d\Omega} = \frac{4\pi\alpha^2}{Q^4} \left[ \left( 1 -y -\frac{m_p^2 y^2}{Q^2}       \right) \frac{G_E^2+\tau G_M^2}{1+\tau} +y^2 \frac{G_M^2}{2} \right]
         \end{equation}
-       \myequations{\quad Lorentz-invariant Rosenbluth Scattering Cross Section}
+       \myequations{ Lorentz-invariant Rosenbluth Scattering Cross Section}
 
         This equation can be generalized to extend to inelastic scattering by replacing the terms corresponding to the combinations of form factors $G_E$ and $G_M$ with more structure functions $F_1(x_B,Q^2)$ and $F_2(x_B,Q^2)$, which describe proton structure as a function of both independent variables. This results in the differential cross section given by \eqref{eq:fullinelastic} .
 
         \begin{equation}\label{eq:fullinelastic}
             \frac{d\sigma}{d\Omega} = \frac{4\pi\alpha^2}{Q^4} \left[ \left( 1 -y -\frac{m_p^2 y^2}{Q^2}       \right) \frac{F_2(x_B,Q^2)}{x_B} +y^2 F_1(x_B,Q^2) \right]
         \end{equation}
-       \myequations{\quad  Scattering Cross Section in Terms of $F_1(x_B,Q^2)$ and $F_2(x_B,Q^2)$}
+       \myequations{  Scattering Cross Section in Terms of $F_1(x_B,Q^2)$ and $F_2(x_B,Q^2)$}
 
 
+        \textcolor{red}{input stuff about standard model, what is a pion, electron, proton, photon}\mytodo{standard model information}
+        
         Experiments in the 1960s on DIS indicated that the structure functions $F_1(x_B,Q^2)$ and $F_2(x_B,Q^2)$ were nearly independent of $Q^2$, a feature known as Bjorken scaling \parencite{Bjorken1969InelasticNucleon}. This indicated scattering was occurring off of point-like constituents - current experiment results provide a constraint on the maximum radius of these constituent to be at most $10{-18}$ m \parencite{Thomson2013ModernPhysics}. 
 
 
         Secondly, DIS results indicated the two structure functions could be expressed as $F_2(x_B) = 2*x_B*F_1(x_B)$, named the Callan-Gross relation. This relationship can be explained if the electron is scattering off of spin-half point-like particles inside the proton, which combined with Bjorken scaling to given strong evidence for the existence of quarks inside the proton, and gave motivation for the development of the parton model \parencite{Feynman1969VeryHadrons}.
+
+        
+        
         The parton model connects the experimentally measurable structure functions to Parton Distribution functions which describe the distribution of proton longitudinal momentum amongst its constituents. Specifically, a PDF $q_i(x_B)$ describes the probability density of finding a parton carrying a longitudinal momentum fraction in the interval ($x_B$, $x_B + dx_B$). The relationship between PDFs and structure functions is given by \eqref{eq:PDFs}, where $Q_i$ is the charge of each quark.
 
         \begin{equation}\label{eq:PDFs}
             F_2^p(x_B) = x_B \sum_i Q^2_i q_i(x_B)
         \end{equation}
-       \myequations{\quad $F_2$ structure function in terms of PDFs}
+       \myequations{ $F_2$ structure function in terms of PDFs}
         
         Structure functions have been studied in great detail over a very large kinematic range across $Q^2$ and $x_B$, the results of which are shown in Fig. \ref{fig:HERA}.
         %up to $Q^2 = 20,000 GeV^2$ and $x < 0.0001$. $Q^2$     
@@ -227,7 +234,7 @@
             \label{fig:PDFPlots}
         \end{figure}
 
-       All of these major scattering scales explored through the 20$^th$ century are summarized in \figref{fig:experimentsVsscale}, spanning roughly four orders of magnitude in length scale. While steady increases in resolving power have been made, the focus of this work (red triangle in figure) is not to image even finer scale parton dynamics, but rather to understand the multidimensional structure of the nucleon. In particular, while PDFs allow for a 1 dimensional mapping of the inner workings of a proton, even more information can be gleaned from more complex scattering reactions. Efforts are now directed towards so called \textit{proton tomography} - 3D imaging of nucleon structure - which is the focus of this analysis. 
+       All of these major scattering scales explored through the 20$^{th}$ century are summarized in \figref{fig:experimentsVsscale}, spanning roughly four orders of magnitude in length scale. While steady increases in resolving power have been made, the focus of this work (red triangle in figure) is not to image even finer scale parton dynamics, but rather to understand the multidimensional structure of the nucleon. In particular, while PDFs allow for a 1 dimensional mapping of the inner workings of a proton, even more information can be gleaned from more complex scattering reactions. Efforts are now directed towards so called \textit{proton tomography} - 3D imaging of nucleon structure - which is the focus of this analysis. 
 
         \begin{figure}
             \centering
