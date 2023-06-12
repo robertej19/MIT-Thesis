@@ -33,6 +33,7 @@
 \usepackage{cmap}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{wrapfig}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{tocloft}
@@ -44,6 +45,7 @@
 \usepackage{lmodern}
 \usepackage{xpatch}
 \usepackage{xcolor}
+\usepackage{caption}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{listings}
@@ -248,16 +250,20 @@
 \renewcommand{\headrulewidth}{0pt} % no line in header area
 \fancyfoot{} % clear all footer fields
 %\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
-\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.7}{TOC}}
+\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC} \quad \quad Flow: \ref{fig:ProcessFlowchart}}
+
 %\fancyfoot[C]{\thepage \quad \quad \hyperref[sec:anaflow]{TOC}}
 %\fancyhf{}
 %\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
 
 \newcommand{\listequationsname}{List of Equations}
-\newcommand{\myequations}[1]{\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
-\xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
+\newcommand{\myequations}[1]{\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}\quad \quad #1}\par}
 
+
+
+\newcommand{\listtodo}{List of To Do Items}
+\newcommand{\mytodo}[1]{\addcontentsline{todo}{mytodo}{\protect\numberline{\theequation}\quad \quad #1}\par}
 
 
 
@@ -307,18 +313,36 @@
 \pagestyle{fancy}
 
 
-
-
 \tableofcontents
-%\addcontentsline{toc}{chapter}{\listfigurename}
-\newpage
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
-\newpage
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
-\newpage
+
+
+\clearpage
+\phantomsection
 \newlistof{myequations}{equ}{\quad \listequationsname}
-\listofmyequations
 \addcontentsline{toc}{chapter}{   \listequationsname}
+\listofmyequations
+
+
+\clearpage
+\phantomsection
+\newlistof{mytodo}{todo}{\quad \listtodo}
+\addcontentsline{toc}{chapter}{      \listtodo}
+\listofmytodo
+
+
+%\xpretocmd{\listofmytodo}{\addcontentsline{toc}{chapter}{\listtodo}}{}{}
+%\xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
+
 
 
 
@@ -331,24 +355,20 @@
 \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
 
 
-\iffalse
-\chapter{Experimental Setup} \label{Chapter:Experiment}
+\chapter{Experiment and Data Processing} \label{Chapter:Experiment}
 \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
-
 
 \chapter{Simulations} \label{Chapter:Simulations}
 \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
 
-
 \chapter{Cross Section Measurement} \label{Chapter:BaseAnalysis}
 \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
-
 
 \chapter{Further Analysis} \label{Chapter:Further Analysis}
 \input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
 
 \input{outstanding_refs}
-\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

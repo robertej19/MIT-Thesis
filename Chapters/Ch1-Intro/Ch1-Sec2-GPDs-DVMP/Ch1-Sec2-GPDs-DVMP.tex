@@ -47,12 +47,13 @@
                         & U & \textcolor{white}{lllll}L & T    \\ 
                         \midrule
                           U  & \GPDH &               *                    &  \GPDETbar = 2*\GPDHTtilde+\GPDET  \\
-                          L  &    *                &  \textcolor{white}{llll}\GPDHtilde &     \GPDETtilde?                              \\
-                          T  & \GPDE &               \GPDEtilde ?                    &  \GPDHT,\GPDHTtilde \\
+                          L  &    *                &  \textcolor{white}{llll}\GPDHtilde &     \GPDETtilde                           \\
+                          T  & \GPDE &               \GPDEtilde                   &  \GPDHT,\GPDHTtilde \\
                     \end{tabular}\\
         
+                    
+                    \caption[GPDs Across Nucleon and Quark Polarizations]{GPDs Across Nucleon and Quark Polarizations.  * forbidden by parity.}
                     \label{table:GPDsPolarization}
-                    \caption[GPDs Across Nucleon and Quark Polarizations.]{GPDs Across Nucleon and Quark Polarizations.  * forbidden by parity.}
             \end{table}
 
             GPDs can be understood by considering further integrations and forward limits - in the same way that the nucleon charge must be recovered when integrating over PDFs or Form Factors, these functions themselves are recovered when appropriately integrating over GPDs, as in \figref{fig:gmtd_cube}. Specifically, first moments of the GPDs $H$ and $E$ are related to the Dirac and Pauli form factors $F_1$ and $F_2$ respectively:
@@ -60,7 +61,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.55\textwidth,trim={3cm 1.5cm 3cm 0},clip]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/gtmd-cube-sangbaek.png}
-                \caption{Relation cube, from \parencite{Burkardt2016ModellingStructure}. }
+                \caption[Distribution Relationship Cube]{Relation cube, from \parencite{Burkardt2016ModellingStructure}. }
                 \label{fig:gmtd_cube}
             \end{figure}
         
@@ -72,43 +73,14 @@
         \int dx \, E(x, \xi, t) = F_2(t)
         \end{equation}
 
-        
 
-             Ji discusses gauge-invariant spin in his 1997 study \parencite{Ji1997Gauge-InvariantSpin}.
-            attempt to understand pion production \parencite{Goloskokov2010AnElectroproduction}
-            Burkardt's 2007 work investigates Generalized Parton Distributions (GPDs) \parencite{Burkardt2007GPDs0}.
-            
-
-    
-
-        In addition to collinear momentum distribution of partons inside the
-        nucleon, GPDs also encode the distribution of partons in the plane transverse to
-        the nucleons momentum in the infinite momentum frame [58]. Moreover, their
-        relation to energy-momentum tensor (EMT) form factors allow us to access the
-        EMT densities, the distribution of energy, angular momentum, pressure, and shear
-        forces inside the nucleon     
-       
+        GPDs have been shown \parencite{Ji1997Gauge-InvariantSpin} to encode spin distributions and also can be interpreted as describing the transverse spatial distribution of quarks \parencite{Burkardt2007GPDs0}. Further, GPDs relation to energy-momentum tensor form factors (EMTs) allows access to EMT densities, which describe the distribution of energy, momentum, and pressure inside the nucleon. It was originally not known how to measure GPDs, but were realized to be experimentally accessible through deeply virtual exclusive processes (DVEP) relying on factorization theorems \parencite{Collins1999ProofQCD}, \parencite{Bauer2002HardTheory}. 
+           
     
     
     \subsection{Deeply Virtual Exclusive Processes}
 
-        GPDs are were realized to be experimentally accessible \textcolor{red}{CITE} through deeply virtual exclusive processes (DVEP) \textcolor{red}{through factorization theoremss}, involving the scattering of a virtual photon off a nucleon target, yielding either a real photon or mesons, along with an intact final state nucleon and incident particle (e.g. from an electron or muon beam). These processes are in stark contrast to DIS, where the nucleon target is shattered into many pieces, and can instead be thought of as a hard yet precise peaceful process. 
-
-
-                     deeply
-            virtual $\pi^0$ (as well as$\eta$,$\eta$') production off a proton target is clearly distinct from the other
-            types of meson production processes in that it involves the transition of a (virtual) photon
-            with JPC = 1– to a JPC = 0-+ state (i.e. the final $\pi^0$ or$\eta$,$\eta$’) requiring odd C-parity and
-            chiral odd t-channel quantum numbers
-For example, the phi, on which F-X and Patrick are
-            working, is very sensitive to the gluon distribution in the nucleon.
-herefore DVCS is
-            primarily sensitive to non-quark spin flip - eg. H.. The same is true with DVMP of other
-            vector meson, such as rho. However, since the pi0 and eta are JP=0-, then the transverse
-            photon part contributing to the overall reaction cross section can cause a transversely po-
-            larized quark helicity flip. This is contained mainly in the structure functions $\sigma$T and $\sigma$T T ,
-            which can be decomposed into the transverity GPDs - mainly EbarT and HT
-            
+        Deeply virtual exclusive processes are nuclear reactions are interactions occurring with high photon virtuality $(Q^2 >> m_p^2$) in the DIS regime ($W^2>>m_p^2$), with thresholds normally set to require  $Q^2 > 1$ GeV$^2$ and $W>2$ $GeV$. The processes involve the scattering of a virtual photon off a nucleon target, yielding either a real photon or mesons, along with an intact final state nucleon and incident particle (e.g. from an electron or muon beam). These processes are in stark contrast to DIS, where the nucleon target is shattered into many pieces, and can instead be thought of as a hard yet precise peaceful process. Different reactions have been shown to have different GPD dependencies, and thus provide different windows into sub-nucleon mechanics. 
 
         \subsubsection*{Deeply Virtual Compton Scattering and Meson Production}
         \figref{fig:dvep_diagram} illustrates diagrams for Deeply Virtual Compton Scattering (DVCS) and Deeply Virtual Meson Production (DVMP). 
@@ -127,75 +99,22 @@ herefore DVCS is
         \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=0.65\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/proton_pressure_dist.png}
-            \caption{Proton Pressure Distribution from DVCS data, from \parencite{Burkert2018TheProton}.}
+            \caption[Proton Pressure Distribution, Experiment]{Proton Pressure Distribution from DVCS data, from \parencite{Burkert2018TheProton}.}
             \label{fig:proton_pressure_exp}
         \end{minipage}\hfill
         \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=0.99\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/proton_pressure_theory.png}
-            \caption{Proton Pressure Distribution from Lattice QCD, from \parencite{Shanahan2019PressureProton}.}
+            \caption[Proton Pressure Distribution, Theory]{Proton Pressure Distribution from Lattice QCD, from \parencite{Shanahan2019PressureProton}.}
             \label{fig:proton_pressure_theory}
         \end{minipage}
     \end{figure}
 
-
-        By measuring DVMP, we can get information about GPDs in the following way: in the leading twist approximation / some other formalism bullshit, dvmp cross section is described by the generalized Compton form factors, which themselves are (to leading twist etc.) convolutions of GPDs, so the dvmp cross section sets constraints on GPD behavior. Hard exclusive pseudoscalar meson electroproduction in recent years has shown that the asymptotic leading twist approximation is not readily applicable in the range of kinematics accessible to current experiments. In fact, there are strong contributions from transversely polarized virtual photons that are asymptotically supprsed by $1/@^w$ in the cross sections and have to be considered by introduing chiral-odd GPDs into the framework.   
+        DVCS is primarily sensity to non-quark spin flip GPDs (e.g. \GPDH, \GPDE), as are DVMP for vector mesons, such as the $\rho$. On the other hand, pseudoscalar meson production, such as pions, are sensitive to the transversity, or chiral-odd, GPDs. Additionally, some meson processes, such as $\phi$ due to its strange quark content, are particularly sensitive to gluon GPDs. This work focuses on DVMP with the production of a neutral pion, $\pi^0$, which in addition to accessing chiral-odd GPDs, is an important background for other processes such as DVCS due to sample contamination from $\pi^0$ decay \parencite{Lee2022MeasurementDetector}.
         
-        So Q2>1 is indeed for deeply virtual events, however it has no relation with lepton/hadron angle. There are pi0 events in the region below 1GeV2, and they are also pi0 events. The limit on 1GeV2 is somewhat artificial. Ideally we are looking at the asymptotic freedom, so Q2 should be infinity, but we are hoping that 1GeV2 is big enough to apply models that are based on asymptotic freedom. There are many terms also that are proportional to powers of t/Q2. So we need reasonably big Q2 to apply GPDs models. And in fact CLAS kinematics is often questioned to be too small for GPDs theoretical models.
-        
-        DVMP is sensitive to chiral odd GPDs, distinguishing it from DVCS as a GDP probe because why? Because something involving photon helicity and pion helicity, I forget exactly though
-
-
-            In DVCS the  incident and  outgoing particles are both photons JP= 1-. Therefore, no quark helicity flip is necessary in this “virtual Compton scattering”.  Therefore DVCS is primarily sensitive to non-quark spin flip - eg. H.. The same is true with DVMP of other vector meson, such as rho.
-            
-    
-            First, note that not all DVMP reactions are sensitive to nuclear transversity distributions, which involves quark helicity flip of transversely polarized quarks helicity  This can occur in  production of pseudoscaler mesons,  e.g. pi0 and eta production, with spin-charge-parity  I-PC= 0 - + ,in contrast with  the incident photon, which  has J-P 1- -. 
-            
-            This is not the case for other mesons studied at JLab, such as vector mesons, I-PC= 0 - e.g. the rho, omega, phi, for which which I-CP= 1- -, the same as for the photons.   
-            
-            I believe this was first  pointed out  Ahmad, Goldstein, Liutti (arXiv:0805.3568). 
-            
-            Here is a quote from their intro.
-            "... deeply virtual $\pi^0$ (as well as $\eta$, $\eta'$) production off a proton target is clearly distinct from the other types of meson production processes in that it involves the transition of a (virtual) photon with JPC = 1-- to a JPC = 0-+ state (i.e. the final $\pi^0$ or $\eta$, $\eta$') requiring odd C-parity and chiral odd t-channel quantum numbers. As a consequence, in a partonic description such as the one depicted in Fig.1a, the ”outgoing” and ”returning” quark helicities need to be opposite to one another …". 
-
-        
-            
-            By the way, the other meson production channels  are uniquely sensitive to other  interesting aspects of nucleon structure. For example, the phi, on which F-X and Patrick are working, is very sensitive to the gluon distribution in the nucleon.
-
-
-        	However,  since the pi0 and eta are JP=0-, then the transverse photon part contributing to the overall reaction cross section can cause a transversely polarized  quark helicity flip. This is contained mainly  in the structure functions $\sigma_T$ and $\sigma_{TT}$, which can be decomposed into the transverity GPDs - mainly $Ebar_T$ and $H_T$. 
-        	
-        	Also, pion and eta production can still also be accompanied by non-quark helicity flips, which would be mainly contained in the longitudinal structure functions $\sigma_{LL}$. However, various theoretical papers indicate that in our accessible region of $Q^2$, $\sigma_T$ and $\sigma_{TT}$ dominate relative to $\sigma_L$. Experimentally, this seems to be verified from JLab data .
-        	On the other hand, theory predicts that asymptotically, $\sigma_L$ will dominate. From our existing 5 GeV  data, we are not anywhere near there, so our experiments at JLab are really just right for accessing these transversity distributions.  But, to decompose these distributions  at the level of the individual quark u d flavors, we need as much precision data over as big a range as possible of kinematics in several channels - P-pi0, N-pi0, P-eta, N-eta. And, only you guys can do that!
-        	So, let me know if this makes sense to you. s a bit. 
-        	
-            Why is Phi particularly sensitive to the phi distribution?
-    
-            If you look at the proposal you will see the main diagram we are interested in has a pair of gluons from the GPD bag connecting a the hard scattering kernel that comes from the virtual photon fluctuating into a $s\bar{s}$ pair
-            
-            The process you mention instead has a pair of strange quarks from the GPD bag connecting to the hard scattering kernel directly. 
-            
-            In practice the two processes happen. From known PDF however the gluon contribution is expected to be significantly larger than the strange quarks contribution. So the intuitive reason would be: the proton has nearly no strangeness but does have a bunch of gluons.
-            
-            Now it could be that we are wrong and that the proton has more strangeness than what conventional PDF suggest. This could potentially hamper our strategy. However, intrinsic strangeness is in itself a very interesting subject, and if we did come to the conclusion that the proton has more strangeness than is conventionally accepted, then it would be a very important result.
-            
-            The way I understand why the phi channel probes the gluon GPDs is because the phi meson is a strange-antistrange meson, and so doesn't interact with the up and down quarks that predominantly make up the quark content of the nucleons. This is from the phi cross section proposal: Because of its almost pure $s\bar{s}$ composition $\phi$ production is not affected by scattering from the nucleon’s valence quarks or the light quark sea;
-            
-          
-    
-    
-        also \parencite{Diehl2020ExtractionKinematics}
-        test \parencite{Burkardt2007GPDs0}
-        
-     
-          
         \subsubsection*{Deeply Virtual Neutral Pion Production}
+            The Feynman diagram for Deeply Virtual Neutral Pion Production (DV$\pi^0$P or DVPiP) is shown in \figref{fig:DVPiP_diagram}. 
 
-            Only valence quarks contribute electroproduction of uncharged pions.
-    
-           
-            
-            
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.5\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/dvPiP_Feynman_diagram_2.jpg}
@@ -203,59 +122,36 @@ herefore DVCS is
                 \label{fig:DVPiP_diagram}
             \end{figure}
 
-            The cross-section for DV$\pi^0$P \eqref{eq:DVPiPCrossSection_theory} can be theoretically linked in terms of structure functions to GPDs by \textcolor{red}{mechanism of linking}, which describe the 3D structure of the nucleon.
-    
+            The unpolarized cross-section for DV$\pi^0$P can be decomposed into longitudinal and transverse structure functions as in \eqref{eq:DVPiPCrossSection_theory}, the formalism for which is covered in \parencite{Donnachie1978GeneralizedDominance}, \parencite{Dreschsel1992ThresholdNucleons}, and \parencite{Donnelly2023GeneralResponses}. 
             
-                  
-        
-            Several weeks ago I remarked in our meeting that I was having difficulty finding an explanation for the specific form of the DVMP cross section written in terms of structure functions (example below). Papers normally state that the relation holds without justification. I tried to follow the papertrail for the origin but so far have not ultimately been successful. Igor has kindly found a paper from 1992 (Dreschsel and Tiator pdf (iop.org) which makes reference (page 460, eq 18 - 19) \parencite{Dreschsel1992ThresholdNucleons}
-            \parencite{Bedlinskiy2014ExclusiveCLAS} to Donnachie and Shaw (Generalized Vector Dominance 1978) \parencite{Donnachie1978GeneralizedDominance}
-            
-            
-            In the attached, Bill Donnelly and colleagues have recently published a long paper
-            on the general tensor structure for electron scattering in terms of invariant responses.
-            In Eq (46), they derive a general expression for the Lorentz invariant part of the spin \parencite{Donnelly2023GeneralResponses}
-            dependent cross section.  The unpolarized piece has the identical L/T/TT/TL form you have.
-            I have not read the paper in detail but I think you may find it useful.
-            
-            
-            Origin of form and interpretation of virtual photon flux gamma: \parencite{Amaldi1979Pion-electroproduction} page 6
-    
-                \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/lept_had_planes.png}
-            \caption{Diagram of Lepton-Hadron Plane angle $\phi$}
-            \label{fig:phi_trento}
-                \end{figure}
-    
-        
-            
-             \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
+ 
+            \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
                    {\frac{d^4\sigma_{ep \rightarrow ep'\pi^0}}{dQ^2dx_Bdtd\phi_{\pi}} =
                  \Gamma (Q^2, x_B, E)
                  \frac{1}{2\pi}
                  \left\{ \left(  \textcolor{sigmaT}{\frac{d\sigma_T}{dt}}+\epsilon  \textcolor{sigmaL}{\frac{d\sigma_L}{dt}} \right)+
                  \epsilon cos(2\phi)  \textcolor{sigmaTT}{\frac{d\sigma_{TT}}{dt}} + 
                  \sqrt{2\epsilon(1+\epsilon)} cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}}
-             \end{equation}      \myequations{  \quad  DV$\pi$P Cross Section Decomposition}
-        
-        
-             Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux}, $\epsilon$ is the virtual photon polarization \eqref{eq:virtualphotonpolarization}, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT}
-        
-    
-    
-            From \parencite{Amaldi1979Pion-electroproduction}, Gamma is of electromagnetic origin and contains the effect of the electron-photon vertex and the photon propagator. It can be interpreted as the number of virtual photons per scattered electron 
-    
-            Epsilon can be interpreted as the ratio of transverse to longitudinally polarized photons
-    
+             \end{equation}      \myequations{  DV$\pi$P Cross Section Decomposition}
+
+             Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux} and represents the number of virtual photons per scattered electron \parencite{Amaldi1979Pion-electroproduction}, $\epsilon$ is the ratio of transverse to longitudinally polarized photons \eqref{eq:virtualphotonpolarization}, $\phi$ is the angle between the lepton and hadron planes, as illustrated in \figref{fig:phi_trento}, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT} as discussed in \parencite{Bedlinskiy2014ExclusiveCLAS}. 
+  
     
             \begin{equation}\label{eq:virtualphotonflux}
                          \Gamma (Q^2, x_B, E) = \frac{\alpha}{8\pi} \frac{Q^2}{m^2_pE^2}\frac{1-x_B}{x_B^3}\frac{1}{1-\epsilon}
-            \end{equation}\myequations{\quad Virtual Photon Flux}
+            \end{equation}\myequations{ Virtual Photon Flux}
         
             \begin{equation}\label{eq:virtualphotonpolarization}
                 \epsilon = \frac{1 - y - \frac{Q^2}{4E^2}}{1 - y + \frac{y^2}{2} + \frac{Q^2}{4E^2}}
             \end{equation}\label{Virtual Photon Polarization}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.99\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/lept_had_planes.png}
+                \caption{Diagram of Lepton-Hadron Plane Angle $\phi$}
+                \label{fig:phi_trento}
+            \end{figure}
+    
         
          \begin{equation}\label{eq:sigmaL}
                  \textcolor{sigmaL}{\frac{d\sigma_{L}}{dt}} = 
@@ -294,8 +190,7 @@ herefore DVCS is
             \end{equation} 
         
         
-        
-            
+    
             The terms involved in these expressions are:
            
             \begin{itemize}
@@ -323,7 +218,9 @@ herefore DVCS is
             \end{itemize}
             \end{itemize}
        
-    \subsection[Status of DVPiP Measurements]{Status of DV$\pi^0$P Measurements}
+    %\subsection[Status of DVPiP Measurements]{Status of DV$\pi^0$P Measurements}
+    \subsection{Status of DV\texorpdfstring{$\pi^0$}{pi0}P Measurements}
+
 
         With theoretical advancements occuring in the mid 1990s to early 2000s, the first analyses of experimental measurements of \dvpip have only been released in the past decade.
               
@@ -347,14 +244,18 @@ herefore DVCS is
             \label{fig:kinematicreach}
         \end{figure}
 
-        \subsubsection*{Overview of This Measurement}\label{sec:anaflow}
+        \subsubsection*{Overview of This Analysis}\label{sec:anaflow}
     
     
-        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsec. Chapter \ref{Chapter:Experiment} describes the experimental setup. Chapter \ref{Chapter:Simulations} discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. Chapter \ref{Chapter:BaseAnalysis} explains the specific analysis procedures and estimation methods used to arrive at \xsec values. Chapter \ref{Chapter:Further Analysis} presents further physics analysis, made possible with the extracted cross-section values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
-         
+        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsec.
+        
+        
+        Chapter \ref{Chapter:Experiment} describes the experimental setup. Chapter \ref{Chapter:Simulations} discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. Chapter \ref{Chapter:BaseAnalysis} explains the specific analysis procedures and estimation methods used to arrive at \xsec values. Chapter \ref{Chapter:Further Analysis} presents further physics analysis, made possible with the extracted cross-section values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
+
+        
             \begin{figure}
                 \centering
-                \begin{tikzpicture}[
+                  \resizebox{15.cm}{!}{\begin{tikzpicture}[
                     node distance=1cm,
                     box/.style={rectangle, rounded corners, draw=black, thick, minimum width=5cm, minimum height=.9cm, align=center},
                     bigbox/.style={rectangle, rounded corners, draw=black, thick, minimum width=10.5cm, minimum height=1cm, align=center},
@@ -418,13 +319,83 @@ herefore DVCS is
     
                 \draw[->] (ccb9) -- (ccb10);    
                 
-                \end{tikzpicture}
+                \end{tikzpicture}}
                 \caption[Analysis Flowchart]{Analysis Overview Flowchart}
                 \label{fig:ProcessFlowchart}
             
             \end{figure}
     
+   
+    \iffalse
+    \section{extra}
     
+                      Only valence quarks contribute electroproduction of uncharged pions.
+               
+            Several weeks ago I remarked in our meeting that I was having difficulty finding an explanation for the specific form of the DVMP cross section written in terms of structure functions (example below). Papers normally state that the relation holds without justification. I tried to follow the papertrail for the origin but so far have not ultimately been successful. Igor has kindly found a paper from 1992 (Dreschsel and Tiator pdf (iop.org) which makes reference (page 460, eq 18 - 19) \parencite{Dreschsel1992ThresholdNucleons}
+            \parencite{Bedlinskiy2014ExclusiveCLAS} to Donnachie and Shaw (Generalized Vector Dominance 1978) \parencite{Donnachie1978GeneralizedDominance}
+            
+            
+            In the attached, Bill Donnelly and colleagues have recently published a long paper
+            on the general tensor structure for electron scattering in terms of invariant responses.
+            In Eq (46), they derive a general expression for the Lorentz invariant part of the spin \parencite{Donnelly2023GeneralResponses}
+            dependent cross section.  The unpolarized piece has the identical L/T/TT/TL form you have.
+            I have not read the paper in detail but I think you may find it useful.
+
+
+            
+            Here is a quote from their intro.
+            "... deeply virtual $\pi^0$ (as well as $\eta$, $\eta'$) production off a proton target is clearly distinct from the other types of meson production processes in that it involves the transition of a (virtual) photon with JPC = 1-- to a JPC = 0-+ state (i.e. the final $\pi^0$ or $\eta$, $\eta$') requiring odd C-parity and chiral odd t-channel quantum numbers. As a consequence, in a partonic description such as the one depicted in Fig.1a, the ”outgoing” and ”returning” quark helicities need to be opposite to one another …". 
+
+    
+        	However,  since the pi0 and eta are JP=0-, then the transverse photon part contributing to the overall reaction cross section can cause a transversely polarized  quark helicity flip. This is contained mainly  in the structure functions $\sigma_T$ and $\sigma_{TT}$, which can be decomposed into the transverity GPDs - mainly $Ebar_T$ and $H_T$. 
+        	
+        	Also, pion and eta production can still also be accompanied by non-quark helicity flips, which would be mainly contained in the longitudinal structure functions $\sigma_{LL}$. However, various theoretical papers indicate that in our accessible region of $Q^2$, $\sigma_T$ and $\sigma_{TT}$ dominate relative to $\sigma_L$. Experimentally, this seems to be verified from JLab data .
+        	On the other hand, theory predicts that asymptotically, $\sigma_L$ will dominate. From our existing 5 GeV  data, we are not anywhere near there, so our experiments at JLab are really just right for accessing these transversity distributions.  But, to decompose these distributions  at the level of the individual quark u d flavors, we need as much precision data over as big a range as possible of kinematics in several channels - P-pi0, N-pi0, P-eta, N-eta. And, only you guys can do that!
+        	So, let me know if this makes sense to you. s a bit. 
+        	
+            If you look at the proposal you will see the main diagram we are interested in has a pair of gluons from the GPD bag connecting a the hard scattering kernel that comes from the virtual photon fluctuating into a $s\bar{s}$ pair
+            
+            The process you mention instead has a pair of strange quarks from the GPD bag connecting to the hard scattering kernel directly. 
+            
+            In practice the two processes happen. From known PDF however the gluon contribution is expected to be significantly larger than the strange quarks contribution. So the intuitive reason would be: the proton has nearly no strangeness but does have a bunch of gluons.
+            
+            Now it could be that we are wrong and that the proton has more strangeness than what conventional PDF suggest. This could potentially hamper our strategy. However, intrinsic strangeness is in itself a very interesting subject, and if we did come to the conclusion that the proton has more strangeness than is conventionally accepted, then it would be a very important result.
+            
+            The way I understand why the phi channel probes the gluon GPDs is because the phi meson is a strange-antistrange meson, and so doesn't interact with the up and down quarks that predominantly make up the quark content of the nucleons. This is from the phi cross section proposal: Because of its almost pure $s\bar{s}$ composition $\phi$ production is not affected by scattering from the nucleon’s valence quarks or the light quark sea;
+            
+                    virtual $\pi^0$ (as well as$\eta$,$\eta$') production off a proton target is clearly distinct from the other
+            types of meson production processes in that it involves the transition of a (virtual) photon
+            with JPC = 1– to a JPC = 0-+ state (i.e. the final $\pi^0$ or$\eta$,$\eta$’) requiring odd C-parity and
+            chiral odd t-channel quantum numbers
+For example, the phi, on which F-X and Patrick are
+            working, is very sensitive to the gluon distribution in the nucleon.
+herefore DVCS is
+            primarily sensitive to non-quark spin flip - eg. H.. The same is true with DVMP of other
+            vector meson, such as rho. However, since the pi0 and eta are JP=0-, then the transverse
+            photon part contributing to the overall reaction cross section can cause a transversely po-
+            larized quark helicity flip. This is contained mainly in the structure functions $\sigma$T and $\sigma$T T ,
+            which can be decomposed into the transverity GPDs - mainly EbarT and HT
+
+
+      By measuring DVMP, we can get information about GPDs in the following way: in the leading twist approximation / some other formalism bullshit, dvmp cross section is described by the generalized Compton form factors, which themselves are (to leading twist etc.) convolutions of GPDs, so the dvmp cross section sets constraints on GPD behavior. Hard exclusive pseudoscalar meson electroproduction in recent years has shown that the asymptotic leading twist approximation is not readily applicable in the range of kinematics accessible to current experiments. In fact, there are strong contributions from transversely polarized virtual photons that are asymptotically supprsed by $1/@^w$ in the cross sections and have to be considered by introduing chiral-odd GPDs into the framework.   
+        
+        So Q2>1 is indeed for deeply virtual events, however it has no relation with lepton/hadron angle. There are pi0 events in the region below 1GeV2, and they are also pi0 events. The limit on 1GeV2 is somewhat artificial. Ideally we are looking at the asymptotic freedom, so Q2 should be infinity, but we are hoping that 1GeV2 is big enough to apply models that are based on asymptotic freedom. There are many terms also that are proportional to powers of t/Q2. So we need reasonably big Q2 to apply GPDs models. And in fact CLAS kinematics is often questioned to be too small for GPDs theoretical models.
+        
+        DVMP is sensitive to chiral odd GPDs, distinguishing it from DVCS as a GDP probe because why? Because something involving photon helicity and pion helicity, I forget exactly though
+
+
+            In DVCS the  incident and  outgoing particles are both photons JP= 1-. Therefore, no quark helicity flip is necessary in this “virtual Compton scattering”.  Therefore DVCS is primarily sensitive to non-quark spin flip - eg. H.. The same is true with DVMP of other vector meson, such as rho.
+            
+    
+            First, note that not all DVMP reactions are sensitive to nuclear transversity distributions, which involves quark helicity flip of transversely polarized quarks helicity  This can occur in  production of pseudoscaler mesons,  e.g. pi0 and eta production, with spin-charge-parity  I-PC= 0 - + ,in contrast with  the incident photon, which  has J-P 1- -. 
+            
+            This is not the case for other mesons studied at JLab, such as vector mesons, I-PC= 0 - e.g. the rho, omega, phi, for which which I-CP= 1- -, the same as for the photons.   
+            
+            I believe this was first  pointed out  Ahmad, Goldstein, Liutti (arXiv:0805.3568). 
+
+            
+            
+    \fi
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -465,6 +436,22 @@ herefore DVCS is
 \iffalse
 Stuff to add sometime / for consideration:
 
+
+        %     Ji discusses gauge-invariant spin in his 1997 study \parencite{Ji1997Gauge-InvariantSpin}.
+         %   attempt to understand pion production \parencite{Goloskokov2010AnElectroproduction}
+         %   Burkardt's 2007 work investigates Generalized Parton Distributions (GPDs) \parencite{Burkardt2007GPDs0}.
+            
+
+    
+
+        In addition to collinear momentum distribution of partons inside the
+        nucleon, GPDs also encode the distribution of partons in the plane transverse to
+        the nucleons momentum in the infinite momentum frame [58]. Moreover, their
+        relation to energy-momentum tensor (EMT) form factors allow us to access the
+        EMT densities, the distribution of energy, angular momentum, pressure, and shear
+        forces inside the nucleon     
+
+        
 
               Jaffe deep physics \parencite{Jaffe2022DeepPhysics} 
             Goloskokov's 2011 work delves into transversity of mesons \parencite{Goloskokov2011TransversityMesons}.
