@@ -4,14 +4,14 @@
 
     \subsection{Wigner Functions, Generalized Parton Distributions}
 
-        In classical mechanics, a particle can be completely described by its position in its six-dimensional phase space (three spatial and three momentum coordinates). An ensemble of such particles can be most completely understood through its phase space distribution function, which contains the probability of finding a particle in a particular region in phase space. In quantum systems, a pure phase space distribution is not well defined because of Heisenberg's uncertainty principle. However, in 1932 Eugene Wigner introduced a formalism that addressed this \parencite{Wigner1932OnEquilibrium}, yielding functions provide the most comprehensive representation achievable for quantum systems.
+        In classical mechanics, a particle can be completely described by its position in its six-dimensional phase space (three spatial and three momentum coordinates). An ensemble of such particles can be most completely understood through its phase space distribution function, which contains the probability of finding a particle in a particular region in phase space. In quantum systems, a pure phase space distribution is not well defined because of Heisenberg's uncertainty principle. However, in 1932 Eugene Wigner introduced a formalism that addressed this \parencite{Wigner1932OnEquilibrium}, yielding functions that provide the most comprehensive representation achievable for quantum systems.
         
         
         \subsubsection*{Wigner Quasi-probability Distributions}
              Wigner Quasi-probability Distributions, commonly referred to as simply Wigner functions or Wigner distributions, are defined as in \eqref{eq:wigner_dist}. This can be integrated over x (p) to yield momentum (space) density, but for arbitrary (x,p) the distribution can take negative values, and so violates probability axioms and thus is a quasi-probability distribution rather than a full probability distribution. Wigner distributions are useful outside of particle physics, notably in signal processing, with more details available in \parencite{Hillery1984DistributionFundamentals}.
 
              \begin{equation}\label{eq:wigner_dist}
-                W(x,p) = \frac{1}{\pi\hbar} \int_{-\infty}^{\infty} \psi^*(x+\eta) \psi(x-\eta) e^{2ip \eta/\hbar} d\eta
+                W(x,p) = \frac{1}{\pi\hbar} \int_{-\infty}^{\infty} \psi^*(x+\eta) \psi(x-\eta) e^{2ip \eta/\hbar} d\eta.
             \end{equation}\myequations{Wigner Quasi-probability Distributions}
 
         
@@ -24,7 +24,7 @@
             \end{equation}\myequations{Wigner Operator}
 
             \begin{equation}\label{eq:wigner_reduced}
-                     W_{\Gamma}(\Vec{r},\Vec{k}) = \int \frac{dk^-}{4\pi^2} \frac{1}{2}   \int \frac{d^3\Vec{q}}{8\pi^3}  e^{-i\Vec{q}\cdot\Vec{r}} \bra{\Vec{q}/2} \hat{W}_{\Gamma}(\Vec{r},k)\ket{-\Vec{q}/2}
+                     W_{\Gamma}(\Vec{r},\Vec{k}) = \int \frac{dk^-}{4\pi^2} \frac{1}{2}   \int \frac{d^3\Vec{q}}{8\pi^3}  e^{-i\Vec{q}\cdot\Vec{r}} \bra{\Vec{q}/2} \hat{W}_{\Gamma}(\Vec{r},k)\ket{-\Vec{q}/2}.
             \end{equation}\myequations{Reduced Wigner Distribution}
 
             Here we have integrated over $k^- = (k^0-k^z)/\sqrt{2}$, the light-cone energy, since it is difficult to measure in high-energy processes. 
@@ -32,6 +32,9 @@
     
         \subsubsection*{Generalized Parton Distributions}\label{sec:ch1sec2GPDs}
 
+            \todo{possibly work in TPEX by discussion of OPE formalism}
+            \todo{if possible work in Operator Product and Twist expansion}
+            
             No known experiments currently exist that are able to directly measure this distribution (nor is it known if it is possible). Fortunately, in recent decades theorists have been able to link experimental observables to further reduced forms of \eqref{eq:wigner_reduced}. Specifically, integration can be performed over spatial coordinates to yield Transverse Momentum Distributions (TMDs) which are outside the scope of this work. Alternatively, integration can be performed over momentum coordinates to yield Generalized Parton Distributions (GPDs), which encode transverse spatial as well as longitudinal momentum distributions of partons inside the nucleon. As shown in \parencite{Ji2004GENERALIZEDDISTRIBUTIONS}, at leading-twist (twist-2), iterating through all choices of the Dirac matrix for quark distributions $\Gamma$ yields 8 distinct GPDs. They are generally expressed in terms of parton momentum fraction \textit{x}, skewness $\xi = \frac{-q^2}{q \cdot P} \sim \frac{x_B}{2-x_B}$, and momentum transfer \textit{t}.
             
             4 correspond to helicity conserving (chiral even) processes and 4 correspond to helicity flipping (chiral odd) processes: \GPDH,  \GPDE,  \GPDHtilde,  and \GPDEtilde  \quad for chiral even, and \GPDHT,  \GPDET,  \GPDHTtilde, and \GPDETtilde \quad (\GPDETbar = 2*\GPDHTtilde+\GPDET is commonly used). Table \ref{table:GPDsPolarization} summarizes the GPDs with respect to polarization states. 
@@ -70,17 +73,17 @@
         \end{equation}
         
         \begin{equation}\label{gpd_f2}
-        \int dx \, E(x, \xi, t) = F_2(t)
+        \int dx \, E(x, \xi, t) = F_2(t). 
         \end{equation}
 
 
-        GPDs have been shown \parencite{Ji1997Gauge-InvariantSpin} to encode spin distributions and also can be interpreted as describing the transverse spatial distribution of quarks \parencite{Burkardt2007GPDs0}. Further, GPDs relation to energy-momentum tensor form factors (EMTs) allows access to EMT densities, which describe the distribution of energy, momentum, and pressure inside the nucleon. It was originally not known how to measure GPDs, but were realized to be experimentally accessible through deeply virtual exclusive processes (DVEP) relying on factorization theorems \parencite{Collins1999ProofQCD}, \parencite{Bauer2002HardTheory}. 
+        GPDs have been shown \parencite{Ji1997Gauge-InvariantSpin} to encode spin distributions and also can be interpreted as describing the transverse spatial distribution of quarks \parencite{Burkardt2007GPDs0}. Further, GPDs relation to energy-momentum tensor form factors (EMTs) allows access to EMT densities, which describe the distribution of energy, momentum, and pressure inside the nucleon. It was originally not known how to measure GPDs, but later were found to be experimentally accessible through deeply virtual exclusive processes (DVEP) relying on factorization theorems \parencite{Collins1999ProofQCD}, \parencite{Bauer2002HardTheory}. 
            
     
     
     \subsection{Deeply Virtual Exclusive Processes}
 
-        Deeply virtual exclusive processes are nuclear reactions are interactions occurring with high photon virtuality $(Q^2 >> m_p^2$) in the DIS regime ($W^2>>m_p^2$), with thresholds normally set to require  $Q^2 > 1$ GeV$^2$ and $W>2$ $GeV$. The processes involve the scattering of a virtual photon off a nucleon target, yielding either a real photon or mesons, along with an intact final state nucleon and incident particle (e.g. from an electron or muon beam). These processes are in stark contrast to DIS, where the nucleon target is shattered into many pieces, and can instead be thought of as a hard yet precise peaceful process. Different reactions have been shown to have different GPD dependencies, and thus provide different windows into sub-nucleon mechanics. 
+        Deeply virtual exclusive processes are interactions occurring with high photon virtuality $(Q^2 >> m_p^2$) in the DIS regime ($W^2>>m_p^2$), with thresholds normally set to require  $Q^2 > 1$ GeV$^2$ and $W>2$ $GeV$. The processes involve the scattering of a virtual photon off a nucleon target, yielding either a real photon or mesons, along with an intact final state nucleon and incident particle (e.g. from an electron or muon beam). These processes are in stark contrast to DIS, where the nucleon target is shattered into many pieces, and can instead be thought of as a hard yet precise non-invasive process. Different reactions have been shown to have different GPD dependencies, and thus provide different windows into sub-nucleon mechanics. 
 
         \subsubsection*{Deeply Virtual Compton Scattering and Meson Production}
         \figref{fig:dvep_diagram} illustrates diagrams for Deeply Virtual Compton Scattering (DVCS) and Deeply Virtual Meson Production (DVMP). 
@@ -110,7 +113,7 @@
         \end{minipage}
     \end{figure}
 
-        DVCS is primarily sensity to non-quark spin flip GPDs (e.g. \GPDH, \GPDE), as are DVMP for vector mesons, such as the $\rho$. On the other hand, pseudoscalar meson production, such as pions, are sensitive to the transversity, or chiral-odd, GPDs. Additionally, some meson processes, such as $\phi$ due to its strange quark content, are particularly sensitive to gluon GPDs. This work focuses on DVMP with the production of a neutral pion, $\pi^0$, which in addition to accessing chiral-odd GPDs, is an important background for other processes such as DVCS due to sample contamination from $\pi^0$ decay \parencite{Lee2022MeasurementDetector}.
+        DVCS is primarily sensitive to non-quark spin flip GPDs (e.g. \GPDH, \GPDE), as are DVMP for vector mesons, such as the $\rho$. On the other hand, pseudoscalar meson production, such as pions, are sensitive to the transversity, or chiral-odd, GPDs. Additionally, some meson processes, such as $\phi$ due to its strange quark content, are particularly sensitive to gluon GPDs. This work focuses on DVMP with the production of a neutral pion, $\pi^0$, which in addition to accessing chiral-odd GPDs, is an important background for other processes such as DVCS due to sample contamination from $\pi^0$ decay \parencite{Lee2022MeasurementDetector}.
         
         \subsubsection*{Deeply Virtual Neutral Pion Production}
             The Feynman diagram for Deeply Virtual Neutral Pion Production (DV$\pi^0$P or DVPiP) is shown in \figref{fig:DVPiP_diagram}. 
@@ -118,11 +121,11 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.5\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/dvPiP_Feynman_diagram_2.jpg}
-                \caption[DVPiP Feynman Diagram]{DV$\pi^0$P Feynman Diagram}
+                \caption[DVPiP Feynman Diagram]{DV$\pi^0$P Feynman Diagram.}
                 \label{fig:DVPiP_diagram}
             \end{figure}
 
-            The unpolarized cross-section for DV$\pi^0$P can be decomposed into longitudinal and transverse structure functions as in \eqref{eq:DVPiPCrossSection_theory}, the formalism for which is covered in \parencite{Donnachie1978GeneralizedDominance}, \parencite{Dreschsel1992ThresholdNucleons}, and \parencite{Donnelly2023GeneralResponses}. 
+            The unpolarized \xsec for DV$\pi^0$P can be decomposed into longitudinal and transverse structure functions as in \eqref{eq:DVPiPCrossSection_theory}, the formalism for which is covered in \parencite{Donnachie1978GeneralizedDominance}, \parencite{Dreschsel1992ThresholdNucleons}, and \parencite{Donnelly2023GeneralResponses}. 
             
  
             \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
@@ -131,8 +134,8 @@
                  \frac{1}{2\pi}
                  \left\{ \left(  \textcolor{sigmaT}{\frac{d\sigma_T}{dt}}+\epsilon  \textcolor{sigmaL}{\frac{d\sigma_L}{dt}} \right)+
                  \epsilon cos(2\phi)  \textcolor{sigmaTT}{\frac{d\sigma_{TT}}{dt}} + 
-                 \sqrt{2\epsilon(1+\epsilon)} cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}}
-             \end{equation}      \myequations{  DV$\pi$P Cross Section Decomposition}
+                 \sqrt{2\epsilon(1+\epsilon)} cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}}.
+             \end{equation}      \myequations{  DV$\pi^0$P Cross Section Decomposition}
 
              Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux} and represents the number of virtual photons per scattered electron \parencite{Amaldi1979Pion-electroproduction}, $\epsilon$ is the ratio of transverse to longitudinally polarized photons \eqref{eq:virtualphotonpolarization}, $\phi$ is the angle between the lepton and hadron planes, as illustrated in \figref{fig:phi_trento}, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT} as discussed in \parencite{Bedlinskiy2014ExclusiveCLAS}. 
   
@@ -148,7 +151,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.99\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/lept_had_planes.png}
-                \caption{Diagram of Lepton-Hadron Plane Angle $\phi$}
+                \caption{Diagram of Lepton-Hadron Plane Angle $\phi$.}
                 \label{fig:phi_trento}
             \end{figure}
     
@@ -219,6 +222,7 @@
             \end{itemize}
        
     %\subsection[Status of DVPiP Measurements]{Status of DV$\pi^0$P Measurements}
+    
     \subsection{Status of DV\texorpdfstring{$\pi^0$}{pi0}P Measurements}
 
 
@@ -229,7 +233,7 @@
          The earliest of such measurements were take at the Thomas Jefferson National Accelerator Facility (JLab) with a $\sim$ 6 GeV electron beam. Two of the four experimental halls - Hall A \parencite{Fuchey2011ExclusiveRegime} and Hall B \parencite{Bedlinskiy2014ExclusiveCLAS} produced \xsec results. Hall A houses a small acceptance precision spectrometer and recorded data in several kinematic bins. Hall B housed a large acceptance spectrometer, yielding \xsec measurements over a large kinematic regime. 
          %Hall A Rosenbluth separation \parencite{Defurne2016RosenbluthSection}
          
-         Recent upgrades at JLab have nearly doubled the beam energy to 10.6 GeV, and both detector halls have accumulated data allowing for the measurement of this process. Both halls repeated data taking at this higher energy, with Hall A recently releasing updated cross-section values across three fixed $x_B$ bins (0.36,0.48 and 0.6) and over a range of $Q^2$ values from 3 to 9 GeV$^2$ \parencite{Dlamini2021DeepRegime}. 
+         Recent upgrades at JLab have nearly doubled the beam energy to 10.6 GeV, and both detector halls have accumulated data allowing for the measurement of this process. Both halls repeated data taking at this higher energy, with Hall A recently releasing updated \xsec values across three fixed $x_B$ bins (0.36,0.48 and 0.6) and over a range of $Q^2$ values from 3 to 9 GeV$^2$ \parencite{Dlamini2021DeepRegime}. 
          
          This work expands on these results by covering a much larger kinematic regime, as well as having much higher statistics compared to the 6 GeV Hall B result. A kinematic overlap plot in $Q^2$, $x_B$ is shown in \figref{fig:kinematicreach} summarizes these differences. It is also noted that the CERN COMPASS collaboration \parencite{Alexeev2020MeasurementProton} has measured this process using a 160 GeV muon beam, obtaining results over a much lower $x_B$ range.  
 
@@ -247,13 +251,51 @@
         \subsubsection*{Overview of This Analysis}\label{sec:anaflow}
     
     
-        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsec.
+        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsecp
         
         
-        Chapter \ref{Chapter:Experiment} describes the experimental setup. Chapter \ref{Chapter:Simulations} discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. Chapter \ref{Chapter:BaseAnalysis} explains the specific analysis procedures and estimation methods used to arrive at \xsec values. Chapter \ref{Chapter:Further Analysis} presents further physics analysis, made possible with the extracted cross-section values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
+        Chapter \ref{Chapter:Experiment} describes the experimental setup. Chapter \ref{Chapter:Simulations} discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. Chapter \ref{Chapter:BaseAnalysis} explains the specific analysis procedures and estimation methods used to arrive at \xsec values. Chapter \ref{Chapter:Further Analysis} presents further physics analysis, made possible with the extracted \xsec values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
 
         \todo{statement introducing idea of posing this as an inverse problem, introduce the experimental interpretation of the cross section}
+
+        \Xsecs are theoretically interpreted as  the probability for a specific interaction to occur. They can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured events of interest $N_{meas}$ divided by the number of total interaction opportunities \Lumi. \Lumi is known as luminosity and is a product of only experimental parameters, such as the number of particles present and the experiment duration. 
+
+        \begin{equation} \label{eq:basic_xsec}
+            \sigma = \frac{\counts}{\Lumi}
+        \end{equation}
         
+        Measuring the complete \xsec at once is not feasible, so instead estimates are made of the differential \xsec \eqref{eq:basic_diff_xsec}, which instead evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. 
+        
+        \begin{equation} \label{eq:basic_diff_xsec}
+            \frac{d\sigma}{d\Omega} = \frac{ \counts} {\Lumi \textcolor{purple}{\Delta \Omega}}
+        \end{equation}
+        
+        In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis, yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
+        
+             \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_exp}
+                   { \frac{    d^4\sigma_{  ep \rightarrow ep'\pi^0}   } {dQ^2dx_Bdtd\phi_{\pi}} 
+                        =   \frac{ \textcolor{red}{ N(Q^2,x_B,t,\phi_{\pi})}} {\Lumiint \textcolor{purple}{ \Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}}} 
+                        \frac{1}{\textcolor{correctionfactors}{\epsilon_{acc} \delta_{RC} \delta_{Norm} Br(\pi^0\rightarrow\gamma\gamma)}}}
+             \end{equation}      \myequations{DV$\pi$P Experimental Cross Section}
+        
+        The terms on the right-hand side of this equation are: 
+        \begin{itemize}
+        \item \textcolor{red}{$N(Q^2,x_B,t,\phi_{\pi})$} - Number of events recorded in a given $Q^2$, $x_B$, $t$, $\phi_{\pi}$ bin.
+        
+        \item \Lumiint - Integrated luminosity
+        
+        \item \textcolor{purple}{$\Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}$} - These are the bin sizes or intervals for the variables $Q^2$, $x_B$, $t$, and $\phi_{\pi}$.
+        
+        \item \textcolor{correctionfactors}{$\epsilon_{acc}$} - Acceptance correction, which is a combination of detector efficiency and geometrical acceptance, determined through simulations. 
+        
+        \item \textcolor{correctionfactors}{$\delta_{RC}$} - Radiative correction factor
+        
+        \item \textcolor{correctionfactors}{$\delta_{Norm}$} - Overall normalization factor
+        
+        \item \textcolor{correctionfactors}{$Br(\pi^0\rightarrow\gamma\gamma)$} - Branching ratio of the decay of a neutral pion ($\pi^0$) into two photons ($\gamma\gamma$), which is most recently measured at 98.8131\%  \cite{Husek2019PreciseDecay}
+        \end{itemize}
+        
+
             \begin{figure}
                 \centering
                   \resizebox{15.cm}{!}{\begin{tikzpicture}[
@@ -321,7 +363,7 @@
                 \draw[->] (ccb9) -- (ccb10);    
                 
                 \end{tikzpicture}}
-                \caption[Analysis Flowchart]{Analysis Overview Flowchart}
+                \caption[Analysis Flowchart]{Analysis Overview Flowchart.}
                 \label{fig:ProcessFlowchart}
             
             \end{figure}
@@ -513,7 +555,7 @@ Stuff to add sometime / for consideration:
             and PCal is much smaller than between IC and EC - proton polar angle was limited to 60
             deg in the e1dvcs dataset if my memory is correct
             Do you have on hands the number of exclusive pi0 events published for the CLAS6
-            cross-sections? We need numbers to make the case to cook the RGK data
+            \xsecs? We need numbers to make the case to cook the RGK data
             Well over an order of magnitude more statistics at CLAS12 compared to CLAS6
 
 

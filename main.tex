@@ -184,10 +184,14 @@
 
 
 
-\newcommand{\xsec}{cross-section }
-\newcommand{\xsecs}{cross-sections }
-\newcommand{\Xsec}{Cross-section }
-\newcommand{\Xsecs}{Cross-sections }
+\newcommand{\xsec}{cross section }
+\newcommand{\xsecs}{cross sections }
+\newcommand{\Xsec}{Cross section }
+\newcommand{\Xsecs}{Cross sections }
+\newcommand{\xsecp}{cross section. }
+\newcommand{\xsecsp}{cross sections. }
+\newcommand{\Xsecp}{Cross section. }
+\newcommand{\Xsecsp}{Cross sections. }
 \newcommand{\dvpip}{DV$\pi^0$P }
 
 
@@ -270,9 +274,6 @@
 
 \newcommand{\todo}[1]{\iflong \textcolor{red}{#1} \mytodo{#1} \else \fi}
 
-%  \iflong \lipsum[1] \else short version \fi
-
-
 
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
@@ -281,9 +282,6 @@
 %\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
 %\def\all{all}
 %\ifx\files\all \typeout{Including all files.} \else %\typeout{Including only \files.} \includeonly{\files} \fi
-
-\begin{document}
-
 
 \definecolor{mygreen}{RGB}{14, 176, 9}
 \definecolor{correctionfactors}{RGB}{11, 122, 25}
@@ -304,9 +302,18 @@
 \definecolor{sigmaLT}{RGB}{252, 3, 3}
 \definecolor{sigmaTT}{RGB}{3, 32, 252}
 
+
+\begin{document}
+
 \newif\iflong
 
-
+%Turn todo section on /off
+%on:
+%\longtrue
+%off: 
+\longfalse
+ 
+%  \iflong \lipsum[1] \else short version \fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,12 +350,7 @@
 
 
 
-%Turn todo section on /off
-%on:
-\longtrue
-%off: 
-%\longfalse
- 
+
 
 
 \iflong{
