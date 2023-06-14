@@ -1,7 +1,7 @@
 Thesis. Will add more information later (hopefully?)
 
-PDF at:
-https://robertej19.github.io/MIT-Thesis/main.pdf
+
+[PDF](https://superfluid.systems/nuclear_physics.html)
 
 Presentation at:
 https://robertej19.github.io/Thesis-Offense/presentation.pdf
