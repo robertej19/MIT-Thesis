@@ -1,94 +1,3 @@
-\section{General Analysis Overview}
-
-\input{Chapters/Ch4-BaseAnalysis/0_preprocessing/0_A_Simulation_Preprocessing/mom_smear}
-\input{Chapters/Ch4-BaseAnalysis/0_preprocessing/0_B_Data_Preprocessing/mom_corr}
-
-\Xsecs are theoretically interpreted as  the probability for a specific interaction to occur. They can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured events of interest $N_{meas}$ divided by the number of total interaction opportunities \Lumi. \Lumi is known as luminosity and is a product of only experimental parameters, such as the number of particles present and the experiment duration. 
-
-\begin{equation} \label{eq:basic_xsec}
-    \sigma = \frac{\counts}{\Lumi}
-\end{equation}
-
-Measuring the complete \xsec at once is not feasible, so instead estimates are made of the differential \xsec \eqref{eq:basic_diff_xsec}, which instead evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. 
-
-\begin{equation} \label{eq:basic_diff_xsec}
-    \frac{d\sigma}{d\Omega} = \frac{ \counts} {\Lumi \textcolor{purple}{\Delta \Omega}}
-\end{equation}
-
-In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis, yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
-
-     \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_exp}
-           { \frac{    d^4\sigma_{  ep \rightarrow ep'\pi^0}   } {dQ^2dx_Bdtd\phi_{\pi}} 
-                =   \frac{ \textcolor{red}{ N(Q^2,x_B,t,\phi_{\pi})}} {\Lumiint \textcolor{purple}{ \Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}}} 
-                \frac{1}{\textcolor{correctionfactors}{\epsilon_{acc} \delta_{RC} \delta_{Norm} Br(\pi^0\rightarrow\gamma\gamma)}}}
-     \end{equation}      \myequations{DV$\pi$P Experimental Cross Section}
-
-The terms on the right-hand side of this equation are: 
-\begin{itemize}
-\item \textcolor{red}{$N(Q^2,x_B,t,\phi_{\pi})$} - Number of events recorded in a given $Q^2$, $x_B$, $t$, $\phi_{\pi}$ bin.
-
-\item \Lumiint - Integrated luminosity
-
-\item \textcolor{purple}{$\Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}$} - These are the bin sizes or intervals for the variables $Q^2$, $x_B$, $t$, and $\phi_{\pi}$.
-
-\item \textcolor{correctionfactors}{$\epsilon_{acc}$} - Acceptance correction, which is a combination of detector efficiency and geometrical acceptance, determined through simulations. 
-
-\item \textcolor{correctionfactors}{$\delta_{RC}$} - Radiative correction factor
-
-\item \textcolor{correctionfactors}{$\delta_{Norm}$} - Overall normalization factor
-
-\item \textcolor{correctionfactors}{$Br(\pi^0\rightarrow\gamma\gamma)$} - Branching ratio of the decay of a neutral pion ($\pi^0$) into two photons ($\gamma\gamma$), which is most recently measured at 98.8131\%  \cite{Husek2019PreciseDecay}
-\end{itemize}
-
-
-\clearpage
-\begin{figure}[!h]
-    \centering
-    \begin{tikzpicture}[
-      node distance=2cm,
-      startstop/.style={rectangle, rounded corners, minimum width=11cm, minimum height=1cm,text centered, draw=black, fill=red!30},
-      io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=11cm, minimum height=1cm, text centered, draw=black, fill=blue!30},
-      process/.style={rectangle, minimum width=11cm, minimum height=1cm, text centered, draw=black, fill=orange!30},
-      arrow/.style={white,ultra thick,->,>=stealth},
-      ]
-    
-      \node (start) [startstop] {Real or Simulated Detector Hits};
-      \node (process1) [process, below of=start] {Reconstruction into Particle Tracks};
-      \node (io1) [io, below of=process1] {Conversion to .HIPO format};
-      \node (process2) [process, below of=io1] {Preliminary Fiducial Filtering};
-      \node (io2) [io, below of=process2] {Conversion to .ROOT format};
-      \node (process3) [process, below of=io2] {Preprocessing: Momentum Corrections and Smearing};
-      \node (io3) [io, below of=process3] {Conversion to DataFrame Objects};
-      \node (process4) [process, below of=io3] {\Xsec Calculation};
-       
-      \draw [arrow] (start) -- (process1);
-      \draw [arrow] (process1) -- (io1);
-      \draw [arrow] (io1) -- (process2);
-      \draw [arrow] (process2) -- (io2);
-      \draw [arrow] (io2) -- (process3);
-      \draw [arrow] (process3) -- (io3);
-      \draw [arrow] (io3) -- (process4);
-
-    
-      \begin{scope}[on background layer]
-        \node[fit=(start)(process1)(io1), fill=mypurp, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 0: Track Reconstruction} }] {};
-
-
-        \node[fit=(process2)(io2), fill=darkblue, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 1: Data Batching} }] {};
-
-
-        \node[fit=(process3)(io3), fill=darkgreen, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 2: Data Preparation} }] {};
-
-        \node[fit=(process4), fill=darkred, rounded corners, inner xsep=15pt, inner ysep=25pt, label={[xshift=-90pt, yshift=-20pt] north: \textcolor{white}{Step 4: Analysis } }] {};
-
-      \end{scope}
-      
-    \end{tikzpicture}
-    \caption{High-level data processing flow}
-    \label{fig:High-level data processing flow}
-\end{figure}
-
-\clearpage
 
 
 Official Repo: https://github.com/robertej19/clas12DVPiP
@@ -115,48 +24,29 @@ $\delta$ and $\epsilon$ need to be properly calculated, but for a first pass we 
 
 
 
-We can calculate the luminosity L through the following equation
-
-\begin{equation}
-    L = \frac{N_A l \rho Q_{FCUP}}{e}
-\end{equation}
-
-Where $N_A$ is Avogadro's constant, l is the length of the target,  $\rho$ is the density of the target (liquid hydrogen), $Q_{FCUP}$ is the charge collected on the Faraday cup, and e is the charge of the electron. The values of these quantities are (ignoring uncertainties on experimental quantities for the time being):\\
-
-$N_A$ = 6.02214 x $10^{23}$\\
-l = 5 cm\\
-$\rho$ = 0.07 $g/cm^3$\\
-e = 1.602 x $10^-19$ Coulombs\\
-$Q_{FCUP}$ - this must be measured and obtained from analysis. Typical runs at CLAS12 have an accumulated beam charge of tens to hundreds of thousands of nanoCoulumbs. 
-
+\section{General Analysis Overview}
+    \input{Chapters/Ch4-BaseAnalysis/analysis_overview/analysis_overview}
+    
 \section{Data Pre-Processing}
-    \subsection{Energy Loss Corrections}
-    \subsection{Momentum Corrections}
-    \subsection{Simulation:Experiment Resolution Matching}
-        \subsubsection{Kinematics Correction of Experimental Data}
-        \subsubsection{Smearing Simulated Data}
-
-\section{Particle Identification}
+    \input{Chapters/Ch4-BaseAnalysis/0_preprocessing/0_preprocessing}
 
 \section{Event Selection}
-    \subsection{Rigid Event Selection}
-    \subsection{Classifier Based Event Selection}
-    \input{Chapters/Ch4-BaseAnalysis/1_Exclusivity_Cuts/Exclusive}
+    \input{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/Exclusive}
     
-\section{Luminosity}
-    \input{Chapters/Ch4-BaseAnalysis/B_Luminosity/Luminosity}
-    
-\section{Configuration and Kinematics}
+\section{Luminosity}\label{sec:luminosity}
+    \input{Chapters/Ch4-BaseAnalysis/2_Luminosity/Luminosity}
 
 \section{Binning}
+    \input{Chapters/Ch4-BaseAnalysis/3_Binning/binning}
 
-\section{Acceptance Correction}
+\section{Correction Factors}
+    \input{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/correction_factors}
 
-\section{Radiative Corrections}
+\section{Uncertainty Estimation}
 
-\section{Binning Corrections}
+\section{Iterative Bayesian Unfolding}
+    \input{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/correction_factors}
 
-\section{Overall Normalization Corrections}
 
-\section{Error Analysis}
+
 

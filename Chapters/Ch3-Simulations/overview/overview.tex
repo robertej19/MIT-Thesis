@@ -1,0 +1,18 @@
+Motivation for massive simulations, inverse problem scope
+    Discuss scale of data - how many simulations needed, how much data is produced, how long it takes to run simulations, cost and energy involved.
+    overview: event generation - physics simulation - reconstruction - other
+    \subsection{MIT Tier 2 and Supercomputing Clusters}
+        OSG MIT Tier 2 etc
+    \subsection{Overview of Simulation Runs}
+
+    Simulation hours: 
+    As for your question, if there is constant pressure then yes, MIT baseline would be constant.
+
+However: need much more than ~20K jobs / day to be at constant pressure. The dedicated resources + high priority can go up to 20K cores at once and if a job last 4 hours that’s 24/4 = 6*20K = 120K jobs / day to be at constant pressure! Please do not submit that many jobs ;-)
+
+You can check the monitoring page for more details. In particular you can select 1 month timeframe, and log scale. You will see holes in queue.
+And if you select just ‘MIT’ on the dedicated graph, you’ll see the attached picture, where the ‘holes’ in the pressure are well shown and the number of MIT cores under pressure is about 3K.
+
+ Simulations are necessary in order to extract correction factors.
+    
+    GEMC was used to process generated events through the CLAS12 fall 2018 RG-A configuration. Specifically, a generator based off the GK model and CLAS6 data - aao\_norad\footnote{https://github.com/drewkenjo/aao\_norad}. 

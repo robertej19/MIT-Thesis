@@ -257,6 +257,9 @@
 %\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
 
+
+
+
 \newcommand{\listequationsname}{List of Equations}
 \newcommand{\myequations}[1]{\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}\quad \quad #1}\par}
 
@@ -264,6 +267,10 @@
 
 \newcommand{\listtodo}{List of To Do Items}
 \newcommand{\mytodo}[1]{\addcontentsline{todo}{mytodo}{\protect\numberline{\theequation}\quad \quad #1}\par}
+
+\newcommand{\todo}[1]{\iflong \textcolor{red}{#1} \mytodo{#1} \else \fi}
+
+%  \iflong \lipsum[1] \else short version \fi
 
 
 
@@ -296,6 +303,8 @@
 \definecolor{sigmaL}{RGB}{0, 0, 0}
 \definecolor{sigmaLT}{RGB}{252, 3, 3}
 \definecolor{sigmaTT}{RGB}{3, 32, 252}
+
+\newif\iflong
 
 
 
@@ -333,18 +342,30 @@
 \listofmyequations
 
 
+
+%Turn todo section on /off
+%on:
+\longtrue
+%off: 
+%\longfalse
+ 
+
+
+\iflong{
 \clearpage
 \phantomsection
 \newlistof{mytodo}{todo}{\quad \listtodo}
 \addcontentsline{toc}{chapter}{      \listtodo}
 \listofmytodo
-
+}
+\else \fi
 
 %\xpretocmd{\listofmytodo}{\addcontentsline{toc}{chapter}{\listtodo}}{}{}
 %\xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
 
 
 
+%
 
 
 
@@ -364,8 +385,8 @@
 \chapter{Cross Section Measurement} \label{Chapter:BaseAnalysis}
 \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
 
-\chapter{Further Analysis} \label{Chapter:Further Analysis}
-\input{Chapters/Ch5-FurtherAnalysis/Ch5-FurtherAnalysis.tex}
+%\chapter{Results and Further Analysis} \label{Chapter:Further Analysis}
+%\input{Chapters/Ch5-Further/Ch5-Further}
 
 \input{outstanding_refs}
 

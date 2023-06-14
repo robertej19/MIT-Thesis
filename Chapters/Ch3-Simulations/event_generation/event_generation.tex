@@ -1,0 +1,38 @@
+    Maid model discussion
+    Xiaqing said that the following: \cite{Dreschsel1992ThresholdNucleons} contains the formalism for the MAID model
+
+You don't need much details about generator, it is based on GK model with Valery's fit to CLAS6 data.
+
+NON RADIATED, INBENDING
+// Pi0 leptoproduction in Goloskokov-Kroll (GK) model. The code is currently being tested and implemented in PARTONS framework with additional features. If you plan to use this work in a publication, please use and reference the most recent version of PARTONS in http://partons.cea.fr 
+
+Andrey Kim and Nick Markov have the pi0 generator. It has my parametrization for W>2 GeV and MAID for W<1.7 GeV.
+
+My model will for sure work for 12 GeV. It actually very close even for the COMPASS pi0 data (180 GeV muon beam).
+
+There is reasonable coincidence between my model and MAID in the point W=1.7 GeV, not ideal but good enough for the MC.
+
+I think actually that my parametrization has to work in the region W<2 GeV but I am not sure that MAID is doing good job due to the absence the experimental data at W~1.7 GeV. 
+
+    Hi Bobby,
+    Please take a look at README:
+    \href{https://github.com/drewkenjo/aao\_norad}{norad}
+    It has instructions how to compile, run and configure the program.
+    Please don't hesitate to ask questions!
+
+
+    For event generator we have aao\_rad can generate radiatied pi0 events in resoncane region use 2007 model
+    Put parameterization from valerly’s paper, can cover up to whatever Q2 range covered in the paper, beyond that we put some general Q2 behaviour
+    For Exclurad we have similar model, in end may have to iterate a few times to improve the model
+    Exlclurad specifically for resonance region, theoretically should be correct, input probably needs to be updated, can put Valery’s new parameterization to cover higher range. Should not be a real issue to implement it because same thing was done for AAORad. High q2 cannot be covered because parameterization only goes to CLAS6 range
+    FX: the cruicail thing is to fold in the radiative corrections with acceptance and efficiens. Best mothod is to use fast monte carlo
+
+
+    aao\_rad and aao\_norad are event generators for exclusive pi0 and pi+ channels with/without radiative effects.  They are written in Fortran.  The program was initially developed by Volker Burkert long time ago for the resonance region, then has been evolved for many years and recently extended to DIS region even though lots of things need to be done.  Try this to see whether it works.  
+
+    \textbf{A}mplitudes \textbf{A}nd \textbf{O}bservables (AAO)
+    \subsection{Nonradiative Generator}
+        Include generator plots, specitics of layout
+        
+    \subsection{Radiative Generator}
+      Include generator plots, specitics of layout, plots showing W cut offs, etc
