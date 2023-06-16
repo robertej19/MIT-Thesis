@@ -6,6 +6,7 @@ author: "GitHub"
 on:
   # Runs on pushes targeting the default branch
   push:
+  # not sure if working
     branches: ["main"]
 
 inputs:
