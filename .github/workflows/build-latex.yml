@@ -11,15 +11,15 @@ jobs:
         with:
           root_file: main.tex
       - name: Rename PDF
-        run: mv main.pdf public/main6.pdf
+        run: mv main.pdf public/main.pdf
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: public/main6.pdf
+          path: public/main.pdf
       - name: Publish PDF to repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          file_pattern: 'public/main6.pdf'
+          file_pattern: 'public/main.pdf'
           commit_message: Rebuilt PDF
      
