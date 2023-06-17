@@ -11,7 +11,7 @@ jobs:
         with:
           root_file: main.tex
       - name: Rename PDF
-        run: mv main.pdf main5.pdf
+        run: mv main.pdf public/main6.pdf
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
