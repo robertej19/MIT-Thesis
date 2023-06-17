@@ -70,17 +70,6 @@
 \usepackage{caption}
 \usepackage{subfig}
 
-
-
-
-
-
-
-
-
-
-
-
 \DeclareCiteCommand{\cite}
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
@@ -138,23 +127,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %include if want to check unused referneces and uncomment nocite{*}
 %\usepackage{refcheck}
 
@@ -195,8 +167,8 @@
 \newcommand{\Xsecsp}{Cross sections. }
 \newcommand{\dvpip}{DV$\pi^0$P }
 
-
 \newcommand{\figref}[1]{Fig.~\ref{#1}}
+
 
 %labelandremeber from https://tex.stackexchange.com/questions/459508/how-can-i-repeat-a-formula-without-copying-it
 \newcommand\labelAndRemember[2]
@@ -204,10 +176,6 @@
    \label{#1}#2}
 \newcommand\recallLabel[1]
    {\csname labeled:#1\endcsname\tag{\ref{#1}}}
-
-
-
-
 
 %\usepackage[square,numbers,sort&compress]{natbib}
 
@@ -261,14 +229,8 @@
 %\fancyhf{}
 %\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
-
-
-
-
 \newcommand{\listequationsname}{List of Equations}
 \newcommand{\myequations}[1]{\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}\quad \quad #1}\par}
-
-
 
 \newcommand{\listtodo}{List of To Do Items}
 \newcommand{\mytodo}[1]{\addcontentsline{todo}{mytodo}{\protect\numberline{\theequation}\quad \quad #1}\par}
