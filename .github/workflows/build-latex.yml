@@ -10,13 +10,16 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+      - name: Rename PDF
+        run: mv main.pdf main5.pdf
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: public/main.pdf
+          path: main5.pdf
       - name: Publish PDF to repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           file_pattern: '*.pdf'
-          commit_message: Changed files
+          commit_message: Rebuilt PDF
+     
