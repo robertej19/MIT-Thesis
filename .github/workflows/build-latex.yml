@@ -20,3 +20,8 @@ jobs:
         with:
           file_pattern: '*.pdf'
           commit_message: Changed files
+      - name: Copy File
+        uses: canastro/copy-file-action@master
+        with:
+          source: "main.pdf"
+          target: "public/main.pdf"
