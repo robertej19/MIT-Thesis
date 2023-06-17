@@ -16,10 +16,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: main5.pdf
+          path: public/main6.pdf
       - name: Publish PDF to repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          file_pattern: '*.pdf'
+          file_pattern: 'public/main6.pdf'
           commit_message: Rebuilt PDF
      
