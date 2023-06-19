@@ -28,6 +28,7 @@
 %aps,prd,longbibliography]%{revtex4-1}
 \documentclass[12pt,twoside]{mitthesis}
 \usepackage{lgrind}
+\usepackage{tabularx}
 %% These have been added at the request of the MIT Libraries, because
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
 \usepackage{cmap}
@@ -69,6 +70,10 @@
 
 \usepackage{caption}
 \usepackage{subfig}
+%\captionsetup[subfloat]{position=top,
+%  farskip=10pt,topadjust=0pt,captionskip=10pt,
+%  nearskip=10pt,margin=10pt}
+
 
 \DeclareCiteCommand{\cite}
   {\usebibmacro{prenote}}
@@ -236,6 +241,11 @@
 \newcommand{\mytodo}[1]{\addcontentsline{todo}{mytodo}{\protect\numberline{\theequation}\quad \quad #1}\par}
 
 \newcommand{\todo}[1]{\iflong \textcolor{red}{#1} \mytodo{#1} \else \fi}
+
+\newcommand{\sangsite}[1]{\textcolor{red}{#1}}
+
+\newcommand{\Moller}{ M\"oller }
+
 
 
 %% This bit allows you to either specify only the files which you wish to

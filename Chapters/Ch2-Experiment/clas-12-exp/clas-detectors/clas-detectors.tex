@@ -1,8 +1,4 @@
-    \todo{include note about HofstaderM. Gockeler et al., Phys.Rev.Lett. 98, 222001 (2007).}
-
-    volker clas12 exp \cite{Burkert2020TheLaboratory}
-
-
+The CLAS detector has two major subsystems, the central detector and the forward detectors, as well as a forward tagger and backward angle neutron detector (BAND)
 
     \begin{figure}[H]
         \centering
@@ -22,11 +18,161 @@
         \caption{CLAS12 Data Rates, Compared to Other Experiments }
     \end{figure}
 
+    \todo{include note about HofstaderM. Gockeler et al., Phys.Rev.Lett. 98, 222001 (2007).}
+
+    volker clas12 exp \sangsite{Burkert2020TheLaboratory}
+
     
 CLAS12 acceptances and resolutions are also superior to that of CLAS6. Main differences are:
 - RGK has outbending torus vs inbending CLAS6 data
 - the distance between the target and the PCal has increased, the FTCal extends to lower angles, and the gap between FTCal and PCal is much smaller than between IC and EC
 - proton polar angle was limited to 60 deg in the e1dvcs dataset if my memory is correct
+
+
+
+% FROM SANGBAEK
+\todo{The CLAS12 DVCS Experiment in RG-A is an officially approved project (E12-06-
+119) by the Physics Review Committee (PAC) of the Jefferson Lab [133] that aims to
+measure the CFF with the extracted BSA and the cross section at RG-A beamtime.}
+
+
+
+The CLAS12 detector consists of the Forward Detector (FD), the Central Detector
+(CD), and the Forward Tagger (FT). The FD consists of the High Threshold
+Cherenkov Counter (HTCC) \parencite{Sharabian2020TheCounter}, the Low Threshold Cherenkov Counter (LTCC)
+\parencite{Ungaro2020TheDetector}, the Ring Imaging Cherenkov detector (RICH) \parencite{Contalbrigo2020TheDetector}, the Forward Time-of-Flight
+(FTOF) \parencite{Carman2020TheSystem}, the Drift Chamber (DC) \parencite{Mestayer2020TheSystem}, and the Electromagnetic Calorimeter
+(ECAL) \parencite{Asryan2020TheCalorimeter}. The ECAL has three layers of sampling calorimeters named as the
+Pre-shower Calorimeter (PCAL), the EC-inner, and the EC-outer. The EC-inner and
+EC-outer are two layers of the legacy Electromagnetic Calorimeter (EC) of the previous
+CLAS experiment \parencite{Amarian2001TheCalorimeter}. Likewise, the FTOF has three layers—FTOF 1a, FTOF
+1b, and FTOF 2. The LTCC and the RICH were not used in this measurement.
+By forward, it means that the FD covers from 5∘ to 35∘ polar angle, except for the
+
+FTOF 2 that covers 35–45∘. Each detector in FD is divided into 6 sectors in azimuth
+that each covers 60∘ with a counterclockwise numbering convention that the sector 1
+corresponds to [-30∘, 30∘].
+Outside the FD, a wider range of polar angles is covered by the CD. The CD
+has the Central Vertex Tracker to reconstruct hadrons. The CVT is formed by the
+Barrel Micromega Tracker (BMT)  \parencite{Acker2020TheTracker}, and the Silicon Vertex Tracker (SVT) \parencite{Antonioli2020TheTracker}
+during the runs. The main part is the SVT, while the BMT is used to improve the
+track reconstruction. The Central Neutron Detector (CND) \parencite{Chatagnon2020TheDetector} was installed but
+not used in this measurement. Meanwhile, the Backward Angle Neutron Detector
+(BAND) \parencite{Segarra2020TheBAND} and the Forward Micromegas Tracker (FMT)  \parencite{Acker2020TheTracker} were not installed.
+Inside the FD, there is the FT [147] that covers 2.5–4.5∘, which is an independent
+set of three detectors: the tracker (FT-Trk), the homogeneous calorimeter (FT-Cal),
+and the hodoscope (FT-Hodo).
+To determine the momentum of charged particles, each solenoid and torus magnet
+surrounds the FD and the CD  \parencite{Fair2020TheMagnets}. The peak magnetic fields in the solonoid and
+the torus are 5 T and 3.58 T, respectively, with the line-integrated magnetic field
+(integral B dl) 7.0 T·m and 0.54–2.78 T·m, where the limits correspond to 40∘ and 5∘ polar
+
+angle coordinate, respectively. Both are super-conducting magnets that are cooled
+by means of cryostats.
+The ECAL is roughly 9 m distant from the target in the beamline direction and is
+the farthest detector from the target. The Faraday Cup at the beam dump measures
+the beam charge to an uncertainty of 0.48% [135, 149]. The Data Acquisition (DAQ)
+\parencite{Boyarinov2020TheSystem} dead-time can be corrected by using a gate at the FC that closes when the
+DAQ procedure is complete \parencite{Baltzell2020ThePerformance}. The total charge regardless of the gate is called
+the ungated charge, and the charge collected during the gate on is the gated charge.
+The ratio of the gated charge to the ungated charge is recorded as the DAQ live-time.
+The complete listing of detector components can be found in Table. 2.1. The CLAS12
+detector components relevant to the particle 4-momentum vector reconstruction are
+grouped by their characteristics in Table. 2.2. The essential properties like threshold
+and resolutions and the prominent material components are also listed.
+
+An electron candidate e'is defined as an associated signal of these FD signals: (1)
+a track in DC, (2) photoelectrons in HTCC, (3) hits in FTOF, (4) energy deposited
+over 60 MeV, and (5) the Sampling Fraction (SF) of Minimum Ionizing Particle’s
+(MIPs). Here, the event start time is determined from the track information, and
+corrected by the RF signal and the vertex location. The momentum of a charged
+particle such as e' and the proton p' is reconstructed using the equation of motion
+in a magnetic field. The polar angle difference during the trajectory $\Delta \theta$ is related to
+the momentum p and the charge q of the particle, and the line-integrated magnetic
+field along the trajectory curve, (int B dl) as
+
+\begin{equation}
+    \frac{q}{p} = \frac{\Delta \theta}{c \int B dl}
+\end{equation}
+
+During one event, p' is identified when there is a positively charged track in the DC
+or the CVT, associated with FTOF or CTOF hits for the timing. The flight time $\Delta t_{p'}$ of p' is determined as the difference of TOF hits and event start time. Along
+with the path length $l_{p'}$ and the momentum $p_{p'}$ determined from the trajectory, the following relationship holds [151];
+
+\begin{align*}
+    \beta p' &\equiv \frac{v p'}{c} = \frac{l p'}{c t p'} = \frac{p'}{\sqrt{p'^2 + M^2 p}}
+\end{align*}
+
+We take the common relativity notation for $\beta = \frac{v}{c}$ where $v$ is the velocity of the particle and $c$ is the speed of light. Here, $\chi \equiv \frac{\Delta t}{\sigma TOF}$ with $\Delta t \equiv \Delta t_{p', \text{expected}}(p') - \Delta t_{p', \text{measured}}$ is assigned to the particle as the signed distance function from the theoretical value. The photon $\gamma$ can be reconstructed in the ECAL in FD, and the FT-Calorimeter in the FT. A photon will not produce charged tracks in the DC and the FT-Hodo associated with the existing calorimeter hits. More efficiently, the neutral hits are defined as the remaining calorimeter hits after all charged particles are assigned. The energy deposition in ECAL is converted to the actual photon energy using the SF. The homogeneous calorimeter FT-Cal takes the energy deposition as the photon energy.
+
+Table 2.2: The properties of the relevant subdetectors for the DVCS analysis. The
+properties relate mostly to the effective measurement uncertainties listed in each NIM
+article [135, 136, 140, 141, 143, 144, 147, 152].
+
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{XccXX}
+    \toprule
+    Name & Coverage ($^\circ$) & Nominal Property & Material \\
+    \midrule
+    HTCC & 5-35 & $0.015 < p < 4.9$ GeV/c & CO$_2$ \\
+    FTOF 1B & 5-35 & $60 - 110$ ps (t) & \\
+    FTOF 1A & 5-35 & $90 - 180$ ps (t) & Plastic \\
+    FTOF 2 & 35-45 & $170 - 180$ ps (t) & Scintillator \\
+    CTOF & 35-125 & $80$ ps (t) & \\
+    ECAL & 5-35 & $10\%/\sqrt{E}$ (E) & Pb (absorber) \\
+    & & $1.2$ mrad ($\theta, \phi$) & Plastic scintillator \\
+    FT-Cal & 2.5-4.5 & $2\%/\sqrt{E} \oplus 1\%$ (E) & PbWO$_4$ crystal \\
+    & & $1.5\%$ ($\theta$) & \\
+    & & $2^\circ$ ($\phi$) & \\
+    DC & 5-40 & $1\%$ (p) & Aluminium wire \\
+    & & $1$ mrad ($\theta$) & $90\%$ Ar \\
+    & & $1$ mrad/sin $\theta$ ($\phi$) & $10\%$ CO$_2$ \\
+    CVT & 35-125 & $5\%$ ($p_t$) & SVT: Si \\
+    & & $10 - 20$ mrad ($\theta$) & BMT: $90\%$Ar + $10\%$C$_4$H$_{10}$ \\
+    & & $5$ mrad ($\phi$) & \\
+    FC & - & $0.48\%$ (L) & Pb \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+
+
+Sangbaek refs:
+133 - pac approval rga 
+134 - jlab schematic 
+143 - FMT 
+147 - FT 
+149 - Faraday cup 
+150 - DAQ 
+151 - magnet relationships
+152 - forward calorimeter 
+153 variou channel analysis
+154 variou channel analysis
+155 variou channel analysis
+156 - PCal boundary estimation - FX private comm
+158 - DVCS conditions - F.-X. Girod et al., DVCS Wagon, 2020
+160 - stat packages
+161 - stat packages
+162 - pickle format The Python Library Reference, Release 3.8.2.
+163 - clas12rot D. Glazier et al., CLAS12ROOT
+164 - root Root-project/root: V6.18/02,
+165 - uproot Scikit-hep/uproot:
+
+
+
+
+
+
+
+
+
+
+%% END
+
+\cleardoublepage
+
 
 
 \input{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/fd/ForwardDetector}
