@@ -1,31 +1,55 @@
-Particle detectors produce timeseries data of electrical signals corresponding to particle interactions, which coupled with precision knowledge of detector geometry can be used to reconstruct individual particles' momenta, which can then provide complete records of entire events. An example event, showing shown in \figref{fig:example-track}. Note that the same decoding, reconstruction, particle ID, filtering, and file conversion procedures are used for both the real experimental data and the computer simulated data \ref{Chapter:Simulations}.
+Particle detectors produce timeseries data of electrical signals corresponding to particle interactions, which coupled with precision knowledge of detector geometry can be used to reconstruct individual particles' momenta, which can then provide complete records of entire events. An example event is shown in \figref{fig:example-track}, illustrating detector hits and the corresponding reconstructed particle paths.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/example_track.png}
-    \caption{Track showing an example path of an electron, proton, and photon, from \parencite{Battaglieri2021PresentProgram}.}
+    \caption[Example Event Tracks]{Track showing an example path of an electron, proton, and photon, from \parencite{Battaglieri2021PresentProgram}.}
     \label{fig:example-track}
 \end{figure}
 
 
 \subsection{Decoding and Track Reconstruction}\label{sec:decoding_reconstruction}
-    The timeseries data from the detector systems must be efficiently processed and stored for future analysis. The data acquisition system (DAQ) was originally designed to handle a 10 kHz event rate and 100 MB/s event rate, but has since been shown to be able to handle event rates of 30 kHz at data rates above 1 GB/s \parencite{Boyarinov2020TheSystem}. Data for this analysis utilized an inclusive electron trigger requiring electron momentum p$_{\mathrm{e'}}$ above 2 GeV/c. The raw detector hits are 
+    The timeseries data from the detector systems must be efficiently processed and stored for future analysis. The data acquisition system (DAQ) was originally designed to handle a 10 kHz event rate and 100 MB/s event rate, but has since been shown to be able to handle event rates of 30 kHz at data rates above 1 GB/s \parencite{Boyarinov2020TheSystem}.  The CLAS12 system consists of more than 100k individual readout channels and utilizes 250 MHz FADCs to digitize signals. Data for this analysis utilized an inclusive electron trigger requiring electron momentum p$_{\mathrm{e'}}$ above 2 GeV/c \parencite{Raydo2020TheSystem}. The raw detector hits are organized into into tabular structures called ``banks'' and are subsequently passed to the CLAS12 Reconstruction and Analysis Framework (CLARA) \parencite{Gyurgyan2016CLARA:Framework}.
 
-    cooked and stored as Event I/O (EVIO) files \parencite{Wolin2007EVIOPackage}, commonly used across JLab for event storage. 
+    Detector hits in each event are converted into particle tracks through hit clustering, pattern matching, and Kalman filter algorithms. The momentum \textit{p} of a particle with charge \textit{q} is related to its track through a magnetic field by \eqref{eq:particle_track},
+    
+    \begin{equation}\label{eq:particle_track}
+        \frac{q}{p} = \frac{\Delta \theta}{c \int B dl},
+    \end{equation}
 
-    The CLAS collaboration converts these files into HIPO file format \parencite{Ziegler2020TheReconstruction}. 
+    where $\Delta \theta$ is the deflection angle of the curve, \textit{c} is the speed of light, and $\int B dl$ is the line-integrated magnetic field along the track. Charge parity (positive or negative) is determined from the deflection direction (e.g. negative particles bend away from the beamline when the torus has value ``outbending''). Time-of-flight detectors provide a direct measure of particle speed $\beta = \frac{v}{c}$, which,when coupled with track information yields the complete charged particle information. This analysis is only concerned with proton and electron identification, but \figref{fig:clas12-pid-overview} details particle discrimination across different detectors and energy regimes.
+    
+    Photons are identified from their depositions in the ECal and lack of interactions in the DCs. Events undergo this analysis process (``cooking'') and are stored as Event I/O (EVIO) files \parencite{Wolin2007EVIOPackage}, a format commonly used across JLab. The CLAS collaboration converts these files into High Performance Output (HIPO) format files \parencite{Ziegler2020TheReconstruction}, which has more optimized functionality for the CLAS software packages. 
+
+    \begin{figure}[H]
+        \centering
+         \includegraphics[width=0.5\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/pid-clas12-new.png}
+        \caption[Particle Separation by Detector]{Map detailing how different detectors are able to separate particle species across different energy regimes. Color intensity is scaled to separation sensitivity (more intense color equates to higher sensitivity). From \parencite{Burkert2020TheLaboratory}.}
+        \label{fig:clas12-pid-overview}
+    \end{figure}
 
 
+    \iffalse
+    should maybe include some beta vs p curves
+
+    \fi
 \subsection{Particle Identification}\label{sec:pid}
     The final state for the \dvpip process is an electron, a proton, and a neutral pion, which promptly decays into two photons. This work requires full final state detection for event selection, so all three particles must be well reconstructed. Further, the neutral pion must be identifiable from the photon four-momenta. 
+
+      Basic event builder cuts are utilized, then additional cuts are made that are common with the RGA Analysis note (\href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{overleaf link} and developed by Sangbaek Lee (sangbaek@mit.edu - \href{https://github.com/Sangbaek/analysis_code/tree/analysis/pid}{github code here}. For this analysis, both the central detector and forward detector are utilized for proton tracking. The forward tagger is also utilized for photon identification. 
+
+
+      
+An electron candidate e'is defined as an associated signal of these FD signals: (1) a track in DC, (2) photoelectrons in HTCC, (3) hits in FTOF, (4) energy deposited over 60 MeV, and (5) the Sampling Fraction (SF) of Minimum Ionizing Particle’s (MIPs). Here, the event start time is determined from the track information, and corrected by the RF signal and the vertex location. 
+
+
 
     The main uses are summarized in \tabref{tab:detector_components}.
  
     \begin{table}[h]
         \centering
         \begin{tabular}{c|c|c}
-            \hline
-            System & Detector  & Utility for this Analysis \\
+            System & Detector  & Utility in this Analysis \\
             \hline
             \multirow{6}{*}{FD} & HTCC & $\mathrm{e'}$ trigger, PID \\
             & FTOF & $\mathrm{e'}$ trigger, $\mathrm{p'}$ PID \\
@@ -43,9 +67,8 @@ Particle detectors produce timeseries data of electrical signals corresponding t
             \multirow{3}{*}{FT} & FT-Hodo & $\gamma$ PID \\
             & FT-Cal & $\gamma$ energy \\
             & FT-Trk & $\gamma$ angle \\
-            \hline
         \end{tabular}
-        \caption{Description of the components of the CLAS12 detector system and their primary usage in this work. Modified from \parencite{Lee2022MeasurementDetector}}
+        \caption[CLAS12 Detectors Main Functions]{Description of the components of the CLAS12 detector system and their primary usage in this work. Modified from \parencite{Lee2022MeasurementDetector}}
         \label{tab:detector_components}
     \end{table}
 
@@ -73,7 +96,7 @@ Particle detectors produce timeseries data of electrical signals corresponding t
             \centering
             \subfloat[The distribution for mass of two photons $M_{\gamma\gamma}$.]{\label{fig:ggmass}\includegraphics[page=6,width=0.45\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/eppi0.exclusive.pdf}}\hfill
             \subfloat[The distribution for mass of two photons after exclusivity cuts.]{\label{fig:ggmass_after}\includegraphics[width=0.45\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/Mpi0.png}}
-            \caption{Combined figure. (a) Before exclusivity cuts. (b) After exclusivity cuts.}
+            \caption[$\gamma \gamma$ Invariant Mass Distribution]{Combined figure. (a) Before exclusivity cuts. (b) After exclusivity cuts.}
             \label{fig:combined_fig}
         \end{figure}
             
@@ -83,7 +106,7 @@ Particle detectors produce timeseries data of electrical signals corresponding t
     The raw, trigger inclusive dataset for just this data taking run (Fall 2018) occupies O(1 PB) of disk space, which is too cumbersome for direct analysis. Data is ``skimmed'', which involves using very loose cuts to throw out trigger events that have a very low probability of being of interest. This process produces ``trains'' (also called ``wagons'') which are smaller size O(100 GB) datafiles that are amenable to analysis processing. In this analysis, events were considered that included loose PID requirements to contain one electron, one proton, and at least two photons.  These HIPO files are readily available through JLab's scientific computing nodes. 
 
     
-    For the ease of applicability of several existing software utilities \parencite{Virtanen2020SciPyPython}, \parencite{Harris2020ArrayNumPy}, these files are converted to other data formats before final analysis. In particular, the HIPO files are passed through the PID cuts discussed above in a process known as filtering \parencite{Lee2023FilterEvents} and converted using CLAS12ROOT \parencite{Glazier2023Clas12root} into the popular nuclear and particle physics data format known as ROOT \parencite{Brun1997ROOTFramework}. These files are then further converted using UPROOT \parencite{Pivarski2022Scikit-hep/uproot4:4.2.1} to a pickle format \parencite{Python2023PickleSerialization}, which is a serialized, space efficient data object that is standard in the Python library system. The pickled files are saved for short term storage and passed to structures to compute the process cross section, as discussed in chapter \ref{Chapter:BaseAnalysis}. \ref{fig:DataReductionPipeline} illustrates this data processing chain, resulting in $\sim$ 1 GB of experimental events from many terabytes of initial reconstructed event data. 
+    For the ease of applicability of several existing software utilities \parencite{Virtanen2020SciPyPython}, \parencite{Harris2020ArrayNumPy}, these files are converted to other data formats before final analysis. In particular, the HIPO files are passed through the PID cuts discussed above in a process known as filtering \parencite{Lee2023FilterEvents} and converted using CLAS12ROOT \parencite{Glazier2023Clas12root} into the popular nuclear and particle physics data format known as ROOT \parencite{Brun1997ROOTFramework}. These files are then further converted using UPROOT \parencite{Pivarski2022Scikit-hep/uproot4:4.2.1} to a pickle format \parencite{Python2023PickleSerialization}, which is a serialized, space efficient data object that is standard in the Python library system. The pickled files are saved for short term storage and passed to structures to compute the process cross section, as discussed in chapter \ref{Chapter:BaseAnalysis}. \figref{fig:DataReductionPipeline} illustrates this data processing chain, resulting in $\sim$ 1 GB of experimental events from many terabytes of initial reconstructed event data. The simulated data (Ch. \ref{Chapter:Simulations}) is passed through the same processing chain with similar disk attrition ratios, at which point the \xsec can be calculated (Ch. \ref{Chapter:BaseAnalysis}). 
 
         
     \begin{figure}
@@ -117,6 +140,8 @@ Particle detectors produce timeseries data of electrical signals corresponding t
     
 
 
+
+
 \iffalse
 %FROM SANGBAEK
 During RG-A data taking, the event was triggered in parallel by three physics trigger systems: (1) the electron trigger, (2) photoproduction trigger and (3) opposite sector trigger. This analysis focuses on the (inclusive) electron trigger that is designed to record events with FD electron candidates with minimum $n_{phe}$, $E_{dep.}$, $E_{dep.} PCAL$ conditions and the geometrical matching between detector subsystems. The electron trigger search was adjusted and performed in parallel for each sector. The electron trigger system is highly efficient with 99.5\% trigger efficiency and 95\% DAQ livetime for trigger electrons of momentum above 2 GeV/c. The desired event rate for the RG-A experiment is about 20 kHz, which was estimated using the simulation. This can be easily achieved by the CLAS12 trigger logic with the effective performance level up to 200 kHz \parencite{Raydo2020TheSystem}. The events triggered by the electron trigger has trigger bits ``1'' (True) in any of bits 0 to 6, where the bits 1–6 stan for each sector and 0 is their OR. The trigger bits can be accessed offline. Processing all saved inclusive events is not efficient in many aspects. There are a lot more inclusive events than the exclusive channels of interest, namely DVCS and DV$\pi^0$P. The RG-A has a few skimming modes, trains and wagons, to be commonly used for some specific channels. A train is a coarse skimming, such as the inclusive skim, which requires an electron-proton pair in one event. A wagon is a relatively finer skimming, such as the DVCS wagon, which requires one electron-proton-photon set with some level of DVCS exclusivity. The series of skimming processes is called data cooking. In this analysis, for the base data set we take the DVCS wagon that selects the DVCS candidates with loose exclusivity cuts, and require at least one $e'p'\gamma$ set in the event \textcolor{red}{158} (see Section 3.3 for the cut conditions). The raw data is stored in the HIPO format \textcolor{red}{151} for the entire CLAS collaboration. The HIPO format has the advantages of fast Input/Output (I/O) speed, and compatibility with the Event I/O (EVIO) format that is commonly used for the Jefferson Lab event storage  \parencite{Wolin2007EVIOPackage}. For this analysis, the python program with pandas library was taken as the main analysis tool in that python is supported by modern statistical packages \textcolor{red}{160,161} that are well maintained. This motivates operation of a custom pipeline to convert the data format to pickle, which is the python standard data format \textcolor{red}{162}. We use the CLAS12ROOT \textcolor{red}{163}, a software package to read the HIPO format in C++ and store the related information in ROOT format \textcolor{red}{164}. The ROOT formatted data is once again converted to pickle format, using the uproot library \textcolor{red}{165}. By doing so, the data are reduced into $M \times N$ dimensionality, where $M$ is the number of events, and $N$ is the number of physical quantities and other information that are related (Fig. 2-16). Different data formats have advantages in different stages of data processing. We filter the base data with the PID cuts introduced at Section 2.4 and save in another HIPO format, because the base data contains all detector responses. The filtered HIPO files are converted into ROOT format. Finally, we execute the python script to select DVCS and DV$\pi^0$P events with tighter Event Selection criteria that will be described at 3.3 and save them in the pickle format.
@@ -141,3 +166,6 @@ We take the common relativity notation for $\beta = \frac{v}{c}$ where $v$ is th
     Basic event builder cuts are utilized, then additional cuts are made that are common with the RGA Analysis note (\href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{overleaf link} and developed by Sangbaek Lee (sangbaek@mit.edu - \href{https://github.com/Sangbaek/analysis_code/tree/analysis/pid}{github code here}. For this analysis, both the central detector and forward detector are utilized for proton tracking. The forward tagger is also utilized for photon identification. 
     
 \fi
+
+
+
