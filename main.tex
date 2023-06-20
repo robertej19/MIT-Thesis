@@ -133,6 +133,7 @@
 
 
 
+
 %include if want to check unused referneces and uncomment nocite{*}
 %\usepackage{refcheck}
 
@@ -244,9 +245,11 @@
 
 \newcommand{\todo}[1]{\iflong \textcolor{red}{#1} \mytodo{#1} \else \fi}
 
-\newcommand{\sangsite}[1]{\textcolor{red}{#1}}
+\newcommand{\sci}[1]{$x10^{#1}$}
 
 \newcommand{\Moller}{ M\"oller }
+
+
 
 \usepackage{siunitx}
 
@@ -279,15 +282,27 @@
 \definecolor{sigmaTT}{RGB}{3, 32, 252}
 
 
+%This is to have multiple URLs in the bibliography be cited correctly
+%This must be placed after any packages like url or hyperrref
+%Code from https://tex.stackexchange.com/questions/57865/how-to-use-multiple-urls-for-one-bibtex-reference
+\renewbibmacro*{url}{\printfield[url]{urlraw}}
+
+\let\URL\url
+\makeatletter
+\def\url{\begingroup \catcode`\%=12\catcode`\#=12\relax\printurl}
+\def\printurl#1{\@URL#1 \@nil\endgroup}
+\def\@URL#1 #2\@nil{\URL{#1}\ifx\relax#2\relax \else; \url{#2\relax}\fi}
+\makeatother
+
 \begin{document}
 
 \newif\iflong
 
 %Turn todo section on /off
 %on:
-\longtrue
+%\longtrue
 %off: 
-%\longfalse
+\longfalse
  
 %  \iflong \lipsum[1] \else short version \fi
 
