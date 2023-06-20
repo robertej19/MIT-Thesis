@@ -36,11 +36,19 @@ The CLAS12 detector \figref{fig:clas12photo} has two major subsystems: the Forwa
         \caption[Forward Detector Packages]{The FD is broken into six sections (a), with the exception of the first component after the target, the HTCC (b). The PCal was added to the ECal from the CLAS experiment to achieve the necessary particle resolution. From \parencite{Burkert2020TheLaboratory}}
         \label{fig:select_FD_components}
     \end{figure}
-								
+
+\iffalse
+        \begin{figure}[H]
+        \centering
+         \includegraphics[width=0.5\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/pid-clas12-new.png}
+        \caption[Particle Separation by Detector]{Map detailing how different detectors are able to separate particle species across different energy regimes. Color intensity is scaled to separation sensitivity (more intense color equates to higher sensitivity). From \parencite{Burkert2020TheLaboratory}.}
+        \label{fig:clas12-pid-overview}
+    \end{figure}
+\fi
 
 \subsubsection*{Central Detector}
 
-    The Central Detector (CD) also provides nearly 2$\pi$ azimuthal coverage, and spans from $\sim$ $35^{\circ}$  to $125^{\circ}$ in polar angle. The CD is an approximately 1 meter long cylinder inside a 5 Tesla solenoidal magnet \parencite{Fair2020TheMagnets} with four sub-detector packages. From the target working out, the packages are a Central Vertex Tracker \figref{fig:mvt}, made of a Barrel Micromegas Tracker (BMT) \parencite{Acker2020TheTracker} and Silicon Vertex Tracker (SVT) \parencite{Antonioli2020TheTracker}, a Central Time-of-Flight (CTOF) \ref{fig:ctof}, and a Central Neutron Detector (CND) \parencite{Chatagnon2020TheDetector}, which was installed but not used in this measurement. 
+    The Central Detector (CD) also provides nearly 2$\pi$ azimuthal coverage, and spans from $\sim$ $35^{\circ}$  to $125^{\circ}$ in polar angle. The CD is an approximately 1 meter long cylinder inside a 5 Tesla solenoidal magnet \parencite{Fair2020TheMagnets} with four sub-detector packages. From the target working out, the packages are a Central Vertex Tracker \figref{fig:mvt}, made of a Barrel Micromegas Tracker (BMT) \parencite{Acker2020TheTracker} and Silicon Vertex Tracker (SVT) \parencite{Antonioli2020TheTracker}, a Central Time-of-Flight (CTOF) \parencite{Carman2020TheSystem} \ref{fig:ctof}, and a Central Neutron Detector (CND) \parencite{Chatagnon2020TheDetector}, which was installed but not used in this measurement. 
     
     %The main part is the SVT, while the BMT is used to improve the track reconstruction. 
 
@@ -62,14 +70,14 @@ The CLAS12 detector \figref{fig:clas12photo} has two major subsystems: the Forwa
                 \includegraphics[width=0.3\textwidth]{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/cd/pics/CTOF.png}\label{fig:ctof}
             }
             \hfill
-            \subfloat[Model of BMT]{
-                \includegraphics[width=0.3\textwidth]{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/cd/pics/MVT.png}\label{fig:mvt}
+            \subfloat[Schematic of CVT.]{
+                \includegraphics[width=0.3\textwidth]{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/cd/pics/CVT.png}\label{fig:mvt}
             }
             \hfill
             \subfloat[The CD, in retracted position for maintenance.]{
                 \includegraphics[trim={0 5cm 0 0},clip,width=0.3\textwidth]{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/cd/pics/real_CD.png}
             }
-            \caption[Central Detector Packages]{Models of the CTOF (a) and MVT (b) and their physical realizations (c). Images from \parencite{Burkert2020TheLaboratory}.}
+            \caption[Central Detector Packages]{Models of the CTOF (a) and CVT (b) and their physical realizations in the CD (c). Note the first three inner cylindrical layers of the CVT (b) correspond to the SVT, the outer six to the BMT, and the right end cap six to the FMT. Images from \parencite{Burkert2020TheLaboratory}.}
             \label{fig:your_labels}
         \end{figure}
      
@@ -77,7 +85,7 @@ The CLAS12 detector \figref{fig:clas12photo} has two major subsystems: the Forwa
 
 \subsubsection*{Other System Components}
 
-    At very low beam angles ($2.5^{\circ}$-$4.5^{\circ}$) there is the Forward Tagger (FT) \todo{GET FT CITATION} which contains a tracker, homogeneous calorimeter, and hodoscope. At the other end of the beamline ($155^{\circ}$-$175^{\circ}$) there is the Backward Angle Neutron Detector (BAND)  \parencite{Segarra2020TheBAND}, which is not relevant for this analysis. Furthermore, the BAND and the Forward Micromegas Tracker (FMT)  \parencite{Acker2020TheTracker}  \todo{FIGURE OUT FMT vs BMT vs MVT} were not installed at the time the data for this analysis was taken, although they have since been commissioned. 
+    At very low beam angles ($2.5^{\circ}$-$4.5^{\circ}$) there is the Forward Tagger (FT) \parencite{Acker2020TheTagger} which contains a tracker, homogeneous calorimeter, and hodoscope. At the other end of the beamline ($155^{\circ}$-$175^{\circ}$) there is the Backward Angle Neutron Detector (BAND)  \parencite{Segarra2020TheBAND}, which is not relevant for this analysis. Furthermore, the BAND and the Forward Micromegas Tracker (FMT)  \parencite{Acker2020TheTracker} were not installed at the time the data for this analysis was taken, although they have since been commissioned. 
     
     
 
@@ -103,7 +111,7 @@ The CLAS12 detector \figref{fig:clas12photo} has two major subsystems: the Forwa
 
     
     %From sangbaek
-    The Data Acquisition (DAQ) \parencite{Boyarinov2020TheSystem} dead-time can be corrected by using a gate at the FC that closes when the DAQ procedure is complete \parencite{Baltzell2020ThePerformance}. The total charge regardless of the gate is called the ungated charge, and the charge collected during the gate on is the gated charge. The ratio of the gated charge to the ungated charge is recorded as the DAQ live-time. The complete listing of detector components can be found in Table. 2.1. The CLAS12 detector components relevant to the particle 4-momentum vector reconstruction are grouped by their characteristics in Table. 2.2. The essential properties like threshold and resolutions and the prominent material components are also listed.
+    The Data Acquisition (DAQ) \parencite{Boyarinov2020TheSystem} dead-time can be corrected by using a gate at the FC that closes when the DAQ procedure is complete \parencite{Baltzell2020ThePerformance}. The total charge regardless of the gate is called the ungated charge, and the charge collected during the gate on is the gated charge. The ratio of the gated charge to the ungated charge is recorded as the DAQ live-time. The complete listing of detector components can be found in Table. 2.1. The CLAS12 detector components relevant to the particle 4-momentum vector reconstruction are grouped by their characteristics in Table. 2.2. The essential properties like threshold and resolutions and the prominent material components are also listed. 
 
 
 
