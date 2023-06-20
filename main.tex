@@ -69,6 +69,7 @@
 \addbibresource{Chapters/Postamble/bib/references.bib}
 
 \usepackage{caption}
+\usepackage{multirow}
 \usepackage{subfig}
 %\captionsetup[subfloat]{position=top,
 %  farskip=10pt,topadjust=0pt,captionskip=10pt,
@@ -173,6 +174,7 @@
 \newcommand{\dvpip}{DV$\pi^0$P }
 
 \newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
 
 
 %labelandremeber from https://tex.stackexchange.com/questions/459508/how-can-i-repeat-a-formula-without-copying-it
@@ -246,6 +248,7 @@
 
 \newcommand{\Moller}{ M\"oller }
 
+\usepackage{siunitx}
 
 
 %% This bit allows you to either specify only the files which you wish to
@@ -282,9 +285,9 @@
 
 %Turn todo section on /off
 %on:
-%\longtrue
+\longtrue
 %off: 
-\longfalse
+%\longfalse
  
 %  \iflong \lipsum[1] \else short version \fi
 
@@ -365,7 +368,7 @@
     \input{Chapters/Ch5-Further/Ch5-Further}
 
 \input{outstanding_refs}
-\
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

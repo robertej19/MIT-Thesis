@@ -38,34 +38,25 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
     \end{figure}
 
 
+    \clearpage
     \subsection{Hall B Beamline}
 
-        The beam enters Hall B with the nominal parameters as specified in Table \ref{table:beam-properties}.
- 
         \begin{table}[h]
-        \centering
-        \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Property} & \textbf{Value} \\
-        \hline
-        Beam current & Up to 50 nA \\
-        \hline
-        Beam energy spread & $10^{-4}$ \\
-        \hline
-        Beam size & Less than 0.4 mm \\
-        \hline
-        Beam stability & Less than 0.1 mm \\
-        \hline
-        Beam halo & $10^{-4}$ \\
-        \hline
-        Beam polarization & Up to 85\% \\
-        \hline
-        \end{tabular}
-        \caption{Beam properties entering Hall B}
-        \label{table:beam-properties}
+                \centering
+                \begin{tabular}{rc}
+                    Quantity  & Beam Property \\\hline
+                    Beam current  & Up to 50 nA \\
+                    Beam energy spread  & $10^{-4}$ \\
+                    Beam size  & Less than 0.4 mm \\
+                    Beam stability  & Less than 0.1 mm \\
+                    Beam halo & $10^{-4}$ \\
+                    Beam polarization & Up to 85\% \\
+                \end{tabular}
+            \caption{Beam properties}
+            \label{table:beam-properties}
         \end{table}
         
-        Upstream of the target, Hall B uses coincidence double arm \Moller polarimeters \figref{fig:moller} to measure beam polarization within a few percent accuracy. This analysis does not utilize the polarized beam for physics extraction, but it is useful for BSA measurements as well as other physics goals. 
+        The beam enters Hall B with the nominal parameters as specified in Table \ref{table:beam-properties}. Upstream of the target, Hall B uses coincidence double arm \Moller polarimeters \figref{fig:moller} to measure beam polarization within a few percent accuracy. This analysis does not utilize the polarized beam for physics extraction, but it is useful for BSA measurements as well as other physics goals. 
     
             
                 \iffalse
@@ -106,7 +97,7 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
             The beam is rasterized onto the target cell \figref{fig:target_cell} is a 5 cm long Kapton cone with 23.66 and 15.08 upstream and downstream diameters respectively, with 30 $\mu$m thick aluminum entrance and exit windows. The target used for this analysis consisted of unpolarized pure liquid hydrogen (LH2) and is located from -5.5 cm (upsteam) to -0.5 cm along the z-axis of the CLAS12 coordinate system \parencite{Baltzell2020ThePerformance}. 
             
 
-            The target is surrounded nearly in 4$\pi$ with detectors as discussed in the next section. The beamline ends in a beam dump and Faraday cup \figref{fig:faraday_cup}, which measures the beam current to allow for absolute cross section determinations. The Faraday cup used is modified from the original utilized in the original CLAS experiment and is only rated for 175 Watts (16.5 nA at 10.6 GeV) so a beam blocker is utilized in front of the Faraday cup for full-beam runs. More details can be found in found in \parencite{Mecking2003TheCLAS} %link to own fraday cup paper \cite{Johnston2019RealizationElectrons}
+            The target is surrounded nearly in 4$\pi$ with detectors as discussed in the next section. The beamline ends in a beam dump and Faraday cup \figref{fig:faraday_cup}, which measures the beam current to allow for absolute cross section determinations. The Faraday cup from the original CLAS experiment and is only rated for 175 Watts (16.5 nA at 10.6 GeV) so a beam blocker is utilized for full-beam runs. More details can be found in found in \parencite{Mecking2003TheCLAS} %link to own fraday cup paper \cite{Johnston2019RealizationElectrons}
             
   
     
@@ -134,3 +125,5 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
         \caption[Hall B Beamline]{Overview of Hall B beamline. After \Moller polarimeters (a), the electron beam is rasterized on CLAS12 target (b) with interactions recorded by the CLAS12 detector while the rest of the beam ends at the beam dump and Faraday cup (c). (d) shows the scaled detector hall layout, with the \Moller polarimeters being located to the left of the Tagger magnet and the Faraday cup to the right of the CLAS12 detector package.}
         \label{fig:allfigures}
     \end{figure}
+
+    \clearpage

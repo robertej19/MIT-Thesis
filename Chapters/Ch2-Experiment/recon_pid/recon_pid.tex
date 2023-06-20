@@ -5,8 +5,68 @@ During RG-A data taking, the event was triggered in parallel by three physics tr
 
 Cooked hipo - PID cuts - filtered hipo - converting - converted root - dvep cuts - exclusive pickle
 
+An electron candidate e'is defined as an associated signal of these FD signals: (1) a track in DC, (2) photoelectrons in HTCC, (3) hits in FTOF, (4) energy deposited over 60 MeV, and (5) the Sampling Fraction (SF) of Minimum Ionizing Particle’s (MIPs). Here, the event start time is determined from the track information, and corrected by the RF signal and the vertex location. The momentum of a charged particle such as e' and the proton p' is reconstructed using the equation of motion in a magnetic field. The polar angle difference during the trajectory $\Delta \theta$ is related to the momentum p and the charge q of the particle, and the line-integrated magnetic field along the trajectory curve, (int B dl) as
+
+\begin{equation}
+    \frac{q}{p} = \frac{\Delta \theta}{c \int B dl}
+\end{equation}
+
+During one event, p' is identified when there is a positively charged track in the DC
+or the CVT, associated with FTOF or CTOF hits for the timing. The flight time $\Delta t_{p'}$ of p' is determined as the difference of TOF hits and event start time. Along
+with the path length $l_{p'}$ and the momentum $p_{p'}$ determined from the trajectory, the following relationship holds [151];
+
+\begin{align*}
+    \beta p' &\equiv \frac{v p'}{c} = \frac{l p'}{c t p'} = \frac{p'}{\sqrt{p'^2 + M^2 p}}
+\end{align*}
+
+We take the common relativity notation for $\beta = \frac{v}{c}$ where $v$ is the velocity of the particle and $c$ is the speed of light. Here, $\chi \equiv \frac{\Delta t}{\sigma TOF}$ with $\Delta t \equiv \Delta t_{p', \text{expected}}(p') - \Delta t_{p', \text{measured}}$ is assigned to the particle as the signed distance function from the theoretical value. The photon $\gamma$ can be reconstructed in the ECAL in FD, and the FT-Calorimeter in the FT. A photon will not produce charged tracks in the DC and the FT-Hodo associated with the existing calorimeter hits. More efficiently, the neutral hits are defined as the remaining calorimeter hits after all charged particles are assigned. The energy deposition in ECAL is converted to the actual photon energy using the SF. The homogeneous calorimeter FT-Cal takes the energy deposition as the photon energy.
 
 
+    \begin{figure}[H]
+        \centering
+        \subfloat[]{
+            \includegraphics[width=0.3\textwidth]{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/other/pics/pid-clas12.png}
+        }
+        \caption{Your caption goes here}
+        \label{fig:clas12-pid-overview}
+    \end{figure}
+
+    
+The Data Acquisition (DAQ) \parencite{Boyarinov2020TheSystem} 
+
+
+\iffalse
+
+Sangbaek refs:
+133 - pac approval rga 
+134 - jlab schematic 
+143 - FMT 
+147 - FT 
+149 - Faraday cup 
+150 - DAQ 
+151 - magnet relationships
+152 - forward calorimeter 
+153 variou channel analysis
+154 variou channel analysis
+155 variou channel analysis
+156 - PCal boundary estimation - FX private comm
+158 - DVCS conditions - F.-X. Girod et al., DVCS Wagon, 2020
+160 - stat packages
+161 - stat packages
+162 - pickle format The Python Library Reference, Release 3.8.2.
+163 - clas12rot D. Glazier et al., CLAS12ROOT
+164 - root Root-project/root: V6.18/02,
+165 - uproot Scikit-hep/uproot:
+
+\fi
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/example_track.png}
+    \caption{Caption from \parencite{Battaglieri2021PresentProgram}}
+    \label{fig:example-track}
+\end{figure}
 
 
 here we talk about CLAS PID
@@ -44,7 +104,6 @@ The particle identification methods are applied to select the exclusive event wi
     
 
 
-\subsubsection{Neutral pion}
     In addition to individual particle PID procedures the cut on the mass of two photons is applied:
     \begin{itemize}
     	\item $0.07<M_{\gamma\gamma}<0.2$ GeV

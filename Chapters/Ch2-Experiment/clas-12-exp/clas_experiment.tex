@@ -1,4 +1,33 @@
-\subsection{CLAS Detector System}
+The CEBAF Large Acceptance Spectrometer, 12 GeV (CLAS12) detector occupies experimental Hall B at Jefferson Lab. It is an upgrade from its predecessor, the CLAS detector \parencite{Mecking2003TheCLAS}, which operated in the 2000s during the 6 GeV era of JLab and laid the groundwork for the present detector system, which was commissioned in 2018. It covers nearly 4$\pi$ around the target cell, with comprehensive packages of detectors for particle position and energy tracking. It operates with data rates of comparable size to other large-scale, international physics experiments, as shown in \tabref{table:experiments}. Data taking began in 2018 and has an experimental program approved into at least the early 2030s \parencite{Battaglieri2021PresentProgram}.
+
+\iffalse
+%Differences between clas and clas12 detectors
+CLAS12 acceptances and resolutions are also superior to that of CLAS6. Main differences are:
+- RGK has outbending torus vs inbending CLAS6 data
+- the distance between the target and the PCal has increased, the FTCal extends to lower angles, and the gap between FTCal and PCal is much smaller than between IC and EC
+- proton polar angle was limited to 60 deg in the e1dvcs dataset if my memory is correct
+\fi
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|lccc}
+         \headercell{\textbf{Facility}} & \textbf{Experiment} &  \headercell{\textbf{Event Size} \\ \textbf{(kB)}}  &  \headercell{\textbf{L1 Trigger Rate} \\ \textbf{(kHz)}}  &  \headercell{\textbf{Bandwidth to Storage} \\ \textbf{(MB/s)}}      \\ \\ \hline
+        JLab & GlueX & 15 & 200 & 300 \\
+        JLab & \textcolor{purple}{\textbf{CLAS12}} & \textcolor{purple}{\textbf{20}} & \textcolor{purple}{\textbf{10}} & \textcolor{purple}{\textbf{100}} \\
+        LHC & ALICE & 2,500 & 200 & 200 \\
+        LHC & ATLAS & 1,500 & 75 & 300 \\
+        LHC & CMS & 1,000 & 100 & 100 \\
+        LHC & LHCb & 40 & 1,000 & 100 \\
+        BNL & STAR & 1,000 & 0.6 & 450 \\
+        BNL & PHENIX & 60 & 15 & 450 \\
+    \end{tabular}
+\caption[Data rates of various physics experiments]{Assorted physics experiments and their typical data rates. Note that exact figures vary by source and run conditions. Adapted from \parencite{DavidLawrence2012TheLab}.}
+\label{table:experiments}
+\end{table}
+
+\subsection{CLAS12 Detector System}
     \input{Chapters/Ch2-Experiment/clas-12-exp/clas-detectors/clas-detectors}
-\subsection{Run Conditions}
+    
+\subsection{Experiment Run Conditions}
     \input{Chapters/Ch2-Experiment/clas-12-exp/exp_running/exp_running}

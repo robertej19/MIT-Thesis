@@ -1,37 +1,38 @@
+This work analyzes data obtained in the Fall 2018 run under the officially approved JLab project E12-06-108, which had a stated goal of measuring the electroproduction \xsecs for pseudoscalar mesons ($\pi^0$ and $\eta$) \parencite{Avakian2011HardCLAS12}. The experiment ran at its design luminosity of 10$^{35}$ cm$^{-2}$ s$^{-1}$ and data was taken with the torodial magnetic field at both possible polarities - ``outbending'' or ``+1'' corresponding to bending the scattered electron away from the beamline, and ``inbending'' or ``-1'' corresponding to bending it towards the beamline. Data was taken at a beam energy of 10.6 GeV with a beam current of approximately 50 nA and a beam polarization of 86.9\%. The data taking runs exceeded the original design DAQ requirements of a 10kHz event rate with 100 MB/s data rate to 12 kHz event rate with 550 MB/s data rate. 
+
+
+\iffalse
+%EXTRA INFORMATION
 
 The 499 MHz beam structure equates to a signal with a period of 2.004 ns. In practice, the beam was delivered in every other RF bucket, and so bunched at a period of 4.008 ns.
 
        
             CLAS12 runs with "open trigger", which means different sub-experiments can define their own triggering logic. There is a standard electron trigger, based off of hits in HTCC, ECal, and FTOF. 
+Only about 50\% of the electron triggers recorded with an inbending torus polarity are actually electrons. For outbending torus polarity, hte electron trigger purity is as high at 70\%. 
 
-        Only about 50\% of the electron triggers recorded with an inbending torus polarity are actually electrons. For outbending torus polarity, hte electron trigger purity is as high at 70\%. 
+%Mention configurations and combinatorics
+
+
+1 of 13 proposed experiments in the group named "RGA"
+• Different experiments have different patterns in CLAS12
+Trigger decision based on PMT detectors and DC, configured for 3 sets of experiments: “electrons”, “MesonEx”, “muons”
+• Original DAQ requirements: 10kHz event rate, 100MB/sec data rate, LT= 0.9
+• Production rates at 50nA beam, FT=ON: 12kHz event rate, 550MB/sec data rate, LT=0.94%
+Electron trigger 5kHz (40%), muon trigger 2.7kHz (20%), MesoEx trigger 4.5kHz (40%)
+• Data Reconstruction: 342 of the accumulated statistics ready for physics analyses (cooked data)
+60G triggers, 1.2 PB raw data → 160TB DST → 100TB DST (16M core/hours processing time, 62.5M jobs processed)
+• Preparing a better version of data cooking (Pass2) to recook the entire data set
+Pass1 data suffer from CD mis-alignment and other issues solved in the new cooking
+
+
+   % \href{https://www.jlab.org/Hall-B/clas12-web/}{Detector Specs}
     
-    \href{https://www.jlab.org/Hall-B/clas12-web/}{Detector Specs}
-    
-    20 kHz Level 1 trigger rate, 1 GB/s.
-
-   The CLAS12 detector is a large angle spectrometer that generally covers angles from 5 to 130 degrees, spanned by two main detector subsystems - the Forward Detector and the Central Detector.
-
-    
-   CLAS12 at the design luminosity of 1035 cm−2 s−1
-
-        Data taken is RGA taken in Fall 2018
-
-        Mention configurations and combinatorics
+   % 20 kHz Level 1 trigger rate, 1 GB/s.
 
 
-%from sangbaek
-In fall 2018, two sets of experiments have been performed with opposite toroidal magnetic field directions
-keeping the other detector settings the same. The toroidal magnet bends the scattered
-trigger electron inward or outward along the beam direction. In convention, the torus
-polarity associated with the inwardly bending electrons is called the negative, -1,
--100\%, or inbending polarity. The opposite is called the positive, +1, +100\%, or
-outbending polarity. Both experiments took data with the beam energy of 10.6 GeV,
-and the beam current of about 50 nA. The effects due to the variation in the beam
-current during the run periods will be taken into account at the end of the analysis.
-The CLAS collaboration performed other CLAS12 experiments with different targets
-like liquid deuterium, and various beam energies. The description in this thesis
-will be focused on the RG-A fall 2018.
+        
+\fi
 
-The measured
-electron beam polarization was 86.9\% during the RG-A data taking in fall 2018.
+
+
+
