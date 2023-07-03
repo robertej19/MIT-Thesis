@@ -37,11 +37,15 @@
 \usepackage{wrapfig}
 \usepackage{graphicx}
 \usepackage{geometry}
-\usepackage{tocloft}
+\usepackage{longtable}
+
+\usepackage[page,toc,titletoc,title]{appendix}
+
 \usepackage{amsmath} % for \boxed and \smash[b] macros
 \usepackage{booktabs}% for \midrule and \cmidrule macro
 \usepackage{braket}
 \usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{siunitx}  % Used for formatting numbers
 
 \usepackage{lmodern}
 \usepackage{xpatch}
@@ -156,13 +160,19 @@
             citecolor = blue,
             anchorcolor = blue]{hyperref}
 
-\newcommand{\Lumi}{\ensuremath{\textcolor{blue}{ \mathcal{L}}}}
-\newcommand{\Lumiint}{\ensuremath{\textcolor{blue}{ \mathcal{L}_{int}}} }
+\newcommand{\Lumi}{\ensuremath{\textcolor{gray}{ \mathcal{L}}}}
+\newcommand{\Lumispace}{\ensuremath{\textcolor{gray}{ \mathcal{L} }}}
+
+\newcommand{\Lumiint}{\ensuremath{\textcolor{gray}{ \mathcal{L}_{int}}} }
 
 \newcommand{\counts}{\ensuremath{\textcolor{red}{N_{exp}}}}
 
 
 
+\newcommand{\Nexp}{$N_{\text{exp}}$}
+\newcommand{\Ntruth}{$N_{\text{truth}}$}
+\newcommand{\Nsim}{$N_{\text{sim}}$}
+\newcommand{\Ngen}{$N_{\text{gen}}$}
 
 \newcommand{\xsec}{cross section }
 \newcommand{\xsecs}{cross sections }
@@ -176,6 +186,44 @@
 
 \newcommand{\figref}[1]{Fig.~\ref{#1}}
 \newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\chref}[1]{(Ch.~\ref{#1})}
+\newcommand{\secref}[1]{(sec.~\ref{#1})}
+\newcommand{\Secref}[1]{(Sec.~\ref{#1})}
+
+\newcommand{\appref}[1]{(app.~\ref{#1})}
+\newcommand{\Appref}[1]{(App.~\ref{#1})}
+
+
+
+
+%For scaled data reduction drawing:
+%normal cube
+\newcommand{\Depth}{10}
+\newcommand{\Height}{10}
+\newcommand{\Width}{10}
+
+% smaller cube
+\newcommand{\smallDepth}{1.25}
+\newcommand{\smallHeight}{1.25}
+\newcommand{\smallWidth}{1.25}
+
+% even smaller cube
+\newcommand{\evenSmallerDepth}{0.134}
+\newcommand{\evenSmallerHeight}{0.134}
+\newcommand{\evenSmallerWidth}{0.134}
+
+% larger cube
+\newcommand{\largerDepth}{2.94}
+\newcommand{\largerHeight}{2.94}
+\newcommand{\largerWidth}{2.94}
+
+% even smaller cube
+\newcommand{\tinyDepth}{0.08}
+\newcommand{\tinyHeight}{0.08}
+\newcommand{\tinyWidth}{0.08}
+
+
+\usepackage{adjustbox}
 
 
 %labelandremeber from https://tex.stackexchange.com/questions/459508/how-can-i-repeat-a-formula-without-copying-it
@@ -199,6 +247,9 @@
 \usepackage[T1]{fontenc}
 \pagestyle{plain}
 
+
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
 
 
 % Chiral Even GPDs
@@ -231,9 +282,9 @@
 \renewcommand{\headrulewidth}{0pt} % no line in header area
 \fancyfoot{} % clear all footer fields
 %\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
-\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC} \quad \quad Flow: \ref{fig:ProcessFlowchart}}
+%\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC} \quad \quad Flow: \ref{fig:ProcessFlowchart}}
+\fancyfoot[C]{\thepage \quad \quad \hyperlink{page.5}{TOC}}
 
-%\fancyfoot[C]{\thepage \quad \quad \hyperref[sec:anaflow]{TOC}}
 %\fancyhf{}
 %\fancyhead[RO]{\textsc{\nouppercase{\newlinetospace{{\leftmark}}\quad\thepage}}}
 
@@ -340,10 +391,6 @@
 \listofmyequations
 
 
-
-
-
-
 \iflong{
 \clearpage
 \phantomsection
@@ -363,18 +410,15 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \chapter{Introduction} \label{Chapter:Intro}
     \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
-
 
 \chapter{Experiment and Data Processing} \label{Chapter:Experiment}
     \input{Chapters/Ch2-Experiment/Ch2-Experiment.tex}
 
-
 \chapter{Simulations} \label{Chapter:Simulations}
     \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
+
 
 \chapter{Cross Section Measurement} \label{Chapter:BaseAnalysis}
     \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
@@ -387,12 +431,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \appendix
+\input{Chapters/Postamble/appendices.tex}
 %include if want to check unused referneces and uncomment refcheck
 %\nocite{*}
 %\bibliography{Chapters/Postamble/bib/references}
 
-\input{Chapters/Postamble/appendices.tex}
 \end{document}

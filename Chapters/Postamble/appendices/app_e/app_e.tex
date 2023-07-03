@@ -1,0 +1,138 @@
+\chapter{Data Size Attrition in Analysis Pipeline}
+
+
+\begin{table}[h]
+    \centering
+        \begin{tabular}{
+              l
+              S[table-format=7.2]  % Column for Approx. Size, allows 7 digits before decimal and 2 after
+              S[table-format=2.2]  % Column for Volume side Length, allows 2 digits before decimal and 2 after
+              S[table-format=1.2]  % Column for Sides, allows 1 digit before decimal and 2 after
+              l  % Column for Attrition Ratio
+            }
+            \toprule
+            & \headercell{\textbf{Approx. Size} \\ \textbf{(F18,GB)}}  &  \headercell{\textbf{Cube Side} \\ \textbf{Length}}  &  \headercell{\textbf{Scaled Side} \\\textbf{Length}}& \headercell{\textbf{Attrition} \\  \textbf{Ratio}} \\ \\
+            \midrule
+            Raw Hits & 2000000.00 & 125.99 & 10.00 & n/a\\
+            Cooked Hipo & 51000.00 & 37.08 & 2.94 & 97.45\% \\
+            Skimmed Hipo & 3991.30 & 15.86 & 1.26 & 92.17\% \\
+            Filtered Root & 4.80 & 1.69 & 0.13 & 99.88\% \\
+            EPGG Pickle & 16.70 & 2.56 & 0.20 & n/a \\
+            DVPiP Pickle & 1.08 & 1.03 & 0.08 & 93.54\% \\
+            \bottomrule
+        \end{tabular}
+    \caption{Your caption here}
+    \label{table:label_here}
+\end{table}
+
+
+%https://tex.stackexchange.com/questions/12020/what-is-the-easiest-way-to-draw-a-3d-cube-with-tikz
+
+\iffalse
+
+
+
+    \begin{tabular}{l|lccc}
+         \headercell{\textbf{Facility}} & \textbf{Experiment} &  \headercell{\textbf{Event Size} \\ \textbf{(kB)}}  &  \headercell{\textbf{L1 Trigger Rate} \\ \textbf{(kHz)}}  &  \headercell{\textbf{Bandwidth to Storage} \\ \textbf{(MB/s)}}      \\ \\ \hline
+        JLab & GlueX & 15 & 200 & 300 \\
+        JLab & \textcolor{purple}{\textbf{CLAS12}} & \textcolor{purple}{\textbf{20}} & \textcolor{purple}{\textbf{12}} & \textcolor{purple}{\textbf{200}} \\
+        LHC & ALICE & 2,500 & 200 & 200 \\
+        LHC & ATLAS & 1,500 & 75 & 300 \\
+        LHC & CMS & 1,000 & 100 & 100 \\
+        LHC & LHCb & 40 & 1,000 & 100 \\
+        BNL & STAR & 1,000 & 0.6 & 450 \\
+        BNL & PHENIX & 60 & 15 & 450 \\
+    \end{tabular}
+\fi  
+
+\begin{tikzpicture}
+
+
+
+
+% Draw tiniest cube last
+\coordinate (O'''') at (\Depth/2-\tinyDepth/2,\Width/2-\tinyWidth/2,\Height/2-\tinyHeight/2);
+\coordinate (A'''') at (\Depth/2-\tinyDepth/2,\Width/2+\tinyWidth/2,\Height/2-\tinyHeight/2);
+\coordinate (B'''') at (\Depth/2-\tinyDepth/2,\Width/2+\tinyWidth/2,\Height/2+\tinyHeight/2);
+\coordinate (C'''') at (\Depth/2-\tinyDepth/2,\Width/2-\tinyWidth/2,\Height/2+\tinyHeight/2);
+\coordinate (D'''') at (\Depth/2+\tinyDepth/2,\Width/2-\tinyWidth/2,\Height/2-\tinyHeight/2);
+\coordinate (E'''') at (\Depth/2+\tinyDepth/2,\Width/2+\tinyWidth/2,\Height/2-\tinyHeight/2);
+\coordinate (F'''') at (\Depth/2+\tinyDepth/2,\Width/2+\tinyWidth/2,\Height/2+\tinyHeight/2);
+\coordinate (G'''') at (\Depth/2+\tinyDepth/2,\Width/2-\tinyWidth/2,\Height/2+\tinyHeight/2);
+\draw[blue,fill=white!98,opacity=0.995] (O'''') -- (C'''') -- (G'''') -- (D'''') -- cycle;% Bottom Face
+\draw[blue,fill=white!98,opacity=0.995] (O'''') -- (A'''') -- (E'''') -- (D'''') -- cycle;% Back Face
+\draw[blue,fill=white!98,opacity=0.995] (O'''') -- (A'''') -- (B'''') -- (C'''') -- cycle;% Left Face
+\draw[blue,fill=white!98,opacity=0.995] (D'''') -- (E'''') -- (F'''') -- (G'''') -- cycle;% Right Face
+\draw[blue,fill=white!98,opacity=0.995] (C'''') -- (B'''') -- (F'''') -- (G'''') -- cycle;% Front Face
+\draw[blue,fill=white!98,opacity=0.995] (A'''') -- (B'''') -- (F'''') -- (E'''') -- cycle;% Top Face
+
+
+
+% Draw smallest cube last
+\coordinate (O'') at (\Depth/2-\evenSmallerDepth/2,\Width/2-\evenSmallerWidth/2,\Height/2-\evenSmallerHeight/2);
+\coordinate (A'') at (\Depth/2-\evenSmallerDepth/2,\Width/2+\evenSmallerWidth/2,\Height/2-\evenSmallerHeight/2);
+\coordinate (B'') at (\Depth/2-\evenSmallerDepth/2,\Width/2+\evenSmallerWidth/2,\Height/2+\evenSmallerHeight/2);
+\coordinate (C'') at (\Depth/2-\evenSmallerDepth/2,\Width/2-\evenSmallerWidth/2,\Height/2+\evenSmallerHeight/2);
+\coordinate (D'') at (\Depth/2+\evenSmallerDepth/2,\Width/2-\evenSmallerWidth/2,\Height/2-\evenSmallerHeight/2);
+\coordinate (E'') at (\Depth/2+\evenSmallerDepth/2,\Width/2+\evenSmallerWidth/2,\Height/2-\evenSmallerHeight/2);
+\coordinate (F'') at (\Depth/2+\evenSmallerDepth/2,\Width/2+\evenSmallerWidth/2,\Height/2+\evenSmallerHeight/2);
+\coordinate (G'') at (\Depth/2+\evenSmallerDepth/2,\Width/2-\evenSmallerWidth/2,\Height/2+\evenSmallerHeight/2);
+\draw[blue,fill=blue!80,opacity=0.3595] (O'') -- (C'') -- (G'') -- (D'') -- cycle;% Bottom Face
+\draw[blue,fill=blue!80,opacity=0.3595] (O'') -- (A'') -- (E'') -- (D'') -- cycle;% Back Face
+\draw[blue,fill=blue!80,opacity=0.3595] (O'') -- (A'') -- (B'') -- (C'') -- cycle;% Left Face
+\draw[blue,fill=blue!80,opacity=0.3595] (D'') -- (E'') -- (F'') -- (G'') -- cycle;% Right Face
+\draw[blue,fill=blue!80,opacity=0.3595] (C'') -- (B'') -- (F'') -- (G'') -- cycle;% Front Face
+\draw[blue,fill=blue!80,opacity=0.3595] (A'') -- (B'') -- (F'') -- (E'') -- cycle;% Top Face
+
+% Draw second cube
+\coordinate (O') at (\Depth/2-\smallDepth/2,\Width/2-\smallWidth/2,\Height/2-\smallHeight/2);
+\coordinate (A') at (\Depth/2-\smallDepth/2,\Width/2+\smallWidth/2,\Height/2-\smallHeight/2);
+\coordinate (B') at (\Depth/2-\smallDepth/2,\Width/2+\smallWidth/2,\Height/2+\smallHeight/2);
+\coordinate (C') at (\Depth/2-\smallDepth/2,\Width/2-\smallWidth/2,\Height/2+\smallHeight/2);
+\coordinate (D') at (\Depth/2+\smallDepth/2,\Width/2-\smallWidth/2,\Height/2-\smallHeight/2);
+\coordinate (E') at (\Depth/2+\smallDepth/2,\Width/2+\smallWidth/2,\Height/2-\smallHeight/2);
+\coordinate (F') at (\Depth/2+\smallDepth/2,\Width/2+\smallWidth/2,\Height/2+\smallHeight/2);
+\coordinate (G') at (\Depth/2+\smallDepth/2,\Width/2-\smallWidth/2,\Height/2+\smallHeight/2);
+\draw[blue,fill=green!80,opacity=0.245] (O') -- (C') -- (G') -- (D') -- cycle;% Bottom Face
+\draw[blue,fill=green!80,opacity=0.245] (O') -- (A') -- (E') -- (D') -- cycle;% Back Face
+\draw[blue,fill=green!80,opacity=0.245] (O') -- (A') -- (B') -- (C') -- cycle;% Left Face
+\draw[blue,fill=green!80,opacity=0.245] (D') -- (E') -- (F') -- (G') -- cycle;% Right Face
+\draw[blue,fill=green!80,opacity=0.245] (C') -- (B') -- (F') -- (G') -- cycle;% Front Face
+\draw[blue,fill=green!80,opacity=0.245] (A') -- (B') -- (F') -- (E') -- cycle;% Top Face
+
+% Draw largest cube first
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,\Width,0);
+\coordinate (B) at (0,\Width,\Height);
+\coordinate (C) at (0,0,\Height);
+\coordinate (D) at (\Depth,0,0);
+\coordinate (E) at (\Depth,\Width,0);
+\coordinate (F) at (\Depth,\Width,\Height);
+\coordinate (G) at (\Depth,0,\Height);
+\draw[blue,fill=red!80,opacity=0.1210321] (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+\draw[blue,fill=red!80,opacity=0.1210321] (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+\draw[blue,fill=red!80,opacity=0.1210321] (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+\draw[blue,fill=red!80,opacity=0.1210321] (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+\draw[blue,fill=red!80,opacity=0.1210321] (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+\draw[blue,fill=red!80,opacity=0.1210321] (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+
+
+
+% Draw larger cube first
+\coordinate (O''') at (\Depth/2-\largerDepth/2,\Width/2-\largerWidth/2,\Height/2-\largerHeight/2);
+\coordinate (A''') at (\Depth/2-\largerDepth/2,\Width/2+\largerWidth/2,\Height/2-\largerHeight/2);
+\coordinate (B''') at (\Depth/2-\largerDepth/2,\Width/2+\largerWidth/2,\Height/2+\largerHeight/2);
+\coordinate (C''') at (\Depth/2-\largerDepth/2,\Width/2-\largerWidth/2,\Height/2+\largerHeight/2);
+\coordinate (D''') at (\Depth/2+\largerDepth/2,\Width/2-\largerWidth/2,\Height/2-\largerHeight/2);
+\coordinate (E''') at (\Depth/2+\largerDepth/2,\Width/2+\largerWidth/2,\Height/2-\largerHeight/2);
+\coordinate (F''') at (\Depth/2+\largerDepth/2,\Width/2+\largerWidth/2,\Height/2+\largerHeight/2);
+\coordinate (G''') at (\Depth/2+\largerDepth/2,\Width/2-\largerWidth/2,\Height/2+\largerHeight/2);
+\draw[blue,fill=orange!80,opacity=0.15] (O''') -- (C''') -- (G''') -- (D''') -- cycle;% Bottom Face
+\draw[blue,fill=orange!80,opacity=0.15] (O''') -- (A''') -- (E''') -- (D''') -- cycle;% Back Face
+\draw[blue,fill=orange!80,opacity=0.15] (O''') -- (A''') -- (B''') -- (C''') -- cycle;% Left Face
+\draw[blue,fill=orange!80,opacity=0.15] (D''') -- (E''') -- (F''') -- (G''') -- cycle;% Right Face
+\draw[blue,fill=orange!80,opacity=0.15] (C''') -- (B''') -- (F''') -- (G''') -- cycle;% Front Face
+\draw[blue,fill=orange!80,opacity=0.15] (A''') -- (B''') -- (F''') -- (E''') -- cycle;% Top Face
+
+
+\end{tikzpicture}

@@ -25,7 +25,7 @@
         
             \begin{equation}\label{eq:deBroglie}
                \lambda = \frac{h}{p}.
-            \end{equation}\myequations{ de Broglie Relationship}
+            \end{equation}\myequations{de Broglie Relationship}
 
         With this relationship, we can see that by increasing a particle's momentum, its effective wavelength is reduced. This is the fundamental principle which allows electron microscopes to image matter at a resolution of $\sim$ 10-0.1 nm \parencite{Franken2020ADevelopments}, corresponding to electron momenta of $\sim$ 1-100 keV. At this scale, viruses, cells, molecular structures, and even atoms can be imaged \parencite{Williams2009TransmissionMicroscopy}, with striking results commonly published online. Other probes could be used to circumvent the diffraction limit, such as high energy (low-wavelength) photons or high momentum (low de Broglie wavelength) protons or neutrons, but electrons are an ideal candidate in this regime as they are easy to produce, steer, interact with the target, and detect. 
 
@@ -34,12 +34,29 @@
 
 
     \subsection{Elastic Scattering and Form Factors}
+        Imaging with electrons (or other non-visible-light probes) these scales is commonly understood in terms of a scattering cross section, $\sigma$, which is defined as the probability that a given target will exhibit a specific reaction (such as elastic scattering or fission) in response to a specific incident particle species. Cross sections have dimensions of area but do not refer to the physical size of a particle, but rather its effective target size for the particular reaction considered. 
 
+        \Xsecs can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured experimental events of interest $N_{exp}$ divided by the number of total interaction opportunities \Lumi. \Lumispace is known as luminosity and is a product of only experimental parameters, such as the number of particles present and the experiment duration. 
 
-        At these scales, it becomes useful to introduce the notion of cross sections. 
-        \todo{FROM RICHARD: DEFINE CROSS SECTION AND ELASTIC SCATTERING A BIT MORE HERE}. Cross section definition, from britannica: cross section, in nuclear or subatomic particle physics, is the proability that a given atomic nucleus or subatomic particle will exhibit a specific reaction (for example, absorption, scattering, or fission) in relation to a particular species of inident particle. Cross section is expressed in terms of area, and its numerical value is chosen so that, if the bombarding particle hits a circular area of this size perpendicular to its path and centered at the target nucleus or particle, the given reaction occurs, and, if it misses the area, the reaction does not occur. The reaction cross section is usually not the same as the geometric cross-sectional area of the target nucleus or particle. The unit of reaction cross section is the bar, equal to 10-24 square cm. 
+        \begin{equation} \label{eq:basic_xsec}
+            \sigma = \frac{\counts}{\Lumi}.
+        \end{equation}
 
-        Imaging with electrons (or other non-visible-light probes) at any energy scale is commonly understood in terms of scattering cross sections, $\sigma$, with dimensions of area and interpreted as the probability for a certain interaction to occur. Typical elastic scattering cross sections for transitions metals with 100 keV incident electrons as in electron microscopy are $\sim 10^{-22} m^2$ \parencite{Williams2009TransmissionMicroscopy}. In contrast, the cross sections to be discussed in this thesis are on the order of tens of nanobarn ( $10^{-36} m^2$), or 14 orders of magnitude smaller. 
+        In practice, measuring the complete \xsec at once is not feasible, so instead estimates are made of the differential \xsec \eqref{eq:basic_diff_xsec}, which evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. \figref{fig:cross_section_idea} illustrates the generalized concept of measuring the differential \xsec $d\sigma$ scattering into a differential solid angle $d\Omega$.
+        
+        \begin{equation} \labelAndRemember{eq:basic_diff_xsec}
+            {\frac{d\sigma}{d\Omega} = \frac{ \counts} {\Lumi \textcolor{purple}{\Delta \Omega}}.}
+        \end{equation}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/wikipedia_cross_section.png}
+            \caption[Generalized cross section schematic]{Schematic of interpretation of \xsec. From \parencite{Vswitchs2014DifferentialSchematic}.}
+            \label{fig:cross_section_idea}
+        \end{figure}
+
+        
+        Typical elastic scattering cross sections for transitions metals with 100 keV incident electrons as in electron microscopy are $\sim 10^{-22} m^2$ \parencite{Williams2009TransmissionMicroscopy}. In contrast, the cross sections to be discussed in this thesis are on the order of tens of nanobarn ( $10^{-36} m^2$), or 14 orders of magnitude smaller.         
         
        % \begin{figure}[h]
        %     \centering
@@ -53,6 +70,8 @@
             \includegraphics[width=10cm]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/elastic-ep/kine-e-2.PNG}
             \caption{Elastic scattering diagram.}
         \end{figure}
+
+
             
       %  In general, as illustrated in Fig. \ref{fig:GeometricScattering} electrons will scatter through an angle $\theta$ into a solid angle $\Omega$.
         
@@ -66,12 +85,24 @@
         %\end{equation}\myequations{ General Differential Cross Section}
 
 
-        The scattering cross section for a probe (such as an electron) incident on a target, can be calculated at lowest order by considering a fixed (no recoil), point-like (no structure),  radially symmetric Coulomb potential (e.g., a proton) with a non-relativistic incident charged particle. The resulting equation was used by Rutherford's group in the discovery of the nucleus, and for an electron beam of energy  $E_{beam}$ is given by \eqref{eq:RutherfordDiffX}, where $\alpha$ is the fine structure constant.
+        The scattering cross section for a probe (such as an electron) incident on a target, can be calculated at lowest order by considering a fixed (no recoil), point-like (no structure),  radially symmetric Coulomb potential (e.g., a proton) with a non-relativistic incident charged particle. The resulting equation was used by Rutherford's group in the discovery of the nucleus, and for an electron beam of energy  $E_{beam}$ is given by \eqref{eq:RutherfordDiffX}, where $\alpha$ is the fine structure constant. \figref{fig:ruth_scattering_diagram} illustrates the intuition behind the form of the cross section. 
 
-            \begin{equation}\label{eq:RutherfordDiffX}
-                {\frac{\theta}{2}}(\frac{d\sigma}{d\Omega})_{Ruth} = \frac{\alpha^2}{16E^2_{beam}\sin^4{(\theta/2)}}.
-            \end{equation}
-                \myequations{ Rutherford Scattering Differential Cross Section}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{Chapters/Ch1-Intro/Ch1-Sec1-Background/pics/GreatRutherford1.png}
+            \caption[Rutherford scattering schematic]{Rutherford scattering schematic diagram. From \parencite{Fraser2011Rutherford342}. }
+            \label{fig:ruth_scattering_diagram}
+        \end{figure}
+
+        
+        \begin{equation}\label{eq:RutherfordDiffX}
+            (\frac{d\sigma}{d\Omega})_{Ruth} = \frac{\alpha^2}{16E^2_{beam}\sin^4{(\theta/2)}}.
+        \end{equation}
+            \myequations{ Rutherford Scattering Differential Cross Section}
+
+
+
 
         To probe smaller resolution scales, it is necessary to increase the energy of the beam, and eventually the probe must be treated relativistically. This correction term is provided by the Mott scattering cross section, given by \eqref{eq:MottDiffX}, which still assumes a fixed, point-like target, with only Coulomb interactions.
             
@@ -252,7 +283,7 @@
     \todo{include references to all the experiments at different energy scales plot}
         \todo{include note about HofstaderM. Gockeler et al., Phys.Rev.Lett. 98, 222001 (2007).}
 
-    \todo{Great rutherford scattering diagram - Simon Fraser University Introduction to Nuclear Science Rutherford Scattering NUCS 342 March 16 2011} %https://web-docs.gsi.de/~wolle/TELEKOLLEG/KERN/LECTURE/Fraser/L22.pdf
+
 
 
 

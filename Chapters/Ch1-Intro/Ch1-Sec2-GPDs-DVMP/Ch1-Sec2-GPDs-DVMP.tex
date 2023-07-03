@@ -251,27 +251,13 @@
         \subsubsection*{Overview of This Analysis}\label{sec:anaflow}
     
     
-        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsecp
-        
-        
-        Chapter \ref{Chapter:Experiment} describes the experimental setup. Chapter \ref{Chapter:Simulations} discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. Chapter \ref{Chapter:BaseAnalysis} explains the specific analysis procedures and estimation methods used to arrive at \xsec values. Chapter \ref{Chapter:Further Analysis} presents further physics analysis, made possible with the extracted \xsec values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
+        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsecp The general form of a scattering \xsec, \eqref{eq:basic_diff_xsec} copied below, is true in the idealized case where all measurements are perfect. In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis (four-fold differential \xsec), yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
 
-        \todo{statement introducing idea of posing this as an inverse problem, introduce the experimental interpretation of the cross section}
 
-        \Xsecs are theoretically interpreted as  the probability for a specific interaction to occur. They can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured events of interest $N_{meas}$ divided by the number of total interaction opportunities \Lumi. \Lumi is known as luminosity and is a product of only experimental parameters, such as the number of particles present and the experiment duration. 
-
-        \begin{equation} \label{eq:basic_xsec}
-            \sigma = \frac{\counts}{\Lumi}
-        \end{equation}
-        
-        Measuring the complete \xsec at once is not feasible, so instead estimates are made of the differential \xsec \eqref{eq:basic_diff_xsec}, which instead evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. 
-        
-        \begin{equation} \label{eq:basic_diff_xsec}
-            \frac{d\sigma}{d\Omega} = \frac{ \counts} {\Lumi \textcolor{purple}{\Delta \Omega}}
-        \end{equation}
-        
-        In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis, yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
-        
+        \begin{equation*}
+          \recallLabel{eq:basic_diff_xsec}
+        \end{equation*}
+       
              \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_exp}
                    { \frac{    d^4\sigma_{  ep \rightarrow ep'\pi^0}   } {dQ^2dx_Bdtd\phi_{\pi}} 
                         =   \frac{ \textcolor{red}{ N(Q^2,x_B,t,\phi_{\pi})}} {\Lumiint \textcolor{purple}{ \Delta Q^2 \Delta x_B \Delta t \Delta \phi_{\pi}}} 
@@ -294,7 +280,11 @@
         
         \item \textcolor{correctionfactors}{$Br(\pi^0\rightarrow\gamma\gamma)$} - Branching ratio of the decay of a neutral pion ($\pi^0$) into two photons ($\gamma\gamma$), which is most recently measured at 98.8131\%  \cite{Husek2019PreciseDecay}
         \end{itemize}
-        
+
+        The numerous correction factors motivate the approaching this analysis in terms of an \textit{inverse problem}. This class of inference problems requires using data and statistical methods to provide a best estimate of an unknown underlying event or distribution, given a set of observables produced by that unknown generator. To realize a high quality estimate of the underlying physics processes (GPDs) we measure the observables of that process - DVEP event rates - as discussed in Chapter \ref{Chapter:Experiment}. We also produce simulated observables through physics generators and event simulators as covered in Chapter \ref{Chapter:Simulations}. Finally, Chapter \ref{Chapter:BaseAnalysis} compares the generated, simulated, and experimental data, which allows for inference of the underlying physics - a \xsec measurement with proper correction terms. Chapter \ref{Chapter:Further Analysis} then presents further physics analysis, made possible with the extracted \xsec values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
+
+        %discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. 
+
 
             \begin{figure}
                 \centering
@@ -318,7 +308,7 @@
                 
                 % Second column
                 
-                \node[box, fill=red!30, right=.5cm of c1b2] (c2b2) {\hyperref[sec:ch3gemc] {\footnotesize GEANT4 Simulation}};
+                \node[box, fill=red!30, right=.5cm of c1b2] (c2b2) {\hyperref[sec:sim_pipeline] {\footnotesize GEANT4 Simulation}};
                 \node[box, fill=red!30, below=of c2b2] (c2b3) {\footnotesize Simulated Detector Signals};
                 \node[box, fill=orange!30, right=0.5cm of c1b6] (c2b6) {\hyperref[sec:momsmear]{Momentum Smearing}};
                 \node[box, fill=red!30,  right=0.5cm of c1b8] (c2b8) {Simulated Events};
