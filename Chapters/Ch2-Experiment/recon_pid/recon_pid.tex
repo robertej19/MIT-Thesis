@@ -34,17 +34,7 @@ Particle detectors produce timeseries data of electrical signals corresponding t
 
     \fi
 \subsection{Particle Identification}\label{sec:pid}
-    The final state for the \dvpip process is an electron, a proton, and a neutral pion, which promptly decays into two photons. This work requires full final state detection for event selection, so all three particles must be well reconstructed. Further, the neutral pion must be identifiable from the photon four-momenta. 
-
-      Basic event builder cuts are utilized, then additional cuts are made that are common with the RGA Analysis note (\href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{overleaf link} and developed by Sangbaek Lee (sangbaek@mit.edu - \href{https://github.com/Sangbaek/analysis_code/tree/analysis/pid}{github code here}. For this analysis, both the central detector and forward detector are utilized for proton tracking. The forward tagger is also utilized for photon identification. 
-
-
-      
-An electron candidate e'is defined as an associated signal of these FD signals: (1) a track in DC, (2) photoelectrons in HTCC, (3) hits in FTOF, (4) energy deposited over 60 MeV, and (5) the Sampling Fraction (SF) of Minimum Ionizing Particle’s (MIPs). Here, the event start time is determined from the track information, and corrected by the RF signal and the vertex location. 
-
-
-
-    The main uses are summarized in \tabref{tab:detector_components}.
+    The final state for the \dvpip process is an electron, a proton, and a neutral pion, which promptly decays into two photons. This work requires full final state detection for event selection, so all three particles must be well reconstructed. Further, the neutral pion must be identifiable from the photon four-momenta. Basic, conservative particle identification is performed in data cooking (``event builder cuts''), from which point additional modifications corresponding to known detector dead regions, inefficiencies, and reconstruction issues are added. A set of modifications common to all efforts analyzing this data set is known as the ``\href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{RG-A common analysis cuts}''. For this analysis, electrons are identified in the FD, the CD and FD are utilized for proton tracks, and the FT and FD are used for photon identification. The main utility of each detector sub-system is summarized in \tabref{tab:detector_components}.
  
     \begin{table}[h]
         \centering
@@ -68,36 +58,36 @@ An electron candidate e'is defined as an associated signal of these FD signals: 
             & FT-Cal & $\gamma$ energy \\
             & FT-Trk & $\gamma$ angle \\
         \end{tabular}
-        \caption[CLAS12 Detectors Main Functions]{Description of the components of the CLAS12 detector system and their primary usage in this work. Modified from \parencite{Lee2022MeasurementDetector}}
+        \caption[CLAS12 Detectors Main Functions]{Description of the components of the CLAS12 detector system and their primary usage in this work. Modified from \parencite{Lee2022MeasurementDetector}.}
         \label{tab:detector_components}
     \end{table}
 
-    \subsubsection*{electron}
-        **electron cuts: pid==1 and status < 0(negative particle
+    \subsubsection*{Electron}
+        Electrons' light mass (510.9989 keV/c$^2$) and negative charge allows for relatively straightforward identification compared to hadrons. Conditions applied at the Event builder level include: $\beta \sim 1$ at all momenta, track curve consistent with a negatively charged particle, and a cut of the number of photoelectrons produced in the HTCC to differentiate it from $\pi^-$ particles. Above 5 GeV/c$2$, electrons are differentiated from negative pions by the sampling fraction (SF) in the calorimeters. Additional fiducial cuts were included to require the reconstructed electron track vertex along the beamline, $v_{z_{e'}}$ to fall within the -5.5 cm to -0.5cm nominal target location in the CLAS12 coordinate system, which is conservatively implemented as falling within a (-13,12) or (-18,10) cm range, for the inbending and outbending configurations, respectively. 
+        
+    
 
     
-    \subsubsection*{proton}
-        **proton cuts: pid 2212
-        
-    \subsubsection*{photon}
-        **photon cuts:
-        pid 22, status > 2000 (in FD or CD, not ftagger)
-        momentum greater than 400 MeV each
-        
-    \subsubsection*{pion}
-        In addition to individual particle PID procedures the cut on the mass of two photons is applied:
-        \begin{itemize}
-        	\item $0.07<M_{\gamma\gamma}<0.2$ GeV
-        \end{itemize}
-        The pion is more thoroughly constrained by the exclusivity cuts, described in the next section.
-        
+    \subsubsection*{Proton}
+        Proton identification is achieved primarily through $\beta$ vs \textit{p} curves as previously discussed and as shown in \figref{fig:clas12-pid-overview}. Sangbaek Lee, a collaborator working on another deeply virtual process, DVCS, developed additional fiducial cuts for the central detector region based on requiring 3$\sigma$ limits on the difference between proton and electron interaction vertices locations ($v_{z_{e'}} - v_{z_{p'}}$) as well as 3$\sigma$ limits on the difference between measured time of flight and a track-reconstruction based ToF calculation, as detailed in \parencite{Lee2022MeasurementDetector}.
+
     
+    \subsubsection*{Photon}
+        Photons are primarily identified by a lack of DC tracks along with ECal hit clusters totaling more than 400 MeV. A real photon has speed $\beta=1$, but a conserative threshold is allowed of $0.9<\beta<1.1$ to rule out neutrons that can form from nuclear reactions. Fiducial cuts are employed in congruence with RG-A common analysis efforts. 
+    
+    %    **photon cuts:
+     %   pid 22, status > 2000 (in FD or CD, not ftagger)
+      %  momentum greater than 400 MeV each
+        
+    \subsubsection*{Neutral Pion}
+        In addition to individual particle identifications procedures for photons, neutral pions are identified by calculating the invariant mass between two photons. If an event has more than two photons, all possible permutations are calculated to identify possible $\pi^0$ candidates, which are classified as having a mass close to the known mass of 134.977 MeV/c$^2$. This identification, combined with cuts on missing mass and momentum as discussed in section \ref{sec:eventselection} yield the pion distribution shown in \figref{fig:combined_pion_fig}. 
+        
         \begin{figure}[hbt]
             \centering
             \subfloat[The distribution for mass of two photons $M_{\gamma\gamma}$.]{\label{fig:ggmass}\includegraphics[page=6,width=0.45\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/eppi0.exclusive.pdf}}\hfill
             \subfloat[The distribution for mass of two photons after exclusivity cuts.]{\label{fig:ggmass_after}\includegraphics[width=0.45\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/Mpi0.png}}
-            \caption[$\gamma \gamma$ Invariant Mass Distribution]{Combined figure. (a) Before exclusivity cuts. (b) After exclusivity cuts.}
-            \label{fig:combined_fig}
+            \caption[$\gamma \gamma$ Invariant Mass Distribution]{$\gamma \gamma$ invariant mass distribution before (a) and after (b) exclusivity cuts.}
+            \label{fig:combined_pion_fig}
         \end{figure}
             
 
@@ -113,14 +103,14 @@ An electron candidate e'is defined as an associated signal of these FD signals: 
         \centering
         \begin{tikzpicture}[auto, node distance=0.5cm, inner sep=1pt,
         box/.style={rectangle, draw, minimum size=#1, align=center}]
-            \node [box=15cm, fill=darkred] (cooked) {};
+            \node [box=15cm, fill=burgundy] (cooked) {};
             \node [anchor=north, yshift=-0.5cm, text=white] at (cooked.north) {\textbf{\textcolor{white}{Cooked HIPO files - 51,000 GB}}};
-            \node [box=11.8cm, fill=darkgreen, inner sep=0.4cm] (filtered) at (cooked.center) {};
+            \node [box=11.8cm, fill=britishracinggreen, inner sep=0.4cm] (filtered) at (cooked.center) {};
             \node [anchor=north, yshift=-0.5cm, text=white] at (filtered.north) {\textbf{\textcolor{white}{Skimmed HIPO trains - 4,000 GB}}};
             \node [box=3.35cm, fill=darkblue, inner sep=0.4cm] (events) at (filtered.center) {};
             \node [anchor=north, yshift=-0.3cm, text=white] at (events.north) {\textbf{\textcolor{white}{Uproot - 5 GB}}};
-            \node [box=1.5cm, fill=mypurp, inner sep=0.4cm] (dvip) at (events.center) {};
-            \node [anchor=north, yshift=-0.5cm, text=white] at (dvip.north) {\textbf{\textcolor{white}{1 GB}}};
+            \node [box=1cm, fill=mypurp, inner sep=0.4cm] (dvip) at (events.center) {};
+            \node [anchor=north, yshift=-0.5cm, text=white] at (dvip.north) {\textbf{\textcolor{white}{\tiny{1 GB}}}};
         \end{tikzpicture}
          \caption[Data Processing Pipeline]{Size reduction in the data preparation pipeline for the Fall 2018 dataset (configurations combined). The box heights correspond to the logarithm of total data size at that processing step. The smallest box is the approximate size of the final file containing all \dvpip events, more details can be found in Chapter \ref{Chapter:BaseAnalysis}.}
          \label{fig:DataReductionPipeline}
