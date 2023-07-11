@@ -1,18 +1,44 @@
 
-The strategy to calculate the luminosity is as follows:\\
+%The strategy to calculate the luminosity is as follows:\\
 
- - For each run, retrieve a measure of how much beam passed through the target, I believe in the case of CLAS12 using the Faraday cup to measure beam charge
-    - sum the beam charge over all runs being considered and include any relevant corrections factors
-    - multiply this by target length, density, etc. to get the integrated luminosity
-    - use this value to calculate cross sections.
+% - For each run, retrieve a measure of how much beam passed through the target, I believe in the case of CLAS12 using the Faraday cup to measure beam charge
+%    - sum the beam charge over all runs being considered and include any relevant corrections factors
+%    - multiply this by target length, density, etc. to get the integrated luminosity
+%    - use this value to calculate cross sections.
+
+%Compare integrated luminosity of CLAS6 to CLAS12 (in 2011 analysis note)
+
+Luminosity can calculated according to equation \ref{lumieq}
+ \begin{equation}\label{lumieq}
+            \Lumi = \frac{N_A l \rho Q_{FCUP}}{e}.
+\end{equation}
+
+$N_A$ is Avogadro's constant, l is the length of the target,  $\rho$ is the density of the target (liquid hydrogen), $Q_{FCUP}$ is the charge collected on the Faraday cup, and e is the charge of the electron. The values of these quantities are are as tabulated in table \ref{lumitable}. 
 
 
-Compare integrated luminosity of CLAS6 to CLAS12 (in 2011 analysis note)
+\begin{table}[h]
+    \centering
+    \begin{tabular}{rcc}
+         %& Heading 1 & Heading 2 \\\hline
+        Quantity & Symbol & CLAS12 Value \\\hline
+       Avogadro's Number &  N$_A$  & 6.02214 x $10^{23}$ \\
+        Electron Charge &e  &  1.602 x 10$^{-19}$ Coulombs \\
+        Target Length &l &  5.00 cm \\
+        Target Density &$\rho$  &  0.07 $g/cm^3$ (LH2) \\
+        Charge on Faraday Cup & $Q_{FCUP}$ &  In data\\
+    \end{tabular}
+\caption[Terms of Luminosity Equation]{Values of terms in luminosity determination.}
+\end{table}\label{lumitable}
+
+The accumulated charge on the Faraday cup is calculated by taking difference between the maximum and minimum values of beamQ for each run (events are not necessarily time ordered), and then summing these values. Typical runs at CLAS12 have an accumulated beam charge of tens to hundreds of thousands of nanoCoulombs. 
+
+The Fall 2018 Inbending configuration integrated luminosity was calculated to be \Lumiint = 5.511802 x 10$^{40}$ $cm^{-2}$  = 5.511802 x 10$^{7}$  inverse femtobarns, and the Fall 2018 Outbending configuration was found to have \Lumiint = 4.651647 x 10$^{7}$ $fb^{-1}$
 
 
+
+\iffalse
 Implementation:
 The bank \texttt{REC::Event} has an object \texttt{beamCharge}, in nanoCoulombs, which is described in the \texttt{DST} as ``beam charge integrated from the beginning of the run to the most recent reading of the gated Faraday Cup scaler in \texttt{RAW::scaler}, with slope/offset conversion to charge from CCDB. Note, this value will be zero in each file until the first scaler reading in that file.''. This is the (un?)gated beam charge. 
-
 
 
 This can be accessed via:
@@ -26,45 +52,4 @@ def fcupBeamCharge = evb.getFloat('beamCharge',0)
 \end{lstlisting}
 
     According to \href{https://clas12.discourse.group/t/accessing-beam-charge-information/239}{this} we might need to use tag=1 RAW::scaler::fcupgated instead of REC::Event::beamCharge
-    
-
-The beam charge needs to be converted to integrated luminosity, which can be done as follows:
-
-Luminosity: Events are not necessarily time ordered, need to take largest value minus smallest value  
-
-
-Luminosity is calculated according to equation \ref{lumieq}
- \begin{equation}\label{lumieq}
-            \Lumi = \frac{N_A l \rho Q_{FCUP}}{e}
-\end{equation}
-
-The terms in equation \ref{lumieq} are as tabulated in table \ref{lumitable}. The accumulated charge on the Faraday cup is calculated by taking difference between the maximum and minimum values of beamQ for each run, and then summing these values. The luminosity determined for the fall 2018 inbending run was 5.5E+40 cm$^{-2}$ and the fall 2018 outbending run was 4.65E+40 cm$^{-2}$
-
-\begin{table}[h]
-    \centering
-    \begin{tabular}{rcc}
-         %& Heading 1 & Heading 2 \\\hline
-        Quantity &  & CLAS12 Value \\\hline
-       Avogadro's Number &  N$_A$  & $6x10^{23}$ \\
-        Electron Charge &e  &  $1.6x10^{-19}$ \\
-        Target Length &l &  5 cm \\
-        Target Density &$\rho$  &  0.07 $g/cm^3$ (LH2) \\
-        Charge on Faraday Cup & $Q_{FCUP}$ &  In data\\
-    \end{tabular}
-\caption{Terms of Luminosity Equation}
-\end{table}\label{lumitable}
-
-
-We can calculate the luminosity L through the following equation
-
-\begin{equation}
-    L = \frac{N_A l \rho Q_{FCUP}}{e}
-\end{equation}
-
-Where $N_A$ is Avogadro's constant, l is the length of the target,  $\rho$ is the density of the target (liquid hydrogen), $Q_{FCUP}$ is the charge collected on the Faraday cup, and e is the charge of the electron. The values of these quantities are (ignoring uncertainties on experimental quantities for the time being):\\
-
-$N_A$ = 6.02214 x $10^{23}$\\
-l = 5 cm\\
-$\rho$ = 0.07 $g/cm^3$\\
-e = 1.602 x $10^-19$ Coulombs\\
-$Q_{FCUP}$ - this must be measured and obtained from analysis. Typical runs at CLAS12 have an accumulated beam charge of tens to hundreds of thousands of nanoCoulumbs. 
+\fi

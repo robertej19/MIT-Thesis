@@ -178,8 +178,42 @@ Overview words about event selection
     Difference in missing mass squared between pion and X less than 1 GeV ** make sure this is right
     difference in missing energy and X less than 1 GeV **make sure this is right
     
-    
 
+\iffalse
 \subsection{Kinematic Fitting}
 
     Instead of rigid cuts, we can use maximum likelihood estimators - include notes from Janet's class
+
+    The first issue arises with event classification - although we want to examine events with a neutral pion (which decays
+to two photons), a proton, and an electron, in practice we create a huge amount of data that is consistent with either pure
+noise, or from other hadronic processes. We must classify each of the many millions of recorded events as either signal or
+noise. This is traditionally done over the union of single parameter classifications with rigid boundaries as a box in parameter
+space (e.g. a signal event is one which satisfies a strict set of conditions). Unfortunately, this excludes many valid events that
+were reconstructed poorly in only one or a few of the many (roughly 20) different parameters under consideration. This firstly
+reduces the data sample size, which is relatively expensive to obtain, and secondly introduces large systematic uncertainties
+into the analysis. A more advanced approached is to use machine learning classifiers to improve event selection and decrease
+signal uncertainty. This more advanced method of classification is currently being implemented and verified in the analysis to
+demonstrate that it supplants the traditional method effectively
+
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|ccc}
+            \textbf{Configuration} & \textbf{Gen. Type} & \textbf{Background} & \textbf{Nevents (MM)} \\ \hline
+                & norad & none & 5 \\
+                & norad & 50 nA & 5 \\
+            Inbending & rad & 50 nA & 15 \\
+                & rad & 45 nA & 10 \\
+                & rad & 55 nA & 10 \\ \hline
+                & norad & none & 10 \\
+                & norad &  50 nA & 10 \\
+            Outbending & rad & 50 nA & 30 \\
+                 & rad & 40 nA & 10 \\
+             & rad & 40 nA (+1.01) & 10 \\
+            \hline
+            Total & - & - & 1400 \\
+        \end{tabular}
+    \caption[Distribution of Simulated Events by Configuration]{Number of simulated events for various experimental configurations and conditions.\tabref{table:Generated_Data} shows the corresponding number of generated events per distribution. \textcolor{red}{\textbf{NOTE: Values in this table are placeholders and need to be updated with final figures}}}
+    \label{table:simulated_data}
+    \end{table}
+\fi

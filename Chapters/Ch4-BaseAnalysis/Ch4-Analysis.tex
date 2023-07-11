@@ -1,8 +1,54 @@
+We now recall below the expression for the experimental cross section, \eqref{eq:DVPiPCrossSection_exp}
+
+        \begin{equation*}
+          \recallLabel{eq:DVPiPCrossSection_exp}.
+        \end{equation*}
+
+The experimental data as described in \chref{Chapter:Experiment} provides access to $N(Q^2,x_B,t,\phi_{\pi})$ and \Lumiint, while the data simulated as described in \chref{Chapter:Simulations} allows determination of the correction factors. The specific steps for calculating these terms that are explained in this chapter are: 
 
 
-Official Repo: https://github.com/robertej19/clas12DVPiP
-         
+\begin{itemize}
+  \item Correct for experimental and simulation deficiencies in pre-processing \secref{sec:Ch4_data_preprocess}
+  \item Select \dvpip events from experimental and simulated data \secref{sec:Ch4_event_selection}
+  \item Determine integrated luminosity from accumulated beam charge \secref{sec:luminosity}
+  \item Partition data into kinematic bins (raw \xsec) \secref{sec:Ch4_binning}
+  \item Calculate and apply correction factors \secref{sec:Ch4_corr_factors}
+  \item Determine uncertainties from analysis chain \secref{sec:uncertainty_analysis}
+\end{itemize}
 
+This analysis method\footnote{Analysis repository is found here:  \href{https://github.com/robertej19/clas12DVPiP}{https://github.com/robertej19/clas12DVPiP}}
+  yields a binned \xsec with correction factors applied bin-by-bin. This approach is favored for its straightforwardness, but comes at the cost of additional uncertainties. Statistical methods to supplant this are discussed at the end of this chapter \secref{sec:Ch4_IBU}. 
+
+
+\section{Data Pre-Processing}\label{sec:Ch4_data_preprocess}
+    \input{Chapters/Ch4-BaseAnalysis/0_preprocessing/0_preprocessing}
+    \clearpage
+    
+\section{Event Selection}\label{sec:Ch4_event_selection}
+    \input{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/Exclusive}
+    \clearpage
+    
+\section{Luminosity}\label{sec:luminosity}
+    \input{Chapters/Ch4-BaseAnalysis/2_Luminosity/Luminosity}
+    \clearpage
+    
+\section{Binning}\label{sec:Ch4_binning}
+    \input{Chapters/Ch4-BaseAnalysis/3_Binning/binning}
+    \clearpage
+    
+\section{Correction Factors}\label{sec:Ch4_corr_factors}
+    \input{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/correction_factors}
+    \clearpage
+    
+\section{Uncertainty Estimation}\label{sec:uncertainty_analysis}
+    \input{Chapters/Ch4-BaseAnalysis/5_uncertainties/uncertainties}
+    \clearpage
+    
+\section{Iterative Bayesian Unfolding}\label{sec:Ch4_IBU}
+    \input{Chapters/Ch4-BaseAnalysis/ibu/ibu}
+    \clearpage
+
+\iffalse
 
 For each kinematic bin the differential cross section can be written as:
 
@@ -21,32 +67,7 @@ $\delta$ can be obtained by using the following:
 \end{equation}
 
 $\delta$ and $\epsilon$ need to be properly calculated, but for a first pass we will ignore them so we have just
-
-
-
-\section{General Analysis Overview}
-    \input{Chapters/Ch4-BaseAnalysis/analysis_overview/analysis_overview}
-    
-\section{Data Pre-Processing}
-    \input{Chapters/Ch4-BaseAnalysis/0_preprocessing/0_preprocessing}
-
-\section{Event Selection}
-    \input{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/Exclusive}
-    
-\section{Luminosity}\label{sec:luminosity}
-    \input{Chapters/Ch4-BaseAnalysis/2_Luminosity/Luminosity}
-
-\section{Binning}
-    \input{Chapters/Ch4-BaseAnalysis/3_Binning/binning}
-
-\section{Correction Factors}
-    \input{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/correction_factors}
-
-\section{Uncertainty Estimation}\label{sec:uncertainty_analysis}
-
-\section{Iterative Bayesian Unfolding}
-    \input{Chapters/Ch4-BaseAnalysis/ibu/ibu}
-
+\fi
 
 
 

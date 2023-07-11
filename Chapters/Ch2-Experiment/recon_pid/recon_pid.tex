@@ -36,7 +36,7 @@ Particle detectors produce timeseries data of electrical signals corresponding t
 \subsection{Particle Identification}\label{sec:pid}
     The final state for the \dvpip process is an electron, a proton, and a neutral pion, which promptly decays into two photons. This work requires full final state detection for event selection, so all three particles must be well reconstructed. Further, the neutral pion must be identifiable from the photon four-momenta. Basic, conservative particle identification is performed in data cooking (``event builder cuts''), from which point additional modifications corresponding to known detector dead regions, inefficiencies, and reconstruction issues are added. A set of modifications common to all efforts analyzing this data set is known as the ``\href{https://www.overleaf.com/project/5ea737720942930001ff5e9c}{RG-A common analysis cuts}''. For this analysis, electrons are identified in the FD, the CD and FD are utilized for proton tracks, and the FT and FD are used for photon identification. The main utility of each detector sub-system is summarized in \tabref{tab:detector_components}.
  
-    \begin{table}[h]
+    \begin{table}[htb]
         \centering
         \begin{tabular}{c|c|c}
             System & Detector  & Utility in this Analysis \\

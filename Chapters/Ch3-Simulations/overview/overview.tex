@@ -8,7 +8,7 @@ Generating realistic \dvpip events and simulating physics experiments are comput
      \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_acc_corr}
            { \frac{    d^4\sigma_{  ep \rightarrow ep'\pi^0}   } {dQ^2dx_Bdtd\phi_{\pi}} 
                 =   \frac{ \textcolor{red}{ N(Q^2,x_B,t,\phi_{\pi})}} {\Lumiint \textcolor{purple}{ \Delta \Omega}}
-                \frac{1}{\textcolor{correctionfactors}{\epsilon_{acc}}} = \frac{ \textcolor{red}{ N_{exp} }} {\Lumiint \textcolor{purple}{ \Delta \Omega}}  \frac{\textcolor{correctionfactors}{N_{gen}}}{\textcolor{correctionfactors}{N_{sim}}}},
+                \frac{1}{\textcolor{correctionfactors}{\epsilon_{acc}}} \approx \frac{ \textcolor{red}{ N_{exp} }} {\Lumiint \textcolor{purple}{ \Delta \Omega}}  \frac{\textcolor{correctionfactors}{N_{gen}}}{\textcolor{correctionfactors}{N_{sim}}}},
      \end{equation}     
 
      we have the statistical uncertainty from the experimental and stimulated number of events as \eqref{eq:uncert_sum}
@@ -72,17 +72,17 @@ Generating realistic \dvpip events and simulating physics experiments are comput
                 & norad & none & 100 \\
                 & norad & 50 nA & 300 \\
             Inbending & rad & 50 nA & 300 \\
-                & rad & 45 nA & 100 \\
-                & rad & 55 nA & 100 \\ \hline
+                & norad & 45 nA & 100 \\
+                & norad & 55 nA & 100 \\ \hline
                 & norad & none & 100 \\
                 & norad &  50 nA & 300 \\
             Outbending & rad & 50 nA & 300 \\
-                 & rad & 40 nA & 100 \\
-             & rad & 40 nA (+1.01) & 100 \\
+                 & norad & 40 nA & 100 \\
+             & norad & 40 nA (+1.01) & 100 \\
             \hline
             Total & - & - & 1800 \\
         \end{tabular}
-    \caption[Distribution of Generated Events by Configuration]{Number of events generated for various experimental configurations and conditions. \tabref{table:simulated_data} shows this distribution after simulation, reconstruction, and exclusivity cuts.}
+    \caption[Distribution of Generated Events by Configuration]{Number of events generated for various experimental configurations and conditions.} %\tabref{table:simulated_data} shows this distribution after simulation, reconstruction, and exclusivity cuts.}
     \label{table:Generated_Data}
     \end{table}
 
@@ -91,29 +91,10 @@ Generating realistic \dvpip events and simulating physics experiments are comput
     
 
 
-    \iffalse
-    \begin{table}[h]
-        \centering
-        \begin{tabular}{c|ccc}
-            \textbf{Configuration} & \textbf{Gen. Type} & \textbf{Background} & \textbf{Nevents (MM)} \\ \hline
-                & norad & none & 5 \\
-                & norad & 50 nA & 5 \\
-            Inbending & rad & 50 nA & 15 \\
-                & rad & 45 nA & 10 \\
-                & rad & 55 nA & 10 \\ \hline
-                & norad & none & 10 \\
-                & norad &  50 nA & 10 \\
-            Outbending & rad & 50 nA & 30 \\
-                 & rad & 40 nA & 10 \\
-             & rad & 40 nA (+1.01) & 10 \\
-            \hline
-            Total & - & - & 1400 \\
-        \end{tabular}
-    \caption[Distribution of Simulated Events by Configuration]{Number of simulated events for various experimental configurations and conditions.\tabref{table:Generated_Data} shows the corresponding number of generated events per distribution. \textcolor{red}{\textbf{NOTE: Values in this table are placeholders and need to be updated with final figures}}}
-    \label{table:simulated_data}
-    \end{table}
 
-    \fi
+
+
+
 
 
 
