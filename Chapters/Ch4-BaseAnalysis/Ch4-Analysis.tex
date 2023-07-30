@@ -11,13 +11,12 @@ The experimental data as described in \chref{Chapter:Experiment} provides access
   \item Correct for experimental and simulation deficiencies in pre-processing \secref{sec:Ch4_data_preprocess}
   \item Select \dvpip events from experimental and simulated data \secref{sec:Ch4_event_selection}
   \item Determine integrated luminosity from accumulated beam charge \secref{sec:luminosity}
-  \item Partition data into kinematic bins (raw \xsec) \secref{sec:Ch4_binning}
-  \item Calculate and apply correction factors \secref{sec:Ch4_corr_factors}
-  \item Determine uncertainties from analysis chain \secref{sec:uncertainty_analysis}
+  \item Partition data into kinematic bins \secref{sec:Ch4_binning}
+  \item Apply correction factors and calculate uncertainties \secref{sec:Ch4_corr_factors}
 \end{itemize}
 
-This analysis method\footnote{Analysis repository is found here:  \href{https://github.com/robertej19/clas12DVPiP}{https://github.com/robertej19/clas12DVPiP}}
-  yields a binned \xsec with correction factors applied bin-by-bin. This approach is favored for its straightforwardness, but comes at the cost of additional uncertainties. Statistical methods to supplant this are discussed at the end of this chapter \secref{sec:Ch4_IBU}. 
+Cross section results are presented in \secref{sec:Ch4_cross_section}. This analysis method\footnote{Analysis repository is found here:  \href{https://github.com/robertej19/clas12DVPiP}{https://github.com/robertej19/clas12DVPiP}}
+  yields a binned \xsec with correction factors applied bin-by-bin. This approach is favored for its straightforwardness, but comes at the cost of additional uncertainties. Statistical methods to supplant this are discussed in \secref{sec:Ch5_IBU}. 
 
 
 \section{Data Pre-Processing}\label{sec:Ch4_data_preprocess}
@@ -31,22 +30,17 @@ This analysis method\footnote{Analysis repository is found here:  \href{https://
 \section{Luminosity}\label{sec:luminosity}
     \input{Chapters/Ch4-BaseAnalysis/2_Luminosity/Luminosity}
     \clearpage
-    
 \section{Binning}\label{sec:Ch4_binning}
     \input{Chapters/Ch4-BaseAnalysis/3_Binning/binning}
     \clearpage
-    
-\section{Correction Factors}\label{sec:Ch4_corr_factors}
+\section{Correction Factors and Uncertainty Analysis}\label{sec:Ch4_corr_factors}
     \input{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/correction_factors}
     \clearpage
-    
-\section{Uncertainty Estimation}\label{sec:uncertainty_analysis}
-    \input{Chapters/Ch4-BaseAnalysis/5_uncertainties/uncertainties}
+
+\section{Bin-by-Bin Cross Section Results}\label{sec:Ch4_cross_section}
+    \input{Chapters/Ch4-BaseAnalysis/bin_by_bin_cross_sections/bin_by_bin_cross_sections}
     \clearpage
     
-\section{Iterative Bayesian Unfolding}\label{sec:Ch4_IBU}
-    \input{Chapters/Ch4-BaseAnalysis/ibu/ibu}
-    \clearpage
 
 \iffalse
 

@@ -1,24 +1,40 @@
-Overview words about event selection
+While the simulations involve purely DV$\pi^0$P events, the raw experimental data is a combination of all reactions possible at the designated kinematics. To be classified as a DV$\pi^0$P event there are a number of criteria, called exclusivity cuts, that must be satisfied. It is helpful to first define the relevant variables:
 
-\subsection{Exclusivity Cuts}\label{sec:eventselection}
 
-    \begin{wrapfigure}{r}{0.58\textwidth}
-    	\vspace*{-0.3cm}
-    	\includegraphics[page=10,width=0.97\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
-    	\caption{MM$^2$ (epX) vs $\theta_X\pi$ 2D distribution.}
-    	\label{fig:MM2vsThetaXPi}
-    \end{wrapfigure}
-    After the selection of events with at least one electron, proton and two photons, it is time to take a look at the exclusive distributions.
-    The Fig.~\ref{fig:MM2vsThetaXPi} shows 2D distribution of MM$^2$ (epX) vs $\theta_{X\pi}$, where MM$^2$ (epX) is a missing mass squared of (epX) system and should have a peak near 0.0182 GeV$^2$, and $\theta_{X\pi}$ is an angle between expected and reconstructed pion.
-    The bright spot on the figure corresponds to the exclusive $ep\rightarrow~ep\pi^0$ events.
-    In order to reduce the background exclusivity cuts  need to be developed based on the conservation of energy and momentum.
+\begin{align}
+IM^{2}_{\pi^{0}} &= p^{2}_{\pi^{0}} = (p_{\gamma1} + p_{\gamma2})^{2}  \\
+ME_{e'p'\pi^{0}} &= E_{beam} + M - E_{e'} - E_{p'} - E_{\gamma1}E_{\gamma2} \\
+MM^{2}_{e'p'\pi^{0}} &= (p_{beam} + p_{target} - p_{e'} - p_{p'} - p_{\gamma1} - p_{\gamma2})^{2}  \\
+MM^{2}_{e'p'} &= (p_{beam} + p_{target} - p_{e'} - p_{p'})^{2} \\
+MM^{2}_{e'\pi^{0}} &= (p_{beam} + p_{target} - p_{e'} - p_{\gamma1} - p_{\gamma2})^{2} \\
+MP_{te'p'\gamma} &= \sqrt{(p_{beam} + p_{target} - p_{e'} - p_{\gamma1} - p_{\gamma2})^{2}_{x} + (p_{beam} + p_{target} - p_{e'} - p_{\gamma1} - p_{\gamma2})^{2}_{y}}\\
+\theta_{\pi^{0}_{det.\pi^{0}_{rec.}}} &= \angle(p_{\gamma1} + p_{\gamma2} , p_{beam} + p_{target} - p_{e'} - p_{p'}) \\
+\phi_{H\Pi} &= \angle(\vec{H}, \vec{\delta})
+\end{align}
+
+For a DV$\pi^0$P event measured in a perfect-resolution system, we would have:
+\begin{itemize}
+    \item $IM^{2}_{\pi^{0}}$ = $\pi^0$ mass = 134.976 MeV/c 
+    \item $ME_{e'p'\pi^{0}}$ = 0 
+    \item $MM^{2}_{e'p'\pi^{0}}$ = 0 
+    \item $MM^{2}_{e'p'}$ = 0 
+    \item $MP_{te'p'\pi^{0}}$ = 0 
+    \item $\theta_{\pi^{0}_{det.\pi^{0}_{rec.}}}$ = 0 
+    \item $\phi_{H\Pi}$ = 0 
+    \item $MM^{2}_{e'\gamma} = m^{2}_{p}$.
+\end{itemize}
+
+
+In reality, detector resolutions and reconstruction schemes are of course imperfect, and so no real event will satisfy the criteia above. Instead, we define cut values to decide which events are close enough to be considered a signal event.  For this analysis, we chose a standard 3$\sigma$ cut on variable distributions to define exclusive events. 
+
+
     The relevant 1D exclusive distributions are shown on the Fig.~\ref{fig:rawexclusive1} and \ref{fig:rawexclusive2}.
     
     \begin{figure}[hbt]
     	\centering
     	\includegraphics[page=4,width=0.47\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
     	\includegraphics[page=5,width=0.47\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
-    	\caption{Exclusive distributions for events with at least one electron, proton and two photons.}
+    	\caption{Event distributions for events with at least one electron, proton and two photons.}
     	\label{fig:rawexclusive1}
     \end{figure}
     
@@ -26,7 +42,7 @@ Overview words about event selection
     	\centering
     	\includegraphics[page=6,width=0.47\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
     	\includegraphics[page=8,width=0.47\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
-    	\caption{Exclusive distributions for events with at least one electron, proton and two photons.}
+    	\caption{Event distributions for events with at least one electron, proton and two photons.}
     	\label{fig:rawexclusive2}
     \end{figure}
     
@@ -57,6 +73,92 @@ Overview words about event selection
     	\label{fig:rawexclusive3}
     \end{figure}
     
+
+
+    The complete list of event cuts, including fiducial (chapter 2), DIS, and exclusivity cuts are:
+
+   \iffalse
+    \begin{itemize}
+    \item at least one electron, one proton, two photon in the final state.
+    \item $E_{p'} > 0.94358$ GeV
+    \item $\theta_{e'\gamma1}$, $\theta_{e'\gamma2} > 4^{\circ}$
+    \item $E_{\gamma1}$, $E_{\gamma2} > 0.15$ GeV
+    \item $\theta_{\gamma1\gamma2} > 1^{\circ}$
+    \item $-1.5$ GeV $< ME_{e'p'\pi^{0}} < 2$ GeV
+    \item $0$ GeV $< ME_{e'\gamma} < 2.5$ GeV
+    \item $|MM^{2}_{e'p'\pi^{0}}| < 0.1$ GeV$^{2}$
+    \item $MP^{2}_{te'p'\gamma} < 0.75$ GeV$^{2}$
+    \end{itemize}
+    \fi
+
+
+    \begin{itemize}
+    \item $p_{e'} > 2 \, \text{GeV/c}$
+    \item $p_{\gamma} > 2 \, \text{GeV/c} \, (\text{BH-DVCS}), \, p_{\gamma}^{2} > 0.4 \, \text{GeV/c} \, (\text{DV}\pi^{0}\text{P})$
+    \item $p_{p'} > 0.3 \, \text{GeV/c} \, (\text{CD}), \, 0.42 \, \text{GeV/c} \, (\text{FD, Inb.}), \, 0.5 \, \text{GeV/c} \, (\text{FD, Outb.})$
+    \item $Q^{2} > 1 \, (\text{GeV/c})^{2}$
+    \item $W > 2 \, \text{GeV}$
+    \item Electron not in same sector as photons. 
+    \item The protons reconstructed in the same sector with photons were excluded when the protons have associated hits in the FD ECAL.
+    \item $E_{p'} > 0.94358$ GeV
+    \item $\theta_{e'\gamma1}$, $\theta_{e'\gamma2} > 4^{\circ}$
+    \item $E_{\gamma1}$, $E_{\gamma2} > 0.15$ GeV
+    \item $\theta_{\gamma1\gamma2} > 1^{\circ}$
+    \item $-1.5$ GeV $< ME_{e'p'\pi^{0}} < 2$ GeV
+    \item $0$ GeV $< ME_{e'\gamma} < 2.5$ GeV
+    \item $|MM^{2}_{e'p'\pi^{0}}| < 0.1$ GeV$^{2}$
+    \item $MP^{2}_{te'p'\gamma} < 0.75$ GeV$^{2}$
+    
+    \iffalse
+    \item The $3\sigma$ exclusivity cuts described in this section were applied.
+    
+    \item $lb_{IM\pi^{0}} < IM\pi^{0} < ub_{IM\pi^{0}}$
+    \item $lb_{MM^{2}_{e'p'}} < MM^{2}_{e'p'} < ub_{MM^{2}_{e'p'}}$
+    \item $lb_{MM^{2}_{e'\pi^{0}}} < MM^{2}_{e'\pi^{0}} < ub_{MM^{2}_{e'\pi^{0}}}$
+    \item $lb_{MM^{2}_{e'p'\pi^{0}}} < MM^{2}_{e'p'\pi^{0}} < ub_{MM^{2}_{e'p'\pi^{0}}}$
+    \item $lb_{ME_{e'p'\pi^{0}}} < ME_{e'p'\pi^{0}} < ub_{ME_{e'p'\pi^{0}}}$
+    \item $lb_{MPt_{e'p'\pi^{0}}} < MPt_{e'p'\pi^{0}} < ub_{MPt_{e'p'\pi^{0}}}$
+    \item $\theta_{\pi^{0}_{det.\pi^{0}_{rec.}}} < ub_{\theta_{\pi^{0}_{det.\pi^{0}_{rec.}}}}$
+    \fi
+    \end{itemize}
+
+
+    Each event was tested against this set of criteria. For events with more than two photons, every permutation of two photons were tested, and the event was classified as a signal event if at least one combination passed all cuts. If more than combination passed cuts, the two photons with the invariant photon-photon mass closest to the neutral pion mass was selected. Exclusive distributions after all exclusivity cut except $MM^2(epX)<0.5$ GeV are shown on Fig.~\ref{fig:finalexclusive}
+    
+    \begin{figure}[hbt]
+    	\centering
+    	
+    	\includegraphics[page=82,width=0.32\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
+    	\includegraphics[page=83,width=0.32\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
+    	\includegraphics[page=84,width=0.32\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
+    	\caption{Exclusive distributions after all exclusivity cuts .}
+    	\label{fig:finalexclusive}
+    \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+\iffalse
+
+
+
+    \begin{figure}
+        \centering
+       \includegraphics[page=10,width=0.97\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
+    	\caption{MM$^2$ (epX) vs $\theta_X\pi$ 2D distribution.}
+    	\label{fig:MM2vsThetaXPi}
+    \end{figure}
+
+
+   
+
     \subsubsection{\texorpdfstring{$\theta_{X\pi}$} cut determination}
     
     The cut on angle between expected and reconstructed pion is used in order to further reduce background.
@@ -109,77 +211,20 @@ Overview words about event selection
     \end{figure}
     
     \clearpage
-    
-    \subsubsection{Final exclusivity cuts}
-    
-    The list of final exclusive cuts is following:
-    \begin{itemize}
-    	\item $\Delta p_x<0.2$ GeV
-    	\item $\Delta p_y<0.2$ GeV
-    	\item $\theta_{X\pi}<2^\circ$
-    	\item $0.096<M_{\gamma\gamma}<0.168$ GeV
-    	\item $MM^2(epX)<0.5$ GeV$^2$
-    \end{itemize}
-    
-    Exclusive distributions after all exclusivity cut except $MM^2(epX)<0.5$ GeV are shown on Fig.~\ref{fig:finalexclusive}
-    
-    \begin{figure}[hbt]
-    	\centering
-    	
-    	\includegraphics[page=82,width=0.32\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
-    	\includegraphics[page=83,width=0.32\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
-    	\includegraphics[page=84,width=0.32\linewidth]{Chapters/Ch4-BaseAnalysis/1_Event_Selection_Cuts/figures/eppi0.exclusive.pdf}
-    	\caption{Exclusive distributions after all exclusivity cuts .}
-    	\label{fig:finalexclusive}
-    \end{figure}
-    
-    
-    
-    
-    
-    
-    
-    To arrive at a DVEP candidate event, we do the following
-    
-    
-    Code flow:
-    
-    Consider a directory with n hipo files. For each hipo file, do the following.
-    
-    Read each file event by event, and do the following
-    
-    Check that the event has the proper databanks, and if not, go to teh next event.
-    
-    Get a list of all the electrons*, protons*, and photons* in the event
-    
-    *= links to most up to date PID methods
-    
-    for every electron in the event (always only one, at least in the skims, but not held to be one) do the following
-    For every proton in the event, do the following
-    
-    Calculate some basic quantities and fill histograms
-    
-    for every permutation of pairs of photons in the event, do the following
-    
-    calculate various kinematic quantities, and pass to see if creates a viable pion* and a viable DVEP event*
-    
-    if so, fill relevant histograms and count as a DVEP event, otherwise skip to next event
-    
-    viable pion: 
-    pion mass betwen 100 and 180 MeV
-    pion momentum greater than 1.5 GeV
-    angle (theta) between each photon and the electron to be greater than 8 degrees
-    
-    viable DVEP event:
-    Q2 greater than 1
-    W greater than 2
-    difference between theta of missing 4-momentum and reconstructed pion less than 2 degrees
-    difference between missing X px and py 300 MeV each or less
-    Difference in missing mass squared between pion and X less than 1 GeV ** make sure this is right
-    difference in missing energy and X less than 1 GeV **make sure this is right
-    
 
-\iffalse
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Kinematic Fitting}
 
     Instead of rigid cuts, we can use maximum likelihood estimators - include notes from Janet's class

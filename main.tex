@@ -410,6 +410,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \iffalse
 \chapter{Introduction} \label{Chapter:Intro}
     \input{Chapters/Ch1-Intro/Ch1-Intro.tex}
@@ -419,23 +420,27 @@
 
 \chapter{Simulations} \label{Chapter:Simulations}
     \input{Chapters/Ch3-Simulations/Ch3-Simulations.tex}
-\fi
+
 
 \chapter{Data Analysis} \label{Chapter:BaseAnalysis}
     \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
 
+\fi
+
+\chapter{Binning Effects and Unfolding} \label{Chapter:Ch5_IBU}
+    \input{Chapters/Ch5-Further/0_IBU/ibu}
 
 \chapter{Results and Further Analysis} \label{Chapter:Further Analysis}
     \input{Chapters/Ch5-Further/Ch5-Further}
 
-\input{outstanding_refs}
+%\input{outstanding_refs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% POSTAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \printbibliography[heading=bibintoc]
 
-\appendix
+%\appendix
 \input{Chapters/Postamble/appendices.tex}
 %include if want to check unused referneces and uncomment refcheck
 %\nocite{*}

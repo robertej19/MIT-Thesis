@@ -1,8 +1,11 @@
 The careful analysis of the experimental data will allow for the calculation of the number of events observed in a specific region of phase space, which combined with the luminosity determined from beam charge accumulated on the Faraday cup provides a rudimentary estimate of the differential \xsec. However, many corrections need to be applied to this raw calculation to arrive at a more accurate result. The most dominant correction term is known as ``acceptance'' which can be thought of the ratio of the number of events that are experimentally detected relative to the number that truly occurred. In this work we will use ``acceptance'' to refer to a combination of geometrical acceptance (the fraction of 4$\pi$ surface area covered by the detector systems), detector efficiency, and track reconstruction efficiency. This correction term (and others) are best estimated by creating a simulation of the physics experiment with computational means, and using the ratio of the number of detected simulated events to the number of generated simulated events as an approximation to the true acceptance, \eqref{eq:acceptance}. 
 
-\begin{equation}\label{eq:acceptance}
-    \epsilon_{acc} = \frac{N_{detected,experiment}}{N_{truth}} \approx  \frac{N_{detected,simulation}}{N_{truth,simulation}}  \equiv \frac{N_{sim}}{N_{gen}} = \hat{\epsilon}_{acc}.
-\end{equation}
+
+
+  \begin{equation}\labelAndRemember{eq:acceptance}
+                   {\epsilon_{acc} = \frac{N_{detected,experiment}}{N_{truth}} \approx  \frac{N_{detected,simulation}}{N_{truth,simulation}}  \equiv \frac{N_{sim}}{N_{gen}} = \hat{\epsilon}_{acc}}.
+             \end{equation}      
+             
 
 Here $\hat{\epsilon}_{acc}$ is the estimator for the true acceptance, $\epsilon_{acc}$. For the remainder of this work, we will refer to the number of events detected in the real-world experiment as \Nexp, those produced in the real-world as \Ntruth, those detected in the simulation as \Nsim, and those generated for simulation as \Ngen.  
 
@@ -42,7 +45,7 @@ Approaching through the lens of an inverse problem, we use existing knowledge to
 
 \section{Simulation Enhancements with Normalizing Flows}\label{sec:normflow}
     Placeholder
-    %\input{Chapters/Ch3-Simulations/normalizing_flows/nomalizing_flows}
+    \input{Chapters/Ch3-Simulations/normalizing_flows/nomalizing_flows}
 
 
 
