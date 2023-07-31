@@ -1,4 +1,4 @@
-\section{Binning Complications}
+\section{Bin Migration Effects}
 
         \iffalse
     t1 mean purity:  0.5779366649713987
@@ -24,14 +24,7 @@
     
     So far, we have discussed measuring differential \xsecs assuming a framework that we detect an event in the same four-dimensional bin that it truly lies in. For example,
 
-    \begin{figure}[H]
-        \centering
-        \subfloat[xb vs q2]{\includegraphics[trim={0 0 10cm 3.5cm},clip,width=0.52\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-4n-3nkernel/4D_4bin_sample_unfolding.png}}
-        \hfill
-        \subfloat[phi vs t]{\includegraphics[trim={0 0 17.5cm 6cm},clip,width=0.47\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-4n-3nkernel/4D_4bin_sample_normalized_response_matrix.png}}
-        
-        \caption[Binning]{Binning. }\label{fig:mig_ex}
-    \end{figure}
+
     
     \begin{figure}[H]
         \centering
@@ -82,15 +75,32 @@
     \caption[words]{words}
     \label{fig:ibu10}
     \end{figure}
-    
+
+    By superimposing a periodic waving to illustrate point locality, we can observe drifts between generated and reconstructed positions. There is no systematic shift, and improvements to base reconstruction code are currently being developed as part of a collaboration-wide effort. 
     
     \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/t1.png}
-    \caption[words]{words}
-    \label{fig:ibu4}
+        \centering
+        \subfloat[][Caption 1]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_xB.png}
+        \label{fig:ibu4a}}
+        \hfill
+        \subfloat[][Caption 2]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_Q2.png}
+        \label{fig:ibu4b}}
+        \\
+        \subfloat[][Caption 3]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_phi.png}
+        \label{fig:ibu4c}}
+        \hfill
+        \subfloat[][Caption 4]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_t.png}
+        \label{fig:ibu4d}}
+        \caption{Overall Caption for all figures}
+        \label{fig:ibu4}
     \end{figure}
     
+
+    Could index off of t2 missing mass, but not ideal for radiative corrections and in general want 
     
     \begin{figure}[ht]
         \centering
@@ -136,6 +146,15 @@
         \caption{4D 2-Bin Sample Response Matrix}
         \label{fig:4D_2bin_sample_response_matrix}
     \end{figure}
+
+        \begin{figure}[H]
+        \centering
+        \subfloat[xb vs q2]{\includegraphics[trim={0 0 0 0},clip,width=0.5\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-4n-3nkernel/4D_4bin_sample_unfolding.png}}
+        \hfill
+        \subfloat[phi vs t]{\includegraphics[trim={0 0 0 0},clip,width=0.5\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-4n-3nkernel/4D_4bin_sample_normalized_response_matrix.png}}
+        
+        \caption[Binning]{Binning. }\label{fig:mig_ex}
+    \end{figure}
     
     \iffalse
     Data scaling
@@ -163,7 +182,11 @@
     
     Unfolding techniques have been applied in various areas of experimental physics, such as in the estimation of the neutrino energy spectrum in neutrino oscillation experiments (abe2010indication), and in measurements of the top quark mass in collider experiments (chatrchyan2013measurement). These techniques allow researchers to correct for distortions and biases in the measured data, and to recover the true underlying distributions of the quantities of interest.
     
+\clearpage
+\section{Unfolding Methods}
 
+
+\clearpage
 \section{Iterative Bayesian Unfolding}
     
     Iterative Bayesian Unfolding (IBU) is a specific unfolding technique that uses Bayesian probability to account for the statistical uncertainty in the unfolding process (agostini1995bayesian, blobel2002unfolding). This technique constructs a probability model of the response of the measurement apparatus, and iteratively refines an estimate of the true underlying distribution by conditioning on the measured data.
@@ -231,31 +254,7 @@
     
     Bin migrations refer to the movement of data from one bin to another during a process of interest. For a process with $n$ bins, we can represent the bin migrations using an $n \times n$ matrix $T$, where each element $T_{ij}$ represents the amount that originated in bin $j$ and ended up in bin $i$. 
     
-    
-
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/histogram_of_ratio_of_observed_and_unfolded_events_to_truth.png}
-    \caption[words]{words}
-    \label{fig:ibu1}
-    \end{figure}
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/observed_unfolded_and_true_bin_counts.png}
-    \caption[words]{words}
-    \label{fig:ibu2}
-    \end{figure}
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/ratio_of_observed_and_unfolded_events_to_truth_across_bins.png}
-    \caption[words]{words}
-    \label{fig:ibu3}
-    \end{figure}
-    
-    
+        
    
     
     
@@ -279,7 +278,87 @@
     
     Please note that unfolding techniques are sensitive to the chosen model and prior, and they require careful validation and error estimation. The choice between iterative Bayesian unfolding and other unfolding techniques (like matrix inversion or regularized unfolding) often depends on the specific problem and the constraints of the analysis.
 
-
+\section{Method of Implementation}
+    81 x 81 (unrolled) bins
+    
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_1_1.png}
+        \caption[words]{words}
+        \label{fig:ibu1}
+        \end{figure}
+    
+    
+    \begin{figure}[ht]
+    \centering
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_2_2.png}}
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_2_1.png}}
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_2_0.png}}\\
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_1_2.png}}
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_1_1.png}}
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_1_0.png}}\\
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_0_2.png}}
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_0_1.png}}
+    \subfloat[][]{\includegraphics[trim={22.5cm 0 0 5cm},clip,width=0.3\textwidth]{Chapters/Ch5-Further/0_IBU/pics/kerneling/bin_migration_1_1_0_0.png}}\\
+    \caption{Caption for your 3x3 grid of figures}
+    \label{fig:test}
+    \end{figure}
+    
+\clearpage
 \section{Unfolding Matrix Results}
 
+    We processed on the whole dataset
+
+    \iffalse
+    \begin{figure}[ht]
+        \centering
+        \subfloat[]{
+            \begin{tikzpicture}
+                \node[anchor=south west,inner sep=0] (image) at (0,0) {
+                    \includegraphics[trim={0 0 0 0},clip,width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4D_all_bins_normalized_full_response_matrix.png}
+                };
+                \begin{scope}[x={(image.south east)},y={(image.north west)}]
+                    \draw[red,ultra thick] (0.43,0.45) rectangle ++(0.1,0.1.5); %Change the values as per your need
+                \end{scope}
+            \end{tikzpicture}
+            \label{fig:ibu1}
+        }
+        \hfill
+        \subfloat[]{
+            \includegraphics[trim={16cm 12cm 17cm 11cm},clip,width=0.4\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4D_all_bins_normalized_full_response_matrix.png}
+            \label{fig:ibu2}
+        }
+        \caption{Caption for both figures}
+        \label{fig:ibu}
+    \end{figure}
+    \fi
+
+
+    
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/observed_unfolded_and_true_bin_counts.png}
+    \caption[words]{words}
+    \label{fig:ibu2}
+    \end{figure}
+    
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/ratio_of_observed_and_unfolded_events_to_truth_across_bins.png}
+    \caption[words]{words}
+    \label{fig:ibu3}
+    \end{figure}
+
+    
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/histogram_of_ratio_of_observed_and_unfolded_events_to_truth.png}
+    \caption[words]{words}
+    \label{fig:ibu1}
+    \end{figure}
+    
+\clearpage
+
 \section{Unfolding Effect on Cross Section Values}
+
+ TO DO: COMPARE BIN BY BIN and make histogram of comparisons

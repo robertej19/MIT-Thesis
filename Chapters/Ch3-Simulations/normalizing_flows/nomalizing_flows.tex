@@ -93,11 +93,11 @@ For a quantitative comparison, Figure \ref{fig:EMD} shows the Earth Mover's Dist
         \centering
        % Electron
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Features16/Electron_Energy_,_NF_16-Feature_Model.png}
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Features16/Electron_X-Momentum_,_NF_16-Feature_Model.png}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Features16/Electron_Y-Momentum_,_NF_16-Feature_Model.png}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Features16/Electron_Z-Momentum_,_NF_16-Feature_Model.png}
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
     \begin{minipage}{0.23\textwidth}
         \centering
@@ -124,7 +124,7 @@ For a quantitative comparison, Figure \ref{fig:EMD} shows the Earth Mover's Dist
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Features16/Photon_2_Y-Momentum_,_NF_16-Feature_Model.png}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Features16/Photon_2_Z-Momentum_,_NF_16-Feature_Model.png}
     \end{minipage}
-    \caption{The 1D distributions of all 16 features sampled from our NF model (blue), and from physics simulation (red). Each histogram is normalized to the area, and has 100 bins.}
+    \caption[Placeholder Short text]{The 1D distributions of all 16 features sampled from our NF model (blue), and from physics simulation (red). Each histogram is normalized to the area, and has 100 bins.}
     \label{fig:16features}
 \end{figure*}
 
@@ -134,7 +134,7 @@ For a quantitative comparison, Figure \ref{fig:EMD} shows the Earth Mover's Dist
     \centering
     %\includegraphics[scale=0.3]{FinalPictures/EMD/EmdRatio.png}
     \includegraphics[width=.47\textwidth,trim={0 0 0 0 },clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/EMD/EMD_updated.png}
-    \caption{The EMD ratios of all 16 features between the NF generated distributions and sample from physics simulation. The points are the average EMD ratios of 10 different subsample calculations; the error bars are the standard deviations of the sets. If the model were perfect, all points would have value 1; deviation from 1 indicates worse performance.}
+    \caption[Placeholder Short text]{The EMD ratios of all 16 features between the NF generated distributions and sample from physics simulation. The points are the average EMD ratios of 10 different subsample calculations; the error bars are the standard deviations of the sets. If the model were perfect, all points would have value 1; deviation from 1 indicates worse performance.}
     \label{fig:EMD}
 \end{figure}
 
@@ -149,7 +149,7 @@ To understand the shortcomings of the trained model, we consider 2-Dimensional d
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Hists2D/Proton_P_X_vs_Photon_1_P_Z,_Physics_Data.png}
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Hists2D/Proton_P_X_vs_Photon_1_P_Z,_NF_16-Feature_Cond_Model.png}
 
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
     \begin{minipage}{0.133\textwidth}
         \centering
@@ -157,7 +157,7 @@ To understand the shortcomings of the trained model, we consider 2-Dimensional d
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Hists2D/Electon_P_X_vs_Proton_P_X,_Physics_Data.png}
         %Feature Distributions from NF Model Samples
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Hists2D/Electon_P_X_vs_Proton_P_X,_NF_16-Feature_Cond_Model.png}
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         
 
     \end{minipage}
@@ -168,7 +168,7 @@ To understand the shortcomings of the trained model, we consider 2-Dimensional d
             \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/Hists2D/Electon_P_X_vs_Electron_P_Y,_NF_16-Feature_Cond_Model.png}
 
     \end{minipage}
-    \caption{ 2-Dimensional distributions for various features, comparing the data from the traditional physics simulation to the NF sampled data. \textbf{Top} Feature distributions from the traditional physics data set. \textbf{Bottom} Feature distributions from our trained NF model, which should match with the top row. Moving from left to right, we can see that some feature distributions are reproduced well, while others have difficult details that are not well modeled, corresponding to physical detector geometry and physics constraints that the NF model is unaware of. }
+    \caption[Placeholder Short text]{ 2-Dimensional distributions for various features, comparing the data from the traditional physics simulation to the NF sampled data. \textbf{Top} Feature distributions from the traditional physics data set. \textbf{Bottom} Feature distributions from our trained NF model, which should match with the top row. Moving from left to right, we can see that some feature distributions are reproduced well, while others have difficult details that are not well modeled, corresponding to physical detector geometry and physics constraints that the NF model is unaware of. }
     \label{fig:2D}
 \end{figure}
 
@@ -180,7 +180,7 @@ To try to improve fine-detail reproduction by our model, we trained a second mod
     \centering
     %\includegraphics[scale=0.3]{FinalPictures/EMD/EmdRatio.png}
     \includegraphics[width=.47\textwidth,trim={ 0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/EMD/emdratio416.png}
-    \caption{The EMD Ratio of selected 4 features between the NF generated distributions and sample from physics simulation when the model was trained using all 16 features as Fig.~\ref{fig:EMD} (blue), and the selected 4 features (green). The 4-Feature trained model shows consistently lower EMD ratio values than the 16-trained model, indicating a better ability to reproduce electron features. \textcolor{red}{The legend prevents reader from reading the data points. The x tick labels should be 0, 1, 2, 3.}}
+    \caption[Placeholder Short text]{The EMD Ratio of selected 4 features between the NF generated distributions and sample from physics simulation when the model was trained using all 16 features as Fig.~\ref{fig:EMD} (blue), and the selected 4 features (green). The 4-Feature trained model shows consistently lower EMD ratio values than the 16-trained model, indicating a better ability to reproduce electron features. \textcolor{red}{The legend prevents reader from reading the data points. The x tick labels should be 0, 1, 2, 3.}}
     \label{fig:EMD2}
 \end{figure}
 
@@ -206,7 +206,7 @@ Comparing to Figure \ref{fig:2D}, we can see from Figure \ref{fig:2D4F} that the
        
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/2D_Hists_4F/Electron_P_X_vs_P_Y,_NF_4-Feat_Model,_M_e2_Cut.png}
     \end{minipage}
-    \caption{\textbf{Left}: Electron X-Momentum vs. Electron Y-Momentum distribution from the traditional physics simulation dataset. \textbf{Center}: The observed distribution from the 16-Feature trained model, copied from Figure \ref{fig:2D} for reference. We can see considerable disparity between this distribution and the traditional physics distribution. \textbf{Right}: The distribution result from the 4-Feature trained model, which demonstrates far greater agreement to the traditional results compared to the 16-Feature model. }
+    \caption[Placeholder Short text]{\textbf{Left}: Electron X-Momentum vs. Electron Y-Momentum distribution from the traditional physics simulation dataset. \textbf{Center}: The observed distribution from the 16-Feature trained model, copied from Figure \ref{fig:2D} for reference. We can see considerable disparity between this distribution and the traditional physics distribution. \textbf{Right}: The distribution result from the 4-Feature trained model, which demonstrates far greater agreement to the traditional results compared to the 16-Feature model. }
     \label{fig:2D4F}
 \end{figure}
 
@@ -238,7 +238,7 @@ Ultimately, we are interested in physics processes rather than just distribution
         
         \includegraphics[width=.97\textwidth,trim={ 0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/FinalPictures/updated_pion_reduced.png}
     \end{minipage}
-        \caption{The distributions of calculated proton mass (left) and pion mass (right) from the 16-Feature trained NF model.  The accepted (true) particle masses are indicated by the red vertical lines, at 0.938 GeV and 0.135 GeV, respectively.
+        \caption[Placeholder Short text]{The distributions of calculated proton mass (left) and pion mass (right) from the 16-Feature trained NF model.  The accepted (true) particle masses are indicated by the red vertical lines, at 0.938 GeV and 0.135 GeV, respectively.
         The peaks from the model are about 1 MeV, or about 0.5\%, shifted away from these true values; while this is small, it is currently unclear what is causing this shift.}
     \label{fig:protonspions}
 \end{figure}
@@ -267,7 +267,7 @@ The conditional normalizing flow takes the base distribution $Y$ and the context
 \centering
 \includegraphics[width = 0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/raw.pdf}
 \includegraphics[width = 0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/NF.pdf}
-\caption{$p_x - p_{b}$ vs $p_{b}$ (left) and $p_x - p_{z_{n=2}}$ vs $p_{b}$ (right).}
+\caption[Placeholder Short text]{$p_x - p_{b}$ vs $p_{b}$ (left) and $p_x - p_{z_{n=2}}$ vs $p_{b}$ (right).}
 \label{fig: jul8_NF}
 \end{figure}
 
@@ -275,7 +275,7 @@ The conditional normalizing flow takes the base distribution $Y$ and the context
 \centering
 \includegraphics[width = 0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/direct.pdf}
 \label{fig: jul8_direct}
-\caption{$p_x - p_{z_{n=2}}$ vs $p_x - p_{b}$.}
+\caption[Placeholder Short text]{$p_x - p_{z_{n=2}}$ vs $p_x - p_{b}$.}
 \end{figure}
 
 \begin{figure}[htb]
@@ -283,7 +283,7 @@ The conditional normalizing flow takes the base distribution $Y$ and the context
 \includegraphics[width = 0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/theta.pdf}
 \includegraphics[width = 0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/momentum.pdf}
 \label{fig: jul8_direct2}
-\caption{Sample distributions of $\theta$ and $p$ of protons.}
+\caption[Placeholder Short text]{Sample distributions of $\theta$ and $p$ of protons.}
 \end{figure}
 
 \textcolor{red}{Add benchmark plots to show how good this NF works.}
@@ -310,13 +310,13 @@ Jay Whang (The University of Texas at Austin), Erik Lindgren (Google Research), 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/NFdiag1.pdf}
-    \caption{Simplified schematic diagrams to depict the purpose of this project. The NF simulated features should be `similar' to that of underlying physics.}
+    \caption[Placeholder Short text]{Simplified schematic diagrams to depict the purpose of this project. The NF simulated features should be `similar' to that of underlying physics.}
     \label{fig:goal}
 \end{figure}
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/NFdiag2.pdf}
-    \caption{We use the conditional normalizing to realize Fig.~\ref{fig:goal}. We use the experimentally given features (reconstructed features) as context variables. The base distributions, which is the constant distributions, should be transformed to the final layer, $z_2$. The training step repeats the backward propagation to lower the KLD between \{$z_n$\} and \{$x$\}, the features in underlying physics. Please note that we know $x$ only for the simulational data. For this work, I used $n$=2 to make things simple.}
+    \caption[Placeholder Short text]{We use the conditional normalizing to realize Fig.~\ref{fig:goal}. We use the experimentally given features (reconstructed features) as context variables. The base distributions, which is the constant distributions, should be transformed to the final layer, $z_2$. The training step repeats the backward propagation to lower the KLD between \{$z_n$\} and \{$x$\}, the features in underlying physics. Please note that we know $x$ only for the simulational data. For this work, I used $n$=2 to make things simple.}
     \label{fig:architecture}
 \end{figure}
 
@@ -345,7 +345,7 @@ I present these two variables for two cases, Fig.~\ref{fig:allparticleNF} when t
     \centering
     \includegraphics[width=0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/MM2_epg.pdf}
     \includegraphics[width=0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/MM2_ep.pdf}
-    \caption{$MM_{e'p'g}^2$ (left) and $MM_{e'p'}^2$ (right). The desired value is expressed as the black vertical line. The red lines in the right plot shows the desired resolution of the peak. The NF transformation were applied to all three particles.}
+    \caption[Placeholder Short text]{$MM_{e'p'g}^2$ (left) and $MM_{e'p'}^2$ (right). The desired value is expressed as the black vertical line. The red lines in the right plot shows the desired resolution of the peak. The NF transformation were applied to all three particles.}
     \label{fig:allparticleNF}
 \end{figure}
 
@@ -353,7 +353,7 @@ I present these two variables for two cases, Fig.~\ref{fig:allparticleNF} when t
     \centering
     \includegraphics[width=0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/MM2_epg_proton.pdf}
     \includegraphics[width=0.4\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/MM2_ep_proton.pdf}
-    \caption{$MM_{e'p'g}^2$ (left) and $MM_{e'p'}^2$ (right). The desired value is expressed as the black vertical line. The red lines in the right plot shows the desired resolution of the peak. The NF transformation were applied to only protons.}
+    \caption[Placeholder Short text]{$MM_{e'p'g}^2$ (left) and $MM_{e'p'}^2$ (right). The desired value is expressed as the black vertical line. The red lines in the right plot shows the desired resolution of the peak. The NF transformation were applied to only protons.}
     \label{fig:protonNF}
 \end{figure}
 \clearpage
@@ -362,7 +362,7 @@ I present these two variables for two cases, Fig.~\ref{fig:allparticleNF} when t
 \centering
 \includegraphics[width = 0.5\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/LearningRate/learning_rate_base_case.png}
 \label{fig: jul8_pion_comparison2}
-\caption{Epoch (horizontal) vs Training Loss (vertical). Originally no learning rate was specified in the Adam optimizer }
+\caption[Placeholder Short text]{Epoch (horizontal) vs Training Loss (vertical). Originally no learning rate was specified in the Adam optimizer }
 \end{figure}
 
 
@@ -371,7 +371,7 @@ I present these two variables for two cases, Fig.~\ref{fig:allparticleNF} when t
 \centering
 \includegraphics[width = 0.5\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/LearningRate/learning_rate_2e-4png.png}
 \label{fig: jul8_pion_comparison3}
-\caption{Epoch (horizontal) vs Training Loss (vertical). A specified learning rate of 2e-4 was osbserved to work more smoothly.}
+\caption[Placeholder Short text]{Epoch (horizontal) vs Training Loss (vertical). A specified learning rate of 2e-4 was osbserved to work more smoothly.}
 \end{figure}
 
 
@@ -380,7 +380,7 @@ I present these two variables for two cases, Fig.~\ref{fig:allparticleNF} when t
 \centering
 \includegraphics[width = 0.5\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/LearningRate/learning_rate_25e-5_with_QT.png}
 \label{fig: jul8_pion_comparison4}
-\caption{Epoch (horizontal) vs Training Loss (vertical). Training loss vs. epoch with LR=2.5e-4, using Quantile Transforms }
+\caption[Placeholder Short text]{Epoch (horizontal) vs Training Loss (vertical). Training loss vs. epoch with LR=2.5e-4, using Quantile Transforms }
 \end{figure}
 
 
@@ -394,32 +394,32 @@ To improve training, use a quantile transformation on all features in preprocess
         \centering
        % Electron
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/QT/feature0_noQT.png}
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/QT/feature0.png}
 
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
     \begin{minipage}{.3\textwidth}
     
         \centering
        % Electron
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/QT/feature1_noQT.png}
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/QT/feature1.png}
 
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
     \begin{minipage}{.3\textwidth}
     
         \centering
        % Electron
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/QT/feature2_noQT.png}
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         \includegraphics[width=.99\textwidth,trim={3cm 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/QT/feature2.png}
 
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
-    \caption{Feature distributions before (top) and after (bottom) quantile transforms}
+    \caption[Placeholder Short text]{Feature distributions before (top) and after (bottom) quantile transforms}
     \label{fig:16features5}
 \end{figure*}
 
@@ -432,7 +432,7 @@ Multiple 4 feature models seem to work better than one single 16 feature model.
 \centering
 \includegraphics[width = 0.6\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/Reconstructed_Pion_Mass,_16_and_4_Feature_NF_Models_vs_Standard_Simulations.png}
 \label{fig: jul8_pion_comparison5}
-\caption{Reconstructed pion mass, requiring information from both photons. The results from the 4 feature training (4 features for each photon, so two trained models) actually does a better job of approximating the standard reconstruction pion mass peak than the 16 feature model. However, improvements must still be made. }
+\caption[Placeholder Short text]{Reconstructed pion mass, requiring information from both photons. The results from the 4 feature training (4 features for each photon, so two trained models) actually does a better job of approximating the standard reconstruction pion mass peak than the 16 feature model. However, improvements must still be made. }
 \end{figure}
 
 
@@ -440,7 +440,7 @@ Multiple 4 feature models seem to work better than one single 16 feature model.
 \centering
 \includegraphics[width = 0.6\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/qt-3-4.png}
 \label{fig: jul8_pion_comparison}
-\caption{Reconstructed pion mass. A slight improvement in the reproduction of the GEANT4 simulated pion peak (red) is observed when preprocessing the feature set with a quantile transformer before training the normalizing flow (green) compared to training without the quantile transformation (blue). }
+\caption[Placeholder Short text]{Reconstructed pion mass. A slight improvement in the reproduction of the GEANT4 simulated pion peak (red) is observed when preprocessing the feature set with a quantile transformer before training the normalizing flow (green) compared to training without the quantile transformation (blue). }
 \end{figure}
 
 
@@ -454,24 +454,24 @@ Multiple 4 feature models seem to work better than one single 16 feature model.
         \centering
        % Electron
         
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/inverse/gen_Px_1_vs_gen_-_recon_Px_1.png}
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/inverse/gen_Px_1_vs_gen_-_nf_Px_1.png}
 
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
     
         \centering
        % Electron
         
-        %\caption{(a)}
+        %\caption[Placeholder Short text]{(a)}
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/inverse/gen_Py_1_vs_gen_-_recon_Py_1.png}
         \includegraphics[width=.99\textwidth,trim={0 0 0 0},clip]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Bobby/inverse/gen_Py_1_vs_gen_-_nf_Py_1.png}
 
-        %\caption{(c)}
+        %\caption[Placeholder Short text]{(c)}
     \end{minipage}%
-    \caption{\textbf{TOP:} Truth Event - Reconstructed Event. If standard physics reconstruction algorithms were perfect, we would have a horizontal line at 0 across the distribution (no difference between the reconstructed feature value, and the true feature value, for any event in the data set). \textbf{BOTTOM:} Truth Event - NF estimate of truth event conditional on Reconstructed event values. For the NF to be useful, we would need the difference between the truth event values and the NF estimates to be closer to zero than the differences between just the truth and reconstructed values. However, instead we observe that the spread is about a factor of 2 \textbf{worse} using the NF than not using it at all. }
+    \caption[Placeholder Short text]{\textbf{TOP:} Truth Event - Reconstructed Event. If standard physics reconstruction algorithms were perfect, we would have a horizontal line at 0 across the distribution (no difference between the reconstructed feature value, and the true feature value, for any event in the data set). \textbf{BOTTOM:} Truth Event - NF estimate of truth event conditional on Reconstructed event values. For the NF to be useful, we would need the difference between the truth event values and the NF estimates to be closer to zero than the differences between just the truth and reconstructed values. However, instead we observe that the spread is about a factor of 2 \textbf{worse} using the NF than not using it at all. }
     \label{fig:16features6}
 \end{figure*}
 
@@ -493,7 +493,7 @@ We can only make $a$ and $b$ follow the same distribution, i.e., binary distribu
 \begin{figure}[htb]
     \centering
     \includegraphics{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/elec_px.pdf}
-    \caption{Sample distributions of $\mathbf{x}-\mathbf{b}$, $\mathbf{z_6}-\mathbf{b}$, and $\mathbf{z_6}-\mathbf{x}$ of one feature, electron $p_x$.}
+    \caption[Placeholder Short text]{Sample distributions of $\mathbf{x}-\mathbf{b}$, $\mathbf{z_6}-\mathbf{b}$, and $\mathbf{z_6}-\mathbf{x}$ of one feature, electron $p_x$.}
     \label{fig:electron_px}
 \end{figure}
 

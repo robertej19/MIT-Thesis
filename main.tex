@@ -26,7 +26,10 @@
 %% above. 
 
 %aps,prd,longbibliography]%{revtex4-1}
-\documentclass[12pt,twoside,vi]{mitthesis}
+%CHANGE IT TO TWO SIDE!!!! FOR FORMAL PRINTING$
+%\documentclass[12pt,twoside,vi]{mitthesis}
+\documentclass[12pt,oneside,vi]{mitthesis}
+
 \usepackage{lgrind}
 \usepackage{tabularx}
 %% These have been added at the request of the MIT Libraries, because
@@ -351,9 +354,9 @@
 
 %Turn todo section on /off
 %on:
-\longtrue
+%\longtrue
 %off: 
-%\longfalse
+\longfalse
  
 %  \iflong \lipsum[1] \else short version \fi
 
@@ -424,7 +427,6 @@
 
 \chapter{Data Analysis} \label{Chapter:BaseAnalysis}
     \input{Chapters/Ch4-BaseAnalysis/Ch4-Analysis.tex}
-
 \fi
 
 \chapter{Binning Effects and Unfolding} \label{Chapter:Ch5_IBU}
@@ -441,7 +443,7 @@
 \printbibliography[heading=bibintoc]
 
 %\appendix
-\input{Chapters/Postamble/appendices.tex}
+%\input{Chapters/Postamble/appendices.tex}
 %include if want to check unused referneces and uncomment refcheck
 %\nocite{*}
 %\bibliography{Chapters/Postamble/bib/references}
