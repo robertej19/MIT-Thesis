@@ -1,5 +1,45 @@
 \section{Bin Migration Effects}
 
+Upon introduction of a binning scheme to the analysis, we incurred several technical debts. Two of these are finite bin effects and bin volume corrections, which were addressed in \secref{sec:Ch4_corr_factors}. A third comes from the implicit assumption of a bin-by-bin analysis that an event observed to belong in bin number \textit{i} truly belongs to that bin - that is to say that the detector response and reconstruction of the system is high enough that the observed kinematics of the event coincide sufficiently closely with the event's true kinematics as to negligibly change binning variable values. This is only strictly true in the ideal limit of perfect detectors and reconstruction algorithms.
+
+Deviations from the perfect case result in what are known as \textbf{bin migrations}, where an event that truly lies in bin number \textit{i} is instead observed in some other bin \textit{j}. \figref{fig:mig_example} illustrates this effect, which is notably normally only occurs for bins close to a bin edge and results in migration to an adjacent bin, unless bin volumes are very small relative to reconstruction precision.  
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Reconstructed simulated events in a particular four dimensional bin, shown in its $x_B-Q^2$ bin (left) and t-$\phi$ bin (right).]{%
+        \includegraphics[trim={0 0 10cm 3.5cm},clip,width=0.5\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/x_B_vs_Q2,_Sim_Rec,_025x_B03,4Q245,_N=98,_P59.png}
+        \includegraphics[trim={0 0 17.5cm 6cm},clip,width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/phi_vs_Momentum_Transfer_t,_Sim_Rec,_025x_B03,4Q245,_N=98,_P=59.png}
+        \label{fig:reconstructed_events}
+    }
+
+    \vspace{1cm}
+
+    \subfloat[Generated simulated (truth) events in a particular four dimensional bin, shown in its $x_B-Q^2$ bin (left) and t-$\phi$ bin (right).]{%
+        \includegraphics[trim={0 0 10cm 3.5cm},clip,width=0.5\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/x_B_vs_Q2,_Sim_Gen,_025x_B03,4Q245,_N=98,_P59.png}
+        \includegraphics[trim={0 0 17.5cm 6cm},clip,width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/phi_vs_Momentum_Transfer_t,_Sim_Gen,_025x_B03,4Q245,_N=98,_P=59.png}
+        \label{fig:generated_events}
+    }
+
+    \caption[Bin Migration Example]{Binning migration example in a particular 4-D bin. Note that all events reside within a single bin for the reconstructed dataset (top), but not all events that were observed in that bin were generated in that same bin (bottom).}\label{fig:mig_example}
+\end{figure}
+
+Bin migrations can be described by two quantities: bin purity $P_{i}$ \eqref{eq:bin_purity}, which describes the fraction of events observed in bin i $N_{obs,i}$ that truly belong, or were generated, in that bin $N_{truth,i}$, 
+
+    \begin{equation}
+    P_{i} = \frac{N_{obs,i}}{N_{gen,i}},
+    \end{equation}\label{eq:bin_purity}
+    \myequations{ Bin Purity}
+
+    and bin efficiency  $E_{i}$ \eqref{eq:bin_efficiency}, which is the fraction of the number of events that were generated in bin i $N_{truth,i}$ that were also observed in bin i, $N_{obs,i}$ 
+
+    \begin{equation}\label{eq:bin_efficiency}
+    E_{i} = \frac{N_{gen\&obs,i}}{N_{gen,i}}.
+    \end{equation}
+    \myequations{Bin Efficiency}
+
+Multi-dimensional datasets are particularly susceptible to bin migration issues: an analysis that has 80\% bin purity in each of four dimensions yields a 4D bin that has a purity of only 0.8$^4$=41\%. \figref{fig:bin_purity_tphi} shows the bin purites for example $x_B-Q^2$ bins across t and $\phi$ which are relatively high and low for the dataset. 
+    
+
         \iffalse
     t1 mean purity:  0.5779366649713987
     t1 mean efficiency:  0.6042514773951323
@@ -10,98 +50,165 @@
     t2 rad mean purity:  0.7423936456812074
     t2 rad mean efficiency:  0.7511469995793438
     \fi 
+
+        
+\begin{figure}[H]
+    \centering
+    \subfloat[Bin purities for an example set of t-$\phi$ bins for a single $x_B$-$Q^2$ bin with high bin purity.]{%
+        \includegraphics[trim={0 0 0 0},clip,width=.8\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/testfig.png}
+        \label{fig:ex1_binP}
+    }\\
+    \subfloat[Bin purities for an example set of t-$\phi$ bins for a single $x_B$-$Q^2$ bin with low bin purity.]{%
+        \includegraphics[trim={0 0 0 0},clip,width=.8\textwidth]{Chapters/Ch5-Further/0_IBU/pics/purities/inb_norad_t1/bin_purity_0.25_0.3_2_2.5.png}
+        \label{fig:ibu10}
+    }
+    \caption[Bin Purity Example Distributions]{Example bins with relatively high (a) and low (b) bin purities.}\label{fig:bin_purity_tphi}
+\end{figure}
+
+
+    The distribution of purities and efficiencies for all bins can be seen in in \figref{fig:bin_purity_eff_hist}. With present analysis algorithms, we observe a mean bin purity of 58\% and mean bin efficiency is 60\%.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[trim={0 0 0 0},clip,width=0.8\textwidth]{Chapters/Ch5-Further/0_IBU/pics/overview/t1_bin_purity_vs_bin_efficiency.png}
+        \caption[Bin Purity - Efficiency Distribution]{Distribution of bin purities and efficiencies for the Fall 2018 inbending configuration, determined from simulations.}
+        \label{fig:bin_purity_eff_hist}
+    \end{figure}
+
+
+    Bin migrations are unavoidable, especially in four dimensions. No systematic offsets are known, but the resolution on the \textit{t} binning variable is relatively low compared to the other three. By superimposing a periodic waving to illustrate point locality \figref{fig:bin_waving}, we can observe drifts between generated and reconstructed positions. Improvements to base code are currently being developed as part of a collaboration-wide effort to increase reconstruction performance. 
+    
+    \begin{figure}[H]
+        \centering
+        \subfloat[][$x_B$ true (left) vs. observed locations.]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_xB.png}
+        \label{fig:ibu4a}}
+        \hfill
+        \subfloat[][$Q^2$ true (left) vs. observed locations.]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_Q2.png}
+        \label{fig:ibu4b}}
+        \\
+        \subfloat[][$\phi$ true (left) vs. observed locations.]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_phi.png}
+        \label{fig:ibu4c}}
+        \hfill
+        \subfloat[][t true (left) vs. observed locations.]{
+        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_t.png}
+        \label{fig:ibu4d}}
+        \caption[Truth vs. Observed Binning Variable Samples]{Pattern matching illustrations for $x_B$ (a), $Q^2$ (b), $\phi$ (c) and t (d). For all variables, sample events were color coded based off the sine of the respective variable generated value. Discrepancies between patterns are indicative of reconstruction resolution. Note that this visualization technique can not illustrate shifts of the same frequency of the overlaid sine wave.}
+        \label{fig:bin_waving}
+    \end{figure}
+    %Could index off of t2 missing mass, but not ideal for radiative corrections and in general want 
+    
+
+    Full information can be encapsulated in a \textbf{response matrix}, which for n bins is an nxn matrix with element $R_{i,j}$ describing the number of events generated in bin i and observed in bin j. A response matrix for a perfect system would be the identity matrix. This matrix is often normalized, such that its elements describe the probability of an event that is generated in bin i being observed in bin j. This matrix can be leveraged by a number of unfolding techniques to untangle bin migration effects and obtain a better understanding of the true distribution of the system. 
+
+
+ \clearpage
+
+\section{Unfolding Methods and Iterative Bayesian Unfolding}
+
+    Unfolding is a general term used to describe procedures focused on estimating the true underlying distribution of a system from measured data which has imperfections due to for example detector responses or reconstruction algorithm biases. Common methods include Singular Value Decomposition \parencite{Klema1980TheApplications} or 
+
     
     
-    Mean bin purity is 58\%, mean efficiency is 60\%. 
+    
+    distorted by a response function. This distortion could be due to the finite resolution of the measurement device or inherent limitations in the measurement process. Here are some common methods used for unfolding, including Iterative Bayesian Unfolding, Singular Value Decomposition (SVD), and Tikhonov Regularization.
+    
+    Iterative Bayesian Unfolding (IBU): This method is based on Bayes' theorem. It starts with an initial estimate of the true distribution and iteratively improves this estimate using the measured data and the response matrix. The procedure is repeated until the estimate stabilizes. One advantage of this method is that it can handle complicated response functions, including those that contain migrations and efficiencies. However, it can be sensitive to the choice of the initial estimate and the stopping criterion.
+    
+    Singular Value Decomposition (SVD): In the SVD method, the response matrix is decomposed into singular values and vectors, and the unfolding is achieved by inverting this decomposition. The advantage of SVD is that it provides a smooth, stable solution without the need for an iterative procedure. However, it can sometimes underestimate uncertainties and produce biased results when the measurement errors are large.
+    
+    Tikhonov Regularization (also known as Ridge Regression): This is a regularization technique for solving ill-posed inverse problems. It works by adding a term to the loss function that penalizes large values of the estimated parameters. This leads to a bias-variance trade-off, which can be controlled by adjusting the regularization parameter. Tikhonov regularization can provide a stable solution, even in the presence of noise in the data, but the choice of the regularization parameter can be somewhat arbitrary and can significantly affect the result.
+    
+    In general, the choice of unfolding method depends on the specific characteristics of the problem, including the complexity of the response function, the amount of data, and the level of noise in the measurements. Each method has its own strengths and limitations, and it is often useful to compare results obtained with different methods to check the robustness of the results.
+
+    Iterative Bayesian Unfolding (IBU) is a specific unfolding technique that uses Bayesian probability to account for the statistical uncertainty in the unfolding process (agostini1995bayesian, blobel2002unfolding). This technique constructs a probability model of the response of the measurement apparatus, and iteratively refines an estimate of the true underlying distribution by conditioning on the measured data.
+    
+    IBU starts with an initial estimate of the true distribution, and in each iteration, it modifies this estimate based on the residuals between the measured data and the data predicted by the current estimate. The iterations continue until the estimate converges to a stable solution. One of the key advantages of IBU is that it naturally incorporates uncertainties due to statistical fluctuations in the measured data, and it provides a measure of uncertainty for the unfolded distribution.
+    
+    When comparing unfolding techniques, it is important to consider the strengths and weaknesses of each approach. Iterative Bayesian Unfolding (IBU) has the advantage of being able to handle a non-linear relationship between the measured and true distributions, and can incorporate prior knowledge about the response matrix. However, it has the potential to overfit data and the result can be sensitive to the choice of the prior. Tikhonov Regularization, also known as Ridge Regression, has the advantage of being simple to implement and more robust to noise in the response matrix, but can suffer from a high bias if the regularization parameter is not chosen carefully. Lastly, Singular Value Decomposition (SVD) has the advantage of dealing well with ill-posed problems and being computationally efficient, but it assumes linearity and can be sensitive to small changes in the response matrix, which may introduce instability. Thus, the selection between these techniques should be guided by the nature of the data, the noise in the measurements, and the complexity of the response matrix~(hoaglin2003understanding,cowan1998statistical,dAgostini:1994fjg,svd).
+    
+    \begin{enumerate}
+        \item \textbf{Initialization:} Start with an initial estimate of the true distribution, often taken to be the measured distribution. This is known as the prior.
+    
+        \item \textbf{Calculation of the expected measured distribution:} Using the response matrix and the current estimate of the true distribution, calculate the expected measured distribution. The response matrix describes the probability that an event in a given true bin is observed in each of the observed bins.
+    
+        \item \textbf{Update of the prior:} Update the estimate of the true distribution by applying Bayes' theorem. This involves multiplying the current prior by the ratio of the actual measured distribution to the expected measured distribution calculated in the previous step. This updated distribution serves as the new prior for the next iteration.
+    
+        \item \textbf{Normalization:} Normalize the updated distribution so that the total number of events is conserved.
+    
+        \item \textbf{Iteration:} Repeat steps 2-4 until the changes in the estimated true distribution from iteration to iteration become small, indicating that the algorithm has converged.
+    \end{enumerate}
+    
+    This method can be further enhanced by introducing regularization to avoid potential instabilities and overfitting issues. The choice of the initial prior, the stopping criterion for the iterations, and the form of the regularization can have a significant impact on the unfolding results~\cite{dagostini1995probability}.
+    
+    
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/memory_required_vs_number_of_bins_in_each_dim.png}
+    \caption[words]{words}
+    \label{fig:ibu10}
+    \end{figure}
+    
+    \iffalse
+    Agostini, G. (1995). "A multidimensional unfolding method based on Bayes' theorem". Nucl. Instrum. Methods Phys. Res. A 362, 487–498. DOI: 10.1016/0168-9002(95)00274-X
+    Blobel, V. (2002). "Unfolding methods in high-energy physics experiments". DOI: 10.5170/CERN-1984-009.171.
+    Cousins, R.D. (2012). "Lecture Notes on Statistics for Physicists". arXiv preprint arXiv:1205.2634.
+    Kuhlen, M., Pato, M., & Strigari, L. E. (2011). "Direct Detection of Dark Matter Annual Modulation in Simplified Models". Phys. Rev. D, 84, 12. DOI: 10.1103/PhysRevD.84.123005.
+    Abe, K. et al. (2010). "Indication of Electron Neutrino Appearance from an Accelerator-produced Off-axis Muon Neutrino Beam". Phys. Rev. Lett., 107, 041801. DOI: 10.1103/PhysRevLett.107.041801.
+    Chatrchyan, S. et al. (2013). "Measurement of the top-quark mass in all-jets $t\bar{t}$ events in pp collisions at $\sqrt{s}=7$ TeV". Eur. Phys. J. C, 73, 2494. DOI: 10.1140/epjc/s10052-013-2494-4.
+    \fi
+    
+    Here we talk about Iterative Bayesian unfolding to not have bin migration issues
+    
+    Notes on Omnifold from Anselm Vossen:
+    I find this reference paper - \href{https://arxiv.org/pdf/1911.09107.pdf}{arxiv}.
+    
+    
+
+    
+    
+        
+   
+    
+    
+    
+    Yes, that is the reference. You saw that I also posted a reference to the Hera analysis. I don’t think many others have used omnifold yet, since it is quite computationally intensive etc.
+    My understanding is that Ben Nachman developed this and there has been follow up work by his group (if you just put his name into inspire you’ll see). E.g. I saw presentations on how to present the data. Here is a talk by Ben at a Jet workshop in 2021: \href{https://indico.bnl.gov/event/10555/contributions/54721/attachments/37368/61570/H1Measurement_EICWorkshopSeptember2021.pdf}{this paper}
+     Miguel Arratia, who is also in CLAS collaborated on the H1 results. You could ask him for practical advice,
+    
+    From CHATGPT:
+    
+    
+    Iterative Bayesian unfolding is a statistical technique used in particle physics and other fields to correct for detector effects and reconstruct the true distribution of a measured quantity.
+    
+    When particles are measured by a detector, the measurements can be distorted by various effects such as inefficiencies, energy loss, and detector resolution. This leads to a measured distribution that can be quite different from the true distribution.
+    
+    Unfolding techniques aim to invert these detector effects to estimate the true distribution from the measured one. The unfolding problem is challenging because it is ill-posed; small fluctuations in the data can lead to large fluctuations in the unfolded result.
+    
+    Bayesian unfolding is based on Bayes' theorem and uses a prior probability distribution that reflects our knowledge (or assumptions) about the true distribution before the measurement. The Bayesian approach allows for the incorporation of systematic uncertainties into the unfolding process.
+    
+    Iterative Bayesian unfolding is a variant of Bayesian unfolding that iteratively applies the unfolding procedure. The output of one iteration is used as the prior for the next iteration. This iteration process is repeated until the result converges.
+    
+    Please note that unfolding techniques are sensitive to the chosen model and prior, and they require careful validation and error estimation. The choice between iterative Bayesian unfolding and other unfolding techniques (like matrix inversion or regularized unfolding) often depends on the specific problem and the constraints of the analysis.
+
+\section{Method of Implementation}
 
     Wrapped phi variable for binning
     We say that it is close to 3x3x3x3 kernel for nearest neighbors
     INSERT PLOT HIGHLIGHTING NEAREST NEIGHBORS
     It is a reasonable approximation
-    
-    
-    Finite bin and bin volume effects discussed in chapter 4. Here: migration. 
-    
-    So far, we have discussed measuring differential \xsecs assuming a framework that we detect an event in the same four-dimensional bin that it truly lies in. For example,
-
 
     
-    \begin{figure}[H]
-        \centering
-        \subfloat[xb vs q2]{\includegraphics[trim={0 0 10cm 3.5cm},clip,width=0.52\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/x_B_vs_Q2,_Sim_Rec,_025x_B03,4Q245,_N=98,_P59.png}}
-        \hfill
-        \subfloat[phi vs t]{\includegraphics[trim={0 0 17.5cm 6cm},clip,width=0.47\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/phi_vs_Momentum_Transfer_t,_Sim_Rec,_025x_B03,4Q245,_N=98,_P=59.png}}
+
+
+    The unfolding matrix, in turn, is the mathematical tool that is used to invert the effects of the response matrix. In an ideal scenario, multiplying the measured distribution by the unfolding matrix would provide the true distribution of the variable. However, it's important to note that this process is often an ill-posed problem and can be subject to various complications. This is because small fluctuations in the measured data can lead to large fluctuations in the unfolded data. Therefore, the unfolding process often involves regularization methods to mitigate this issue and to provide stable results.
+    
+    In conclusion, while the response matrix models the effects of the measurement process on the true distribution, the unfolding matrix is used to reverse these effects to retrieve the true distribution from the measured one. Both matrices are crucial components in the unfolding process, and understanding their properties and limitations is essential for reliable and accurate data analysis.
         
-        \caption[Binning]{Binning. }\label{fig:mig_ex}
-    \end{figure}
-    
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/testfig.png}
-    \caption[words]{words}
-    \label{fig:ibu5}
-    \end{figure}
-    
-    
-    \begin{figure}[H]
-        \centering
-        \subfloat[xb vs q2]{\includegraphics[trim={0 0 10cm 3.5cm},clip,width=0.52\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/x_B_vs_Q2,_Sim_Gen,_025x_B03,4Q245,_N=98,_P59.png}}
-        \hfill
-        \subfloat[phi vs t]{\includegraphics[trim={0 0 17.5cm 6cm},clip,width=0.47\textwidth]{Chapters/Ch5-Further/0_IBU/pics/migration_example/phi_vs_Momentum_Transfer_t,_Sim_Gen,_025x_B03,4Q245,_N=98,_P=59.png}}
-        
-        \caption[Reduced Cross Sections Across $\phi$]{Reduced cross sections across $\phi$ at (a) low kinematics and (b) high kinematics. Where kinematic overlap exists, the CLAS6 result \parencite{Bedlinskiy2014ExclusiveCLAS} is shown in blue with an error band (in modified form to account for beam energy differences). }\label{fig:mig_ex}
-        %\caption[Reduced Cross Sections Across $\phi$]{Reduced Cross Sections Across $\phi$}
-    \end{figure}
-    
-    
-    From this, we can calculate the bin purity and efficency of each bin, giving us for example
-    
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/purities/inb_norad_t1/bin_purity_0.25_0.3_2_2.5.png}
-    \caption[words]{words}
-    \label{fig:ibu10}
-    \end{figure}
-    
-    
-    We can plot all of them as:
-    
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/overview/t1_bin_purity_vs_bin_efficiency.png}
-    \caption[words]{words}
-    \label{fig:ibu10}
-    \end{figure}
-
-    By superimposing a periodic waving to illustrate point locality, we can observe drifts between generated and reconstructed positions. There is no systematic shift, and improvements to base reconstruction code are currently being developed as part of a collaboration-wide effort. 
-    
-    \begin{figure}[ht]
-        \centering
-        \subfloat[][Caption 1]{
-        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_xB.png}
-        \label{fig:ibu4a}}
-        \hfill
-        \subfloat[][Caption 2]{
-        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_Q2.png}
-        \label{fig:ibu4b}}
-        \\
-        \subfloat[][Caption 3]{
-        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_phi.png}
-        \label{fig:ibu4c}}
-        \hfill
-        \subfloat[][Caption 4]{
-        \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/waving/sine_plots_t.png}
-        \label{fig:ibu4d}}
-        \caption{Overall Caption for all figures}
-        \label{fig:ibu4}
-    \end{figure}
     
 
-    Could index off of t2 missing mass, but not ideal for radiative corrections and in general want 
-    
     \begin{figure}[ht]
         \centering
         \subfloat[][Caption 1]{
@@ -123,7 +230,7 @@
         \label{fig:ibu4}
     \end{figure}
     
-    
+
     
     
     \begin{figure}
@@ -183,102 +290,7 @@
     Unfolding techniques have been applied in various areas of experimental physics, such as in the estimation of the neutrino energy spectrum in neutrino oscillation experiments (abe2010indication), and in measurements of the top quark mass in collider experiments (chatrchyan2013measurement). These techniques allow researchers to correct for distortions and biases in the measured data, and to recover the true underlying distributions of the quantities of interest.
     
 \clearpage
-\section{Unfolding Methods}
 
-
-\clearpage
-\section{Iterative Bayesian Unfolding}
-    
-    Iterative Bayesian Unfolding (IBU) is a specific unfolding technique that uses Bayesian probability to account for the statistical uncertainty in the unfolding process (agostini1995bayesian, blobel2002unfolding). This technique constructs a probability model of the response of the measurement apparatus, and iteratively refines an estimate of the true underlying distribution by conditioning on the measured data.
-    
-    IBU starts with an initial estimate of the true distribution, and in each iteration, it modifies this estimate based on the residuals between the measured data and the data predicted by the current estimate. The iterations continue until the estimate converges to a stable solution. One of the key advantages of IBU is that it naturally incorporates uncertainties due to statistical fluctuations in the measured data, and it provides a measure of uncertainty for the unfolded distribution.
-    
-    When comparing unfolding techniques, it is important to consider the strengths and weaknesses of each approach. Iterative Bayesian Unfolding (IBU) has the advantage of being able to handle a non-linear relationship between the measured and true distributions, and can incorporate prior knowledge about the response matrix. However, it has the potential to overfit data and the result can be sensitive to the choice of the prior. Tikhonov Regularization, also known as Ridge Regression, has the advantage of being simple to implement and more robust to noise in the response matrix, but can suffer from a high bias if the regularization parameter is not chosen carefully. Lastly, Singular Value Decomposition (SVD) has the advantage of dealing well with ill-posed problems and being computationally efficient, but it assumes linearity and can be sensitive to small changes in the response matrix, which may introduce instability. Thus, the selection between these techniques should be guided by the nature of the data, the noise in the measurements, and the complexity of the response matrix~(hoaglin2003understanding,cowan1998statistical,dAgostini:1994fjg,svd).
-    
-    \begin{enumerate}
-        \item \textbf{Initialization:} Start with an initial estimate of the true distribution, often taken to be the measured distribution. This is known as the prior.
-    
-        \item \textbf{Calculation of the expected measured distribution:} Using the response matrix and the current estimate of the true distribution, calculate the expected measured distribution. The response matrix describes the probability that an event in a given true bin is observed in each of the observed bins.
-    
-        \item \textbf{Update of the prior:} Update the estimate of the true distribution by applying Bayes' theorem. This involves multiplying the current prior by the ratio of the actual measured distribution to the expected measured distribution calculated in the previous step. This updated distribution serves as the new prior for the next iteration.
-    
-        \item \textbf{Normalization:} Normalize the updated distribution so that the total number of events is conserved.
-    
-        \item \textbf{Iteration:} Repeat steps 2-4 until the changes in the estimated true distribution from iteration to iteration become small, indicating that the algorithm has converged.
-    \end{enumerate}
-    
-    This method can be further enhanced by introducing regularization to avoid potential instabilities and overfitting issues. The choice of the initial prior, the stopping criterion for the iterations, and the form of the regularization can have a significant impact on the unfolding results~\cite{dagostini1995probability}.
-    
-    
-    \begin{figure}[ht]
-    \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/memory_required_vs_number_of_bins_in_each_dim.png}
-    \caption[words]{words}
-    \label{fig:ibu10}
-    \end{figure}
-    
-    \iffalse
-    Agostini, G. (1995). "A multidimensional unfolding method based on Bayes' theorem". Nucl. Instrum. Methods Phys. Res. A 362, 487–498. DOI: 10.1016/0168-9002(95)00274-X
-    Blobel, V. (2002). "Unfolding methods in high-energy physics experiments". DOI: 10.5170/CERN-1984-009.171.
-    Cousins, R.D. (2012). "Lecture Notes on Statistics for Physicists". arXiv preprint arXiv:1205.2634.
-    Kuhlen, M., Pato, M., & Strigari, L. E. (2011). "Direct Detection of Dark Matter Annual Modulation in Simplified Models". Phys. Rev. D, 84, 12. DOI: 10.1103/PhysRevD.84.123005.
-    Abe, K. et al. (2010). "Indication of Electron Neutrino Appearance from an Accelerator-produced Off-axis Muon Neutrino Beam". Phys. Rev. Lett., 107, 041801. DOI: 10.1103/PhysRevLett.107.041801.
-    Chatrchyan, S. et al. (2013). "Measurement of the top-quark mass in all-jets $t\bar{t}$ events in pp collisions at $\sqrt{s}=7$ TeV". Eur. Phys. J. C, 73, 2494. DOI: 10.1140/epjc/s10052-013-2494-4.
-    \fi
-    
-    Here we talk about Iterative Bayesian unfolding to not have bin migration issues
-    
-    Notes on Omnifold from Anselm Vossen:
-    I find this reference paper - \href{https://arxiv.org/pdf/1911.09107.pdf}{arxiv}.
-    
-    
-    Bin migration issues grow with the number of binning dimensions - an analysis that has 80\% bin purity in each of four dimensions yields a 4D bin that has a purity of only 0.8$^4$=41\%. 
-    
-    
-    The bin purity $P_{i}$ and bin efficiency $E_{i}$ are often used to measure the performance of a binning process. 
-    
-    The \textbf{bin purity} in bin $i$, denoted $P_{i}$, is defined as the fraction of the total amount in bin $i$ that actually belongs to bin $i$. Mathematically, this can be written as:
-    
-    \begin{equation}
-    P_{i} = \frac{T_{ii}}{\sum_{j} T_{ij}}
-    \end{equation}
-    
-    where $T_{ij}$ is the amount that originated in bin $j$ and ended up in bin $i$.
-    
-    The \textbf{bin efficiency} in bin $i$, denoted $E_{i}$, on the other hand, is the fraction of the total amount that originated in bin $i$ that ends up in bin $i$. This can be written as:
-    
-    \begin{equation}
-    E_{i} = \frac{T_{ii}}{\sum_{j} T_{ji}}
-    \end{equation}
-    
-    
-    Bin migrations refer to the movement of data from one bin to another during a process of interest. For a process with $n$ bins, we can represent the bin migrations using an $n \times n$ matrix $T$, where each element $T_{ij}$ represents the amount that originated in bin $j$ and ended up in bin $i$. 
-    
-        
-   
-    
-    
-    
-    Yes, that is the reference. You saw that I also posted a reference to the Hera analysis. I don’t think many others have used omnifold yet, since it is quite computationally intensive etc.
-    My understanding is that Ben Nachman developed this and there has been follow up work by his group (if you just put his name into inspire you’ll see). E.g. I saw presentations on how to present the data. Here is a talk by Ben at a Jet workshop in 2021: \href{https://indico.bnl.gov/event/10555/contributions/54721/attachments/37368/61570/H1Measurement_EICWorkshopSeptember2021.pdf}{this paper}
-     Miguel Arratia, who is also in CLAS collaborated on the H1 results. You could ask him for practical advice,
-    
-    From CHATGPT:
-    
-    
-    Iterative Bayesian unfolding is a statistical technique used in particle physics and other fields to correct for detector effects and reconstruct the true distribution of a measured quantity.
-    
-    When particles are measured by a detector, the measurements can be distorted by various effects such as inefficiencies, energy loss, and detector resolution. This leads to a measured distribution that can be quite different from the true distribution.
-    
-    Unfolding techniques aim to invert these detector effects to estimate the true distribution from the measured one. The unfolding problem is challenging because it is ill-posed; small fluctuations in the data can lead to large fluctuations in the unfolded result.
-    
-    Bayesian unfolding is based on Bayes' theorem and uses a prior probability distribution that reflects our knowledge (or assumptions) about the true distribution before the measurement. The Bayesian approach allows for the incorporation of systematic uncertainties into the unfolding process.
-    
-    Iterative Bayesian unfolding is a variant of Bayesian unfolding that iteratively applies the unfolding procedure. The output of one iteration is used as the prior for the next iteration. This iteration process is repeated until the result converges.
-    
-    Please note that unfolding techniques are sensitive to the chosen model and prior, and they require careful validation and error estimation. The choice between iterative Bayesian unfolding and other unfolding techniques (like matrix inversion or regularized unfolding) often depends on the specific problem and the constraints of the analysis.
-
-\section{Method of Implementation}
     81 x 81 (unrolled) bins
     
         \begin{figure}[ht]
@@ -337,7 +349,7 @@
     
     \begin{figure}[ht]
     \centering
-    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/observed_unfolded_and_true_bin_counts.png}
+    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/final_observed_unfolded_and_true_bin_counts.png}
     \caption[words]{words}
     \label{fig:ibu2}
     \end{figure}
