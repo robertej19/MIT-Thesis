@@ -133,7 +133,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
 
     \subsection{Data Unfolding}
 
-        Unfolding is a general term used to describe procedures focused on estimating the true underlying distribution of a system from measured data which has imperfections due to for example detector responses or reconstruction algorithm and modeling limits. Methods include Singular Value Decomposition \parencite{Klema1980TheApplications}, Fully Bayesian Unfolding \cite{Choudalakis2012FullyUnfolding}, or Tikhonov regularization \parencite{Hoerl1970RidgeProblems}. Each method comes with benefits and pitfalls; this analysis utilizes Iterative Bayesian Unfolding (IBU) \parencite{DAgostini1995ATheorem}, \parencite{DAgostini2010ImprovedUnfolding} for its ability to handle multidimensional unfolding and complicated detector and reconstruction response functions. 
+        Unfolding is a general term used to describe procedures focused on estimating the true underlying distribution of a system from measured data which has imperfections due to for example detector responses or reconstruction algorithm and modeling limits. Methods include Singular Value Decomposition \parencite{Klema1980TheApplications}, Fully Bayesian Unfolding \cite{Choudalakis2012FullyUnfolding}, or Tikhonov regularization \parencite{Hoerl1970RidgeProblems}. Each method comes with benefits and pitfalls; this analysis utilizes Iterative Bayesian Unfolding (IBU) \parencite{DAgostini1995ATheorem}, \parencite{DAgostini2010ImprovedUnfolding} for its ability to handle multidimensional unfolding and complicated detector and reconstruction response functions, as well as its facile tracking of systematic and statistical uncertainties. 
 
         Unfolding methods try to find the inverse of a response matrix \textbf{R}, where a true underlying distribution \textbf{x} and a corresponding observed distribution \textbf{y} are related by \textbf{y}=\textbf{Rx}. In general \textbf{R} may be poorly conditioned, non-smooth, and otherwise not amenable to direct inversion. IBU approaches this problem by beginning with Bayes' Theorem \eqref{eq:bayes},
 
@@ -142,29 +142,31 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         \end{equation}\label{eq:bayes}
         \myequations{Bayes' Theorem}
 
-        which relates the conditional probability of observing event A given B to the conditional probability of observing B given A. In particular, if event A represents observing an event x in bin i, and B represents event x truly belonging to bin j, then we can rewrite Bayes' theorem as 
+        which relates the conditional probability of observing event A given B to the conditional probability of observing B given A. In particular, if event A represents observing an event x in bin i, and B represents event x truly belonging to bin j, then we can rewrite Bayes' theorem as \eqref{eq:bayes_reform}
+
 
         \begin{equation}
-            R_{ij} = P(x \in bin i| x \in bin j) = \frac{P(x \in bin j|x \in bin i) \cdot P(x \in bin i)}{P(x \in bin j)},
-        \end{equation}\label{eq:bayes}
+            R_{ij} = P(x \in \text{bin } i| x \in \text{bin } j) = \frac{P(x \in \text{bin } j|x \in \text{bin } i) \cdot P(x \in \text{bin } i)}{P(x \in \text{bin } j)},
+        \end{equation}\label{eq:bayes_reform}
         \myequations{Bayes' Theorem}
+
 
         where $R_{ij}$ are just the elements of the response matrix. Then inverting Bayes' Theorem allows for calculating the individual matrix elements of the unfolding function, which can be approached iteratively from some initial starting guess (prior). 
 
-
+        In particular, IBU begins with an initial estimate of the true distribution, and in each iteration, it modifies this estimate based on the residuals between the measured data and the data predicted by the current estimate. The iterations continue until the estimate converges to a stable solution, defined by a hyperparameter stopping criterion. 
         %P(C_i | E_j, I) = \frac{P(E_j | C_i, I) \cdot P(C_i | I)}{\sum_i P(E_j | C_i, I) \cdot P(C_i | I)}
 
 
         
-        
+        \iffalse
         IBU is based on Bayes' theorem. It starts with an initial estimate of the true distribution and iteratively improves this estimate using the measured data and the response matrix. The procedure is repeated until the estimate stabilizes. One advantage of this method is that it can handle complicated response functions, including those that contain migrations and efficiencies. However, it can be sensitive to the choice of the initial estimate and the stopping criterion.
     
         Iterative Bayesian Unfolding (IBU) is a specific unfolding technique that uses Bayesian probability to account for the statistical uncertainty in the unfolding process (agostini1995bayesian, blobel2002unfolding). This technique constructs a probability model of the response of the measurement apparatus, and iteratively refines an estimate of the true underlying distribution by conditioning on the measured data.
+        \fi
 
 
 
 
-        IBU begins with an initial estimate of the true distribution, and in each iteration, it modifies this estimate based on the residuals between the measured data and the data predicted by the current estimate. The iterations continue until the estimate converges to a stable solution, defined by a hyperparameter stopping criterion. 
         %One of the key advantages of IBU is that it naturally incorporates uncertainties due to statistical fluctuations in the measured data, and it provides a measure of uncertainty for the unfolded distribution.
 
 
@@ -208,7 +210,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         Iterative Bayesian Unfolding was performed on a subset of the simulated dataset. It was implemented in this analysis using the PyUnfold \parencite{Bourbeau2018PyUnfold:Unfolding} python language package, which is built off \parencite{DAgostini1995ATheorem}. The dataset was first 'unrolled' or 'flattened' by mapping \ref{eq:bin_unrolling} the set of 4D bin coordinates into a single value representing location along a 1-D array,
     
     \begin{equation}
-        f(\textcolor{black}{x},\textcolor{red}{q},\textcolor{darkgreen}{p},\textcolor{darkorange}{t}) = \textcolor{black}{x}*\textcolor{red}{n_q}*\textcolor{darkgreen}{n_p}*\textcolor{darkorange}{n_t} + \textcolor{red}{q}*\textcolor{darkgreen}{n_p}*\textcolor{darkorange}{n_t} + \textcolor{darkgreen}{p}*\textcolor{darkorange}{n_t} + \textcolor{darkorange}{t},
+        {f(\textcolor{black}{x},\textcolor{red}{q},\textcolor{darkgreen}{p},\textcolor{darkorange}{t}) = \textcolor{black}{x}*\textcolor{red}{n_q}*\textcolor{darkgreen}{n_p}*\textcolor{darkorange}{n_t} + \textcolor{red}{q}*\textcolor{darkgreen}{n_p}*\textcolor{darkorange}{n_t} + \textcolor{darkgreen}{p}*\textcolor{darkorange}{n_t} + \textcolor{darkorange}{t}},
     \end{equation}\label{eq:bin_unrolling}
         \myequations{Bin Flattening Map}
 
@@ -240,7 +242,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         
 
 
-        This flattening allows for unfolding of arbitrarily high dimensional datasets, although it is drastically more computationally expensive as the number of bins increases. In particular, the unfolding requires the calculation of a multinomial covariance matrix, which in general will take size (number of total bins)$^4$. This analysis has a total of 8x10x8x10 bins across $x_B$,$Q^2$,$\phi$, and t, yielding 6,400 individual bins. This would require a full covariance matrix to have 1.6x10$^{15}$ entries, corresponding to a memory requirement of 12 petabytes, if using 8 byte memory number types. This scaling is illustrated in \ref{fig:ibu_mem_scale}, and means using IBU on the entire dataset space is not possible. 
+        This flattening allows for unfolding of arbitrarily high dimensional datasets, although it is drastically more computationally expensive as the number of bins increases. In this case, the unfolding requires the calculation of a multinomial covariance matrix, which in general will take size (number of total bins)$^4$. This analysis has a total of 8x10x8x10 bins across $x_B$,$Q^2$,$\phi$, and t, yielding 6,400 individual bins. This would require a full covariance matrix to have 1.6x10$^{15}$ entries, corresponding to a memory requirement of 12 petabytes, if using 8 byte memory number types. This scaling is illustrated in \ref{fig:ibu_mem_scale}, and means using IBU on the entire dataset space is not possible. 
 
         \begin{figure}[ht]
             \centering
@@ -325,7 +327,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
             \caption[4x4x4x4 IBU Result]{ Result for 4x4x4x4 grouping with 3$^4$ bin window.}\label{fig:4x4unfold}
         \end{figure}
 
-        Finally, we can investigate the effect of computing the unfolding matrix via a kernel compared to the entire matrix by varying the kernel and stride size. This was performed for a 2D case as well as the more critical 4D case, with results summarized in \figref{fig:2d-4d-strider-kernel-comp}. Overall, we see that processing the unfolding matrix by taking a small kernel is much more computationally efficient, and yields approximately identical results provided the kernel is large enough and the stride is small enough. In particular, we see that a kernel of $2^n$ leads to significant deviation compared to processing the full matrix at once, which makes sense considering a kernel of that size cannot capture all neighboring bins at the same time. Similarly, increasing stride length decreases the fidelity of the method. Accordingly, we are confident in scaling this approach to the full 6,400 bin scope of the analysis at hand. 
+        Finally, we can investigate the effect of computing the unfolding matrix via a kernel compared to the entire matrix by varying the kernel and stride size. This was performed for a 2D case as well as the more critical 4D case, with results summarized in \figref{fig:2d-4d-strider-kernel-comp}. Overall, we see that processing the unfolding matrix by taking a small kernel is much more computationally efficient, and yields approximately identical results provided the kernel is large enough and the stride is small enough. S, we see that a kernel of $2^n$ leads to significant deviation compared to processing the full matrix at once, which makes sense considering a kernel of that size cannot capture all neighboring bins at the same time. Similarly, increasing stride length decreases the fidelity of the method. Accordingly, we are confident in scaling this approach to the full 6,400 bin scope of the analysis at hand. 
     
     \begin{figure}[ht]
         \centering
