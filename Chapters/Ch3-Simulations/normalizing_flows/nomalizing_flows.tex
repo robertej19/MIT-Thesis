@@ -286,24 +286,9 @@ Due to the immense computational requirements of this analysis and that of \pare
 
 \subsection{Inverse Problems}
 
-    The conditional normalizing flow takes the base distribution $Y$ and the context $Z$ to learn $X$. How do training and sampling work? Ideally, Fig.~\ref{fig: jul8_NF}'s vertical axis should be just 0. 
-
+    The conditional normalizing flow takes the base distribution $Y$ and the context $Z$ to learn $X$. How do training and sampling work? 
     
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/NFdiag1.pdf}
-        \caption[Placeholder Short text]{Simplified schematic diagrams to depict the purpose of this project. The NF simulated features should be `similar' to that of underlying physics.}
-        \label{fig:goal}
-    \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{Chapters/Ch3-Simulations/normalizing_flows/pics/MeetingFigures/Sangbaek/NFdiag2.pdf}
-        \caption[Placeholder Short text]{We use the conditional normalizing to realize Fig.~\ref{fig:goal}. We use the experimentally given features (reconstructed features) as context variables. The base distributions, which is the constant distributions, should be transformed to the final layer, $z_2$. The training step repeats the backward propagation to lower the KLD between \{$z_n$\} and \{$x$\}, the features in underlying physics. Please note that we know $x$ only for the simulational data. For this work, I used $n$=2 to make things simple.}
-        \label{fig:architecture}
-    \end{figure}
-    
-    Better diagrams are in Figs.~\ref{fig:goal}, \ref{fig:architecture}. As for the benchmark to determine how useful this procedure is, I introduce ``exclusivity" variables for the ``exclusive" reactions. In this fixed target experiment, we know the energies and momenta of particles before the reaction. We measure the momenta of particles after the reaction.
-    
+   
     
     
     
@@ -339,7 +324,7 @@ Due to the immense computational requirements of this analysis and that of \pare
     
     I have tried to train the NF to reproduce $x-b$, not $x$ itself because, the 1D distributions of $x-b$'s are more symmetric. This practice clarifies the problem that we have encountered.
     
-    Let's focus on only one feature, electron's $p_x$ for example. This time, I used 6 layers of intermediate flows. Fig.~\ref{fig:electron_px} shows that the issue in this probabilistic inverse problem.
+    Let's focus on only one feature, electron's $p_x$ for example. This time, I used 6 layers of intermediate flows. electron pxshows that the issue in this probabilistic inverse problem.
     The NF is trained to learn $x-b$ distributions, and it did its job by producing $\mathbf{z_6}-\mathbf{b}$ that follows $\mathbf{x}-\mathbf{b}$. Now, we want $\mathbf{z_6}-\mathbf{b}$ to be exactly 0, but in reality we're seeing a larger variance in the sample $\mathbf{z_6}-\mathbf{x}$.
     
     So, this is my guess about what is happening. Let's oversimplify about the difference. For the single elements,
