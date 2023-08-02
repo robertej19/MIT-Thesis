@@ -125,7 +125,7 @@
                 \label{fig:DVPiP_diagram}
             \end{figure}
 
-            The unpolarized \xsec for DV$\pi^0$P can be decomposed into longitudinal and transverse structure functions as in \eqref{eq:DVPiPCrossSection_theory}, the formalism for which is covered in \parencite{Donnachie1978GeneralizedDominance}, \parencite{Dreschsel1992ThresholdNucleons}, and \parencite{Donnelly2023GeneralResponses}. 
+            The unpolarized four-fold differential \xsec for DV$\pi^0$P can be decomposed into longitudinal and transverse structure functions as in \eqref{eq:DVPiPCrossSection_theory}, the formalism for which is covered in \parencite{Donnachie1978GeneralizedDominance}, \parencite{Dreschsel1992ThresholdNucleons}, and \parencite{Donnelly2023GeneralResponses}. 
             
  
             \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
@@ -137,7 +137,7 @@
                  \sqrt{2\epsilon(1+\epsilon)} cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}}.
              \end{equation}      \myequations{  DV$\pi^0$P Cross Section Decomposition}
 
-             Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux} and represents the number of virtual photons per scattered electron \parencite{Amaldi1979Pion-electroproduction}, $\epsilon$ is the ratio of transverse to longitudinally polarized photons \eqref{eq:virtualphotonpolarization}, $\phi$ is the angle between the lepton and hadron planes, as illustrated in \figref{fig:phi_trento}, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT} as discussed in \parencite{Bedlinskiy2014ExclusiveCLAS}. 
+             Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux} and represents the number of virtual photons per scattered electron \parencite{Amaldi1979Pion-electroproduction}, $\epsilon$ is the ratio of transverse to longitudinally polarized photons \eqref{eq:virtualphotonpolarization}, $\phi$ is the angle between the lepton and hadron planes, as illustrated in \figref{fig:phi_trento} and given by \eqref{eq:phitrento}, t is the momentum transfer to the proton \eqref{eq:t_momentum_trans}, $x_B$ and Q$^2$ are as given in \eqref{eq:xB} and \eqref{eq:virtualphotonflux} respectively, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT} as discussed in \parencite{Bedlinskiy2014ExclusiveCLAS}. 
   
     
             \begin{equation}\label{eq:virtualphotonflux}
@@ -146,7 +146,16 @@
         
             \begin{equation}\label{eq:virtualphotonpolarization}
                 \epsilon = \frac{1 - y - \frac{Q^2}{4E^2}}{1 - y + \frac{y^2}{2} + \frac{Q^2}{4E^2}}
-            \end{equation}\label{Virtual Photon Polarization}
+            \end{equation}\myequations{Virtual Photon Polarization}
+
+            \begin{equation}\label{eq:phitrento}
+                \phi = \cos^{-1} \left( \frac{ \left(p_{e} \times p_{e'} \right) \cdot \left( p_{p'} \times p_{\gamma^*} \right) }{ \lVert p_{e} \times p_{e'} \rVert \: \lVert p_{p'} \times p_{\gamma^*} \rVert} \right)
+            \end{equation}\myequations{Lepton-Hadron Angle $\phi$}
+
+            \begin{equation}\label{eq:t_momentum_trans}
+                -t = -(p_{p'}-p_p)^2
+            \end{equation}\myequations{Momentum Transfer t}
+
 
             \begin{figure}[H]
                 \centering
@@ -154,7 +163,8 @@
                 \caption{Diagram of Lepton-Hadron Plane Angle $\phi$.}
                 \label{fig:phi_trento}
             \end{figure}
-    
+
+        
         
          \begin{equation}\label{eq:sigmaL}
                  \textcolor{sigmaL}{\frac{d\sigma_{L}}{dt}} = 

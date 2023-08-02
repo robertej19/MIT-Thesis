@@ -1,15 +1,15 @@
-Particle detectors produce timeseries data of electrical signals corresponding to particle interactions, which coupled with precision knowledge of detector geometry can be used to reconstruct individual particles' momenta, which can then provide complete records of entire events. An example event is shown in \figref{fig:example-track}, illustrating detector hits and the corresponding reconstructed particle paths.
+Particle detectors produce time-ordered data of electrical signals corresponding to particle interactions, which coupled with precision knowledge of detector geometry can be used to reconstruct individual particles' momenta, which can then provide complete records of entire events. An example event is shown in \figref{fig:example-track}, illustrating detector hits and the corresponding reconstructed particle paths.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{Chapters/Ch2-Experiment/recon_pid/pid_figs/example_track.png}
-    \caption[Example Event Tracks]{Track showing an example path of an electron, proton, and photon, from \parencite{Battaglieri2021PresentProgram}.}
+    \caption[Example Event Tracks]{A typical event showing the paths of an electron, proton, and photon, from \parencite{Battaglieri2021PresentProgram}.}
     \label{fig:example-track}
 \end{figure}
 
 
 \subsection{Decoding and Track Reconstruction}\label{sec:decoding_reconstruction}
-    The timeseries data from the detector systems must be efficiently processed and stored for future analysis. The data acquisition system (DAQ) was originally designed to handle a 10 kHz event rate and 100 MB/s event rate, but has since been shown to be able to handle event rates of 30 kHz at data rates above 1 GB/s \parencite{Boyarinov2020TheSystem}.  The CLAS12 system consists of more than 100k individual readout channels and utilizes 250 MHz FADCs to digitize signals. Data for this analysis utilized an inclusive electron trigger requiring electron momentum p$_{\mathrm{e'}}$ above 2 GeV/c \parencite{Raydo2020TheSystem}. The raw detector hits are organized into into tabular structures called ``banks'' and are subsequently passed to the CLAS12 Reconstruction and Analysis Framework (CLARA) \parencite{Gyurgyan2016CLARA:Framework}.
+    The raw data from the detector systems must be efficiently processed and stored for future analysis. The data acquisition system (DAQ) was originally designed to handle a 10 kHz event rate and 100 MB/s event rate, but has since been shown to be able to handle event rates of 30 kHz at data rates above 1 GB/s \parencite{Boyarinov2020TheSystem}.  The CLAS12 system consists of more than 100k individual readout channels and utilizes 250 MHz FADCs to digitize signals. Data for this analysis utilized an inclusive electron trigger requiring electron momentum p$_{\mathrm{e'}}$ above 2 GeV/c \parencite{Raydo2020TheSystem}. The raw detector hits are organized into into tabular structures called ``banks'' and are subsequently passed to the CLAS12 Reconstruction and Analysis Framework (CLARA) \parencite{Gyurgyan2016CLARA:Framework}.
 
     Detector hits in each event are converted into particle tracks through hit clustering, pattern matching, and Kalman filter algorithms. The momentum \textit{p} of a particle with charge \textit{q} is related to its track through a magnetic field by \eqref{eq:particle_track},
     
@@ -17,9 +17,9 @@ Particle detectors produce timeseries data of electrical signals corresponding t
         \frac{q}{p} = \frac{\Delta \theta}{c \int B dl},
     \end{equation}
 
-    where $\Delta \theta$ is the deflection angle of the curve, \textit{c} is the speed of light, and $\int B dl$ is the line-integrated magnetic field along the track. Charge parity (positive or negative) is determined from the deflection direction (e.g. negative particles bend away from the beamline when the torus has value ``outbending''). Time-of-flight detectors provide a direct measure of particle speed $\beta = \frac{v}{c}$, which,when coupled with track information yields the complete charged particle information. This analysis is only concerned with proton and electron identification, but \figref{fig:clas12-pid-overview} details particle discrimination across different detectors and energy regimes.
+    \noindent where $\Delta \theta$ is the deflection angle of the curve, \textit{c} is the speed of light, and $\int B dl$ is the line-integrated magnetic field along the track. Charge parity (positive or negative) is determined from the deflection direction (e.g. negative particles bend away from the beamline when the torus has value ``outbending''). Time-of-flight detectors provide a direct measure of particle speed $\beta = \frac{v}{c}$, which,when coupled with track information yields the complete charged particle information. This analysis is only concerned with proton and electron identification, but \figref{fig:clas12-pid-overview} details particle discrimination across different detectors and energy regimes.
     
-    Photons are identified from their depositions in the ECal and lack of interactions in the DCs. Events undergo this analysis process (``cooking'') and are stored as Event I/O (EVIO) files \parencite{Wolin2007EVIOPackage}, a format commonly used across JLab. The CLAS collaboration converts these files into High Performance Output (HIPO) format files \parencite{Ziegler2020TheReconstruction}, which has more optimized functionality for the CLAS software packages. 
+    Photons are identified from their energy depositions in the ECal and lack of interactions in the DCs. Events undergo this analysis process (``cooking'') and are stored as Event I/O (EVIO) files \parencite{Wolin2007EVIOPackage}, a format commonly used across JLab. The CLAS collaboration converts these files into High Performance Output (HIPO) format files \parencite{Ziegler2020TheReconstruction}, which has more optimized functionality for the CLAS software packages. 
 
     \begin{figure}[H]
         \centering
@@ -63,7 +63,7 @@ Particle detectors produce timeseries data of electrical signals corresponding t
     \end{table}
 
     \subsubsection*{Electron}
-        Electrons' light mass (510.9989 keV/c$^2$) and negative charge allows for relatively straightforward identification compared to hadrons. Conditions applied at the Event builder level include: $\beta \sim 1$ at all momenta, track curve consistent with a negatively charged particle, and a cut of the number of photoelectrons produced in the HTCC to differentiate it from $\pi^-$ particles. Above 5 GeV/c$2$, electrons are differentiated from negative pions by the sampling fraction (SF) in the calorimeters. Additional fiducial cuts were included to require the reconstructed electron track vertex along the beamline, $v_{z_{e'}}$ to fall within the -5.5 cm to -0.5cm nominal target location in the CLAS12 coordinate system, which is conservatively implemented as falling within a (-13,12) or (-18,10) cm range, for the inbending and outbending configurations, respectively. 
+        Electrons' light mass (510.9989 keV/c$^2$) and negative charge allows for relatively straightforward identification compared to hadrons. Conditions applied at the Event builder level include: $\beta \sim 1$ at all momenta, track curve consistent with a negatively charged particle, and a cut of the number of photoelectrons produced in the HTCC to differentiate it from $\pi^-$ particles. Above 5 GeV/c$^2$, electrons are differentiated from negative pions by the sampling fraction (SF) in the calorimeters. Additional fiducial cuts were included to require the reconstructed electron track vertex along the beamline, $v_{z_{e'}}$ to fall within the -5.5 cm to -0.5cm nominal target location in the CLAS12 coordinate system, which is conservatively implemented as falling within a (-13,12) or (-18,10) cm range, for the inbending and outbending configurations, respectively. 
         
     
 
