@@ -1,8 +1,8 @@
 \section{Bin Migration Effects}
 
-Upon introduction of a binning scheme to the analysis, we incurred several technical debts. Two of these are finite bin effects and bin volume corrections, which were addressed in \secref{sec:Ch4_corr_factors}. A third comes from the implicit assumption of a bin-by-bin analysis that an event observed to belong in bin number \textit{i} truly belongs to that bin - that is to say that the detector response and reconstruction of the system is high enough that the observed kinematics of the event coincide sufficiently closely with the event's true kinematics as to negligibly change binning variable values. This is only strictly true in the ideal limit of perfect detectors and reconstruction algorithms.
+Upon introduction of a binning scheme to the analysis, we incurred several technical issues. Two of these are finite bin effects and bin volume corrections, which were addressed in \secref{sec:Ch4_corr_factors}. A third comes from the implicit assumption of a bin-by-bin analysis that an event observed to belong in bin number \textit{i} truly belongs to that bin - that is to say that the detector response and reconstruction of the system is high enough that the observed kinematics of the event coincide sufficiently closely with the event's true kinematics as to negligibly change binning variable values. This is only strictly true in the ideal limit of perfect detectors and reconstruction algorithms.
 
-Deviations from the perfect case result in what are known as \textbf{bin migrations}, where an event that truly lies in bin number \textit{i} is instead observed in some other bin \textit{j}. \figref{fig:mig_example} illustrates this effect, which is notably normally only occurs for bins close to a bin edge and results in migration to an adjacent bin, unless bin volumes are very small relative to reconstruction precision.  
+Deviations from the perfect case result in what are known as \textbf{bin migrations}, where an event that truly lies in bin number \textit{i} is instead observed in some other bin \textit{j}. \figref{fig:mig_example} illustrates this effect, which normally only occurs for bins close to a bin edge and results in migration to an adjacent bin, unless bin volumes are very small relative to reconstruction precision.  
 
 \begin{figure}[H]
     \centering
@@ -20,7 +20,7 @@ Deviations from the perfect case result in what are known as \textbf{bin migrati
         \label{fig:generated_events}
     }
 
-    \caption[Bin Migration Example]{Binning migration example in a particular 4-D bin. Note that all events reside within a single bin for the reconstructed dataset (top), but not all events that were observed in that bin were generated in that same bin (bottom).}\label{fig:mig_example}
+    \caption[Bin Migration Example]{Binning migration example in a particular 4-D bin. Note that all events reside within a single bin for the reconstructed dataset (top), but not all events that were observed in that bin was generated in that same bin (bottom).}\label{fig:mig_example}
 \end{figure}
 
 Bin migrations can be described by two quantities: bin purity $P_{i}$ \eqref{eq:bin_purity}, which describes the fraction of events observed in bin i $N_{obs,i}$ that truly belong, or were generated, in that bin $N_{truth,i}$, 
@@ -37,7 +37,7 @@ Bin migrations can be described by two quantities: bin purity $P_{i}$ \eqref{eq:
     \end{equation}
     \myequations{Bin Efficiency}
 
-Multi-dimensional datasets are particularly susceptible to bin migration issues: an analysis that has 80\% bin purity in each of four dimensions yields a 4D bin that has a purity of only 0.8$^4$=41\%. \figref{fig:bin_purity_tphi} shows the bin purites for example $x_B-Q^2$ bins across t and $\phi$ which are relatively high and low for the dataset. 
+Multi-dimensional datasets are particularly susceptible to bin migration issues: an analysis that has 80\% bin purity in each of four dimensions yields a 4D bin that has a purity of only 0.8$^4$=41\%. \figref{fig:bin_purity_tphi} shows the bin purities for example $x_B-Q^2$ bins across t and $\phi$ which are relatively high and low for the dataset. 
     
 
         \iffalse
@@ -99,7 +99,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         \label{fig:binning_resolutions}
     \end{figure}
     
-    By superimposing a periodic waving to illustrate point locality \figref{fig:bin_waving}, we can observe drifts between generated and reconstructed positions. Improvements to base code are currently being developed as part of a collaboration-wide effort to increase reconstruction resolution performance. In principle unfolding methods will always be a necessary component of a full analysis, but are particularly significant when bin purities are low. 
+    By superimposing a periodic waving to illustrate point locality \figref{fig:bin_waving}, we can observe drifts between generated and reconstructed positions. Improvements to base code are currently being developed as part of a collaboration-wide effort to increase reconstruction resolution performance. In principle, unfolding methods will always be a necessary component of a full analysis, but are particularly significant when bin purities are low. 
     
     \begin{figure}[H]
         \centering
@@ -135,7 +135,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
 
         Unfolding is a general term used to describe procedures focused on estimating the true underlying distribution of a system from measured data which has imperfections due to for example detector responses or reconstruction algorithm and modeling limits. Methods include Singular Value Decomposition \parencite{Klema1980TheApplications}, Fully Bayesian Unfolding \cite{Choudalakis2012FullyUnfolding}, or Tikhonov regularization \parencite{Hoerl1970RidgeProblems}. Each method comes with benefits and pitfalls; this analysis utilizes Iterative Bayesian Unfolding (IBU) \parencite{DAgostini1995ATheorem}, \parencite{DAgostini2010ImprovedUnfolding} for its ability to handle multidimensional unfolding and complicated detector and reconstruction response functions, as well as its facile tracking of systematic and statistical uncertainties. 
 
-        Unfolding methods try to find the inverse of a response matrix \textbf{R}, where a true underlying distribution \textbf{x} and a corresponding observed distribution \textbf{y} are related by \textbf{y}=\textbf{Rx}. In general \textbf{R} may be poorly conditioned, non-smooth, and otherwise not amenable to direct inversion. IBU approaches this problem by beginning with Bayes' Theorem \eqref{eq:bayes},
+        Unfolding methods aim to determine the inverse of a response matrix \textbf{R}, where a true underlying distribution \textbf{x} and a corresponding observed distribution \textbf{y} are related by \textbf{y}=\textbf{Rx}. In general \textbf{R} may be poorly conditioned, non-smooth, and otherwise not amenable to direct inversion. IBU approaches this problem by beginning with Bayes' Theorem \eqref{eq:bayes},
 
         \begin{equation}
             P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)},
@@ -151,7 +151,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         \myequations{Bayes' Theorem}
 
 
-        where $R_{ij}$ are just the elements of the response matrix. Then inverting Bayes' Theorem allows for calculating the individual matrix elements of the unfolding function, which can be approached iteratively from some initial starting guess (prior). 
+        where $R_{ij}$ are just the elements of the response matrix. Then, inverting Bayes' Theorem allows for calculating the individual matrix elements of the unfolding function, which can be approached iteratively from some initial starting guess (prior). 
 
         In particular, IBU begins with an initial estimate of the true distribution, and in each iteration, it modifies this estimate based on the residuals between the measured data and the data predicted by the current estimate. The iterations continue until the estimate converges to a stable solution, defined by a hyperparameter stopping criterion. 
         %P(C_i | E_j, I) = \frac{P(E_j | C_i, I) \cdot P(C_i | I)}{\sum_i P(E_j | C_i, I) \cdot P(C_i | I)}
@@ -219,20 +219,20 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         
         \begin{figure}[H]
             \centering
-            \subfloat[][Bins are red if $x_B$ bin value is 0, else green]{
-            \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb.png}
+            \subfloat[][Bins are red if $x_B$ bin is 0, else green.]{
+            \includegraphics[width=0.479\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb.png}
             \label{fig:response_matrix_xb}}
             \hfill
-            \subfloat[][Bins are orange if $Q^2$ bin value is 0, else blue]{
-            \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb_q2.png}
+            \subfloat[][Bins are orange if $Q^2$ bin is 0, else blue.]{
+            \includegraphics[width=0.479\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb_q2.png}
             \label{fig:response_matrix_xb_q2}}
             \\
-            \subfloat[][Bins are yellow if $\phi$ bin value is 0, else purple]{
-            \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb_q2_phi.png}
+            \subfloat[][Bins are yellow if $\phi$ bin is 0, else purple.]{
+            \includegraphics[width=0.479\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb_q2_phi.png}
             \label{fig:response_matrix_xb_q2_phi}}
             \hfill
-            \subfloat[][Bins are clear if $t$ bin value is 0, else dark]{
-            \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb_q2_phi_t.png}
+            \subfloat[][Bins are clear if $t$ bin is 0, else dark.]{
+            \includegraphics[width=0.479\textwidth]{Chapters/Ch5-Further/0_IBU/pics/4d-2n_example/plaid/4D_2bin_sample_response_matrix_xb_q2_phi_t.png}
             \label{fig:response_matrix_xb_q2_phi_t}}
             \caption[Flattening Map on 4D 2 Bin Example]{Flattening a 2x2x2x2 response matrix can be visualize by successive colorings of columns and rows as a function of their true and observed bin numbers. For each variable, each bin is either number 0 or number 1, eventually leading to 256 uniquely colored bins.}
             \label{fig:unrolling}
@@ -327,7 +327,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
             \caption[4x4x4x4 IBU Result]{ Result for 4x4x4x4 grouping with 3$^4$ bin window.}\label{fig:4x4unfold}
         \end{figure}
 
-        Finally, we can investigate the effect of computing the unfolding matrix via a kernel compared to the entire matrix by varying the kernel and stride size. This was performed for a 2D case as well as the more critical 4D case, with results summarized in \figref{fig:2d-4d-strider-kernel-comp}. Overall, we see that processing the unfolding matrix by taking a small kernel is much more computationally efficient, and yields approximately identical results provided the kernel is large enough and the stride is small enough. S, we see that a kernel of $2^n$ leads to significant deviation compared to processing the full matrix at once, which makes sense considering a kernel of that size cannot capture all neighboring bins at the same time. Similarly, increasing stride length decreases the fidelity of the method. Accordingly, we are confident in scaling this approach to the full 6,400 bin scope of the analysis at hand. 
+        Finally, we can investigate the effect of computing the unfolding matrix via a kernel compared to the entire matrix by varying the kernel and stride size. This was performed for a 2D case as well as the more critical 4D case, with results summarized in \figref{fig:2d-4d-strider-kernel-comp}. Overall, we see that processing the unfolding matrix by taking a small kernel is much more computationally efficient, and yields approximately identical results provided the kernel is large enough and the stride is small enough. Also, we see that a kernel of $2^d$ leads to significant deviation compared to processing the full matrix at once, which makes sense considering a kernel of that size cannot capture all neighboring bins at the same time. Similarly, increasing stride length decreases the fidelity of the method. Accordingly, we are confident in scaling this approach to the full 6,400 bin scope of the analysis at hand. 
     
     \begin{figure}[ht]
         \centering
@@ -378,7 +378,8 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         \caption[Comparison of Truth, Observed, and Unfolded Distributions]{Comparison of true (green) observed (red) and unfolded (blue) event counts across all bins for this analysis. Error bars combine statistical (counting) and systematic (from the unfolding procedure) errors in quadrature.}
         \label{fig:ibufullresult}
     \end{figure}
-    
+
+
     \begin{figure}[ht]
         \centering
         \subfloat[Ratio to truth.]{\includegraphics[trim={0 0 0 0},clip,width=0.48\textwidth]{Chapters/Ch5-Further/0_IBU/pics/complete/ratio_of_observed_and_unfolded_events_to_truth_across_bins.png}\label{fig:ibu3}}
@@ -403,7 +404,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         \includegraphics[width=0.45\textwidth]{Chapters/Ch5-Further/0_IBU/pics/xqt=(0.25, 1.5, 0.2).png}
         \label{fig:xb}
     } 
-    \caption[Bin-by-bin and Unfolded Cross Section Examples]{Sample datapoints comparing bin-by-bin (orange triangle, offset to the left) and unfolding (red cross) results. Many bins have similar results, while some show shifts at the 10-20\% level. The curve is an A+B$\cos{\phi}$+C$\cos{2\phi}$ fit, with an errorband.}\label{fig:binbybinIBU}
+    \caption[Bin-by-bin and Unfolded Cross Section Examples]{Sample datapoints comparing bin-by-bin (orange triangle, offset to the left) and unfolding (red cross) results. Many bins have similar results, while some show shifts at the 10-20\% level. Vertical errors on the unfolded result are red (statistical only) and black (statistical and all systematic added in quadrature), errors are not shown on the bin-by-bin datapoints. The curve is an A+B$\cos{\phi}$+C$\cos{2\phi}$ fit, with a color gradient errorband that corresponding to the fit with high (light green) and low (dark blue) bounds of the fit error.}\label{fig:binbybinIBU}
     \end{figure}
 
     

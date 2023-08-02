@@ -5,7 +5,7 @@ The largest correction factor in this work is the acceptance correction, which i
       \recallLabel{eq:acceptance},
     \end{equation*}
 
-where we utilize simulations to arrive at an estimator for the acceptance, $\hat{\epsilon}$. The correction term is calculated bin-by-bin, procedurally illustrated in \figref{fig:acccorr}. $\hat{\epsilon}$ values for this analysis were typically on the 1-10\% level. Low acceptance bins were excluded at a threshold of below 0.5\%. The distribution of acceptance correction factors is shown in \figref{fig:acccorrdist}.
+where we utilize simulations to arrive at an estimator for the acceptance, $\hat{\epsilon}$. The correction term is calculated bin-by-bin, procedurally illustrated in \figref{fig:acccorr}. $\hat{\epsilon}$ values for this analysis were typically on the 1-10\% level. Low acceptance bins were excluded at a threshold of below 0.5\%. The distribution of acceptance correction factors is shown in \figref{fig:acccorrdist}. Statistical uncertainty was calculated based off counting statistics, and systematic uncertainty was estimated by changing the generator input model parameters by $\pm$ 10\% from their nominal values and comparing to the nominal run results. 
 
     \begin{figure}[H]
         \centering
@@ -56,13 +56,15 @@ where we utilize simulations to arrive at an estimator for the acceptance, $\hat
     Similar to radiative corrections, uncertainties in reconstruction were estimated by running simulations at different levels of current background merging (40nA, 45nA, and 55nA) and compared to the nominal 50nA datafiles. Differences were taken as a measure of systematic uncertainty. 
 
     \subsection*{Momentum Corrections, Smearing, and Exclusivity Cut Uncertainties}
-    Uncertainties were generated for momentum corrections, smearing factors, and event selection by altering the momentum corrections and smearing factors by \pm 10\% and rerunning the analysis, and for exclusivity cuts by changing the thresholds to 2$\sigma$ (narrow) and 4$\sigma$ (wide). The differences in the resulting cross section values were taken as an estimate of uncertainty. 
+    Uncertainties were generated for fiducial cuts / momentum corrections, smearing factors, and event selection by altering the fiducial cut areas momentum corrections and smearing factors by \pm 10\% and rerunning the analysis, and for exclusivity cuts by changing the thresholds to 2$\sigma$ (narrow) and 4$\sigma$ (wide). The differences in the resulting cross section values were taken as an estimate of uncertainty. 
+
+    \subsection*{Finite Bin and Bin Volume Effects}
+    Real data bins have finite size, so comparing counts to a differential cross section requires averaging values in a given bin. This is reasonable, assuming bins are small enough. Further, bin geometric centers do not in general align with mean bin values. This effect can be observed by taking the ratio of the generator model cross section between the bin average and bin center. Finally, the four dimension bin volume defined by the edges of each dimension might not be fully occupied by the phase space accessible in the reaction. This is addressed by taking a combination of monte carlo integration and analytical integration to correct the bin volume on the edges of acceptance. Uncertainties are propagated from the uncertainty in the generator.     
         
     \subsubsection*{Overall Normalization}
 
     Absolute normalization remains an ongoing effort by dedicated working groups in the CLAS collaboration. At present, we can compare the CLAS12 data to the published CLAS6 result, which contains a large number of overlapping kinematic bins. By adjusting the virtual photon flux factor and epsilon terms for the higher beam energy, we can obtain a direct comparison between the work of \parencite{Bedlinskiy2014ExclusiveCLAS} and our efforts. Published values for the reduced cross sections from the CLAS6 experiment for the DV$\pi^0$P channel are available \href{https://journals.aps.org/prc/supplemental/10.1103/PhysRevC.90.025205}{here}. Overall, there is not a large systematic shift in either direction between the CLAS12 and CLAS6 values (observe \ref{fig:combined_t0.2}-\ref{fig:combined_t1.5}). Instead, we take the difference between the two sets of data points as a measure of systematic uncertainty. This uncertainty will be removed once the current absolute normalization is validated. 
 
-    
 
     \iffalse
     No systematic shift observed between clas6 and clas12 results, although the bins had a descrpancy that is for now included as an error untilt he absolute normazliation is better undersoot by the collaboration. The pictures only show some of it. 

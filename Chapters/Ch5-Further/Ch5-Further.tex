@@ -23,14 +23,13 @@ Work is ongoing collaboration-wide to verify the absolute scale of the cross sec
 \section{Cross Section Results}\label{sec:Ch5_raw_results}
 %Include here just the bin by bin and unfolded cross sections and fits to dtaapoints no clas6 data, no GK model
     \subsection{Summary of Uncertainties}
-        Major sources of systematic uncertainties. Each row presents the source
-        of systematic uncertainty and its scale.
+        Major sources of systematic uncertainties are presented in table \ref{table:systematic_uncertainties} with their typical scale and if they are calculated for each bin or overall. The total systematic uncertainty is reported as the quadrature sum of the individual uncertainties, and is in-line with similar recent results \parencite{Lee2022MeasurementDetector}.
 
-    \begin{table}[ht]
+    \begin{table}[H]
         \centering
-        \begin{tabular}{|c|c|c|}
+        \begin{tabular}{rcc}
         \hline
-        Systematic Uncertainty & Median Percent Value & Bin-by-bin | Overall \\ 
+        Systematic Uncertainty & Median Percent Value & Bin or Overall \\ 
         \hline
             Fiducial Cuts / PID              & 12.3 \%    & Bin-by-bin   \\ 
             Reconstruction Efficiency       & 8.0 \%       & Bin-by-bin   \\ 
@@ -40,18 +39,37 @@ Work is ongoing collaboration-wide to verify the absolute scale of the cross sec
             Radiative Correction        & 5.1 \%       & Bin-by-bin   \\ 
             Finite Bin Width            & 3.2 \%       & Bin-by-bin   \\
             Unfolding Methods            & 13.4 \%       & Bin-by-bin   \\ 
-            Accumulated Beam Charge     & 1 \%        & Overall      \\ 
-            Physical Target Properties  & 1\%    & Overall      \\
+            Accumulated Beam Charge     & $<$1 \%        & Overall      \\ 
+            Physical Target Properties  & $<$1\%    & Overall      \\
             Absolute Normalization      & 13\%       & Overall      \\ 
             \hline
-            \textbf{Total (quadrature)}          & 30\%vb        & Bin-by-bin      \\ 
-            
-
-        \hline
+            \textbf{Total (quadrature)}          & 30\%     & Bin-by-bin      \\ 
+                \hline
         \end{tabular}
-        \caption{Systematic uncertainties, their median percent values, and their bin types.}
+        \caption[Major Systematic Uncertainties]{Systematic uncertainties, their median percent values, and their calculation type.}
         \label{table:systematic_uncertainties}
     \end{table}
+
+\iffalse
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{rcc}
+         %& Heading 1 & Heading 2 \\\hline
+        Quantity & Symbol & CLAS12 Value \\\hline
+       Avogadro's Number &  N$_A$  & 6.02214 x $10^{23}$ \\
+        Electron Charge &e  &  1.602 x 10$^{-19}$ Coulombs \\
+        Target Length &l &  5.00 cm \\
+        Target Density &$\rho$  &  0.07 $g/cm^3$ (LH2) \\
+        Charge on Faraday Cup & $Q_{FCUP}$ &  In data\\
+    \end{tabular}
+\caption[Terms of Luminosity Equation]{Values of terms in luminosity determination.}
+\end{table}\label{lumitable}
+\fi
+
+    \iffalse
+
+    from sangbaek
 
         
         Eqn. 5.24 assumed that the statistical uncertainty from generated events is negligible.
@@ -75,12 +93,13 @@ Work is ongoing collaboration-wide to verify the absolute scale of the cross sec
         the DVCS and the DV$\pi^0$P events at different background merging currents.
         The systematic uncertainties in the unpolarized cross sections are summarized in
         Table 5.11.
-        
+
+    \fi
 
 
     \subsection{Reduced Cross Sections Across \texorpdfstring{$\phi$}{Phi}}
     
-        Reduced cross section results are shown for bins across $x_B$, $Q^2$, and t in Figs. \ref{fig:combined_t0.2} - \ref{fig:combined_t1.5} with $x_B$ bins increasing from left to right and $Q^2$ bins increasing from bottom to top on a given page, and t bins increasing as page number increases. The fit on each subfigure is to the unfolded cross section result, rather than the bin-by-bin result. Note that distributions are only shown here that have enough coverage in $\phi$ to allow for a reasonable structure function curve fit. %The complete cross section results are tabulated in Appendix \ref{app:Across_sections}.
+        Reduced cross section results are shown for bins across $x_B$, $Q^2$, and t in Figs. \ref{fig:combined_t0.2} - \ref{fig:combined_t1.5} with $x_B$ bins increasing from left to right and $Q^2$ bins increasing from bottom to top on a given page, and t bins increasing as page number increases. There were 1841 total 4-fold differential bins that passed all selection criteria. The features of each subfigure are as described in \figref{fig:binbybinIBU}. The fit on each subfigure is to the unfolded cross section result, rather than the bin-by-bin result. Note that distributions are only shown here that have enough coverage in $\phi$ to allow for a reasonable structure function curve fit. %The complete cross section results are tabulated in Appendix \ref{app:Across_sections}.
         
         \begin{figure}[ht]
             \centering
@@ -263,7 +282,7 @@ Work is ongoing collaboration-wide to verify the absolute scale of the cross sec
 
 
 \clearpage
-\section{T Dependence and Impact Parameter}
+\section{Impact Parameter and t Dependence}
     
     The t dependence of the differential cross section $d\sigma_U/dt$ can also be calculated by integrating the reduced cross sections over $\phi$ as \eqref{eq:tdep}
     
@@ -283,7 +302,7 @@ Work is ongoing collaboration-wide to verify the absolute scale of the cross sec
     	\centering
     	\includegraphics[trim={0 0 0 2.1cm},clip,width=0.8\linewidth]{Chapters/Ch5-Further/t_dependence/pics/bslopes.png}
     
-    	\caption[Bslopes]{CLAS12 (this work) and CLAS6 \parencite{Bedlinskiy2014ExclusiveCLAS} t dependence of cross sections. The fits are exponential functions $Ae^{-bt}$, where the slope parameter b are in close agreement for the bins considered.}
+    	\caption[Impact Parameter B]{CLAS12 (this work) and CLAS6 \parencite{Bedlinskiy2014ExclusiveCLAS} t dependence of cross sections. The fits are exponential functions $Ae^{-bt}$, where the slope parameter b are in close agreement for the bins considered.}
     	\label{fig:bslopes}
     \end{figure}
     
