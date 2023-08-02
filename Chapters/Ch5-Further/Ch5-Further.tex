@@ -22,50 +22,107 @@ Work is ongoing collaboration-wide to verify the absolute scale of the cross sec
 
 \section{Cross Section Results}\label{sec:Ch5_raw_results}
 %Include here just the bin by bin and unfolded cross sections and fits to dtaapoints no clas6 data, no GK model
+    \subsection{Summary of Uncertainties}
+        Major sources of systematic uncertainties. Each row presents the source
+        of systematic uncertainty and its scale.
 
-Reduced cross section results are shown for bins across $x_B$, $Q^2$, and t in Figs. \ref{fig:combined_t0.2} - \ref{fig:combined_t1.5} with $x_B$ bins increasing from left to right and $Q^2$ bins increasing from bottom to top on a given page, and t bins increasing as page number increases. The fit on each subfigure is to the unfolded cross section result, rather than the bin-by-bin result. Note that distributions are only shown here that have enough coverage in $\phi$ to allow for a reasonable structure function curve fit. The complete cross section results are tabulated in Appendix \ref{app:Across_sections}.
-
-    \begin{figure}[ht]
+    \begin{table}[ht]
         \centering
-        \includegraphics[trim={14.6cm 4cm 27.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.2.png}
-        \caption[Reduced Cross Section for 0.2 $GeV^2 < t <$ 0.3 $ GeV^2$]{Reduced Cross Section for 0.2 $ GeV^2 < t <$ 0.3 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
-        \label{fig:combined_t0.2}
-    \end{figure}
+        \begin{tabular}{|c|c|c|}
+        \hline
+        Systematic Uncertainty & Median Percent Value & Bin-by-bin | Overall \\ 
+        \hline
+            Fiducial Cuts / PID              & 12.3 \%    & Bin-by-bin   \\ 
+            Reconstruction Efficiency       & 8.0 \%       & Bin-by-bin   \\ 
+            Simulation Resolution Matching    & 8.6 \%       & Bin-by-bin   \\ 
+            Exclusivity Cuts            & 12.4 \%      & Bin-by-bin   \\ 
+            Acceptance Correction       & 9.8 \%       & Bin-by-bin   \\ 
+            Radiative Correction        & 5.1 \%       & Bin-by-bin   \\ 
+            Finite Bin Width            & 3.2 \%       & Bin-by-bin   \\
+            Unfolding Methods            & 13.4 \%       & Bin-by-bin   \\ 
+            Accumulated Beam Charge     & 1 \%        & Overall      \\ 
+            Physical Target Properties  & 1\%    & Overall      \\
+            Absolute Normalization      & 13\%       & Overall      \\ 
+            \hline
+            \textbf{Total (quadrature)}          & 30\%vb        & Bin-by-bin      \\ 
+            
 
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[trim={14.6cm 4cm 27.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.3.png}
-        \caption[Reduced Cross Section for 0.3 $GeV^2 < t <$ 0.4 $ GeV^2$]{Reduced Cross Section for 0.3 $ GeV^2 < t <$ 0.3 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
-        \label{fig:combined_t0.3}
-    \end{figure}
+        \hline
+        \end{tabular}
+        \caption{Systematic uncertainties, their median percent values, and their bin types.}
+        \label{table:systematic_uncertainties}
+    \end{table}
 
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[trim={14.6cm 4cm 27.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.4.png}
-        \caption[Reduced Cross Section for 0.4 $GeV^2 < t <$ 0.6 $ GeV^2$]{Reduced Cross Section for 0.4 $ GeV^2 < t <$ 0.6 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
-        \label{fig:combined_t0.4}
-    \end{figure}
+        
+        Eqn. 5.24 assumed that the statistical uncertainty from generated events is negligible.
+        The statistical uncertainty for the background estimation was assigned to the
+        contamination ratio $c$, as discussed in Section 5.4.
+        The major sources of systematic uncertainties include the inefficiency drop as a
+        function of increasing beam current, over- or underestimation of the smearing parameter,
+        over- or underestimation of the $\pi^0$ background, and the radiative corrections.
+        Alternative exclusivity cuts at $2\sigma$ (Table 5.9) and $4\sigma$ ranges (Table 5.10) were applied
+        to investigate the systematic uncertainties. Additionally, the individual particle
+        selection cuts can have different impacts in the experimental data and the simulation
+        data. The most unstable cuts are the CD proton polar angle ceiling cut ($64.23^\circ$), and
+        the electron sampling fraction cut. The CD proton ceiling was adjusted to $59.23^\circ$
+        and the electron sampling fraction cut of $3.5\sigma$ range was refined to $3\sigma$ to test the
+        systematic effects. The resolution matching quality can affect the systematics, so the
+        smearing parameter adjusted by 90\% and 110\% was applied to the total cross section
+        contributions. The systematic uncertainty due to the $\pi^0$ background can be determined
+        by estimating $\frac{N(e'p'2\gamma)DV\pi^0P_{exp}}{N(e'p'2\gamma)DV\pi^0P_{sim}}$
+        in different ways ---bin-by-bin, or averaged in the
+        entire kinematics region. The beam current contribution was estimated by simulating
+        the DVCS and the DV$\pi^0$P events at different background merging currents.
+        The systematic uncertainties in the unpolarized cross sections are summarized in
+        Table 5.11.
+        
+
+
+    \subsection{Reduced Cross Sections Across \texorpdfstring{$\phi$}{Phi}}
     
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[trim={14.6cm 4cm 15.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.6.png}
-        \caption[Reduced Cross Section for 0.6 $GeV^2 < t <$ 1.0 $ GeV^2$]{Reduced Cross Section for 0.6 $ GeV^2 < t <$ 1.0 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
-        \label{fig:combined_t0.6}
-    \end{figure}
+        Reduced cross section results are shown for bins across $x_B$, $Q^2$, and t in Figs. \ref{fig:combined_t0.2} - \ref{fig:combined_t1.5} with $x_B$ bins increasing from left to right and $Q^2$ bins increasing from bottom to top on a given page, and t bins increasing as page number increases. The fit on each subfigure is to the unfolded cross section result, rather than the bin-by-bin result. Note that distributions are only shown here that have enough coverage in $\phi$ to allow for a reasonable structure function curve fit. %The complete cross section results are tabulated in Appendix \ref{app:Across_sections}.
+        
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[trim={14.6cm 4cm 27.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.2.png}
+            \caption[Reduced Cross Section for 0.2 $GeV^2 < t <$ 0.3 $ GeV^2$]{Reduced Cross Section for 0.2 $ GeV^2 < t <$ 0.3 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
+            \label{fig:combined_t0.2}
+        \end{figure}
     
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[trim={14.6cm 4cm 15.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t1.0.png}
-        \caption[Reduced Cross Section for 1.0 $GeV^2 < t <$ 1.5 $ GeV^2$]{Reduced Cross Section for 1.0 $ GeV^2 < t <$ 1.5 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
-        \label{fig:combined_t1.0}
-    \end{figure}
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[trim={14.6cm 4cm 27.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.3.png}
+            \caption[Reduced Cross Section for 0.3 $GeV^2 < t <$ 0.4 $ GeV^2$]{Reduced Cross Section for 0.3 $ GeV^2 < t <$ 0.3 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
+            \label{fig:combined_t0.3}
+        \end{figure}
     
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[trim={14.6cm 4cm 15.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t1.5.png}
-        \caption[Reduced Cross Section for 1.5 $GeV^2 < t <$ 2.0 $ GeV^2$]{Reduced Cross Section for 1.5 $ GeV^2 < t <$ 2.0 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
-        \label{fig:combined_t1.5}
-    \end{figure}
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[trim={14.6cm 4cm 27.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.4.png}
+            \caption[Reduced Cross Section for 0.4 $GeV^2 < t <$ 0.6 $ GeV^2$]{Reduced Cross Section for 0.4 $ GeV^2 < t <$ 0.6 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
+            \label{fig:combined_t0.4}
+        \end{figure}
+        
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[trim={14.6cm 4cm 15.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t0.6.png}
+            \caption[Reduced Cross Section for 0.6 $GeV^2 < t <$ 1.0 $ GeV^2$]{Reduced Cross Section for 0.6 $ GeV^2 < t <$ 1.0 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
+            \label{fig:combined_t0.6}
+        \end{figure}
+        
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[trim={14.6cm 4cm 15.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t1.0.png}
+            \caption[Reduced Cross Section for 1.0 $GeV^2 < t <$ 1.5 $ GeV^2$]{Reduced Cross Section for 1.0 $ GeV^2 < t <$ 1.5 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
+            \label{fig:combined_t1.0}
+        \end{figure}
+        
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[trim={14.6cm 4cm 15.2cm 4cm},clip,width=0.8\textwidth]{Chapters/Ch5-Further/c12xsec/combined_t1.5.png}
+            \caption[Reduced Cross Section for 1.5 $GeV^2 < t <$ 2.0 $ GeV^2$]{Reduced Cross Section for 1.5 $ GeV^2 < t <$ 2.0 $GeV^2$ in bins of $x_B$ (increasing left to right) and $Q^2$ (increasing vertically upwards). }
+            \label{fig:combined_t1.5}
+        \end{figure}
 
     \clearpage
 
@@ -241,7 +298,9 @@ Reduced cross section results are shown for bins across $x_B$, $Q^2$, and t in F
 \section{Conclusion}
 
     We have presented the Deeply Virtual $\pi^0$ Production over a wide kinematic range. The DV$\pi^0$P cross section is in reasonable agreement with previous measurements in regions where there is kinematic overlap, as well as with the leading theory parametrization at low $Q^2$. Deviations from the model as $Q^2$ increases is a known effect. The cross sections $\phi$ dependence is as expected from the handbag model. From inspecting \figref{fig:t_dependence} we observe that $\frac{\sigma_{LT}}{dt}$ is small in comparison with $\frac{\sigma_{TT}}{dt}$ and  $\frac{d\sigma_T}{dt} + \epsilon \frac{d\sigma_L}{dt}$, which is consistent with previous results. % and indicates 
-    This result leads to the direct availability of performing a Rosenbluth separation to disentangle the $\sigma_L$ and $\sigma_T$ terms, as was recently  performed on the CLAS6 dataset \parencite{Korover2021RosenbluthProton}. Relatedly, work will continue collaboration-wide to validate detector efficiencies and absolute normalization, which will reduce the systematic uncertainties of this measurement. Efforts are also continuing on the unfolding methods, in particular there is collaboration interest in pursuing an unbinned unfolded cross section \parencite{Andreassen2020OmniFold:Observables} which would further reduce uncertainties and facilitate future analysis efforts. 
+    This result leads to the direct availability of performing a Rosenbluth separation to disentangle the $\sigma_L$ and $\sigma_T$ terms, as was recently  performed on the CLAS6 dataset \parencite{Korover2021RosenbluthProton}
+    %\parencite{Korover2021RosenbluthProton}. 
+    Relatedly, work will continue collaboration-wide to validate detector efficiencies and absolute normalization, which will reduce the systematic uncertainties of this measurement. Efforts are also continuing on the unfolding methods, in particular there is collaboration interest in pursuing an unbinned unfolded cross section \parencite{Andreassen2020OmniFold:Observables} which would further reduce uncertainties and facilitate future analysis efforts. 
         
     %The result is consistent with the expected result from quark transversity GPDs and QCD factorization theorems. 
 
@@ -252,7 +311,7 @@ Reduced cross section results are shown for bins across $x_B$, $Q^2$, and t in F
     \begin{figure}
         \centering
         \includegraphics[width=0.9\textwidth]{Chapters/Ch5-Further/X_conclusion/pics/future.png}
-        \caption[Kinematic Overlap of Future Experiments]{Kinematic regions of Deep Inelastic Scattering and the comparative reach of EIC and CEBAF, from \parencite{Arrington2022PhysicsOpportunities} }
+        \caption[Kinematic Overlap of Future Experiments]{Kinematic regions of Deep Inelastic Scattering and the comparative reach of EIC and CEBAF, from \parencite{Arrington2022PhysicsOpportunities}. }
         \label{fig:physics_future_ranges}
     \end{figure}
 
