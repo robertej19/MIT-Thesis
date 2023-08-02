@@ -22,7 +22,7 @@ Generating realistic \dvpip events and simulating physics experiments are comput
 
     %Note that this equation only discusses the uncertainties due to Nsim Nexp for illustration
 
-    The uncertainty in \Nexp and \Nsim, $\delta_{N_{exp}}$ and $\delta_{N_{sim}}$ respectively, are given by $\sqrt{N_{exp}}$ and $\sqrt{N_{sim}}$, which assumes applicability of a Poisson distribution to the process, commonly known as ``counting statistics'' further discussed in \parencite{Knoll2000RadiationMeasurement}. We can then consider the effect of setting \Nsim = X\Nexp, where X is some multiplicative factor. The expression for the total uncertainty then can be reduced to \eqref{eq:uncert_sum_reduced}
+    The uncertainty in N$_{exp}$ and N$_{sim}$, $\delta_{N_{exp}}$ and $\delta_{N_{sim}}$ respectively, are given by $\sqrt{N_{exp}}$ and $\sqrt{N_{sim}}$, which assumes applicability of a Poisson distribution to the process, commonly known as ``counting statistics'' further discussed in \parencite{Knoll2000RadiationMeasurement}. We can then consider the effect of setting \Nsim = X\Nexp, where X is some multiplicative factor. The expression for the total uncertainty then can be reduced to \eqref{eq:uncert_sum_reduced}
 
         \begin{equation}\label{eq:uncert_sum_reduced}
                {\frac{\delta_{\sigma}}{\sigma} = \sqrt{ \left( \frac{ \sqrt{ N_{exp}} } { N_{exp}} \right)^2  +  \left( \frac{ \sqrt{ X N_{exp}} } { X N_{exp}} \right)^2     } =  \left(\frac{\delta_{N_{exp}}}{N_{exp}} \right) \sqrt{ \left(1+\frac{1}{X} \right)}}.
@@ -33,7 +33,7 @@ Generating realistic \dvpip events and simulating physics experiments are comput
     \begin{figure}[htb]
         \centering
         \includegraphics[width=0.8\textwidth]{Chapters/Ch3-Simulations/overview/pics/uncertainty_increase_rectangle.png}
-        \caption[Comparison between Experimental and Statistical Counting Uncertainties]{Ratio of magnitudes of statistical uncertainties associated with \Nsim and \Nexp as a function of X = $\frac{N_{sim}}{N_{exp}}$. See \appref{app:f} for more details.}
+        \caption[Comparison between Experimental and Statistical Counting Uncertainties]{Ratio of magnitudes of statistical uncertainties associated with N$_{sim}$ and N$_{exp}$ as a function of X = $\frac{N_{sim}}{N_{exp}}$. See \appref{app:f} for more details.}
         \label{fig:simulation_stats_increase}
     \end{figure}
 
