@@ -11,7 +11,7 @@
              Wigner Quasi-probability Distributions, commonly referred to as simply Wigner functions or Wigner distributions, are defined as in \eqref{eq:wigner_dist}. This can be integrated over x (p) to yield momentum (space) density, but for arbitrary (x,p) the distribution can take negative values, and so violates probability axioms and thus is a quasi-probability distribution rather than a full probability distribution. Wigner distributions are useful outside of particle physics, notably in signal processing, with more details available in \parencite{Hillery1984DistributionFundamentals}.
 
              \begin{equation}\label{eq:wigner_dist}
-                W(x,p) = \frac{1}{\pi\hbar} \int_{-\infty}^{\infty} \psi^*(x+\eta) \psi(x-\eta) e^{2ip \eta/\hbar} d\eta.
+                W(x,p) = \frac{1}{\pi\hbar} \int_{-\infty}^{\infty} \psi^\times (x+\eta) \psi(x-\eta) e^{2ip \eta/\hbar} d\eta.
             \end{equation}\myequations{Wigner Quasi-probability Distributions}
 
         
@@ -49,7 +49,7 @@
                         \cmidrule(l){2-4}
                         & U & \textcolor{white}{lllll}L & T    \\ 
                         \midrule
-                          U  & \GPDH &               *                    &  \GPDETbar = 2*\GPDHTtilde+\GPDET  \\
+                          U  & \GPDH &               *                    &  \GPDETbar = 2\times \GPDHTtilde+\GPDET  \\
                           L  &    *                &  \textcolor{white}{llll}\GPDHtilde &     \GPDETtilde                           \\
                           T  & \GPDE &               \GPDEtilde                   &  \GPDHT,\GPDHTtilde \\
                     \end{tabular}\\
@@ -83,7 +83,7 @@
     
     \subsection{Deeply Virtual Exclusive Processes}
 
-        Deeply virtual exclusive processes are interactions occurring with high photon virtuality $(Q^2 >> m_p^2$) in the DIS regime ($W^2>>m_p^2$), with thresholds normally set to require  $Q^2 > 1$ GeV$^2$ and $W>2$ $GeV$. The processes involve the scattering of a virtual photon off a nucleon target, yielding either a real photon or mesons, along with an intact final state nucleon and incident particle (e.g. from an electron or muon beam). These processes are in stark contrast to DIS, where the nucleon target is shattered into many pieces, and can instead be thought of as a hard yet precise non-invasive process. Different reactions have been shown to have different GPD dependencies, and thus provide different windows into sub-nucleon mechanics. 
+        Deeply virtual exclusive processes are interactions occurring with high photon virtuality $(Q^2  \gg  m_p^2$) in the DIS regime ($W^2 \gg m_p^2$), with thresholds normally set to require  $Q^2 > 1$ GeV$^2$ and $W>2$ $GeV$. The processes involve the scattering of a virtual photon off a nucleon target, yielding either a real photon or mesons, along with an intact final state nucleon and incident particle (e.g. from an electron or muon beam). These processes are in stark contrast to DIS, where the nucleon target is shattered into many pieces, and can instead be thought of as a hard yet precise non-invasive process. Different reactions have been shown to have different GPD dependencies, and thus provide different windows into sub-nucleon mechanics. 
 
         \subsubsection*{Deeply Virtual Compton Scattering and Meson Production}
         \figref{fig:dvep_diagram} illustrates diagrams for Deeply Virtual Compton Scattering (DVCS) and Deeply Virtual Meson Production (DVMP). 
