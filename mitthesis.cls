@@ -413,6 +413,11 @@ reserved.\par\permission}}
 \ifodd\vithesis \copyrightnoticetext{\copyright\ \@author,
 \uppercase\expandafter{\romannumeral\@degreeyear}.  All rights reserved.\par\permission}
 %% or just
+
+
+%% NEW AS OF 2023!!
+%% The author hereby grants to MIT a nonexclusive, worldwide, irrevocable, royalty-free license to exercise any and all rights under copyright, including to reproduce, preserve, distribute and publicly display copies of the thesis, or release the thesis under an open-access license.
+
 %%\@degreeyear}}
 \typeout{Copyright given to author,
 	permission to copy/distribute given to MIT.}
