@@ -8,7 +8,7 @@
         
         
         \subsubsection*{Wigner Quasi-probability Distributions}
-             Wigner Quasi-probability Distributions, commonly referred to as simply Wigner functions or Wigner distributions, are defined as in \eqref{eq:wigner_dist}. This can be integrated over x (p) to yield momentum (space) density, but for arbitrary (x,p) the distribution can take negative values, and so violates probability axioms and thus is a quasi-probability distribution rather than a full probability distribution. Wigner distributions are useful outside of particle physics, notably in signal processing, with more details available in \parencite{Hillery1984DistributionFundamentals}.
+             Wigner Quasi-probability Distributions, commonly referred to as simply Wigner functions or Wigner distributions, are defined as in \eqref{eq:wigner_dist}. This can be integrated over \textit{x}(\textit{p}) to yield momentum (space) density, but for arbitrary (\textit{x},\textit{p}) the distribution can take negative values, and so violates probability axioms and thus is a quasi-probability distribution rather than a full probability distribution. Wigner distributions are useful outside of particle physics, notably in signal processing, with more details available in \parencite{Hillery1984DistributionFundamentals}.
 
              \begin{equation}\label{eq:wigner_dist}
                 W(x,p) = \frac{1}{\pi\hbar} \int_{-\infty}^{\infty} \psi^\times (x+\eta) \psi(x-\eta) e^{2ip \eta/\hbar} d\eta.
@@ -35,9 +35,9 @@
             \todo{possibly work in TPEX by discussion of OPE formalism}
             \todo{if possible work in Operator Product and Twist expansion}
             
-            No known experiments currently exist that are able to directly measure this distribution (nor is it known if it is possible). Fortunately, in recent decades theorists have been able to link experimental observables to further reduced forms of \eqref{eq:wigner_reduced}. Specifically, integration can be performed over spatial coordinates to yield Transverse Momentum Distributions (TMDs) which are outside the scope of this work. Alternatively, integration can be performed over momentum coordinates to yield Generalized Parton Distributions (GPDs), which encode transverse spatial as well as longitudinal momentum distributions of partons inside the nucleon. As shown in \parencite{Ji2004GENERALIZEDDISTRIBUTIONS}, at leading-twist (twist-2), iterating through all choices of the Dirac matrix for quark distributions $\Gamma$ yields 8 distinct GPDs. They are generally expressed in terms of parton momentum fraction \textit{x}, skewness $\xi = \frac{-q^2}{q \cdot P} \sim \frac{x_B}{2-x_B}$, and momentum transfer \textit{t}.
+            No known experiments currently exist that are able to directly measure this distribution (nor is it known if it is possible). Fortunately, in recent decades theorists have been able to link experimental observables to further reduced forms of \eqref{eq:wigner_reduced}. Specifically, integration can be performed over spatial coordinates to yield Transverse Momentum Distributions (TMDs) which are outside the scope of this work. Alternatively, integration can be performed over momentum coordinates to yield Generalized Parton Distributions (GPDs), which encode transverse spatial as well as longitudinal momentum distributions of partons inside the nucleon. As shown in \parencite{Ji2004GENERALIZEDDISTRIBUTIONS}, at leading-twist (twist-2), iterating through all choices of the Dirac matrix for quark distributions $\Gamma$ yields eight distinct GPDs for every quark flavor. They are generally expressed in terms of parton momentum fraction \textit{x}, skewness $\xi = \frac{-q^2}{q \cdot P} \sim \frac{x_B}{2-x_B}$, and momentum transfer \textit{t}.
             
-            4 correspond to helicity conserving (chiral even) processes and 4 correspond to helicity flipping (chiral odd) processes: \GPDH,  \GPDE,  \GPDHtilde,  and \GPDEtilde  \quad for chiral even, and \GPDHT,  \GPDET,  \GPDHTtilde, and \GPDETtilde \quad (\GPDETbar = 2*\GPDHTtilde+\GPDET is commonly used). Table \ref{table:GPDsPolarization} summarizes the GPDs with respect to polarization states. 
+            Four GPDs correspond to helicity conserving (chiral even) processes and four correspond to helicity flipping (chiral odd) processes: \GPDH,  \GPDE,  \GPDHtilde,  and \GPDEtilde  \quad for chiral even, and \GPDHT,  \GPDET,  \GPDHTtilde, and \GPDETtilde \quad (\GPDETbar = 2*\GPDHTtilde+\GPDET is commonly used). Table \ref{table:GPDsPolarization} summarizes the GPDs with respect to polarization states. 
         
             %\textcolor{red}{    Why do the scrtucture combine in the way they do with the coefficents of cos phi terms and epsilons? - insert old links from papers from 1980s}
             
@@ -59,7 +59,7 @@
                     \label{table:GPDsPolarization}
             \end{table}
 
-            GPDs can be understood by considering further integrations and forward limits - in the same way that the nucleon charge must be recovered when integrating over PDFs or Form Factors, these functions themselves are recovered when appropriately integrating over GPDs, as in \figref{fig:gmtd_cube}. Specifically, first moments of the GPDs $H$ and $E$ are related to the Dirac and Pauli form factors $F_1$ and $F_2$ respectively:
+            GPDs can be understood by considering further integrations and forward limits. In the same way that the nucleon charge must be recovered when integrating over PDFs or Form Factors, these functions themselves are recovered when appropriately integrating over GPDs, as in \figref{fig:gmtd_cube}. Specifically, first moments of the GPDs $H$ and $E$ are related to the Dirac and Pauli form factors $F_1$ and $F_2$ respectively:
         
             \begin{figure}[H]
                 \centering
@@ -77,7 +77,7 @@
         \end{equation}
 
 
-        GPDs have been shown \parencite{Ji1997Gauge-InvariantSpin} to encode spin distributions and also can be interpreted as describing the transverse spatial distribution of quarks \parencite{Burkardt2007GPDs0}. Further, GPDs relation to energy-momentum tensor form factors (EMTs) allows access to EMT densities, which describe the distribution of energy, momentum, and pressure inside the nucleon. It was originally not known how to measure GPDs, but later were found to be experimentally accessible through deeply virtual exclusive processes (DVEP) relying on factorization theorems \parencite{Collins1999ProofQCD}, \parencite{Bauer2002HardTheory}. 
+        GPDs have been shown \parencite{Ji1997Gauge-InvariantSpin} to encode spin distributions and also can be interpreted as describing the transverse spatial distribution of quarks \parencite{Burkardt2007GPDs0}. Further, GPDs' relation to energy-momentum tensor form factors (EMTs) allows access to EMT densities, which describe the distribution of energy, momentum, and pressure inside the nucleon. It was originally not known how to measure GPDs, but later were found to be experimentally accessible through deeply virtual exclusive processes (DVEP) relying on factorization theorems \parencite{Collins1999ProofQCD}, \parencite{Bauer2002HardTheory}. 
            
     
     
@@ -127,7 +127,7 @@
 
             The unpolarized four-fold differential \xsec for DV$\pi^0$P can be decomposed into longitudinal and transverse structure functions as in \eqref{eq:DVPiPCrossSection_theory}, the formalism for which is covered in \parencite{Donnachie1978GeneralizedDominance}, \parencite{Dreschsel1992ThresholdNucleons}, and \parencite{Donnelly2023GeneralResponses}. 
             
- 
+            \iffalse
             \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
                    {\frac{d^4\sigma_{ep \rightarrow ep'\pi^0}}{dQ^2dx_Bdtd\phi_{\pi}} =
                  \Gamma (Q^2, x_B, E)
@@ -135,9 +135,19 @@
                  \left\{ \left(  \textcolor{sigmaT}{\frac{d\sigma_T}{dt}}+\epsilon  \textcolor{sigmaL}{\frac{d\sigma_L}{dt}} \right)+
                  \epsilon cos(2\phi)  \textcolor{sigmaTT}{\frac{d\sigma_{TT}}{dt}} + 
                  \sqrt{2\epsilon(1+\epsilon)} cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}}.
-             \end{equation}      \myequations{  DV$\pi^0$P Cross Section Decomposition}
+             \end{equation}     
+             \fi
+             
+             \begin{equation}\labelAndRemember{eq:DVPiPCrossSection_theory}
+                {\begin{split}
+                \frac{d^4\sigma_{ep \rightarrow ep'\pi^0}}{dQ^2dx_Bdtd\phi_{\pi}} &=
+                \Gamma (Q^2, x_B, E) \frac{1}{2\pi} \left\{ \left(  \frac{d\sigma_T}{dt}+\epsilon  \frac{d\sigma_L}{dt} \right) \right. \\
+                &\left. + \epsilon \cos(2\phi)  \textcolor{sigmaTT}{\frac{d\sigma_{TT}}{dt}} + 
+                \sqrt{2\epsilon(1+\epsilon)} \cos(\phi)  \textcolor{sigmaLT}{\frac{d\sigma_{LT}}{dt}} \right\}.
+                \end{split}}
+            \end{equation}    \myequations{  DV$\pi^0$P Cross Section Decomposition}
 
-             Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux} and represents the number of virtual photons per scattered electron \parencite{Amaldi1979Pion-electroproduction}, $\epsilon$ is the ratio of transverse to longitudinally polarized photons \eqref{eq:virtualphotonpolarization}, $\phi$ is the angle between the lepton and hadron planes, as illustrated in \figref{fig:phi_trento} and given by \eqref{eq:phitrento}, t is the momentum transfer to the proton \eqref{eq:t_momentum_trans}, $x_B$ and Q$^2$ are as given in \eqref{eq:xB} and \eqref{eq:virtualphotonflux} respectively, and the structure functions can be expressed as convolutions of GPDs as shown in \eqref{eq:sigmaL}-\eqref{eq:sigmaTT} as discussed in \parencite{Bedlinskiy2014ExclusiveCLAS}. 
+             Here $\Gamma$ is the virtual photon flux as in \eqref{eq:virtualphotonflux} and represents the number of virtual photons per scattered electron \parencite{Amaldi1979Pion-electroproduction}, $\epsilon$ is the ratio of transverse to longitudinally polarized photons \eqref{eq:virtualphotonpolarization}, $\phi$ is the angle between the lepton and hadron planes, as illustrated in \figref{fig:phi_trento} and given by \eqref{eq:phitrento}, t is the momentum transfer to the proton \eqref{eq:t_momentum_trans}, $x_B$ and Q$^2$ are as given in \eqref{eq:xB} and \eqref{eq:virtualphotonflux} respectively, and the structure functions can be expressed as convolutions of GPDs as shown in \eqrange{eq:sigmaL}{eq:sigmaTT} as discussed in \parencite{Bedlinskiy2014ExclusiveCLAS}. 
   
     
             \begin{equation}\label{eq:virtualphotonflux}
@@ -223,11 +233,11 @@
             \item $\Lambda(W^2,-Q^2,m^2)$ is the Källén function: $W^4 + Q^4 + m^4 + 2W^2Q^2 + 2Q^2m^2 - 2W^2m^2$
             \end{itemize}
             
-            \item Reduced pion mass     \scalebox{1}{%
+            \item Scale parameter    \scalebox{1}{%
               $         \mu_{\pi^0} = \frac{m^2_{\pi^0}}{m_u+m_d}$ 
             }
             \begin{itemize}
-                \item   $m_u$ and $m_d$ are respective masses of up and down quarks
+                \item   $m_u$ and $m_d$ are respective masses of up and down quarks using the $\bar{MS}$ renormalization scheme. \parencite{Goloskokov2010AnElectroproduction}.
             \end{itemize}
             \end{itemize}
        
@@ -254,14 +264,14 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.75\textwidth]{Chapters/Ch1-Intro/Ch1-Sec2-GPDs-DVMP/pics/kinematic_overlap.png}
-            \caption[Kinematic Reach Comparison]{Kinematic reach plot between this work and other results:  CLAS6 \parencite{Bedlinskiy2014ExclusiveCLAS}, COMPASSS \parencite{Alexeev2020MeasurementProton}, Hall A 6 GeV \parencite{Fuchey2011ExclusiveRegime}, and Hall A 12 GeV \parencite{Dlamini2021DeepRegime}. The reach shown for Hall A are approximate areas around their reported bin centers. }
+            \caption[Kinematic Reach Comparison]{Kinematic reach plot between this work and other results:  CLAS6 (red polygon) \parencite{Bedlinskiy2014ExclusiveCLAS}, COMPASSS (blue rectangle) \parencite{Alexeev2020MeasurementProton}, Hall A 6 GeV (blue dots) \parencite{Fuchey2011ExclusiveRegime}, and Hall A 12 GeV (gray dots) \parencite{Dlamini2021DeepRegime}, overlaid on the event data of this work (multicolored histogram). The reach shown for Hall A are approximate areas around their reported bin centers. }
             \label{fig:kinematicreach}
         \end{figure}
 
         \subsubsection*{Overview of This Analysis}\label{sec:anaflow}
     
     
-        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsecp The general form of a scattering \xsec, \eqref{eq:basic_diff_xsec} copied below, is true in the idealized case where all measurements are perfect. In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis (four-fold differential \xsec), yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
+        This work details the analysis of data taken at the JLab CLAS12 experiment to measure the deeply virtual neutral pion electroproduction \xsecp The general form of a scattering cross section, \eqref{eq:basic_diff_xsec} copied below, is true in the idealized case where all measurements are perfect. In practice, a number of correction terms need to be included to account for differences between experiment and theory. These correction terms, combined with the specifics of this analysis (four-fold differential \xsec), yield the full experimental expression of the \xsec \eqref{eq:DVPiPCrossSection_exp}. 
 
 
         \begin{equation*}
@@ -292,7 +302,7 @@
         \item \textcolor{correctionfactors}{$Br(\pi^0\rightarrow\gamma\gamma)$} - Branching ratio of the decay of a neutral pion ($\pi^0$) into two photons ($\gamma\gamma$), which is most recently measured at 98.8131\%  \parencite{Husek2019PreciseDecay}
         \end{itemize}
 
-        The numerous correction factors motivate the approaching this analysis in terms of an \textit{inverse problem}. This class of inference problems requires using data and statistical methods to provide a best estimate of an unknown underlying event or distribution, given a set of observables produced by that unknown generator. To realize a high quality estimate of the underlying physics processes (GPDs) we measure the observables of that process - DVEP event rates - as discussed in Chapter \ref{Chapter:Experiment}. We also produce simulated observables through physics generators and event simulators as covered in Chapter \ref{Chapter:Simulations}. Chapter \ref{Chapter:BaseAnalysis} compares the generated, simulated, and experimental data, which allows for inference of the underlying physics - a \xsec measurement with proper correction terms. Chapter \ref{Chapter:Ch5_IBU} discusses statistical methods to improve on a bin-by-bin analysis. Finally, Chapter \ref{Chapter:Further Analysis} then presents further physics analysis, made possible with the extracted \xsec values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
+        The numerous correction factors motivate approaching this analysis in terms of an \textit{inverse problem}. This class of inference problems requires using data and statistical methods to provide a best estimate of an unknown underlying event or distribution, given a set of observables produced by that unknown generator. To realize a high quality estimate of the underlying physics processes (GPDs) we measure the observables of that process - DVEP event rates - as discussed in Chapter \ref{Chapter:Experiment}. We also produce simulated observables through physics generators and event simulators as covered in Chapter \ref{Chapter:Simulations}. Chapter \ref{Chapter:BaseAnalysis} compares the generated, simulated, and experimental data, which allows for inference of the underlying physics - a \xsec measurement with proper correction terms. Chapter \ref{Chapter:Ch5_IBU} discusses statistical methods to improve on a bin-by-bin analysis. Finally, Chapter \ref{Chapter:Further Analysis} then presents further physics analysis, made possible with the extracted \xsec values. \figref{fig:ProcessFlowchart} broadly summarizes the analysis flow; electronic readers can conveniently click on boxes for hyperlinks to relevant sections. 
 
         %discusses the computational and simulational infrastructure built and used as an integral part in estimating correction factors and performing an accurate measurement. 
 

@@ -60,6 +60,12 @@
 \usepackage{xpatch}
 \usepackage{slashed}
 \usepackage{adjustbox}
+
+
+\renewcommand{\eqref}[1]{(Eq.~\ref{#1})}
+\newcommand{\eqrange}[2]{
+    (Eq.~\ref{#1}--\ref{#2})}
+
 \usepackage{xcolor}
 \usepackage{textcomp}
 %\usepackage{gensymb} %causes issues with degree command
@@ -163,10 +169,10 @@
             citecolor = blue,
             anchorcolor = blue]{hyperref}
 
-\newcommand{\Lumi}{\ensuremath{\textcolor{gray}{ \mathcal{L}}}}
-\newcommand{\Lumispace}{\ensuremath{\textcolor{gray}{ \mathcal{L} }}}
+\newcommand{\Lumi}{\ensuremath{\textcolor{gray}{\mathcal{L}}}}
+\newcommand{\Lumispace}{\ensuremath{\textcolor{gray}{\mathcal{L}\,}}}
 
-\newcommand{\Lumiint}{\ensuremath{\textcolor{gray}{ \mathcal{L}_{int}}} }
+\newcommand{\Lumiint}{\ensuremath{\textcolor{gray}{\mathcal{L}_{int}\,}}}
 
 \newcommand{\counts}{\ensuremath{\textcolor{red}{N_{exp}}}}
 

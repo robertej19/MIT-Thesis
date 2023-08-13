@@ -9,7 +9,7 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
 
 \subsection{Accelerator Facility}
     
-    \figref{fig:jlab_accelerator_layout} shows the overarching scheme of the entire accelerator facility relevant for this experiment. Electrons are produced via the photoelectric effect from a 499 MHz pulsed laser impinges on a Gallium Arsenide photocathode \figref{fig:gun}. The CEBAF guns operate at 100 kV and accelerate the electrons through a beam chopper \figref{fig:chopper} to create the desired beam structure \figref{fig:structure} and into the main accelerator circuit, where 1497 MHz superconducting resonator (SRF) cavities provide further acceleration \figref{fig:klystron}. CEBAF's two $\sim$ 1.1 GV linacs accelerate electrons by consist of 50 cryomodules total, with each cryomodule housing 8 7-cell SRF cavities and the liquid helium necessary to cool them, made possible by JLab's 2K liquid helium refrigerator\footnote{For interested readers: JLab uses $\sim$ 65 kiloliters of 2.1K helium and 50 kiloliters of 4.5K helium. The CHL machines are each individually the largest in the world by capacity. The newly designed CHL2 uses 3.5 MW of power at full capacity, enough to power 3,500 homes. Read the CHL report: \href{https://misportal.jlab.org/ul/publications/view_pub.cfm?pub_id=13998}{here}. (K. Carter, personal communication, June 21, 2023) }. The electrons are steered around the curved parts of the track by dipole magnets \figref{fig:magnets}, making five complete circulations before delivery to the three western experimental halls, and an additional half circulation to achieve a full 12 GeV beam to Hall D. \todo{include hourly resource estimate to run JLab - power draw of entire machine, its power draw, and cost / power of computing farms}
+    \figref{fig:jlab_accelerator_layout} shows the overarching scheme of the entire accelerator facility relevant for this experiment. Electrons are produced via the photoelectric effect from a 499 MHz pulsed laser impinging on a Gallium Arsenide photocathode \figref{fig:gun}. The CEBAF guns operate at 100 kV and accelerate the electrons through a beam chopper \figref{fig:chopper} to create the desired beam structure \figref{fig:structure} and into the main accelerator circuit, where 1497 MHz superconducting resonator (SRF) cavities provide further acceleration \figref{fig:klystron}. CEBAF's two $\sim$ 1.1 GV linacs accelerate electrons, consisting of 50 cryomodules total, with each cryomodule housing 8 7-cell SRF cavities and the liquid helium necessary to cool them, made possible by JLab's 2K liquid helium refrigerator\footnote{For interested readers: JLab uses $\sim$ 65 kiloliters of 2.1K helium and 50 kiloliters of 4.5K helium. The Central Helium Liquefier (CHL) machines are each individually the largest in the world by capacity. The newly designed CHL2 uses 3.5 MW of power at full capacity, enough to power 3,500 homes. Read the CHL report: \href{https://misportal.jlab.org/ul/publications/view_pub.cfm?pub_id=13998}{here}. (K. Carter, personal communication, June 21, 2023) }. The electrons are steered around the curved parts of the track by dipole magnets \figref{fig:magnets}, making five complete circulations before delivery to the three western experimental halls, and an additional half circulation to achieve a full 12 GeV beam to Hall D. \todo{include hourly resource estimate to run JLab - power draw of entire machine, its power draw, and cost / power of computing farms}
 
     %From Kandice Carter, on the Helium2 sizes:
     \iffalse  
@@ -76,7 +76,7 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
             \label{table:beam-properties}
         \end{table}
         
-        The beam enters Hall B with the nominal parameters as specified in Table \ref{table:beam-properties}. Upstream of the target, Hall B uses coincidence double arm \Moller polarimeters \figref{fig:moller} to measure beam polarization within a few percent accuracy. This analysis does not utilize the polarized beam for physics extraction, but it is useful for BSA measurements as well as other physics goals. 
+        The beam enters Hall B with the nominal parameters specified in Table \ref{table:beam-properties}. Upstream of the target, Hall B uses coincidence double arm M\"oller polarimeters (\figref{fig:moller} to measure beam polarization within a few percent accuracy. This analysis does not utilize the polarized beam for physics extraction, but it is useful for BSA measurements as well as other physics goals. 
     
             
                 \iffalse
@@ -114,7 +114,7 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
 
              
 
-            The beam is rastered onto the target cell \figref{fig:target_cell} is a 5 cm long Kapton cone with 23.66 and 15.08 upstream and downstream diameters respectively, with 30 $\mu$m thick aluminum entrance and exit windows. The target used for this analysis consisted of unpolarized pure liquid hydrogen (LH2) and is located from -5.5 cm (upsteam) to -0.5 cm along the z-axis of the CLAS12 coordinate system \parencite{Baltzell2020ThePerformance}. 
+            The beam is rastered onto the target cell \figref{fig:target_cell} which is a 5 cm long Kapton cone with 23.66 mm and 15.08 mm upstream and downstream diameters respectively, with 30 $\mu$m thick aluminum entrance and exit windows. The target used for this analysis consisted of unpolarized pure liquid hydrogen (LH2) and is located from -5.5 cm (upsteam) to -0.5 cm along the z-axis of the CLAS12 coordinate system \parencite{Baltzell2020ThePerformance}. 
             
 
             The target is surrounded nearly in 4$\pi$ with detectors as discussed in the next section. The beamline ends in a beam dump and Faraday cup \figref{fig:faraday_cup}, which measures the beam current to allow for absolute cross section determinations. The Faraday cup is from the original CLAS experiment and is only rated for 175 Watts (16.5 nA at 10.6 GeV) so a beam blocker is utilized for full-beam runs. More details can be found in found in \parencite{Mecking2003TheCLAS}. %link to own fraday cup paper \cite{Johnston2019RealizationElectrons}
@@ -125,7 +125,7 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
         \centering
         % First row with 3 columns
         \begin{minipage}[b]{0.3\linewidth}
-            \subfloat[Upstream (top) and downstream (bottom) view of \Moller polarimeters \parencite{Joo2002ElectronPolarimeter}.]{\label{fig:moller}\includegraphics[width=\linewidth]{Chapters/Ch2-Experiment/accel_and_beamline/pics/hallB/hall-b-poll-2.jpg}}
+            \subfloat[Upstream (top) and downstream (bottom) view of M\"oller polarimeters \parencite{Joo2002ElectronPolarimeter}.]{\label{fig:moller}\includegraphics[width=\linewidth]{Chapters/Ch2-Experiment/accel_and_beamline/pics/hallB/hall-b-poll-2.jpg}}
         \end{minipage}
         \hfill
         \begin{minipage}[b]{0.3\linewidth}
@@ -142,7 +142,7 @@ The Thomas Jefferson National Accelerator Facility, also called Jefferson Lab (J
             \centering
             \subfloat[Hall B beamline, from \parencite{Baltzell2020ThePerformance}.]{\label{fig:beamline}\includegraphics[width=0.9\linewidth]{Chapters/Ch2-Experiment/accel_and_beamline/pics/hallB/beamline.png}}
         \end{minipage}
-        \caption[Hall B Beamline]{Overview of Hall B beamline. After \Moller polarimeters (a), the electron beam is rastered on the CLAS12 target (b) with interactions recorded by the CLAS12 detector while the rest of the beam ends at the beam dump and Faraday cup (c). (d) shows the scaled detector hall layout, with the \Moller polarimeters being located to the left of the Tagger magnet and the Faraday cup to the right of the CLAS12 detector package.}
+        \caption[Hall B Beamline]{Overview of Hall B beamline. After M\"oller polarimeters (a), the electron beam is rastered on the CLAS12 target (b) with interactions recorded by the CLAS12 detector while the rest of the beam ends at the beam dump and Faraday cup (c). (d) shows the scaled detector hall layout, with the M\"oller polarimeters being located to the left of the Tagger magnet and the Faraday cup to the right of the CLAS12 detector package.}
         \label{fig:allfigures}
     \end{figure}
 

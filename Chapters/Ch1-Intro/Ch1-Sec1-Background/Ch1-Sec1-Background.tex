@@ -1,7 +1,7 @@
 \section{Exploring Structure through Scattering}\label{ch1:sec1:background}
 
     %\subsection{Discovery of the Nucleons}
-    The typical length scales for atoms and nucleons are 0.1 nm which is far smaller than the wavelength of human-visible light ($\sim$ 500 nm). As such, atomic and nuclear structure must be explored by forcing some interaction and then inferring the structure from the observed results. Thomson's atomic model was famously tested in the early 1900s by Ernest Rutherford's research group, wherein $\alpha$ particles were fired at thin metal targets, and the scattering behaviour was observed \parencite{Geiger1909OnAlpha-Particles} \parencite{Rutherford1911TheAtom}. 
+    The typical length scales for atoms (0.1 nm) and nucleons (1 fm) are is far smaller than the wavelength of human-visible light ($\sim$ 500 nm). As such, atomic and nuclear structure must be explored by forcing some interaction and then inferring the structure from the observed results. Thomson's atomic model was famously tested in the early 1900s by Ernest Rutherford's research group, wherein $\alpha$ particles were fired at thin metal targets, and the scattering behaviour was observed \parencite{Geiger1909OnAlpha-Particles} \parencite{Rutherford1911TheAtom}. 
     
     The results were not consistent with Thomson's model, but instead indicated that there was a very small, dense, positively charged nucleus at the center of every atom. Further experiments by Rutherford would lead to the discovery of the proton around 1920 \parencite{Rutherford1919CollisionNitrogen}. Puzzles about the nucleus remained, including a consistent description of isotopes, until 12 years later when James Chadwick suggested the existence of the neutron \parencite{Chadwick1932PossibleNeutron}. With electrons and the two nucleons discovered, it seemed as though the indivisible constituents of the atom were finally realized, but future experiments showed a much more complex, sub-nuclear structure. 
     
@@ -27,22 +27,22 @@
                \lambda = \frac{h}{p}.
             \end{equation}\myequations{de Broglie Relationship}
 
-        With this relationship, we can see that by increasing a particle's momentum, its effective wavelength is reduced. This is the fundamental principle which allows electron microscopes to image matter at a resolution of $\sim$ 10--0.1 nm \parencite{Franken2020ADevelopments}, corresponding to electron momenta of $\sim$ 1--100 keV. At this scale, viruses, cells, molecular structures, and even atoms can be imaged \parencite{Williams2009TransmissionMicroscopy}, with striking results commonly published online. Other probes could be used to circumvent the diffraction limit, such as high energy (low-wavelength) photons or high momentum (low de Broglie wavelength) protons or neutrons, but electrons are an ideal candidate in this regime as they are easy to produce, steer, interact with the target, and detect. 
+        With this relationship, we can see that by increasing a particle's momentum, its effective wavelength is reduced. This is the fundamental principle which allows electron microscopes to image matter at a resolution of $\sim$ 10--0.1 nm \parencite{Franken2020ADevelopments}, corresponding to electron momenta of $\sim$ 1--100 keV. At this scale, cells \parencite{Williams2009TransmissionMicroscopy}, viruses \parencite{Goldsmith2009ModernViruses}, and even atoms \parencite{Chen2021ElectronVibrations} can be imaged. Other probes could be used to circumvent the diffraction limit, such as high energy (low-wavelength) photons or high momentum (low de Broglie wavelength) protons or neutrons, but electrons are an ideal candidate in this regime as they are easy to produce, steer, interact with the target, and detect. 
 
         To move beyond imaging at the atomic scale ($\sim$ 1 \AA) to the nuclear scale ($\sim$ 1 fm) requires probes that are 100,000 times more powerful. Electrons are still an ideal probe due to their (apparent) lack of internal structure, but rather than a room sized microscope, an entire accelerator facility is needed to achieve high enough energies and luminosities for sub-nuclear scale resolution. 
         
 
 
     \subsection{Elastic Scattering and Form Factors}
-        Imaging with electrons (or other non-visible-light probes) these scales is commonly understood in terms of a scattering cross section, $\sigma$, which is defined as the probability that a given target will exhibit a specific reaction (such as elastic scattering or fission) in response to a specific incident particle species. Cross sections have dimensions of area but do not refer to the physical size of a particle, but rather its effective target size for the particular reaction considered. 
+        Imaging with electrons (or other non-visible-light probes) at these scales is commonly understood in terms of a scattering cross section, $\sigma$, which is defined as the probability that a given target will exhibit a specific reaction (such as elastic scattering or fission) in response to a specific incident particle species. Cross sections have dimensions of area but do not refer to the physical size of a particle, but rather its effective target size for the particular reaction considered. 
 
-        \Xsecs can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured experimental events of interest $N_{exp}$ divided by the number of total interaction opportunities \Lumi. \Lumispace is known as luminosity and is a product of only experimental parameters, such as the number of particles present and the experiment duration. 
+        \Xsecs can be experimentally estimated by measuring the occurrence frequency relative to the total possible interaction opportunities. In general, the \xsec $\sigma$ can be expressed as \eqref{eq:basic_xsec} the number of measured experimental events of interest $N_{exp}$ divided by the number of total interaction opportunities \Lumi, also known as the luminosity. Luminosity is a product of only experimental parameters, such as the number of particles present in the scattering region and the experiment duration. 
 
         \begin{equation} \label{eq:basic_xsec}
             \sigma = \frac{\counts}{\Lumi}.
         \end{equation}
 
-        In practice, measuring the complete \xsec at once is not feasible, so instead estimates are made of the differential \xsec \eqref{eq:basic_diff_xsec}, which evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. \figref{fig:cross_section_idea} illustrates the generalized concept of measuring the differential \xsec $d\sigma$ scattering into a differential solid angle $d\Omega$.
+        In practice, measurements are not made on the total \xsec but rather of the differential \xsec \eqref{eq:basic_diff_xsec}, which evaluates the probability for a specific interaction to occur in a differential region of phase space, $\frac{d\sigma}{d\Omega}$. Infinitesimal measurements are not possible, so events are counted over some small discretized generalized volume \textcolor{purple}{$\Delta \Omega$}. \figref{fig:cross_section_idea} illustrates the generalized concept of measuring the differential \xsec $d\sigma$ scattering into a differential solid angle $d\Omega$.
         
         \begin{equation} \labelAndRemember{eq:basic_diff_xsec}
             {\frac{d\sigma}{d\Omega} = \frac{ \counts} {\Lumi \textcolor{purple}{\Delta \Omega}}.}
@@ -56,7 +56,8 @@
         \end{figure}
 
         
-        Typical elastic scattering cross sections for transitions metals with 100 keV incident electrons as in electron microscopy are $\sim 10^{-22} \text{m} ^2$ \parencite{Williams2009TransmissionMicroscopy}. In contrast, the cross sections to be discussed in this thesis are on the order of tens of nanobarn ( $10^{-36} m^2$), or 14 orders of magnitude smaller.         
+        Typical elastic scattering cross sections for transitions metals with 100 keV incident electrons as in electron microscopy are $\sim 10^{-22} \text{m} ^2$ \parencite{Williams2009TransmissionMicroscopy}. In contrast, the cross sections to be discussed in this thesis are on the order of tens of nanobarn \footnote{One barn is defined as $10^{-28} \, \text{m}^2$, approximately the cross-sectional area of a uranium nucleus. One nanobarn is $10^{-9}$ barn or $10^{-37} \, \text{m}^2$.
+        } ( $10^{-36} m^2$), or 14 orders of magnitude smaller.         
         
        % \begin{figure}[h]
        %     \centering
@@ -141,7 +142,7 @@
             Compared with Mott Scattering, there are two differences in this formula: The $\frac{E_{e'}}{E_{beam}}$ term in the scattering cross section comes from the electron losing energy to the proton's final state kinetic energy (no longer fixed), and the term proportional to $\sin^2(\theta/2)$ is due to a purely magnetic spin-spin interaction. 
 
 
-            \indent If the proton were a point, then \eqref{eq:FullElastic} would agree with experiment for all electron scattering energies. Instead, deviations are observed as we increase the beam energy. To account for this structure, we need to include two form factors, $G_E(Q^2)$ - related to the distribution of charge, and $G_M(Q^2)$, related to the distribution of magnetism inside the proton. In the low-$Q^2$ limit, these form factors are the Fourier transforms of the charge an magnetic moment distributions as in \eqref{eq:GE} and \eqref{eq:GM}, reducing to the charge and the magnetic moment of the proton in the $Q^2$ = 0 limit. %but the carryover is not exact in general due to being functions of the 4-momenta, instead of 3 momenta. E.g.:
+            \indent If the proton were a point, then \eqref{eq:FullElastic} would agree with experiment for all electron scattering energies. Instead, deviations are observed as we increase the beam energy. To account for this structure, we need to include two form factors, $G_E(Q^2)$ - related to the distribution of charge, and $G_M(Q^2)$, related to the distribution of magnetism inside the proton. In the low-$Q^2$ limit, these form factors are the Fourier transforms of the charge and magnetic moment distributions as in \eqref{eq:GE} and \eqref{eq:GM}, reducing to the charge and the magnetic moment of the proton in the $Q^2$ = 0 limit. %but the carryover is not exact in general due to being functions of the 4-momenta, instead of 3 momenta. E.g.:
 
         \begin{equation}\label{eq:GE}
              G_E(Q^2) \approx G_E(q^2) = \int e^{iq\cdot r} \rho (r) d^3r; \quad \quad    G_E(0) = \int  \rho (r) d^3r = 1. 
@@ -206,7 +207,7 @@
         \end{figure}
 
 
-        Since we remove the constraint that the mass of the final state is the proton mass, we now have one extra degree of freedom, i.e., we need at least 2 variables to describe scattering here. Convenient choices and the squared four-momentum transfer of the virtual photon $Q^2$ and Bjorken X $x_B$, defined in \eqref{eq:xB}. $x_B$ is a measure of elasticity: $x_B$= 1 for elastic scattering. It is useful in that it can also be interpreted as the fraction of proton momentum carried by the struck quark in the infinite momentum frame.       %Think of Xb as the ratio of momentum transfer to energy transfer. 
+        Since we remove the constraint that the mass of the final state is the proton mass, we now have one extra degree of freedom, i.e., we need at least 2 variables to describe scattering here. Convenient choices and the squared four-momentum transfer of the virtual photon ($Q^2)$ and Bjorken X ($x_B$), defined in \eqref{eq:xB}. $x_B$ is a measure of elasticity: $x_B$= 1 for elastic scattering. It is useful in that it can also be interpreted as the fraction of proton momentum carried by the struck quark in the infinite momentum frame.       %Think of Xb as the ratio of momentum transfer to energy transfer. 
 
         \begin{equation}\label{eq:xB}
             x_B \equiv \frac{Q^2}{2p_p\cdot q} = \frac{Q^2}{Q^2+W^2-m_p^2}.
@@ -252,7 +253,7 @@
 
         
         
-        The parton model connects the experimentally measurable structure functions to Parton Distribution Functions (PDFs) which describe the distribution of proton longitudinal momentum amongst its constituents. Specifically, a PDF $q_i(x_B)$ describes the probability density of finding a parton carrying a longitudinal momentum fraction in the interval ($x_B$, $x_B + dx_B$). The relationship between PDFs and structure functions is given by \eqref{eq:PDFs}, where $Q_i$ is the charge of each quark.
+        The parton model connects the experimentally measurable structure functions to Parton Distribution Functions (PDFs) which describe the distribution of proton longitudinal momentum amongst its constituents. Specifically, a PDF \( q_i(x_B) \) describes the probability density of finding a parton \( i \) carrying a longitudinal momentum fraction in the interval \( (x_B, x_B + dx_B) \), where \( dx_B \) represents an infinitesimal increment in the momentum fraction \( x_B \). The relationship between PDFs and structure functions is given by \eqref{eq:PDFs}, where $Q_i$ is the charge of each quark.
 
         \begin{equation}\label{eq:PDFs}
             F_2^p(x_B) = x_B \sum_i Q^2_i q_i(x_B).
@@ -270,7 +271,7 @@
             \label{fig:HERA}
         \end{figure}
 
-        The global experimental results can be combined with theoretical QCD frameworks such as the DGLAP evolution equations \parencite{Altarelli1977AsymptoticLanguage}. to plot PDFs for various constituents of the proton, as shown in Fig. \ref{fig:PDFPlots}. 
+        The global experimental results can be integrated with theoretical QCD frameworks such as the Dokshitzer–Gribov–Lipatov–Altarelli–Parisi (DGLAP) evolution equations \parencite{Altarelli1977AsymptoticLanguage}, which describe how parton distribution functions change with the scale of the interaction in quantum chromodynamics, to plot PDFs for various constituents of the proton as shown in \figref{fig:PDFPlots}. 
         
                 \begin{figure}[H]
             \centering

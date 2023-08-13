@@ -137,17 +137,17 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
 
         Unfolding methods aim to determine the inverse of a response matrix \textbf{R}, where a true underlying distribution \textbf{x} and a corresponding observed distribution \textbf{y} are related by \textbf{y}=\textbf{Rx}. In general \textbf{R} may be poorly conditioned, non-smooth, and otherwise not amenable to direct inversion. IBU approaches this problem by beginning with Bayes' Theorem \eqref{eq:bayes},
 
-        \begin{equation}
+        \begin{equation}\label{eq:bayes}
             P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)},
-        \end{equation}\label{eq:bayes}
+        \end{equation}
         \myequations{Bayes' Theorem}
 
         which relates the conditional probability of observing event A given B to the conditional probability of observing B given A. In particular, if event A represents observing an event x in bin i, and B represents event x truly belonging to bin j, then we can rewrite Bayes' theorem as \eqref{eq:bayes_reform}
 
 
-        \begin{equation}
+        \begin{equation}\label{eq:bayes_reform}
             R_{ij} = P(x \in \text{bin } i| x \in \text{bin } j) = \frac{P(x \in \text{bin } j|x \in \text{bin } i) \cdot P(x \in \text{bin } i)}{P(x \in \text{bin } j)},
-        \end{equation}\label{eq:bayes_reform}
+        \end{equation}
         \myequations{Bayes' Theorem}
 
 
@@ -207,11 +207,11 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
     
     \subsection{Method of Implementation}
 
-        Iterative Bayesian Unfolding was performed on a subset of the simulated dataset. It was implemented in this analysis using the PyUnfold \parencite{Bourbeau2018PyUnfold:Unfolding} python language package, which is built off \parencite{DAgostini1995ATheorem}. The dataset was first 'unrolled' or 'flattened' by mapping \ref{eq:bin_unrolling} the set of 4D bin coordinates into a single value representing location along a 1-D array,
+        Iterative Bayesian Unfolding was performed on a subset of the simulated dataset. It was implemented in this analysis using the PyUnfold \parencite{Bourbeau2018PyUnfold:Unfolding} python language package, which is built off \parencite{DAgostini1995ATheorem}. The dataset was first 'unrolled' or 'flattened' by mapping \eqref{eq:bin_unrolling} the set of 4D bin coordinates into a single value representing location along a 1-D array,
     
-    \begin{equation}
+    \begin{equation}\label{eq:bin_unrolling}
         {f(\textcolor{black}{x},\textcolor{red}{q},\textcolor{darkgreen}{p},\textcolor{darkorange}{t}) = \textcolor{black}{x}*\textcolor{red}{n_q}*\textcolor{darkgreen}{n_p}*\textcolor{darkorange}{n_t} + \textcolor{red}{q}*\textcolor{darkgreen}{n_p}*\textcolor{darkorange}{n_t} + \textcolor{darkgreen}{p}*\textcolor{darkorange}{n_t} + \textcolor{darkorange}{t}},
-    \end{equation}\label{eq:bin_unrolling}
+    \end{equation}
         \myequations{Bin Flattening Map}
 
         where $n_i$ is the number of bins in dimension i, for i in ($x_B$,$Q^2$,$\phi$,t) and x,q,p,t are the bin index for the event in that dimension. \figref{fig:unrolling} illustrates the effect of this flattening map on a 2x2x2x2 example response matrix. 
@@ -242,7 +242,7 @@ Multi-dimensional datasets are particularly susceptible to bin migration issues:
         
 
 
-        This flattening allows for unfolding of arbitrarily high dimensional datasets, although it is drastically more computationally expensive as the number of bins increases. In this case, the unfolding requires the calculation of a multinomial covariance matrix, which in general will take size (number of total bins)$^4$. This analysis has a total of 8x10x8x10 bins across $x_B$,$Q^2$,$\phi$, and t, yielding 6,400 individual bins. This would require a full covariance matrix to have 1.6x10$^{15}$ entries, corresponding to a memory requirement of 12 petabytes, if using 8 byte memory number types. This scaling is illustrated in \ref{fig:ibu_mem_scale}, and means using IBU on the entire dataset space is not possible. 
+        This flattening allows for unfolding of arbitrarily high dimensional datasets, although it is drastically more computationally expensive as the number of bins increases. In this case, the unfolding requires the calculation of a multinomial covariance matrix, which in general will take size (number of total bins)$^4$. This analysis has a total of 8x10x8x10 bins across $x_B$,$Q^2$,$\phi$, and t, yielding 6,400 individual bins. This would require a full covariance matrix to have 1.6x10$^{15}$ entries, corresponding to a memory requirement of 12 petabytes, if using 8 byte memory number types. This scaling is illustrated in \figref{fig:ibu_mem_scale}, and means using IBU on the entire dataset space is not possible. 
 
         \begin{figure}[ht]
             \centering
