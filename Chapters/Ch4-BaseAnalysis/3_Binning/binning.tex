@@ -2,10 +2,9 @@
 While there are methods to determine optimal binning schemes for multi-dimensional datasets with uniform bin widths \parencite{Knuth2019OptimalModels}, no such scheme currently exists for an analysis with non-uniform bin widths. Concordantly, the multidimensional binning in this analysis was heuristically motivated.
 
 
-In general, bins should be made as small as possible to best approximate a differential cross section, while being large enough to have enough data per bin, and to not be overrun with bin migration issues. In particular, where there was kinematic overlap, the binning scheme for this work was identical to the binning scheme of the CLAS6 result \parencite{Bedlinskiy2014ExclusiveCLAS} to best facilitate data comparisons. Where there was not overlap (at higher values of $x_B$ and $Q^2$), bins were enlarged so as to keep the statistical uncertainty reasonably small. 
+In general, bins should be made as small as possible to best approximate a differential cross section, while being large enough to have enough data per bin, and to not be overrun with bin migration issues. In particular, where there was kinematic overlap, the binning scheme for this work was identical to the binning scheme of the CLAS 6 GeV DV$\pi^0$P cross section analysis \parencite{Bedlinskiy2014ExclusiveCLAS} to best facilitate data comparisons. The cross section decreases as $x_B$ and $Q^2$ increase, and so bin sizes must be increased accordingly to maintain a reasonable number of events in those bins. 
 
-
-The binning region was approximately triangular in $x_B$-$Q^2$ space, and rectangular in $\phi$-t space, and the binning scheme is shown in \figref{fig:databinning}. The $x_B$-$Q^2$ region was bounded on the bottom by the DIS cut $Q^2$ = 1 $GeV^2$, bound on the right by the DIS cut $W^2 > $ 4 $\text{GeV}^2$ ($\frac{Q^2}{x_B}+m_p^2-Q^2>4$), and bound on the left by $p_{e'} > 2 \, \text{GeV/c}$ ($1-\frac{2}{10.604} > 1-\frac{E_{e'}}{E_{beam}} = \frac{Q^2}{2*E_{beam}*x_B*m_p}$). 
+The binning region was approximately triangular in $x_B$-$Q^2$ space, and rectangular in $\phi$-t space, and the binning scheme is shown in \figref{fig:databinning}. The $x_B$-$Q^2$ region was bounded on the bottom by the DIS cut $Q^2$ = 1 $GeV^2$, bound on the right by the DIS cut $W^2 > $ 4 $\text{GeV}^2$ ($\frac{Q^2}{x_B}+m_p^2-Q^2>4$  $\text{GeV}^2$), and bound on the left by $p_{e'} > 2 \, \text{GeV/c}$ ($1-\frac{2}{10.604} > 1-\frac{E_{e'}}{E_{beam}} = \frac{Q^2}{2*E_{beam}*x_B*m_p}$). 
 
 
     \begin{figure}[H]
@@ -19,7 +18,7 @@ The binning region was approximately triangular in $x_B$-$Q^2$ space, and rectan
         \hfill
         \subfloat[Outbending $\phi$ vs. $t$]{\includegraphics[trim={0 0 5cm 0},clip,width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/3_Binning/pics/phi_vs_Momentum_Transfer_t,_Exp_Outbend.png}}
 
-        \caption[CLAS12 Data Binning Scheme]{Binning scheme for CLAS12 Fall 2018 Inbending (top row) and Fall 2018 Outbending (bottom row) datasets. Notice the inbending dataset has more sensitivity to higher $Q^2$ data.}\label{fig:databinning}
+        \caption[CLAS12 Data Binning Scheme]{Binning scheme for CLAS12 Fall 2018 Inbending (top row) and Fall 2018 Outbending (bottom row) datasets. Notice the inbending dataset has more sensitivity to higher $Q^2$ data. Binning is identical between the inbending and outbending Configurations.}\label{fig:databinning}
     \end{figure}
 
 

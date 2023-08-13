@@ -5,16 +5,15 @@ The largest correction factor in this work is the acceptance correction, which i
       \recallLabel{eq:acceptance},
     \end{equation*}
 
-where we utilize simulations to arrive at an estimator for the acceptance, $\hat{\epsilon}$. The correction term is calculated bin-by-bin, procedurally illustrated in \figref{fig:acccorr}. $\hat{\epsilon}$ values for this analysis were typically on the 1-10\% level. Low acceptance bins were excluded at a threshold of below 0.5\%. The distribution of acceptance correction factors is shown in \figref{fig:acccorrdist}. Statistical uncertainty was calculated based off counting statistics, and systematic uncertainty was estimated by changing the generator input model parameters by $\pm$ 10\% from their nominal values and comparing to the nominal run results. 
+where we utilize simulations to arrive at an estimator for the acceptance, $\hat{\epsilon}$. The correction term is calculated bin-by-bin, procedurally illustrated in \figref{fig:acccorr}. As defined, $\hat{\epsilon}$ is a product of geometrical acceptance, detector and reconstruction efficiencies, and fiducial and analysis (event selection) cuts, and values for this analysis were typically on the 1-10\% level. Low acceptance bins were excluded at a threshold of below 0.5\%. The distribution of acceptance correction factors is shown in \figref{fig:acccorrdist}. Statistical uncertainty was calculated based off counting statistics, and systematic uncertainty was estimated by changing the generator input model parameters by $\pm$ 10\% from their nominal values and comparing to the nominal run results. 
 
     \begin{figure}[H]
         \centering
-    
         \subfloat[Raw counts $N_{exp}$.]{\includegraphics[width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/A3_a_acceptance_correction/pics/raw4.png}}
-        \hfill
-        \subfloat[$N_{gen}$ and $N_{rec}$.]{\includegraphics[width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/A3_a_acceptance_correction/pics/acc_3.png }}
-    
-        \subfloat[1/$\hat{\epsilon}$ = $N_{gen}$/$N_{rec}$.]{\includegraphics[width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/A3_a_acceptance_correction/pics/acc4.png}}
+        \hfill    
+        \subfloat[$N_{gen}$ and $N_{rec}$.]{\includegraphics[width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/A3_a_acceptance_correction/pics/acc4.png}}
+        \\
+        \subfloat[ 1/$\hat{\epsilon}$ = $N_{gen}$/$N_{rec}$.]{\includegraphics[width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/A3_a_acceptance_correction/pics/acc_3.png }}
         \hfill
         \subfloat[Acc. Corr Counts = $N_{exp}*N_{gen} / N_{rec}$ ]{\includegraphics[width=0.5\textwidth]{Chapters/Ch4-BaseAnalysis/4_Correction_Factors/A3_a_acceptance_correction/pics/final2.png}}
     
